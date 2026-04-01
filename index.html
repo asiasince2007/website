@@ -186,7 +186,7 @@
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
-                                <i class="fa-solid fa-globe-asia"></i>
+                                <i class="fa-solid fa-earth-asia"></i>
                             </div>
                             <p class="font-serif font-bold text-brand-darkGreen">Authentisch</p>
                             <p class="text-sm text-gray-500">Original asiatische Marken</p>
@@ -226,74 +226,29 @@
                         <p class="text-gray-600 text-lg">Das sagen unsere echten Kunden über den Asia Markt Thien Phu in Langenfeld.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-
-                        <!-- BEWERTUNG 1 -->
-                        <div class="bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <div class="flex text-brand-gold text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">Oktober 2025</span>
-                                </div>
-                                <p class="text-gray-700 leading-relaxed mb-6 font-medium">"Ein wirklich toller Laden! Ich kaufe hier seit Jahren mein frisches Gemüse und die Auswahl an Soßen ist riesig. Die Besitzer sind immer freundlich und helfen bei Fragen sofort weiter."</p>
-                            </div>
-                            <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                                <div class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">A</div>
-                                <div>
-                                    <p class="font-bold text-brand-darkGreen text-sm">Andreas M.</p>
-                                    <div class="flex items-center gap-1 text-xs text-gray-500">
-                                        <i class="fa-brands fa-google"></i> Google Rezension
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- BEWERTUNG 2 -->
-                        <div class="bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <div class="flex text-brand-gold text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">Dezember 2024</span>
-                                </div>
-                                <p class="text-gray-700 leading-relaxed mb-6 font-medium">"Sehr sauberer Markt mit super fairen Preisen. Finde hier immer alles, was ich für meine Curry-Gerichte brauche. Besonders die große Tofu-Auswahl hat mich überzeugt!"</p>
-                            </div>
-                            <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                                <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">S</div>
-                                <div>
-                                    <p class="font-bold text-brand-darkGreen text-sm">Sabine T.</p>
-                                    <div class="flex items-center gap-1 text-xs text-gray-500">
-                                        <i class="fa-brands fa-google"></i> Google Rezension
-                                    </div>
-                                </div>
+                    <!--
+                        HINWEIS FÜR DEN WEBSITEBETREIBER:
+                        Um hier echte Google-Bewertungen anzuzeigen, sind zwei Schritte nötig:
+                        1. Google Cloud Console: Projekt anlegen, Places API aktivieren, API-Key erstellen
+                           (mit HTTP-Referrer-Beschränkung auf www.asiamarkt.info absichern).
+                        2. Die Place-ID Ihres Unternehmens ermitteln (maps.google.com → Ihr Eintrag → "Teilen" → Place-ID).
+                        3. Die Konstanten GOOGLE_PLACES_API_KEY und GOOGLE_PLACE_ID im Script-Bereich am Ende
+                           dieser Datei befüllen. Die Bewertungen werden dann automatisch geladen.
+                    -->
+                    <div id="reviews-container" class="mb-12">
+                        <!-- Bewertungen werden per JavaScript geladen, sobald API-Key und Place-ID gesetzt sind -->
+                        <div id="reviews-fallback" class="flex flex-col items-center justify-center py-10 gap-6">
+                            <div class="bg-brand-beige rounded-[2rem] soft-border p-8 text-center max-w-xl mx-auto">
+                                <i class="fa-brands fa-google text-4xl text-blue-500 mb-4 block"></i>
+                                <p class="text-brand-darkGreen font-serif font-bold text-xl mb-2">Lesen Sie unsere Bewertungen auf Google Maps</p>
+                                <p class="text-gray-600 text-base mb-4">Alle echten Kundenstimmen finden Sie direkt auf unserem Google-Unternehmensprofil.</p>
+                                <a href="https://www.google.com/search?q=Asia+Markt+Thien+Phu+Langenfeld" target="_blank" rel="noopener noreferrer"
+                                   class="inline-flex items-center gap-2 bg-white border-2 border-gray-200 hover:border-brand-gold hover:shadow-md text-gray-800 font-bold py-2 px-6 rounded-full transition duration-300">
+                                    <i class="fa-brands fa-google text-blue-500"></i> Zu unseren Google-Bewertungen
+                                </a>
                             </div>
                         </div>
-
-                        <!-- BEWERTUNG 3 -->
-                        <div class="bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <div class="flex text-brand-gold text-sm">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">Februar 2026</span>
-                                </div>
-                                <p class="text-gray-700 leading-relaxed mb-6 font-medium">"Klein aber oho! Der beste Asiamarkt in Langenfeld. Man bekommt alles für die thailändische, vietnamesische oder koreanische Küche. Absolute Empfehlung meinerseits."</p>
-                            </div>
-                            <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                                <div class="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">J</div>
-                                <div>
-                                    <p class="font-bold text-brand-darkGreen text-sm">Jan K.</p>
-                                    <div class="flex items-center gap-1 text-xs text-gray-500">
-                                        <i class="fa-brands fa-google"></i> Google Rezension
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <div id="reviews-grid" class="hidden grid grid-cols-1 md:grid-cols-3 gap-8"></div>
                     </div>
 
                     <div class="text-center">
@@ -592,7 +547,7 @@
                     <div class="mt-10 rounded-[3rem] overflow-hidden soft-border shadow-sm h-72">
                         <iframe
                             title="Standort Asia Markt Thien Phu auf Google Maps"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.!2d6.9490!3d51.1059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8b3b3b3b3b3b3%3A0x0!2sHauptstra%C3%9Fe+72%2C+40764+Langenfeld!5e0!3m2!1sde!2sde!4v1680000000000!5m2!1sde!2sde"
+                            src="https://maps.google.com/maps?q=Hauptstra%C3%9Fe+72%2C+40764+Langenfeld+(Rheinland)%2C+Deutschland&output=embed&hl=de&z=16"
                             width="100%"
                             height="100%"
                             style="border:0;"
@@ -621,7 +576,9 @@
 
                         <h2>Angaben gemäß § 5 TMG</h2>
                         <p>
+                            <!-- PFLICHTANGABE: Bitte den vollständigen Namen des Inhabers (natürliche Person) eintragen -->
                             <strong>Asia Markt Thien Phu</strong><br>
+                            Inhaber: [Vorname Nachname des Inhabers]<br>
                             Hauptstraße 72<br>
                             40764 Langenfeld (Rheinland)<br>
                             Deutschland
@@ -633,7 +590,7 @@
                             E-Mail: <a href="mailto:info@asiamarkt-thienphu.de">info@asiamarkt-thienphu.de</a>
                         </p>
 
-                        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+                        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
                         <p>
                             Asia Markt Thien Phu<br>
                             Hauptstraße 72<br>
@@ -709,7 +666,7 @@
                         </p>
                         <p>
                             <strong>Wofür nutzen wir Ihre Daten?</strong><br>
-                            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
+                            Die Daten werden erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten werden automatisch beim Besuch der Website durch IT-Systeme erfasst (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Diese Daten werden ausschließlich zur technisch fehlerfreien Darstellung der Website verwendet. Eine Analyse des Nutzerverhaltens findet nicht statt.
                         </p>
 
                         <h2>2. Verantwortliche Stelle</h2>
@@ -745,9 +702,9 @@
                             Die Nutzung von Google Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes. Weitere Informationen zu Google Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener noreferrer">Google Fonts FAQ</a> sowie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.
                         </p>
 
-                        <h3>Font Awesome (cdnjs / Cloudflare)</h3>
+                        <h3>Font Awesome (lokal)</h3>
                         <p>
-                            Diese Website verwendet Font Awesome Icons, bereitgestellt über das CDN von Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Beim Laden der Icons wird Ihre IP-Adresse an Cloudflare übermittelt. Cloudflare ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://www.cloudflare.com/de-de/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Datenschutzerklärung</a>.
+                            Diese Website verwendet Font Awesome Icons. Die zugehörigen CSS- und Schriftdateien werden ausschließlich lokal von unserem eigenen Webserver (GitHub Pages) ausgeliefert. Es findet keine Verbindung zu Servern von Drittanbietern (z. B. Cloudflare) statt und es werden keine personenbezogenen Daten übermittelt.
                         </p>
 
                         <h3>Tailwind CSS (CDN)</h3>
@@ -757,7 +714,16 @@
 
                         <h3>Google Maps</h3>
                         <p>
-                            Diese Website nutzt den Kartendienst Google Maps der Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Die Einbettung erfolgt im Rahmen der berechtigten Interessen gem. Art. 6 Abs. 1 lit. f DSGVO zur anschaulichen Darstellung unseres Standorts. Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.
+                            Diese Website nutzt den Kartendienst Google Maps der Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (im europäischen Wirtschaftsraum verantwortlich: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland).
+                        </p>
+                        <p>
+                            Beim Aufruf der Seite, auf der Google Maps eingebunden ist, wird automatisch eine Verbindung zu Servern von Google hergestellt. Dabei werden insbesondere Ihre IP-Adresse sowie Informationen über Ihren Browser an Google übertragen und dort gespeichert. Google kann diese Daten auch Servern in den USA übermitteln. Wir haben keinen Einfluss auf diese Datenübertragung.
+                        </p>
+                        <p>
+                            Die Einbettung erfolgt auf Grundlage unseres berechtigten Interesses an einer anschaulichen Darstellung unseres Standorts gemäß Art. 6 Abs. 1 lit. f DSGVO. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar.
+                        </p>
+                        <p>
+                            Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.
                         </p>
 
                         <h2>5. Keine Cookies, kein Tracking</h2>
@@ -922,10 +888,65 @@
             } else {
                 navigateTo('start');
             }
-        });
 
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // --- Google Places API: Echte Bewertungen laden ---
+            // Tragen Sie hier Ihren Google API-Key (Places API aktiviert) und Ihre Place-ID ein.
+            // Den API-Key erhalten Sie in der Google Cloud Console (console.cloud.google.com).
+            // Die Place-ID finden Sie über: https://developers.google.com/maps/documentation/places/web-service/place-id
+            const GOOGLE_PLACES_API_KEY = '';  // z. B. 'AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            const GOOGLE_PLACE_ID       = '';  // z. B. 'ChIJXXXXXXXXXXXXXXXXXXXXXXXX'
+
+            if (GOOGLE_PLACES_API_KEY && GOOGLE_PLACE_ID) {
+                const url = `https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}?fields=reviews&languageCode=de&key=${GOOGLE_PLACES_API_KEY}`;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        const reviews = (data.reviews || []).filter(r => r.rating >= 4).slice(0, 3);
+                        if (reviews.length === 0) return;
+
+                        const grid = document.getElementById('reviews-grid');
+                        const fallback = document.getElementById('reviews-fallback');
+
+                        reviews.forEach(review => {
+                            const stars = Array(review.rating).fill('<i class="fa-solid fa-star"></i>').join('');
+                            const initial = (review.authorAttribution?.displayName || '?')[0].toUpperCase();
+                            const name = review.authorAttribution?.displayName || 'Google-Nutzer';
+                            const text = review.text?.text || '';
+                            const date = review.relativePublishTimeDescription || '';
+
+                            const card = document.createElement('div');
+                            card.className = 'bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between';
+                            card.innerHTML = `
+                                <div>
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex text-brand-gold text-sm">${stars}</div>
+                                        <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">${date}</span>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed mb-6 font-medium">"${text}"</p>
+                                </div>
+                                <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
+                                    <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center font-bold font-serif shadow-sm">${initial}</div>
+                                    <div>
+                                        <p class="font-bold text-brand-darkGreen text-sm">${name}</p>
+                                        <div class="flex items-center gap-1 text-xs text-gray-500">
+                                            <i class="fa-brands fa-google"></i> Google Rezension
+                                        </div>
+                                    </div>
+                                </div>`;
+                            grid.appendChild(card);
+                        });
+
+                        fallback.classList.add('hidden');
+                        grid.classList.remove('hidden');
+                        grid.classList.add('grid');
+                    })
+                    .catch(() => { /* Fallback bleibt sichtbar */ });
+            }
         });
     </script>
 </body>
