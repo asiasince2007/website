@@ -226,29 +226,65 @@
                         <p class="text-gray-600 text-lg">Das sagen unsere echten Kunden über den Asia Markt Thien Phu in Langenfeld.</p>
                     </div>
 
-                    <!--
-                        HINWEIS FÜR DEN WEBSITEBETREIBER:
-                        Um hier echte Google-Bewertungen anzuzeigen, sind zwei Schritte nötig:
-                        1. Google Cloud Console: Projekt anlegen, Places API aktivieren, API-Key erstellen
-                           (mit HTTP-Referrer-Beschränkung auf www.asiamarkt.info absichern).
-                        2. Die Place-ID Ihres Unternehmens ermitteln (maps.google.com → Ihr Eintrag → "Teilen" → Place-ID).
-                        3. Die Konstanten GOOGLE_PLACES_API_KEY und GOOGLE_PLACE_ID im Script-Bereich am Ende
-                           dieser Datei befüllen. Die Bewertungen werden dann automatisch geladen.
-                    -->
-                    <div id="reviews-container" class="mb-12">
-                        <!-- Bewertungen werden per JavaScript geladen, sobald API-Key und Place-ID gesetzt sind -->
-                        <div id="reviews-fallback" class="flex flex-col items-center justify-center py-10 gap-6">
-                            <div class="bg-brand-beige rounded-[2rem] soft-border p-8 text-center max-w-xl mx-auto">
-                                <i class="fa-brands fa-google text-4xl text-blue-500 mb-4 block"></i>
-                                <p class="text-brand-darkGreen font-serif font-bold text-xl mb-2">Lesen Sie unsere Bewertungen auf Google Maps</p>
-                                <p class="text-gray-600 text-base mb-4">Alle echten Kundenstimmen finden Sie direkt auf unserem Google-Unternehmensprofil.</p>
-                                <a href="https://www.google.com/search?q=Asia+Markt+Thien+Phu+Langenfeld" target="_blank" rel="noopener noreferrer"
-                                   class="inline-flex items-center gap-2 bg-white border-2 border-gray-200 hover:border-brand-gold hover:shadow-md text-gray-800 font-bold py-2 px-6 rounded-full transition duration-300">
-                                    <i class="fa-brands fa-google text-blue-500"></i> Zu unseren Google-Bewertungen
-                                </a>
+                    <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+                        <!-- BEWERTUNG 1: Evgenij (Google Maps) -->
+                        <div class="bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex text-brand-gold text-sm mb-4">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-6 font-medium">„Kleiner Laden mit großer Auswahl für die asiatische Küche! Im Asia Markt Thien Phu findet man alles, was man für authentische asiatische Gerichte benötigt. Ob spezielle Gewürze, frische Zutaten oder exotische Saucen – die Regale sind gut bestückt. Der Inhaber ist äußerst freundlich und steht mit Rat und Tat zur Seite. Die persönliche Beratung macht den Einkauf zu einem besonderen Erlebnis. Ein Muss für alle Liebhaber der asiatischen Küche!"</p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
+                                <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center font-bold font-serif shadow-sm">E</div>
+                                <div>
+                                    <p class="font-bold text-brand-darkGreen text-sm">Evgenij</p>
+                                    <div class="flex items-center gap-1 text-xs text-gray-500">
+                                        <i class="fa-brands fa-google"></i> Google Rezension
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div id="reviews-grid" class="hidden grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+
+                        <!-- BEWERTUNG 2: Andre Jansen (Google Maps) -->
+                        <div class="bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex text-brand-gold text-sm mb-4">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-6 font-medium">„Der Inhaber ist sehr hilfsbereit und hat immer einen guten Ratschlag, wenn man eine Frage zu den unterschiedlichen Gerichten hat. Trotz geringer Ladenfläche ist die Auswahl super. Für mich der beste Asia Shop in der ganzen Umgebung!"</p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
+                                <div class="w-10 h-10 rounded-full bg-brand-earth text-white flex items-center justify-center font-bold font-serif shadow-sm">A</div>
+                                <div>
+                                    <p class="font-bold text-brand-darkGreen text-sm">Andre Jansen</p>
+                                    <div class="flex items-center gap-1 text-xs text-gray-500">
+                                        <i class="fa-brands fa-google"></i> Google Rezension
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BEWERTUNG 3: Rachid Amkhatriou (Google Maps) -->
+                        <div class="bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex text-brand-gold text-sm mb-4">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-6 font-medium">„Der Laden ist zwar klein, hat aber sehr viel Auswahl und die Besitzer sind sehr nett. Ich komme mindestens 10 Mal im Monat. Von Ramen bis Fisch, von Soßen bis Getränken – hier findet man einfach alles."</p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
+                                <div class="w-10 h-10 rounded-full bg-brand-accent text-brand-darkGreen flex items-center justify-center font-bold font-serif shadow-sm">R</div>
+                                <div>
+                                    <p class="font-bold text-brand-darkGreen text-sm">Rachid Amkhatriou</p>
+                                    <div class="flex items-center gap-1 text-xs text-gray-500">
+                                        <i class="fa-brands fa-google"></i> Google Rezension
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="text-center">
@@ -373,7 +409,7 @@
                         <div class="bg-white rounded-[3rem] p-6 lg:p-8 shadow-sm soft-border flex flex-col sm:flex-row gap-6 items-center hover:shadow-md transition-shadow">
                             <div class="w-full sm:w-2/5 aspect-square rounded-[2rem] overflow-hidden flex-shrink-0">
                                 <img
-                                    src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+                                    src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"
                                     alt="Asiatische Tiefkühlprodukte und fertige Gerichte"
                                     class="w-full h-full object-cover"
                                     loading="lazy"
@@ -547,7 +583,7 @@
                     <div class="mt-10 rounded-[3rem] overflow-hidden soft-border shadow-sm h-72">
                         <iframe
                             title="Standort Asia Markt Thien Phu auf Google Maps"
-                            src="https://maps.google.com/maps?q=Hauptstra%C3%9Fe+72%2C+40764+Langenfeld+(Rheinland)%2C+Deutschland&output=embed&hl=de&z=16"
+                            src="https://maps.google.com/maps?q=Hauptstra%C3%9Fe+72%2C+40764+Langenfeld+(Asia+Markt+Thien+Phu)%2C+Deutschland&output=embed&hl=de&z=16"
                             width="100%"
                             height="100%"
                             style="border:0;"
@@ -578,7 +614,7 @@
                         <p>
                             <!-- PFLICHTANGABE: Bitte den vollständigen Namen des Inhabers (natürliche Person) eintragen -->
                             <strong>Asia Markt Thien Phu</strong><br>
-                            Inhaber: [Vorname Nachname des Inhabers]<br>
+                            Inhaber: Van Cong Tran<br>
                             Hauptstraße 72<br>
                             40764 Langenfeld (Rheinland)<br>
                             Deutschland
@@ -592,7 +628,7 @@
 
                         <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
                         <p>
-                            Asia Markt Thien Phu<br>
+                            Van Cong Tran<br>
                             Hauptstraße 72<br>
                             40764 Langenfeld (Rheinland)
                         </p>
@@ -672,6 +708,7 @@
                         <h2>2. Verantwortliche Stelle</h2>
                         <p>
                             Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
+                            Van Cong Tran<br>
                             Asia Markt Thien Phu<br>
                             Hauptstraße 72<br>
                             40764 Langenfeld (Rheinland)<br><br>
@@ -709,7 +746,7 @@
 
                         <h3>Tailwind CSS (CDN)</h3>
                         <p>
-                            Für das Styling dieser Website wird das Framework Tailwind CSS über ein Content Delivery Network (CDN) eingebunden. Dabei wird beim Seitenaufruf eine Verbindung zu den CDN-Servern hergestellt und Ihre IP-Adresse übermittelt.
+                            Für das Styling dieser Website wird das Framework Tailwind CSS über das Content Delivery Network von Tailwind Labs, Inc. (cdn.tailwindcss.com) eingebunden. Beim Seitenaufruf wird eine Verbindung zu diesen CDN-Servern hergestellt und Ihre IP-Adresse übermittelt.
                         </p>
 
                         <h3>Google Maps</h3>
