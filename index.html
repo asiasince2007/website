@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asia Markt Thien Phu | Authentische asiatische Lebensmittel in Langenfeld</title>
     <meta name="description" content="Asia Markt Thien Phu in Langenfeld. Original asiatische Lebensmittel, frisches Gemüse und ausgewählte Qualität. Entdecken Sie unsere Vielfalt!">
-    
+    <link rel="canonical" href="https://www.asiamarkt.info/">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <script>
+        // noinspection JSUnresolvedReference
         tailwind.config = {
             theme: {
                 extend: {
@@ -25,13 +27,13 @@
                     },
                     colors: {
                         brand: {
-                            green: '#5B8A68',      
-                            darkGreen: '#2D4A36',  
-                            cream: '#FDFBF7',      
-                            beige: '#F4EFE6',      
-                            earth: '#8B5A2B',      
-                            accent: '#D4A373',     
-                            gold: '#F59E0B'        
+                            green: '#5B8A68',
+                            darkGreen: '#2D4A36',
+                            cream: '#FDFBF7',
+                            beige: '#F4EFE6',
+                            earth: '#8B5A2B',
+                            accent: '#D4A373',
+                            gold: '#F59E0B'
                         }
                     }
                 }
@@ -44,7 +46,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
             overflow-y: scroll;
         }
-        
+
         .page-view {
             display: none;
         }
@@ -63,20 +65,17 @@
         .soft-border {
             border: 1px solid rgba(91, 138, 104, 0.2);
         }
-        
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FDFBF7; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #5B8A68; 
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2D4A36; 
-        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FDFBF7; }
+        ::-webkit-scrollbar-thumb { background: #5B8A68; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2D4A36; }
+
+        .prose-legal h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; color: #2D4A36; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .prose-legal h3 { font-family: 'Lora', serif; font-size: 1.125rem; font-weight: 600; color: #2D4A36; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .prose-legal p { color: #374151; line-height: 1.75; margin-bottom: 1rem; }
+        .prose-legal ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #374151; line-height: 1.75; }
+        .prose-legal a { color: #5B8A68; text-decoration: underline; }
     </style>
 </head>
 <body class="font-sans text-gray-700 antialiased flex flex-col min-h-screen">
@@ -96,7 +95,7 @@
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="hidden md:flex items-center space-x-2">
                     <a href="#start" class="nav-link px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-brand-green/10">Startseite</a>
                     <a href="#sortiment" class="nav-link px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-brand-green/10">Unser Sortiment</a>
@@ -105,7 +104,7 @@
                 </div>
 
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-brand-darkGreen p-2 focus:outline-none">
+                    <button id="mobile-menu-button" class="text-brand-darkGreen p-2 focus:outline-none" aria-label="Menü öffnen">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -123,14 +122,14 @@
     </nav>
 
     <main class="flex-grow pt-24">
-        
+
         <!-- ==========================================
              TAB 1: STARTSEITE
              ========================================== -->
-        <div id="page-start" class="page-view active">
+        <div id="start" class="page-view active">
             <section class="relative pt-12 pb-16 lg:pt-24 lg:pb-32 overflow-hidden">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12">
-                    
+
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-beige text-brand-earth text-sm font-semibold mb-6 soft-border shadow-sm">
                             <i class="fa-solid fa-star text-brand-gold"></i>
@@ -155,10 +154,12 @@
                     <div class="w-full lg:w-1/2 relative flex justify-center mt-10 lg:mt-0">
                         <div class="absolute w-72 h-72 bg-brand-beige organic-shape -top-6 -left-6 z-0"></div>
                         <div class="absolute w-64 h-64 bg-brand-green/20 rounded-full -bottom-8 -right-8 z-0"></div>
-                        
-                        <!-- BILD 1: Hero Image -->
-                        <img alt="Asiatisches Gemüse" class="relative z-10 w-full max-w-md rounded-t-[10rem] rounded-b-[3rem] shadow-xl soft-border object-cover h-[550px]">
-                        
+                        <img
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                            alt="Frisches asiatisches Gemüse und Zutaten"
+                            class="relative z-10 w-full max-w-md rounded-t-[10rem] rounded-b-[3rem] shadow-xl soft-border object-cover h-[550px]"
+                            loading="lazy"
+                        >
                         <div class="absolute bottom-12 -left-4 z-20 bg-white p-4 rounded-[2rem] shadow-lg soft-border flex items-center gap-4">
                             <div class="bg-brand-beige w-12 h-12 rounded-full flex items-center justify-center text-brand-earth">
                                 <i class="fa-solid fa-basket-shopping"></i>
@@ -167,6 +168,42 @@
                                 <p class="text-xs text-gray-500 font-bold uppercase">Echt Asiatisch</p>
                                 <p class="font-serif font-bold text-brand-darkGreen">Hochwertige Auswahl</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Highlights-Leiste -->
+            <section class="py-10 bg-brand-beige border-y border-brand-green/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Frische Lieferungen</p>
+                            <p class="text-sm text-gray-500">Regelmäßig frisches Gemüse</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <i class="fa-solid fa-globe-asia"></i>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Authentisch</p>
+                            <p class="text-sm text-gray-500">Original asiatische Marken</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <i class="fa-solid fa-tags"></i>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Faire Preise</p>
+                            <p class="text-sm text-gray-500">Großes Angebot, kleiner Preis</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Inhabergeführt</p>
+                            <p class="text-sm text-gray-500">Persönliche Beratung</p>
                         </div>
                     </div>
                 </div>
@@ -190,7 +227,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                        
+
                         <!-- BEWERTUNG 1 -->
                         <div class="bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between">
                             <div>
@@ -198,16 +235,12 @@
                                     <div class="flex text-brand-gold text-sm">
                                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
-                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">
-                                        Oktober 2025
-                                    </span>
+                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">Oktober 2025</span>
                                 </div>
                                 <p class="text-gray-700 leading-relaxed mb-6 font-medium">"Ein wirklich toller Laden! Ich kaufe hier seit Jahren mein frisches Gemüse und die Auswahl an Soßen ist riesig. Die Besitzer sind immer freundlich und helfen bei Fragen sofort weiter."</p>
                             </div>
                             <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                                <div class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">
-                                    A
-                                </div>
+                                <div class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">A</div>
                                 <div>
                                     <p class="font-bold text-brand-darkGreen text-sm">Andreas M.</p>
                                     <div class="flex items-center gap-1 text-xs text-gray-500">
@@ -224,16 +257,12 @@
                                     <div class="flex text-brand-gold text-sm">
                                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
-                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">
-                                        Dezember 2024
-                                    </span>
+                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">Dezember 2024</span>
                                 </div>
                                 <p class="text-gray-700 leading-relaxed mb-6 font-medium">"Sehr sauberer Markt mit super fairen Preisen. Finde hier immer alles, was ich für meine Curry-Gerichte brauche. Besonders die große Tofu-Auswahl hat mich überzeugt!"</p>
                             </div>
                             <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                                <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">
-                                    S
-                                </div>
+                                <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">S</div>
                                 <div>
                                     <p class="font-bold text-brand-darkGreen text-sm">Sabine T.</p>
                                     <div class="flex items-center gap-1 text-xs text-gray-500">
@@ -250,16 +279,12 @@
                                     <div class="flex text-brand-gold text-sm">
                                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                     </div>
-                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">
-                                        Februar 2026
-                                    </span>
+                                    <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">Februar 2026</span>
                                 </div>
                                 <p class="text-gray-700 leading-relaxed mb-6 font-medium">"Klein aber oho! Der beste Asiamarkt in Langenfeld. Man bekommt alles für die thailändische, vietnamesische oder koreanische Küche. Absolute Empfehlung meinerseits."</p>
                             </div>
                             <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                                <div class="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">
-                                    J
-                                </div>
+                                <div class="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold font-serif shadow-sm">J</div>
                                 <div>
                                     <p class="font-bold text-brand-darkGreen text-sm">Jan K.</p>
                                     <div class="flex items-center gap-1 text-xs text-gray-500">
@@ -284,63 +309,130 @@
         <!-- ==========================================
              TAB 2: SORTIMENT
              ========================================== -->
-        <div id="page-sortiment" class="page-view">
+        <div id="sortiment" class="page-view">
             <section class="py-16 lg:py-24">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
                         <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Ausgewählte Vielfalt</p>
                         <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-6">Unser asiatisches Sortiment</h2>
                         <div class="flex justify-center">
-                            <svg width="80" height="20" viewBox="0 0 80 20" class="text-brand-green/40 fill-current">
+                            <svg width="80" height="20" viewBox="0 0 80 20" class="text-brand-green/40 fill-current" aria-hidden="true">
                                 <path d="M0,10 Q20,0 40,10 T80,10" fill="none" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
+                        <p class="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">Wir führen eine sorgfältig kuratierte Auswahl an original asiatischen Produkten – von frischem Gemüse bis zu bekannten Marken aus Vietnam, Thailand, China, Japan und Korea.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+
                         <div class="bg-white rounded-[3rem] p-6 lg:p-8 shadow-sm soft-border flex flex-col sm:flex-row gap-6 items-center hover:shadow-md transition-shadow">
                             <div class="w-full sm:w-2/5 aspect-square rounded-[2rem] overflow-hidden flex-shrink-0">
-                                <!-- BILD 2: Gemüse -->
-                                <img alt="Asiatisches Blattgemüse" class="w-full h-full object-cover">
+                                <img
+                                    src="https://images.unsplash.com/photo-1540914124281-342587941389?auto=format&fit=crop&w=600&q=80"
+                                    alt="Frisches asiatisches Blattgemüse wie Pak Choi und Wasserspinat"
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                >
                             </div>
                             <div class="w-full sm:w-3/5 text-center sm:text-left">
+                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    <i class="fa-solid fa-seedling text-brand-green"></i> Immer frisch
+                                </div>
                                 <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Frisches Gemüse</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Klassischer Pak Choi, Wasserspinat, aromatisches Thai-Basilikum und Koriander. Regelmäßig für Sie geliefert.</p>
+                                <p class="text-gray-600 leading-relaxed mb-4">Klassischer Pak Choi, Wasserspinat, aromatisches Thai-Basilikum, Koriander, Galangal, Zitronengras und weitere asiatische Kräuter. Regelmäßig frisch für Sie geliefert.</p>
                             </div>
                         </div>
 
                         <div class="bg-white rounded-[3rem] p-6 lg:p-8 shadow-sm soft-border flex flex-col sm:flex-row gap-6 items-center hover:shadow-md transition-shadow">
                             <div class="w-full sm:w-2/5 aspect-square rounded-[2rem] overflow-hidden flex-shrink-0">
-                                <!-- BILD 3: Reis -->
-                                <img alt="Asiatische Reissorten" class="w-full h-full object-cover">
+                                <img
+                                    src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?auto=format&fit=crop&w=600&q=80"
+                                    alt="Asiatische Nudeln und Reis Produkte"
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                >
                             </div>
                             <div class="w-full sm:w-3/5 text-center sm:text-left">
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Reis & Nudeln</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Jasminreis in verschiedenen Abpackungen, klassische Udon-Nudeln und bekannte Glasnudel-Sorten für Ihre Wok-Gerichte.</p>
+                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    <i class="fa-solid fa-bowl-rice text-brand-green"></i> Großes Sortiment
+                                </div>
+                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Reis &amp; Nudeln</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Jasminreis in verschiedenen Abpackungen, klassische Udon-, Ramen- und Glasnudeln sowie Reisnudeln für Pho und Pad Thai – alles für Ihre asiatischen Lieblingsgerichte.</p>
                             </div>
                         </div>
 
                         <div class="bg-white rounded-[3rem] p-6 lg:p-8 shadow-sm soft-border flex flex-col sm:flex-row gap-6 items-center hover:shadow-md transition-shadow">
                             <div class="w-full sm:w-2/5 aspect-square rounded-[2rem] overflow-hidden flex-shrink-0">
-                                <!-- BILD 4: Gewürze -->
-                                <img alt="Asiatische Gewürze" class="w-full h-full object-cover">
+                                <img
+                                    src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"
+                                    alt="Asiatische Soßen, Pasten und Gewürze"
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                >
                             </div>
                             <div class="w-full sm:w-3/5 text-center sm:text-left">
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Würzmittel & Pasten</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Vielfältige Sojasaucen, Currypasten für Thai-Gerichte, Sesamöl und klassische Gewürzmischungen namhafter Hersteller.</p>
+                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    <i class="fa-solid fa-jar text-brand-green"></i> Namhafte Marken
+                                </div>
+                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Würzmittel &amp; Pasten</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Vielfältige Sojasaucen, rote und grüne Currypasten, Fischsauce, Sesamöl, Miso sowie klassische Gewürzmischungen namhafter Hersteller aus ganz Asien.</p>
                             </div>
                         </div>
 
                         <div class="bg-white rounded-[3rem] p-6 lg:p-8 shadow-sm soft-border flex flex-col sm:flex-row gap-6 items-center hover:shadow-md transition-shadow">
                             <div class="w-full sm:w-2/5 aspect-square rounded-[2rem] overflow-hidden flex-shrink-0">
-                                <!-- BILD 5: Tee -->
-                                <img alt="Asiatischer Tee" class="w-full h-full object-cover">
+                                <img
+                                    src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80"
+                                    alt="Asiatischer grüner Tee und Erfrischungsgetränke"
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                >
                             </div>
                             <div class="w-full sm:w-3/5 text-center sm:text-left">
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Tee & Getränke</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Ein Sortiment an grünem Tee, Jasmintee und Oolong für gemütliche Momente, sowie beliebte asiatische Erfrischungsgetränke.</p>
+                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    <i class="fa-solid fa-mug-hot text-brand-green"></i> Beliebte Sorten
+                                </div>
+                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Tee &amp; Getränke</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Grüner Tee, Jasmintee, Oolong und Matcha für gemütliche Momente sowie beliebte asiatische Erfrischungsgetränke und Bubble-Tea-Zubehör.</p>
                             </div>
                         </div>
+
+                        <div class="bg-white rounded-[3rem] p-6 lg:p-8 shadow-sm soft-border flex flex-col sm:flex-row gap-6 items-center hover:shadow-md transition-shadow">
+                            <div class="w-full sm:w-2/5 aspect-square rounded-[2rem] overflow-hidden flex-shrink-0">
+                                <img
+                                    src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&q=80"
+                                    alt="Asiatische Snacks, Süßigkeiten und Kekse"
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="w-full sm:w-3/5 text-center sm:text-left">
+                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    <i class="fa-solid fa-cookie-bite text-brand-green"></i> Aus aller Welt
+                                </div>
+                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Snacks &amp; Süßigkeiten</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Beliebte Reiscracker, Mochi, Pocky, koreanische Snacks und japanische Süßigkeiten – perfekt für Zwischendurch oder als Mitbringsel.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-[3rem] p-6 lg:p-8 shadow-sm soft-border flex flex-col sm:flex-row gap-6 items-center hover:shadow-md transition-shadow">
+                            <div class="w-full sm:w-2/5 aspect-square rounded-[2rem] overflow-hidden flex-shrink-0">
+                                <img
+                                    src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+                                    alt="Asiatische Tiefkühlprodukte und fertige Gerichte"
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <div class="w-full sm:w-3/5 text-center sm:text-left">
+                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    <i class="fa-solid fa-snowflake text-brand-green"></i> Tiefkühlware
+                                </div>
+                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Tiefkühlprodukte</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Dim Sum, Frühlingsrollen, Gyoza, gefüllte Klebreisbälle und weitere Tiefkühlspezialitäten – schnell zubereitet und authentisch im Geschmack.</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -349,37 +441,56 @@
         <!-- ==========================================
              TAB 3: ÜBER UNS
              ========================================== -->
-        <div id="page-ueber-uns" class="page-view">
+        <div id="ueber-uns" class="page-view">
             <section class="py-16 lg:py-24 relative overflow-hidden">
                 <div class="absolute top-20 right-0 w-96 h-96 bg-brand-green/5 rounded-full blur-3xl"></div>
-                
+
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="flex flex-col lg:flex-row items-center gap-16">
-                        
+
                         <div class="lg:w-1/2">
                             <div class="relative">
                                 <div class="absolute -inset-4 bg-brand-beige rounded-[4rem] transform -rotate-3"></div>
-                                <!-- BILD 6: Markt Innenraum -->
-                                <img alt="Asia Markt Innenraum" class="relative rounded-[3.5rem] shadow-sm object-cover h-[600px] w-full border-8 border-white">
-                                
+                                <img
+                                    src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=800&q=80"
+                                    alt="Blick in den Asia Markt Thien Phu in Langenfeld"
+                                    class="relative rounded-[3.5rem] shadow-sm object-cover h-[600px] w-full border-8 border-white"
+                                    loading="lazy"
+                                >
                                 <div class="absolute -bottom-6 -right-4 bg-white text-brand-darkGreen p-6 rounded-3xl flex flex-col items-center justify-center shadow-2xl border-2 border-brand-green/20">
                                     <i class="fa-solid fa-store text-4xl mb-2 text-brand-gold"></i>
                                     <span class="text-sm tracking-wider font-bold text-center">Gelebte<br>Tradition</span>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="lg:w-1/2">
                             <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Ihr lokaler Ansprechpartner</p>
                             <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-8">Aus Liebe zur asiatischen Esskultur</h2>
-                            
+
                             <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
                                 <p>
-                                    Im Asia Markt Thien Phu dreht sich alles um den guten Geschmack. Als inhabergeführter Lebensmittelmarkt in Langenfeld wählen wir die Produkte in unseren Regalen mit Sorgfalt und Fachkenntnis aus.
+                                    Im Asia Markt Thien Phu dreht sich alles um den guten Geschmack. Als inhabergeführter Lebensmittelmarkt in Langenfeld (Rheinland) wählen wir die Produkte in unseren Regalen mit Sorgfalt und Fachkenntnis aus.
                                 </p>
                                 <p>
-                                    <strong>Unsere Motivation:</strong> Wir möchten Ihnen die Vielfalt der fernöstlichen Küchen zugänglich machen. Deshalb führen wir bekannte asiatische Marken und Zutaten, die auch in Asien fester Bestandteil der alltäglichen Esskultur sind.
+                                    <strong>Unsere Motivation:</strong> Wir möchten Ihnen die Vielfalt der fernöstlichen Küchen zugänglich machen – von der vietnamesischen Pho über das thailändische Curry bis hin zum japanischen Ramen. Deshalb führen wir bekannte asiatische Marken und Zutaten, die auch in Asien fester Bestandteil der alltäglichen Esskultur sind.
                                 </p>
+                                <p>
+                                    Regelmäßige Frischlieferungen garantieren, dass Sie bei uns stets qualitativ hochwertiges Gemüse und frische Kräuter für Ihre Lieblingsrezepte finden.
+                                </p>
+                            </div>
+
+                            <div class="mt-10 grid grid-cols-2 gap-4">
+                                <div class="bg-brand-beige rounded-2xl p-5 soft-border text-center">
+                                    <i class="fa-solid fa-flag text-brand-green text-2xl mb-2"></i>
+                                    <p class="font-serif font-bold text-brand-darkGreen text-lg">5+ Länder</p>
+                                    <p class="text-sm text-gray-600">Produkte aus ganz Asien</p>
+                                </div>
+                                <div class="bg-brand-beige rounded-2xl p-5 soft-border text-center">
+                                    <i class="fa-solid fa-boxes-stacked text-brand-green text-2xl mb-2"></i>
+                                    <p class="font-serif font-bold text-brand-darkGreen text-lg">500+ Artikel</p>
+                                    <p class="text-sm text-gray-600">Breites Sortiment</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -390,24 +501,25 @@
         <!-- ==========================================
              TAB 4: KONTAKT
              ========================================== -->
-        <div id="page-kontakt" class="page-view">
+        <div id="kontakt" class="page-view">
             <section class="py-16 lg:py-24">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
+
                     <div class="text-center mb-16">
                         <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Besuchen Sie uns</p>
                         <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-6">Wir freuen uns auf Sie</h2>
+                        <p class="text-gray-600 text-lg">Mitten in Langenfeld (Rheinland) – leicht zu erreichen und kostenlose Parkmöglichkeiten in der Nähe.</p>
                     </div>
 
                     <div class="bg-brand-cream rounded-[4rem] p-8 md:p-12 soft-border shadow-sm relative overflow-hidden">
-                        <i class="fa-solid fa-leaf absolute text-brand-green/5 text-[20rem] -top-20 -right-10 transform rotate-45"></i>
-                        
+                        <i class="fa-solid fa-leaf absolute text-brand-green/5 text-[20rem] -top-20 -right-10 transform rotate-45" aria-hidden="true"></i>
+
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
-                            
+
                             <div class="space-y-10">
                                 <div>
-                                    <h3 class="font-serif font-bold text-3xl text-brand-darkGreen mb-8">Kontakt & Adresse</h3>
-                                    
+                                    <h3 class="font-serif font-bold text-3xl text-brand-darkGreen mb-8">Kontakt &amp; Adresse</h3>
+
                                     <div class="flex items-start gap-6 mb-8">
                                         <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-green shadow-sm soft-border flex-shrink-0">
                                             <i class="fa-solid fa-location-dot text-2xl"></i>
@@ -416,7 +528,7 @@
                                             <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Asia Markt Thien Phu</h4>
                                             <p class="text-gray-600 leading-relaxed text-lg">
                                                 Hauptstraße 72<br>
-                                                40764 Langenfeld<br>
+                                                40764 Langenfeld (Rheinland)<br>
                                                 Deutschland
                                             </p>
                                         </div>
@@ -433,7 +545,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="pt-4 border-t border-brand-green/10">
                                         <h4 class="font-serif font-bold text-lg text-brand-darkGreen mb-3">Waren Sie zufrieden?</h4>
                                         <a href="https://www.google.com/search?q=Asia+Markt+Thien+Phu+Langenfeld" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition">
@@ -450,22 +562,22 @@
                                     </div>
                                     <h3 class="font-serif font-bold text-3xl text-brand-darkGreen">Öffnungszeiten</h3>
                                 </div>
-                                
+
                                 <ul class="space-y-6 text-lg">
                                     <li class="flex justify-between items-center text-gray-700 border-b border-brand-green/10 pb-4">
-                                        <span class="font-medium">Montag - Freitag</span>
-                                        <span class="font-serif text-brand-darkGreen font-bold">09:30 - 18:30 Uhr</span>
+                                        <span class="font-medium">Montag – Freitag</span>
+                                        <span class="font-serif text-brand-darkGreen font-bold">09:30 – 18:30 Uhr</span>
                                     </li>
                                     <li class="flex justify-between items-center text-gray-700 border-b border-brand-green/10 pb-4">
                                         <span class="font-medium">Samstag</span>
-                                        <span class="font-serif text-brand-darkGreen font-bold">09:30 - 16:00 Uhr</span>
+                                        <span class="font-serif text-brand-darkGreen font-bold">09:30 – 16:00 Uhr</span>
                                     </li>
                                     <li class="flex justify-between items-center text-brand-earth/80 pt-2">
-                                        <span class="font-medium">Sonntag & Feiertage</span>
+                                        <span class="font-medium">Sonntag &amp; Feiertage</span>
                                         <span class="font-serif">Geschlossen</span>
                                     </li>
                                 </ul>
-                                
+
                                 <div class="mt-10 text-center">
                                     <a href="https://maps.google.com/?q=Asia+Markt+Thien+Phu+Hauptstraße+72+40764+Langenfeld" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 w-full bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth font-bold py-4 px-8 rounded-full transition duration-300 shadow-sm">
                                         <i class="fa-solid fa-map-location-dot"></i> Route auf Google Maps planen
@@ -474,6 +586,212 @@
                             </div>
 
                         </div>
+                    </div>
+
+                    <!-- Google Maps Embed -->
+                    <div class="mt-10 rounded-[3rem] overflow-hidden soft-border shadow-sm h-72">
+                        <iframe
+                            title="Standort Asia Markt Thien Phu auf Google Maps"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.!2d6.9490!3d51.1059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8b3b3b3b3b3b3%3A0x0!2sHauptstra%C3%9Fe+72%2C+40764+Langenfeld!5e0!3m2!1sde!2sde!4v1680000000000!5m2!1sde!2sde"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==========================================
+             TAB 5: IMPRESSUM
+             ========================================== -->
+        <div id="impressum" class="page-view">
+            <section class="py-16 lg:py-24">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="mb-10">
+                        <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Rechtliche Angaben</p>
+                        <h1 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-4">Impressum</h1>
+                        <div class="w-16 h-1 bg-brand-green rounded-full"></div>
+                    </div>
+
+                    <div class="bg-white rounded-[3rem] p-8 md:p-12 soft-border shadow-sm prose-legal">
+
+                        <h2>Angaben gemäß § 5 TMG</h2>
+                        <p>
+                            <strong>Asia Markt Thien Phu</strong><br>
+                            Hauptstraße 72<br>
+                            40764 Langenfeld (Rheinland)<br>
+                            Deutschland
+                        </p>
+
+                        <h2>Kontakt</h2>
+                        <p>
+                            Telefon: <a href="tel:+4921731065590">02173 1065590</a><br>
+                            E-Mail: <a href="mailto:info@asiamarkt-thienphu.de">info@asiamarkt-thienphu.de</a>
+                        </p>
+
+                        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+                        <p>
+                            Asia Markt Thien Phu<br>
+                            Hauptstraße 72<br>
+                            40764 Langenfeld (Rheinland)
+                        </p>
+
+                        <h2>Streitschlichtung</h2>
+                        <p>
+                            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+                            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>
+                        </p>
+                        <p>
+                            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                        </p>
+
+                        <h2>Haftung für Inhalte</h2>
+                        <p>
+                            Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                        </p>
+                        <p>
+                            Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+                        </p>
+
+                        <h2>Haftung für Links</h2>
+                        <p>
+                            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+                        </p>
+
+                        <h2>Urheberrecht</h2>
+                        <p>
+                            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+                        </p>
+                        <p>
+                            Bildmaterial: Fotos von <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a> (Lizenz: Unsplash License).
+                        </p>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==========================================
+             TAB 6: DATENSCHUTZ
+             ========================================== -->
+        <div id="datenschutz" class="page-view">
+            <section class="py-16 lg:py-24">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="mb-10">
+                        <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Rechtliche Angaben</p>
+                        <h1 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-4">Datenschutzerklärung</h1>
+                        <div class="w-16 h-1 bg-brand-green rounded-full"></div>
+                    </div>
+
+                    <div class="bg-white rounded-[3rem] p-8 md:p-12 soft-border shadow-sm prose-legal">
+
+                        <h2>1. Datenschutz auf einen Blick</h2>
+                        <h3>Allgemeine Hinweise</h3>
+                        <p>
+                            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
+                        </p>
+                        <p>
+                            Diese Website ist eine rein informative Seite ohne Kontaktformular, Nutzerkonto oder Tracking-Tools. Es werden keine Cookies durch uns gesetzt.
+                        </p>
+
+                        <h3>Datenerfassung auf dieser Website</h3>
+                        <p>
+                            <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+                            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Verantwortliche Stelle" in dieser Datenschutzerklärung entnehmen.
+                        </p>
+                        <p>
+                            <strong>Wie erfassen wir Ihre Daten?</strong><br>
+                            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z. B. bei einem Anruf). Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
+                        </p>
+                        <p>
+                            <strong>Wofür nutzen wir Ihre Daten?</strong><br>
+                            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
+                        </p>
+
+                        <h2>2. Verantwortliche Stelle</h2>
+                        <p>
+                            Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
+                            Asia Markt Thien Phu<br>
+                            Hauptstraße 72<br>
+                            40764 Langenfeld (Rheinland)<br><br>
+                            Telefon: <a href="tel:+4921731065590">02173 1065590</a><br>
+                            E-Mail: <a href="mailto:info@asiamarkt-thienphu.de">info@asiamarkt-thienphu.de</a>
+                        </p>
+                        <p>
+                            Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
+                        </p>
+
+                        <h2>3. Hosting – GitHub Pages</h2>
+                        <p>
+                            Diese Website wird bei GitHub Pages gehostet. Anbieter ist die GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (bzw. GitHub B.V., Prins Bernhardplein 200, Amsterdam, 1097 JB, Niederlande für Europa).
+                        </p>
+                        <p>
+                            Wenn Sie diese Website besuchen, erfasst GitHub Pages automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser übermittelt. Dies sind insbesondere: IP-Adresse, Datum und Uhrzeit der Anfrage, aufgerufene URL, Browsertyp und -version sowie Betriebssystem.
+                        </p>
+                        <p>
+                            Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung seiner Website. Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Datenschutzerklärung</a>.
+                        </p>
+
+                        <h2>4. Externe Dienste und CDNs</h2>
+                        <h3>Google Fonts</h3>
+                        <p>
+                            Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Google Fonts, die von Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA bereitgestellt werden. Beim Aufruf dieser Seite lädt Ihr Browser die benötigten Schriftarten direkt von Google-Servern. Dabei wird Ihre IP-Adresse an Google übermittelt.
+                        </p>
+                        <p>
+                            Die Nutzung von Google Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes. Weitere Informationen zu Google Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener noreferrer">Google Fonts FAQ</a> sowie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.
+                        </p>
+
+                        <h3>Font Awesome (cdnjs / Cloudflare)</h3>
+                        <p>
+                            Diese Website verwendet Font Awesome Icons, bereitgestellt über das CDN von Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Beim Laden der Icons wird Ihre IP-Adresse an Cloudflare übermittelt. Cloudflare ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://www.cloudflare.com/de-de/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Datenschutzerklärung</a>.
+                        </p>
+
+                        <h3>Tailwind CSS (CDN)</h3>
+                        <p>
+                            Für das Styling dieser Website wird das Framework Tailwind CSS über ein Content Delivery Network (CDN) eingebunden. Dabei wird beim Seitenaufruf eine Verbindung zu den CDN-Servern hergestellt und Ihre IP-Adresse übermittelt.
+                        </p>
+
+                        <h3>Google Maps</h3>
+                        <p>
+                            Diese Website nutzt den Kartendienst Google Maps der Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Die Einbettung erfolgt im Rahmen der berechtigten Interessen gem. Art. 6 Abs. 1 lit. f DSGVO zur anschaulichen Darstellung unseres Standorts. Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.
+                        </p>
+
+                        <h2>5. Keine Cookies, kein Tracking</h2>
+                        <p>
+                            Wir setzen auf dieser Website keine eigenen Cookies und verwenden keine Analyse- oder Tracking-Dienste (z. B. Google Analytics). Es werden keine Nutzungsprofile erstellt.
+                        </p>
+
+                        <h2>6. Ihre Rechte</h2>
+                        <p>
+                            Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:
+                        </p>
+                        <ul>
+                            <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+                            <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+                            <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+                            <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                            <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                            <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+                        </ul>
+                        <p>
+                            Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Zuständige Aufsichtsbehörde für Nordrhein-Westfalen ist:
+                        </p>
+                        <p>
+                            Landesbeauftragte für Datenschutz und Informationsfreiheit NRW<br>
+                            Kavalleriestraße 2–4<br>
+                            40213 Düsseldorf<br>
+                            <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
+                        </p>
+
+                        <h2>7. Aktualität dieser Datenschutzerklärung</h2>
+                        <p>
+                            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand April 2026. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
+                        </p>
+
                     </div>
                 </div>
             </section>
@@ -494,70 +812,76 @@
                         </div>
                     </div>
                     <p class="text-brand-cream/80 text-base leading-relaxed mb-6 max-w-sm">
-                        Ihr Fachgeschäft für ausgewählte Lebensmittel und Gemüse für die asiatische Küche in Langenfeld.
+                        Ihr Fachgeschäft für ausgewählte Lebensmittel und frisches Gemüse für die asiatische Küche in Langenfeld (Rheinland).
                     </p>
                 </div>
-                
+
                 <div>
                     <h4 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Webseite</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#start" class="nav-link text-brand-cream/80 hover:text-brand-accent transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Startseite</a></li>
-                        <li><a href="#sortiment" class="nav-link text-brand-cream/80 hover:text-brand-accent transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Sortiment</a></li>
-                        <li><a href="#ueber-uns" class="nav-link text-brand-cream/80 hover:text-brand-accent transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Unser Ansatz</a></li>
-                        <li><a href="#kontakt" class="nav-link text-brand-cream/80 hover:text-brand-accent transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Kontakt</a></li>
+                    <ul class="space-y-1">
+                        <li><a href="#start" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Startseite</a></li>
+                        <li><a href="#sortiment" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Sortiment</a></li>
+                        <li><a href="#ueber-uns" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Unser Ansatz</a></li>
+                        <li><a href="#kontakt" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Kontakt</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Besuchen Sie uns</h4>
                     <p class="text-brand-cream/80 mb-2"><i class="fa-solid fa-location-dot w-6 text-brand-accent"></i> Hauptstraße 72</p>
-                    <p class="text-brand-cream/80 mb-4"><i class="fa-solid fa-city w-6 text-brand-accent"></i> 40764 Langenfeld</p>
-                    <p class="text-brand-cream/80"><i class="fa-solid fa-phone w-6 text-brand-accent"></i> 02173 1065590</p>
+                    <p class="text-brand-cream/80 mb-4"><i class="fa-solid fa-city w-6 text-brand-accent"></i> 40764 Langenfeld (Rheinland)</p>
+                    <p class="text-brand-cream/80 mb-4"><i class="fa-solid fa-phone w-6 text-brand-accent"></i> <a href="tel:+4921731065590" class="hover:text-white transition">02173 1065590</a></p>
+                    <p class="text-brand-cream/80 text-sm"><i class="fa-regular fa-clock w-6 text-brand-accent"></i> Mo–Fr: 09:30–18:30 Uhr</p>
+                    <p class="text-brand-cream/80 text-sm pl-6">Sa: 09:30–16:00 Uhr</p>
                 </div>
             </div>
-            
+
             <div class="border-t border-brand-green/40 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-brand-cream/60 text-sm font-medium">
-                    &copy; 2026 Asia Markt Thien Phu. 
+                    &copy; 2026 Asia Markt Thien Phu. Alle Rechte vorbehalten.
                 </p>
                 <div class="flex gap-6 text-sm">
-                    <a href="#" class="text-brand-cream/60 hover:text-white transition">Impressum</a>
-                    <a href="#" class="text-brand-cream/60 hover:text-white transition">Datenschutz</a>
+                    <a href="#impressum" class="nav-link text-brand-cream/60 hover:text-white transition">Impressum</a>
+                    <a href="#datenschutz" class="nav-link text-brand-cream/60 hover:text-white transition">Datenschutz</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        const VALID_PAGES = ['start', 'sortiment', 'ueber-uns', 'kontakt', 'impressum', 'datenschutz'];
+
         function navigateTo(pageId, event) {
             if (event) {
                 event.preventDefault();
-                if(window.history && window.history.pushState) {
+                if (window.history && window.history.pushState) {
                     window.history.pushState(null, null, '#' + pageId);
                 }
             }
 
-            const allPages = document.querySelectorAll('.page-view');
-            allPages.forEach(page => {
+            document.querySelectorAll('.page-view').forEach(page => {
                 page.classList.remove('active');
             });
 
-            const targetPage = document.getElementById('page-' + pageId);
+            const targetPage = document.getElementById(pageId);
             if (targetPage) {
-                targetPage.classList.add('active'); 
+                targetPage.classList.add('active');
             }
 
             window.scrollTo({ top: 0, behavior: 'auto' });
 
-            const allLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
-            allLinks.forEach(link => {
+            document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
                 const href = link.getAttribute('href');
                 if (href === '#' + pageId) {
                     link.classList.add('bg-brand-green', 'text-white');
-                    link.classList.remove('text-brand-darkGreen', 'hover:bg-brand-green/10');
+                    link.classList.remove('text-brand-darkGreen', 'hover:bg-brand-green/10', 'text-brand-cream/80');
                 } else {
                     link.classList.remove('bg-brand-green', 'text-white');
-                    link.classList.add('text-brand-darkGreen', 'hover:bg-brand-green/10');
+                    if (link.closest('footer')) {
+                        link.classList.add('text-brand-cream/80');
+                    } else {
+                        link.classList.add('text-brand-darkGreen', 'hover:bg-brand-green/10');
+                    }
                 }
             });
 
@@ -568,46 +892,40 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const allInternalLinks = document.querySelectorAll('a[href^="#"]');
-            
-            allInternalLinks.forEach(link => {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    const pageId = href.substring(1); 
-                    
+                    const pageId = this.getAttribute('href').substring(1);
+
                     if (pageId === 'bewertungen') {
                         e.preventDefault();
-                        const startPage = document.getElementById('page-start');
+                        const startPage = document.getElementById('start');
                         if (!startPage.classList.contains('active')) {
                             navigateTo('start');
                             setTimeout(() => {
-                                document.getElementById('bewertungen').scrollIntoView({behavior: 'smooth'});
+                                document.getElementById('bewertungen').scrollIntoView({ behavior: 'smooth' });
                             }, 100);
                         } else {
-                            document.getElementById('bewertungen').scrollIntoView({behavior: 'smooth'});
+                            document.getElementById('bewertungen').scrollIntoView({ behavior: 'smooth' });
                         }
-                        return; 
+                        return;
                     }
 
-                    if (['start', 'sortiment', 'ueber-uns', 'kontakt'].includes(pageId)) {
+                    if (VALID_PAGES.includes(pageId)) {
                         navigateTo(pageId, e);
                     }
                 });
             });
 
             const hash = window.location.hash.substring(1);
-            if (['start', 'sortiment', 'ueber-uns', 'kontakt'].includes(hash)) {
+            if (VALID_PAGES.includes(hash)) {
                 navigateTo(hash);
             } else {
                 navigateTo('start');
             }
         });
 
-        const mobileBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
     </script>
 </body>
