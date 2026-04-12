@@ -145,7 +145,7 @@
                             Originaler Geschmack. <br>Aus echter Tradition.
                         </h1>
                         <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                            Erleben Sie im Asia Markt Thien Phu die authentische Esskultur Asiens. Wir bieten Ihnen sorgfältig ausgewählte Zutaten, bekannte asiatische Markenprodukte und regelmäßige Lieferungen an frischem Gemüse.
+                            Erleben Sie in unserem kleinen, familiengeführten Asia Markt Thien Phu die authentische Esskultur Asiens. Wir bieten Ihnen sorgfältig ausgewählte Zutaten, bekannte asiatische Markenprodukte und regelmäßige Frischlieferungen.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <a href="#sortiment" class="bg-brand-green hover:bg-brand-darkGreen text-white font-medium py-3 px-8 rounded-full transition duration-300 text-center shadow-md">
@@ -154,6 +154,9 @@
                             <a href="#bewertungen" class="bg-white border-2 border-brand-green text-brand-green hover:bg-brand-beige font-medium py-3 px-8 rounded-full transition duration-300 text-center flex items-center justify-center gap-2">
                                 <i class="fa-brands fa-google text-brand-darkGreen"></i> Kundenstimmen
                             </a>
+                            <button onclick="navigateTo('kontakt')" class="bg-brand-darkGreen hover:bg-brand-green text-white font-bold py-3 px-8 rounded-full transition duration-300 text-center shadow-md flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i> Kontakt &amp; Öffnungszeiten
+                            </button>
                         </div>
                         <p class="mt-5 text-sm text-gray-500 flex items-center gap-2 justify-center lg:justify-start">
                             <i class="fa-solid fa-store text-brand-earth"></i>
@@ -448,7 +451,7 @@
                                     <i class="fa-solid fa-snowflake text-brand-green"></i> Tiefkühlware
                                 </div>
                                 <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Tiefkühlprodukte</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Dim Sum, Frühlingsrollen, Gyoza, gefüllte Klebreisbälle und weitere Tiefkühlspezialitäten – schnell zubereitet und authentisch im Geschmack.</p>
+                                <p class="text-gray-600 leading-relaxed mb-4">Garnelen, Fisch und weitere Meeresfrüchte, Dim Sum, Frühlingsrollen, Gyoza, gefüllte Klebreisbälle und viele weitere Tiefkühlspezialitäten – schnell zubereitet und authentisch im Geschmack.</p>
                             </div>
                         </div>
 
@@ -579,7 +582,25 @@
                                         <div>
                                             <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Parken</h4>
                                             <p class="text-gray-600 leading-relaxed text-lg">
-                                                Öffentliche Parkplätze direkt vor dem Laden verfügbar.
+                                                Öffentliche Parkplätze auf der gegenüberliegenden Straßenseite mit digitalem Parkticketautomaten.<br>
+                                                Bis zu <strong>15 Minuten kostenlos</strong>, danach 1&nbsp;€ pro angefangene Stunde.<br>
+                                                E-Auto-Fahrer parken bis zu <strong>5 Stunden kostenlos</strong> mit Parkscheibe.<br>
+                                                <a href="https://maps.app.goo.gl/qCEvdCWsuY8Y5XcL8?g_st=ic" target="_blank" rel="noopener noreferrer"
+                                                   class="text-brand-green hover:underline text-sm inline-flex items-center gap-1 mt-1">
+                                                    <i class="fa-solid fa-location-dot"></i> Parkticketautomat auf Google Maps anzeigen
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-6 mb-8">
+                                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-green shadow-sm soft-border flex-shrink-0">
+                                            <i class="fa-solid fa-credit-card text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Bezahlung</h4>
+                                            <p class="text-gray-600 leading-relaxed text-lg">
+                                                Kartenzahlung und Bargeld werden akzeptiert.
                                             </p>
                                         </div>
                                     </div>
@@ -719,6 +740,11 @@
                             Deutschland
                         </p>
 
+                        <p>
+                            Steuernummer: [bitte eintragen]<br>
+                            <em>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [falls vorhanden bitte eintragen, andernfalls diese Zeile entfernen]</em>
+                        </p>
+
                         <h2>Kontakt</h2>
                         <p>
                             Telefon: <a href="tel:+4921731065590">02173 1065590</a><br>
@@ -828,6 +854,9 @@
                         <h2>4. Kontaktformulare (Web3Forms)</h2>
                         <p>
                             Auf dieser Website stehen zwei Kontaktformulare zur Verfügung: ein Formular für <strong>Vorschläge</strong> (Produkte, allgemeine Ideen) sowie ein Formular für <strong>Feedback</strong> im Rahmen des Bewertungsdialogs. Wenn Sie ein Formular absenden, werden die von Ihnen eingegebenen Daten (Nachrichteninhalt, gewählte Kategorie) über den Dienst <strong>Web3Forms</strong> an uns weitergeleitet.
+                        </p>
+                        <p>
+                            <strong>Wichtig:</strong> Es werden keine Kontaktdaten wie Name, E-Mail-Adresse oder Telefonnummer erfasst. Eine persönliche Antwort auf Ihre Nachricht ist daher nicht möglich. Für Anfragen mit gewünschter Rückmeldung wenden Sie sich bitte direkt per Telefon oder E-Mail an uns (siehe Impressum).
                         </p>
                         <h3>Welche Daten werden verarbeitet?</h3>
                         <ul>
@@ -973,14 +1002,14 @@
         const W3F_KEY = 'f91a4036-f6ba-46ed-9a65-dc7d9fbabbb9';
 
         // E-Mail nie als Klartext im HTML – wird nur per JS zusammengesetzt
-        function _em() { return ['asia.since2007','gmail','com'].join('\x40').replace('\x40gmail','@gmail'); }
+        function _em() { return ['asia.since2007', 'gmail.com'].join(String.fromCharCode(64)); }
 
         // Setzt alle E-Mail-Links im Impressum/Datenschutz dynamisch
         function initEmailLinks() {
             const addr = _em();
             document.querySelectorAll('[data-email-link]').forEach(el => {
                 el.href = 'mailto:' + addr;
-                el.textContent = addr;
+                el.textContent = addr.replace(/\.com$/, '[Punkt]com');
             });
         }
 
@@ -1049,12 +1078,13 @@
                         <div class="text-center py-4">
                             <i class="fa-solid fa-circle-check text-brand-green text-4xl mb-4 block"></i>
                             <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Vielen Dank!</h3>
-                            <p class="text-gray-600 text-sm">Ihr Feedback ist bei uns angekommen. Wir melden uns so schnell wie möglich.</p>
+                            <p class="text-gray-600 text-sm">Ihr Feedback ist bei uns angekommen.</p>
                         </div>`;
                 } else throw new Error();
             } catch {
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Senden';
+                document.getElementById('feedback-error').classList.remove('hidden');
             }
         }
 
@@ -1248,7 +1278,7 @@
                     <i class="fa-solid fa-lightbulb text-brand-gold text-2xl"></i>
                 </div>
                 <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-1">Ihr Vorschlag</h3>
-                <p class="text-gray-500 text-sm">Wir freuen uns über jede Idee – für das Geschäft oder neue Artikel!</p>
+                <p class="text-gray-500 text-sm">Wir freuen uns über jede Idee – für das Geschäft oder neue Artikel! Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Bei Fragen bitte direkt anrufen: <a href="tel:+4921731065590" class="font-semibold text-brand-green hover:underline">02173&nbsp;1065590</a> oder per E-Mail an <span class="font-semibold">asia.since2007@gmail[Punkt]com</span>.</p>
             </div>
 
             <!-- Honeypot Bot-Falle -->
@@ -1259,16 +1289,10 @@
                     <p class="text-sm font-bold text-brand-darkGreen mb-2">Kategorie</p>
                     <div class="flex flex-wrap gap-2" id="suggestion-categories">
                         <button type="button" onclick="selectCategory(this)" data-value="Neuer Artikel" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            🛍️ Neuer Artikel
+                            📦 Neuer Artikel
                         </button>
-                        <button type="button" onclick="selectCategory(this)" data-value="Allgemeiner Vorschlag" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            💡 Allgemein
-                        </button>
-                        <button type="button" onclick="selectCategory(this)" data-value="Verbesserungsvorschlag" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            ✏️ Verbesserung
-                        </button>
-                        <button type="button" onclick="selectCategory(this)" data-value="Sonstiges" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            📝 Sonstiges
+                        <button type="button" onclick="selectCategory(this)" data-value="Allgemeines" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
+                            💡 Allgemeines
                         </button>
                     </div>
                 </div>
@@ -1322,7 +1346,8 @@
                 </div>
                 <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Das tut uns wirklich leid!</h3>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                    Was können wir verbessern? Schreiben Sie uns kurz – wir melden uns gerne bei Ihnen.
+                    Was können wir verbessern? Schreiben Sie uns kurz.<br>
+                    <span class="text-xs text-gray-400">Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Für direkte Rückmeldungen: <a href="tel:+4921731065590" class="text-brand-green hover:underline">02173&nbsp;1065590</a></span>
                 </p>
                 <div class="text-left space-y-3">
                     <!-- Honeypot Bot-Falle -->
@@ -1331,8 +1356,8 @@
                     <button id="feedback-send-btn" onclick="submitFeedback()" class="w-full inline-flex items-center justify-center gap-2 bg-brand-earth hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300">
                         <i class="fa-solid fa-paper-plane"></i> Senden
                     </button>
+                    <p id="feedback-error" class="hidden mt-2 text-center text-xs text-red-500">Fehler beim Senden. Bitte versuchen Sie es später erneut.</p>
                 </div>
-                <p class="mt-3 text-xs text-gray-400">Wir melden uns so schnell wie möglich bei Ihnen.</p>
             </div>
         </div>
     </div>
