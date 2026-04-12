@@ -567,9 +567,9 @@
 
                                     <div class="pt-4 border-t border-brand-green/10">
                                         <h4 class="font-serif font-bold text-lg text-brand-darkGreen mb-3">Waren Sie zufrieden?</h4>
-                                        <a href="https://www.google.com/search?q=Asia+Markt+Thien+Phu+Langenfeld" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition">
+                                        <button onclick="openReviewModal()" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition">
                                             <i class="fa-brands fa-google"></i> Bewerten Sie uns auf Google Maps
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -934,6 +934,23 @@
     <script>
         const VALID_PAGES = ['start', 'sortiment', 'ueber-uns', 'kontakt', 'impressum', 'datenschutz'];
 
+        function openReviewModal() {
+            document.getElementById('review-modal').classList.remove('hidden');
+            document.getElementById('review-step-1').classList.remove('hidden');
+            document.getElementById('review-step-no').classList.add('hidden');
+        }
+        function closeReviewModal() {
+            document.getElementById('review-modal').classList.add('hidden');
+        }
+        function reviewYes() {
+            closeReviewModal();
+            window.open('https://g.page/r/CXIxh8y-sMCkEBM/review', '_blank', 'noopener,noreferrer');
+        }
+        function reviewNo() {
+            document.getElementById('review-step-1').classList.add('hidden');
+            document.getElementById('review-step-no').classList.remove('hidden');
+        }
+
         function openSharePanel() {
             const mapsUrl = 'https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7';
             if (navigator.share) {
@@ -1088,5 +1105,44 @@
             }
         });
     </script>
+
+    <!-- Bewertungs-Modal -->
+    <div id="review-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeReviewModal()">
+        <div class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl relative">
+            <button onclick="closeReviewModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-brand-beige hover:bg-brand-earth hover:text-white text-gray-500 transition text-lg font-bold">&times;</button>
+
+            <!-- Schritt 1: Zufrieden? -->
+            <div id="review-step-1" class="text-center">
+                <div class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-star text-brand-gold text-2xl"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-2">Waren Sie zufrieden?</h3>
+                <p class="text-gray-500 mb-7">Wir freuen uns über Ihr ehrliches Feedback!</p>
+                <div class="flex gap-3">
+                    <button onclick="reviewYes()" class="flex-1 inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300">
+                        <i class="fa-solid fa-thumbs-up"></i> Ja
+                    </button>
+                    <button onclick="reviewNo()" class="flex-1 inline-flex items-center justify-center gap-2 bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth font-bold py-3 rounded-full transition duration-300">
+                        <i class="fa-solid fa-thumbs-down"></i> Nein
+                    </button>
+                </div>
+            </div>
+
+            <!-- Schritt 2b: Nicht zufrieden -->
+            <div id="review-step-no" class="hidden text-center">
+                <div class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-envelope text-brand-earth text-2xl"></i>
+                </div>
+                <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-3">Das tut uns wirklich leid!</h3>
+                <p class="text-gray-600 leading-relaxed mb-5">
+                    Ihr Feedback ist uns sehr wichtig. Wir würden gerne wissen, was wir für Sie verbessern können – schreiben Sie uns einfach:
+                </p>
+                <a href="mailto:asia.since2007@gmail.com" class="inline-flex items-center gap-2 bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth font-bold py-3 px-6 rounded-full transition duration-300">
+                    <i class="fa-solid fa-envelope"></i> asia.since2007@gmail.com
+                </a>
+                <p class="mt-4 text-xs text-gray-400">Wir melden uns so schnell wie möglich bei Ihnen.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
