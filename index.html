@@ -951,14 +951,7 @@
     </footer>
 
     <script>
-        // ─────────────────────────────────────────────────────────────────
-        // Web3Forms – kostenloser E-Mail-Dienst für statische Websites
-        // Einmalige Einrichtung (ca. 1 Minute):
-        //   1. https://web3forms.com aufrufen
-        //   2. E-Mail-Adresse eingeben → Access Key per E-Mail erhalten
-        //   3. Den Key unten eintragen (YOUR_ACCESS_KEY_HERE ersetzen)
-        // ─────────────────────────────────────────────────────────────────
-        const W3F_KEY = 'YOUR_ACCESS_KEY_HERE';
+        const W3F_KEY = 'f91a4036-f6ba-46ed-9a65-dc7d9fbabbb9';
 
         // E-Mail nie als Klartext im HTML – wird nur per JS zusammengesetzt
         function _em() { return ['asia.since2007','gmail','com'].join('\x40').replace('\x40gmail','@gmail'); }
@@ -1001,15 +994,16 @@
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Wird gesendet…';
             try {
-                const res = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ access_key: W3F_KEY, subject: 'Vorschlag: ' + category, message: text })
-                });
-                if ((await res.json()).success) {
+                const fd = new FormData();
+                fd.append('access_key', W3F_KEY);
+                fd.append('subject', 'Vorschlag: ' + category);
+                fd.append('message', text);
+                const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+                const data = await res.json();
+                if (res.ok && data.success) {
                     document.getElementById('suggestion-form-area').classList.add('hidden');
                     document.getElementById('suggestion-success').classList.remove('hidden');
-                } else throw new Error();
+                } else throw new Error(data.message);
             } catch {
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Vorschlag senden';
@@ -1025,12 +1019,13 @@
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Wird gesendet…';
             try {
-                const res = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ access_key: W3F_KEY, subject: 'Kundenfeedback (nicht zufrieden)', message: text })
-                });
-                if ((await res.json()).success) {
+                const fd = new FormData();
+                fd.append('access_key', W3F_KEY);
+                fd.append('subject', 'Kundenfeedback (nicht zufrieden)');
+                fd.append('message', text);
+                const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+                const data = await res.json();
+                if (res.ok && data.success) {
                     document.getElementById('review-step-no').innerHTML = `
                         <div class="text-center py-4">
                             <i class="fa-solid fa-circle-check text-brand-green text-4xl mb-4 block"></i>
