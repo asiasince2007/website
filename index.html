@@ -723,7 +723,7 @@
                         <h2>Kontakt</h2>
                         <p>
                             Telefon: <a href="tel:+4921731065590">02173 1065590</a><br>
-                            E-Mail: <a href="mailto:asia.since2007@gmail.com">asia.since2007@gmail.com</a>
+                            E-Mail: <a data-email-link href="#">…</a>
                         </p>
 
                         <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
@@ -813,7 +813,7 @@
                             Hauptstraße 74<br>
                             40764 Langenfeld (Rheinland)<br><br>
                             Telefon: <a href="tel:+4921731065590">02173 1065590</a><br>
-                            E-Mail: <a href="mailto:asia.since2007@gmail.com">asia.since2007@gmail.com</a>
+                            E-Mail: <a data-email-link href="#">…</a>
                         </p>
                         <p>
                             Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
@@ -951,11 +951,38 @@
     </footer>
 
     <script>
+        // ─────────────────────────────────────────────────────────────────
+        // Web3Forms – kostenloser E-Mail-Dienst für statische Websites
+        // Einmalige Einrichtung (ca. 1 Minute):
+        //   1. https://web3forms.com aufrufen
+        //   2. E-Mail-Adresse eingeben → Access Key per E-Mail erhalten
+        //   3. Den Key unten eintragen (YOUR_ACCESS_KEY_HERE ersetzen)
+        // ─────────────────────────────────────────────────────────────────
+        const W3F_KEY = 'YOUR_ACCESS_KEY_HERE';
+
+        // E-Mail nie als Klartext im HTML – wird nur per JS zusammengesetzt
+        function _em() { return ['asia.since2007','gmail','com'].join('\x40').replace('\x40gmail','@gmail'); }
+
+        // Setzt alle E-Mail-Links im Impressum/Datenschutz dynamisch
+        function initEmailLinks() {
+            const addr = _em();
+            document.querySelectorAll('[data-email-link]').forEach(el => {
+                el.href = 'mailto:' + addr;
+                el.textContent = addr;
+            });
+        }
+
         const VALID_PAGES = ['start', 'sortiment', 'ueber-uns', 'kontakt', 'impressum', 'datenschutz'];
 
         function openSuggestionModal() {
             document.getElementById('suggestion-modal').classList.remove('hidden');
             document.getElementById('suggestion-text').value = '';
+            document.getElementById('suggestion-form-area').classList.remove('hidden');
+            document.getElementById('suggestion-success').classList.add('hidden');
+            document.getElementById('suggestion-error').classList.add('hidden');
+            const btn = document.getElementById('suggestion-send-btn');
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Vorschlag senden';
             document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
         }
         function closeSuggestionModal() {
@@ -965,14 +992,56 @@
             document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
             btn.classList.add('bg-brand-green', 'text-white', 'border-brand-green');
         }
-        function submitSuggestion() {
+        async function submitSuggestion() {
+            if (document.getElementById('suggestion-honeypot').value) return; // Bot erkannt
             const category = document.querySelector('.suggestion-cat.bg-brand-green')?.dataset.value || 'Allgemein';
             const text = document.getElementById('suggestion-text').value.trim();
             if (!text) { document.getElementById('suggestion-text').focus(); return; }
-            const subject = encodeURIComponent('Vorschlag: ' + category);
-            const body = encodeURIComponent(text);
-            window.location.href = 'mailto:asia.since2007@gmail.com?subject=' + subject + '&body=' + body;
-            closeSuggestionModal();
+            const btn = document.getElementById('suggestion-send-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Wird gesendet…';
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ access_key: W3F_KEY, subject: 'Vorschlag: ' + category, message: text })
+                });
+                if ((await res.json()).success) {
+                    document.getElementById('suggestion-form-area').classList.add('hidden');
+                    document.getElementById('suggestion-success').classList.remove('hidden');
+                } else throw new Error();
+            } catch {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Vorschlag senden';
+                document.getElementById('suggestion-error').classList.remove('hidden');
+            }
+        }
+
+        async function submitFeedback() {
+            if (document.getElementById('feedback-honeypot').value) return;
+            const text = document.getElementById('feedback-text').value.trim();
+            if (!text) { document.getElementById('feedback-text').focus(); return; }
+            const btn = document.getElementById('feedback-send-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Wird gesendet…';
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ access_key: W3F_KEY, subject: 'Kundenfeedback (nicht zufrieden)', message: text })
+                });
+                if ((await res.json()).success) {
+                    document.getElementById('review-step-no').innerHTML = `
+                        <div class="text-center py-4">
+                            <i class="fa-solid fa-circle-check text-brand-green text-4xl mb-4 block"></i>
+                            <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Vielen Dank!</h3>
+                            <p class="text-gray-600 text-sm">Ihr Feedback ist bei uns angekommen. Wir melden uns so schnell wie möglich.</p>
+                        </div>`;
+                } else throw new Error();
+            } catch {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Senden';
+            }
         }
 
         function openReviewModal() {
@@ -1055,6 +1124,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            initEmailLinks();
+
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', function(e) {
                     const pageId = this.getAttribute('href').substring(1);
@@ -1166,7 +1237,10 @@
                 <p class="text-gray-500 text-sm">Wir freuen uns über jede Idee – für das Geschäft oder neue Artikel!</p>
             </div>
 
-            <div class="space-y-4">
+            <!-- Honeypot Bot-Falle -->
+            <input type="text" id="suggestion-honeypot" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div id="suggestion-form-area" class="space-y-4">
                 <div>
                     <p class="text-sm font-bold text-brand-darkGreen mb-2">Kategorie</p>
                     <div class="flex flex-wrap gap-2" id="suggestion-categories">
@@ -1190,10 +1264,17 @@
                     <textarea id="suggestion-text" rows="4" placeholder="Was möchten Sie uns mitteilen?" class="w-full border-2 border-brand-green/20 rounded-2xl p-4 text-gray-700 text-sm focus:outline-none focus:border-brand-green resize-none"></textarea>
                 </div>
 
-                <button onclick="submitSuggestion()" class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300 flex items-center justify-center gap-2">
+                <button id="suggestion-send-btn" onclick="submitSuggestion()" class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300 flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i> Vorschlag senden
                 </button>
-                <p class="text-center text-xs text-gray-400">Ihr Vorschlag wird per E-Mail an uns weitergeleitet.</p>
+                <p id="suggestion-error" class="hidden text-center text-xs text-red-500">Fehler beim Senden. Bitte versuchen Sie es später erneut.</p>
+            </div>
+
+            <!-- Erfolgsmeldung -->
+            <div id="suggestion-success" class="hidden text-center py-4">
+                <i class="fa-solid fa-circle-check text-brand-green text-4xl mb-4 block"></i>
+                <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Vielen Dank!</h3>
+                <p class="text-gray-600 text-sm">Ihr Vorschlag ist bei uns angekommen. Wir freuen uns über Ihre Idee!</p>
             </div>
         </div>
     </div>
@@ -1225,14 +1306,19 @@
                 <div class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fa-solid fa-envelope text-brand-earth text-2xl"></i>
                 </div>
-                <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-3">Das tut uns wirklich leid!</h3>
-                <p class="text-gray-600 leading-relaxed mb-5">
-                    Ihr Feedback ist uns sehr wichtig. Wir würden gerne wissen, was wir für Sie verbessern können – schreiben Sie uns einfach:
+                <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Das tut uns wirklich leid!</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Was können wir verbessern? Schreiben Sie uns kurz – wir melden uns gerne bei Ihnen.
                 </p>
-                <a href="mailto:asia.since2007@gmail.com" class="inline-flex items-center gap-2 bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth font-bold py-3 px-6 rounded-full transition duration-300">
-                    <i class="fa-solid fa-envelope"></i> asia.since2007@gmail.com
-                </a>
-                <p class="mt-4 text-xs text-gray-400">Wir melden uns so schnell wie möglich bei Ihnen.</p>
+                <div class="text-left space-y-3">
+                    <!-- Honeypot Bot-Falle -->
+                    <input type="text" id="feedback-honeypot" style="display:none" tabindex="-1" autocomplete="off">
+                    <textarea id="feedback-text" rows="3" placeholder="Ihr Feedback…" class="w-full border-2 border-brand-green/20 rounded-2xl p-3 text-gray-700 text-sm focus:outline-none focus:border-brand-green resize-none"></textarea>
+                    <button id="feedback-send-btn" onclick="submitFeedback()" class="w-full inline-flex items-center justify-center gap-2 bg-brand-earth hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300">
+                        <i class="fa-solid fa-paper-plane"></i> Senden
+                    </button>
+                </div>
+                <p class="mt-3 text-xs text-gray-400">Wir melden uns so schnell wie möglich bei Ihnen.</p>
             </div>
         </div>
     </div>
