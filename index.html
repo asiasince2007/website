@@ -953,6 +953,28 @@
     <script>
         const VALID_PAGES = ['start', 'sortiment', 'ueber-uns', 'kontakt', 'impressum', 'datenschutz'];
 
+        function openSuggestionModal() {
+            document.getElementById('suggestion-modal').classList.remove('hidden');
+            document.getElementById('suggestion-text').value = '';
+            document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
+        }
+        function closeSuggestionModal() {
+            document.getElementById('suggestion-modal').classList.add('hidden');
+        }
+        function selectCategory(btn) {
+            document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
+            btn.classList.add('bg-brand-green', 'text-white', 'border-brand-green');
+        }
+        function submitSuggestion() {
+            const category = document.querySelector('.suggestion-cat.bg-brand-green')?.dataset.value || 'Allgemein';
+            const text = document.getElementById('suggestion-text').value.trim();
+            if (!text) { document.getElementById('suggestion-text').focus(); return; }
+            const subject = encodeURIComponent('Vorschlag: ' + category);
+            const body = encodeURIComponent(text);
+            window.location.href = 'mailto:asia.since2007@gmail.com?subject=' + subject + '&body=' + body;
+            closeSuggestionModal();
+        }
+
         function openReviewModal() {
             document.getElementById('review-modal').classList.remove('hidden');
             document.getElementById('review-step-1').classList.remove('hidden');
@@ -1124,6 +1146,57 @@
             }
         });
     </script>
+
+    <!-- Schwebender Vorschläge-Button -->
+    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition duration-300 group">
+        <i class="fa-solid fa-lightbulb text-brand-gold text-xl"></i>
+        <span class="absolute right-16 bg-brand-darkGreen text-brand-cream text-sm font-medium px-3 py-1.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-200 pointer-events-none shadow">Vorschlag einreichen</span>
+    </button>
+
+    <!-- Vorschläge-Modal -->
+    <div id="suggestion-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeSuggestionModal()">
+        <div class="bg-white rounded-[2rem] p-8 max-w-md w-full shadow-2xl relative">
+            <button onclick="closeSuggestionModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-brand-beige hover:bg-brand-earth hover:text-white text-gray-500 transition text-lg font-bold">&times;</button>
+
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fa-solid fa-lightbulb text-brand-gold text-2xl"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-1">Ihr Vorschlag</h3>
+                <p class="text-gray-500 text-sm">Wir freuen uns über jede Idee – für das Geschäft oder neue Artikel!</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <p class="text-sm font-bold text-brand-darkGreen mb-2">Kategorie</p>
+                    <div class="flex flex-wrap gap-2" id="suggestion-categories">
+                        <button type="button" onclick="selectCategory(this)" data-value="Neuer Artikel" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
+                            🛍️ Neuer Artikel
+                        </button>
+                        <button type="button" onclick="selectCategory(this)" data-value="Allgemeiner Vorschlag" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
+                            💡 Allgemein
+                        </button>
+                        <button type="button" onclick="selectCategory(this)" data-value="Verbesserungsvorschlag" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
+                            ✏️ Verbesserung
+                        </button>
+                        <button type="button" onclick="selectCategory(this)" data-value="Sonstiges" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
+                            📝 Sonstiges
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-bold text-brand-darkGreen mb-2">Ihre Nachricht</p>
+                    <textarea id="suggestion-text" rows="4" placeholder="Was möchten Sie uns mitteilen?" class="w-full border-2 border-brand-green/20 rounded-2xl p-4 text-gray-700 text-sm focus:outline-none focus:border-brand-green resize-none"></textarea>
+                </div>
+
+                <button onclick="submitSuggestion()" class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Vorschlag senden
+                </button>
+                <p class="text-center text-xs text-gray-400">Ihr Vorschlag wird per E-Mail an uns weitergeleitet.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Bewertungs-Modal -->
     <div id="review-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeReviewModal()">
