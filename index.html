@@ -136,7 +136,7 @@
                                 <i class="fa-solid fa-calendar-check text-brand-gold"></i>
                                 <span>Ihr Asia Markt seit 2007</span>
                             </div>
-                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-beige text-brand-earth text-sm font-semibold soft-border shadow-sm">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cream text-brand-darkGreen text-sm font-semibold border border-brand-green/30">
                                 <i class="fa-solid fa-star text-brand-gold"></i>
                                 <span>Ausgewählte Vielfalt in Langenfeld</span>
                             </div>
@@ -148,15 +148,15 @@
                             Erleben Sie in unserem kleinen, familiengeführten Asia Markt Thien Phu die authentische Esskultur Asiens. Wir bieten Ihnen sorgfältig ausgewählte Zutaten, bekannte asiatische Markenprodukte und regelmäßige Frischlieferungen.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="#sortiment" class="bg-brand-green hover:bg-brand-darkGreen text-white font-medium py-3 px-8 rounded-full transition duration-300 text-center shadow-md">
-                                Unser Sortiment
-                            </a>
-                            <a href="#bewertungen" class="bg-white border-2 border-brand-green text-brand-green hover:bg-brand-beige font-medium py-3 px-8 rounded-full transition duration-300 text-center flex items-center justify-center gap-2">
-                                <i class="fa-brands fa-google text-brand-darkGreen"></i> Kundenstimmen
-                            </a>
                             <button onclick="navigateTo('kontakt')" class="bg-brand-darkGreen hover:bg-brand-green text-white font-bold py-3 px-8 rounded-full transition duration-300 text-center shadow-md flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-location-dot"></i> Kontakt &amp; Öffnungszeiten
                             </button>
+                            <a href="#sortiment" class="bg-brand-green hover:bg-brand-darkGreen text-white font-medium py-3 px-8 rounded-full transition duration-300 text-center shadow-sm">
+                                Unser Sortiment
+                            </a>
+                            <a href="#bewertungen" class="bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth border border-brand-earth/20 font-medium py-3 px-8 rounded-full transition duration-300 text-center flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-google"></i> Kundenstimmen
+                            </a>
                         </div>
                         <p class="mt-5 text-sm text-gray-500 flex items-center gap-2 justify-center lg:justify-start">
                             <i class="fa-solid fa-store text-brand-earth"></i>
@@ -1262,9 +1262,9 @@
     </script>
 
     <!-- Schwebender Vorschläge-Button -->
-    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition duration-300 group">
-        <i class="fa-solid fa-lightbulb text-brand-gold text-xl"></i>
-        <span class="absolute right-16 bg-brand-darkGreen text-brand-cream text-sm font-medium px-3 py-1.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-200 pointer-events-none shadow">Vorschlag einreichen</span>
+    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white rounded-full shadow-lg flex items-center gap-2 px-4 py-3 transition duration-300">
+        <i class="fa-solid fa-lightbulb text-brand-gold text-lg"></i>
+        <span class="text-sm font-semibold">Vorschlag einreichen</span>
     </button>
 
     <!-- Vorschläge-Modal -->
