@@ -583,7 +583,7 @@
                                             <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Parken</h4>
                                             <p class="text-gray-600 leading-relaxed text-lg">
                                                 Öffentliche Parkplätze auf der gegenüberliegenden Straßenseite mit digitalem Parkticketautomaten.<br>
-                                                Bis zu <strong>15 Minuten kostenlos</strong>, danach 1&nbsp;€ pro angefangene Stunde.<br>
+                                                Bis zu <strong>15 Minuten kostenlos</strong> (am Parkticketautomaten einstellen), danach 1&nbsp;€ pro angefangene Stunde.<br>
                                                 E-Auto-Fahrer parken bis zu <strong>5 Stunden kostenlos</strong> mit Parkscheibe.<br>
                                                 <a href="https://maps.app.goo.gl/qCEvdCWsuY8Y5XcL8?g_st=ic" target="_blank" rel="noopener noreferrer"
                                                    class="text-brand-green hover:underline text-sm inline-flex items-center gap-1 mt-1">
@@ -741,8 +741,7 @@
                         </p>
 
                         <p>
-                            Steuernummer: [bitte eintragen]<br>
-                            <em>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [falls vorhanden bitte eintragen, andernfalls diese Zeile entfernen]</em>
+                            Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [bitte eintragen]
                         </p>
 
                         <h2>Kontakt</h2>
@@ -1009,7 +1008,7 @@
             const addr = _em();
             document.querySelectorAll('[data-email-link]').forEach(el => {
                 el.href = 'mailto:' + addr;
-                el.textContent = addr.replace(/\.com$/, '[Punkt]com');
+                el.textContent = addr.replace('@', '[at]');
             });
         }
 
@@ -1278,7 +1277,7 @@
                     <i class="fa-solid fa-lightbulb text-brand-gold text-2xl"></i>
                 </div>
                 <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-1">Ihr Vorschlag</h3>
-                <p class="text-gray-500 text-sm">Wir freuen uns über jede Idee – für das Geschäft oder neue Artikel! Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Bei Fragen bitte direkt anrufen: <a href="tel:+4921731065590" class="font-semibold text-brand-green hover:underline">02173&nbsp;1065590</a> oder per E-Mail an <span class="font-semibold">asia.since2007@gmail[Punkt]com</span>.</p>
+                <p class="text-gray-500 text-sm">Wir freuen uns über jede Idee – für das Geschäft oder neue Artikel! Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Bei Fragen bitte per E-Mail an <span class="font-semibold">asia.since2007[at]gmail.com</span>.</p>
             </div>
 
             <!-- Honeypot Bot-Falle -->
@@ -1347,7 +1346,7 @@
                 <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Das tut uns wirklich leid!</h3>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">
                     Was können wir verbessern? Schreiben Sie uns kurz.<br>
-                    <span class="text-xs text-gray-400">Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Für direkte Rückmeldungen: <a href="tel:+4921731065590" class="text-brand-green hover:underline">02173&nbsp;1065590</a></span>
+                    <span class="text-xs text-gray-400">Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Bei Fragen: <span class="font-semibold">asia.since2007[at]gmail.com</span></span>
                 </p>
                 <div class="text-left space-y-3">
                     <!-- Honeypot Bot-Falle -->
