@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .placeholder-coming-soon {
+        @apply flex items-center justify-center;
+    }
+
+    .placeholder-coming-soon::after {
+        content: "COMING SOON";
+        @apply text-brand-darkGreen/45 text-base sm:text-lg md:text-xl font-bold tracking-[0.2em];
+    }
+}

@@ -1,2 +1,5 @@
 /* Tailwind build output placeholder.
    Run `npm install` and `npm run build:css` to generate minified CSS locally. */
+
+.placeholder-coming-soon{display:flex;align-items:center;justify-content:center}.placeholder-coming-soon:after{content:"COMING SOON";color:rgba(45,74,54,.45);font-size:clamp(1rem,2.5vw,1.25rem);font-weight:700;letter-spacing:.2em;text-align:center}
+
