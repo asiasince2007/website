@@ -7,8 +7,10 @@
     <meta name="description" content="Asia Markt Thien Phu in Langenfeld. Original asiatische Lebensmittel, frisches Gemüse und ausgewählte Qualität. Entdecken Sie unsere Vielfalt!">
     <link rel="canonical" href="https://www.asiamarkt.info/">
 
-    <!-- Lokales Tailwind-Bundle -->
+    <!-- Lokales Tailwind-Bundle (wenn vorhanden) -->
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <!-- Fallback: Runtime-Tailwind für GitHub Pages, falls styles.min.css nicht gebaut wurde -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css">
     <!-- Google Fonts (nur genutzte Gewichte, mit display=swap) -->
@@ -16,6 +18,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        // noinspection JSUnresolvedReference
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            green: '#5B8A68',
+                            darkGreen: '#2D4A36',
+                            cream: '#FDFBF7',
+                            beige: '#F4EFE6',
+                            earth: '#8B5A2B',
+                            accent: '#D4A373',
+                            gold: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         body {
