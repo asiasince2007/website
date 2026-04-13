@@ -7,8 +7,9 @@
         @apply flex items-center justify-center;
     }
 
-    .placeholder-coming-soon::after {
-        content: "COMING SOON";
-        @apply text-brand-darkGreen/45 text-base sm:text-lg md:text-xl font-bold tracking-[0.2em];
+    .placeholder-coming-soon-label {
+        @apply inline-flex items-center justify-center px-4 py-2 rounded-full border border-brand-darkGreen/20 bg-white/75 text-brand-darkGreen/70 text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.16em];
+        backdrop-filter: blur(1px);
+        box-shadow: 0 2px 10px rgba(45, 74, 54, 0.08);
     }
 }
