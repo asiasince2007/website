@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 176" role="img" aria-labelledby="title2 desc2">
   <title id="title2">Asia Markt Thien Phu Header Logo</title>
   <desc id="desc2">Horizontale Header-Variante als temporärer Platzhalter auf Basis des bereitgestellten Logos.</desc>
-  <rect width="500" height="176" fill="#FDFBF7"/>
+  <rect width="400" height="176" fill="#FDFBF7"/>
   <image href="thien_phu_logo.png" x="0" y="0" width="176" height="176" preserveAspectRatio="xMidYMid meet"/>
-  <text x="0" y="84" fill="#2D4A36" font-size="52" font-family="Lora, serif" font-weight="700">Thien Phu</text>
-  <text x="0" y="128" fill="#8B5A2B" font-size="28" font-family="Nunito, sans-serif">Asiatische Lebensmittel</text>
+  <text x="30" y="84" fill="#2D4A36" font-size="52" font-family="Lora, serif" font-weight="700">Thien Phu</text>
+  <text x="30" y="128" fill="#8B5A2B" font-size="28" font-family="Nunito, sans-serif">Asiatische Lebensmittel</text>
 </svg>
