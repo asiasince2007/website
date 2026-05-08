@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#F4EFE6"/>
+  <rect x="80" y="80" width="1040" height="540" rx="32" fill="#FDFBF7" stroke="#5B8A68" stroke-dasharray="10 10"/>
+  <text x="600" y="320" text-anchor="middle" fill="#2D4A36" font-family="Lora, serif" font-size="56" font-weight="700">Storefront-Foto folgt</text>
+  <text x="600" y="380" text-anchor="middle" fill="#8B5A2B" font-family="Nunito, sans-serif" font-size="30">Asia Markt Thien Phu · Hauptstraße 74</text>
+</svg>
