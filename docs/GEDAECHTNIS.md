@@ -147,4 +147,8 @@
   in P6.1 beheben. (4) **Floating-Button „Vorschlag einreichen" überdeckt je nach Scroll-Position
   den „Kundenstimmen"-CTA** → bestätigt P4.4. Screenshots: `docs/qa-mobil-390-*.jpg`;
   QA-Skript: `scripts/mobile-screenshots.js` (puppeteer-core + System-Chrome, dev-only).
+- **2026-06-11** — P1.1 **Logo optimiert (F-02 behoben):** `thien_phu_logo.png` (3,4 MB, 2048²)
+  → `thien_phu_logo.webp` (8,4 KB, 220², via sharp aus `design/`-Original). Beide Referenzen in
+  `index.html` (Header + Footer) umgestellt, PNG aus `assets/images/` entfernt. Original bleibt
+  als Quelle in `design/` liegen. Visuell im Preview verifiziert (scharf, lädt korrekt).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

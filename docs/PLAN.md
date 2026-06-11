@@ -28,7 +28,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 
 ## Phase 1 — Performance-Sofortmaßnahmen (höchster Ertrag, geringes Risiko)
 
-- [ ] **1.1 Logo optimieren (Befund F-02).** `assets/images/thien_phu_logo.png` (3,48 MB)
+- [x] **1.1 Logo optimieren (Befund F-02).** `assets/images/thien_phu_logo.png` (3,48 MB)
   auf ~20–40 KB bringen: als WebP exportieren bzw. das vorhandene SVG-Logo
   (`logo-thien-phu-header.svg`) nutzen. Dublette `design/thien_phu_logo.png` entfernen oder
   aus dem ausgelieferten Pfad heraushalten.
