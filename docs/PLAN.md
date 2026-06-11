@@ -15,7 +15,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 
 ## Phase 0 — Setup & Baseline (Voraussetzung)
 
-- [ ] **0.1 Build verifizieren.** `npm install`, dann `npm run build:css`. Prüfen, dass
+- [x] **0.1 Build verifizieren.** `npm install`, dann `npm run build:css`. Prüfen, dass
   `assets/css/styles.min.css` **nicht leer** ist.
   *Akzeptanz:* Datei > 0 Byte, Seite rendert lokal ohne `cdn.tailwindcss.com`.
 - [ ] **0.2 Baseline messen.** Lighthouse (Mobil) für die aktuelle Live-Seite festhalten

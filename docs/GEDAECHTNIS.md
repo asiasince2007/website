@@ -131,4 +131,7 @@
   aus dem Bewertungs-Export gewonnen → Schema in PLAN korrigiert. Bewertungs-Export (100,
   Ø 4,39) ausgewertet; 13 deutsche 5-Sterne-Bewertungen für ein Hero-Marquee kuratiert
   (`bewertungen-kuratiert.json` + `HERO-BEWERTUNGEN-KARUSSELL.md`). ADR-05/06 ergänzt.
+- **2026-06-11 (3. Sitzung, autonome Umsetzung)** — P0.1: `npm install` + `npm run build:css`
+  ausgeführt; `assets/css/styles.min.css` jetzt 22 KB (war 0 Byte, Befund F-01 teilbehoben —
+  CDN-Entfernung folgt in P1.2). `styles.min.css` war in `index.html` bereits verlinkt (Z. 11).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
