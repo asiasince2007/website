@@ -275,6 +275,56 @@ function copyToClipboard(text, btn) {
     });
 }
 
+// ---------------------------------------------------------------------------
+// Öffnungsstatus („Jetzt geöffnet · bis 18 Uhr") — Conversion-Signal.
+// Quelle der Zeiten: docs/GEDAECHTNIS.md (Mo–Fr 9–18, Sa 9–14, So zu).
+// Bewusst ohne Feiertagslogik: an Feiertagen zeigt das Badge ggf. „geöffnet",
+// obwohl zu ist — gleiches Verhalten wie Google Maps ohne Sonderzeiten.
+// Ohne JS bleiben die statischen Öffnungszeiten im Markup stehen (Fallback).
+// ---------------------------------------------------------------------------
+const OPENING_HOURS = { 0: null, 1: [9, 18], 2: [9, 18], 3: [9, 18], 4: [9, 18], 5: [9, 18], 6: [9, 14] };
+const DAY_NAMES = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+function openStatusNow(now = new Date()) {
+    const day = now.getDay();
+    const time = now.getHours() + now.getMinutes() / 60;
+    const today = OPENING_HOURS[day];
+    if (today && time >= today[0] && time < today[1]) {
+        return { open: true, label: `Jetzt geöffnet · bis ${today[1]} Uhr`, short: `Offen bis ${today[1]} Uhr` };
+    }
+    if (today && time < today[0]) {
+        return { open: false, label: `Noch geschlossen · öffnet heute um ${today[0]} Uhr`, short: `Öffnet heute ${today[0]} Uhr` };
+    }
+    for (let i = 1; i <= 7; i++) {
+        const next = (day + i) % 7;
+        const hours = OPENING_HOURS[next];
+        if (hours) {
+            const dayLabel = i === 1 ? 'morgen' : DAY_NAMES[next];
+            return { open: false, label: `Geschlossen · öffnet ${dayLabel} um ${hours[0]} Uhr`, short: `Öffnet ${dayLabel} ${hours[0]} Uhr` };
+        }
+    }
+    return { open: false, label: 'Geschlossen', short: 'Geschlossen' };
+}
+
+function initOpenStatus() {
+    const els = document.querySelectorAll('[data-open-status]');
+    if (!els.length) return;
+    const render = () => {
+        const status = openStatusNow();
+        els.forEach(el => {
+            const dot = el.querySelector('[data-status-dot]');
+            const text = el.querySelector('[data-status-text]');
+            if (dot) {
+                dot.classList.remove('hidden', 'bg-gray-400', 'bg-brand-green', 'bg-brand-terracotta');
+                dot.classList.add(status.open ? 'bg-brand-green' : 'bg-brand-terracotta');
+            }
+            if (text) text.textContent = el.dataset.openStatus === 'short' ? status.short : status.label;
+        });
+    };
+    render();
+    setInterval(render, 60 * 1000); // bei geöffnetem Tab aktuell halten
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Alt-Hash-Links der früheren Single-Page-Version auf echte URLs umleiten (P3.5)
     const HASH_REDIRECTS = {
@@ -300,6 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', redirectOldHash);
 
     initEmailLinks();
+    initOpenStatus();
 
     const menuBtn = document.getElementById('mobile-menu-button');
     if (menuBtn) {

@@ -80,4 +80,31 @@
             mask-image: none;
         }
     }
+
+    /* Mobile Aktionsleiste (Conversion): Anrufen / Route / Öffnungsstatus.
+       Nur < md sichtbar; body.has-action-bar reserviert unten Platz,
+       damit Footer-Inhalte nicht verdeckt werden. */
+    .action-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background: #FDFBF7;
+        border-top: 1px solid rgba(77, 117, 88, 0.3);
+        box-shadow: 0 -2px 12px rgba(45, 74, 54, 0.1);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    @media (max-width: 767.98px) {
+        body.has-action-bar {
+            padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+        }
+    }
+
+    @media (min-width: 768px) {
+        .action-bar { display: none; }
+    }
 }
