@@ -586,18 +586,15 @@
                         </div>
                     </div>
 
-                    <!-- Google Maps Embed -->
-                    <div class="mt-10 rounded-[3rem] overflow-hidden soft-border shadow-sm" style="height:450px;">
-                        <iframe
-                            title="Standort Asia Markt Thien Phu auf Google Maps"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17135.738250219!2d6.942283857049664!3d51.10095676347082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x417196e0d88ec68b%3A0xa4c0b0becc873172!2sAsia%20Markt%20Thien%20Phu!5e1!3m2!1sde!2sde!4v1776007432899!5m2!1sde!2sde"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <!-- Google Maps: Klick-zum-Laden-Fassade (DSGVO-freundlich, lädt erst bei Bedarf) -->
+                    <div id="maps-container" class="mt-10 rounded-[3rem] overflow-hidden soft-border shadow-sm bg-brand-beige" style="height:450px;">
+                        <div id="maps-facade" class="h-full flex flex-col items-center justify-center text-center gap-4 p-8">
+                            <svg class="svg-icon text-brand-green text-5xl" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                            <p class="font-serif text-xl font-bold text-brand-darkGreen">Karte von Google Maps</p>
+                            <p class="text-sm text-gray-600 max-w-md">Erst beim Laden der Karte werden Daten an Google übertragen. Details in unserer <a href="datenschutz.html" class="underline text-brand-green hover:text-brand-darkGreen">Datenschutzerklärung</a>.</p>
+                            <button id="maps-load-btn" type="button" class="bg-brand-darkGreen text-white font-bold py-3 px-8 rounded-full hover:bg-brand-green transition-colors">Karte laden</button>
+                            <a href="https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7" target="_blank" rel="noopener noreferrer" class="text-sm text-brand-green underline hover:text-brand-darkGreen">Oder direkt in Google Maps öffnen</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -922,6 +919,21 @@
 
             document.getElementById('mobile-menu-button').addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // Google Maps erst nach Klick laden (Performance + Datenschutz)
+            document.getElementById('maps-load-btn').addEventListener('click', () => {
+                const iframe = document.createElement('iframe');
+                iframe.title = 'Standort Asia Markt Thien Phu auf Google Maps';
+                iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17135.738250219!2d6.942283857049664!3d51.10095676347082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x417196e0d88ec68b%3A0xa4c0b0becc873172!2sAsia%20Markt%20Thien%20Phu!5e1!3m2!1sde!2sde!4v1776007432899!5m2!1sde!2sde';
+                iframe.width = '100%';
+                iframe.height = '100%';
+                iframe.style.border = '0';
+                iframe.allowFullscreen = true;
+                iframe.referrerPolicy = 'no-referrer-when-downgrade';
+                const container = document.getElementById('maps-container');
+                container.innerHTML = '';
+                container.appendChild(iframe);
             });
 
             const reviewObserver = new IntersectionObserver((entries, observer) => {

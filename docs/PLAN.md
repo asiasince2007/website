@@ -41,8 +41,9 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 - [x] **1.3 Fonts entlasten.** Nur genutzte Schriftschnitte laden (ist gesetzt); optional
   Self-Hosting prüfen. Font Awesome durch Inline-SVG für die wenigen Icons ersetzen.
   *Akzeptanz:* Weniger Render-blockierende Requests; Icons unverändert sichtbar.
-- [ ] **1.4 Google-Maps-iframe lazy laden** (`loading="lazy"` oder Klick-zum-Laden-Fassade).
-  *Akzeptanz:* Maps lädt erst bei Bedarf; LCP verbessert.
+- [x] **1.4 Google-Maps-iframe lazy laden** (`loading="lazy"` oder Klick-zum-Laden-Fassade).
+  *Akzeptanz:* Maps lädt erst bei Bedarf; LCP verbessert. *(Umgesetzt als Klick-zum-Laden-
+  Fassade → erfüllt zugleich die Maps-Anforderung aus P6.2.)*
 
 ---
 

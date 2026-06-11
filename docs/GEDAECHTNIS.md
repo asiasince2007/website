@@ -167,4 +167,9 @@
   bekanntem `favicon.ico`-404 (→ P2.5). Font-Self-Hosting auf P6.2 (DSGVO) verschoben.
   **Gelernt:** `npm install --no-save X` entfernt zuvor per `--no-save` installierte Pakete —
   dev-Tools (puppeteer-core etc.) in einem Aufruf gemeinsam installieren.
+- **2026-06-11** — P1.4 **Google Maps als Klick-zum-Laden-Fassade** (statt nur `loading="lazy"`):
+  Fassade mit Pin-Icon, Datenschutz-Hinweis, „Karte laden"-Button und Direktlink zu Google Maps;
+  iframe wird erst per JS nach Klick injiziert. Verifiziert (`scripts/qa-maps.js`): 0 Google-
+  Requests vor Klick, Karte lädt korrekt nach Klick. **Erfüllt damit auch die Maps-Anforderung
+  aus P6.2 (DSGVO).** Datenschutz-Text („beim Laden der Seite automatisch…") in P6.2 anpassen.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
