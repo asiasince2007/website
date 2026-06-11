@@ -112,21 +112,21 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 
 > Ziel: aus der SPA echte Seiten mit eigenen URLs machen (Befund F-05). Statisch bleiben.
 
-- [ ] **3.1 Seiten auftrennen.** Aus den `page-view`-Blöcken eigenständige Dateien erzeugen:
+- [x] **3.1 Seiten auftrennen.** Aus den `page-view`-Blöcken eigenständige Dateien erzeugen:
   `index.html` (Start), `sortiment.html`, `ueber-uns.html`, `kontakt.html`
   (Impressum/Datenschutz existieren bereits). Gemeinsame Teile (Header, Footer, `<head>`-Basis)
   konsistent in jede Datei übernehmen.
   *Akzeptanz:* Jede Seite ist direkt per URL aufrufbar und valide (ohne JS-Routing).
-- [ ] **3.2 Navigation auf echte Links** (`href="/sortiment.html"` …) umstellen; aktiven
+- [x] **3.2 Navigation auf echte Links** (`href="/sortiment.html"` …) umstellen; aktiven
   Zustand serverseitig/statisch je Seite setzen. JS-`navigateTo` und `page-view`-Logik entfernen
   oder auf reine UI-Interaktionen reduzieren.
   *Akzeptanz:* Keine Hash-Navigation mehr; Zurück-Button & Direktaufruf funktionieren.
-- [ ] **3.3 Seitenspezifische `<title>`, `<meta description>`, `<h1>`, Canonical** je Seite,
+- [x] **3.3 Seitenspezifische `<title>`, `<meta description>`, `<h1>`, Canonical** je Seite,
   keyword-orientiert (z. B. „Asiatisches Sortiment in Langenfeld — Asia Markt Thien Phu").
   *Akzeptanz:* Jede Seite hat eindeutige, sprechende Metadaten.
-- [ ] **3.4 Sitemap & interne Verlinkung** um die neuen URLs ergänzen; sinnvolle interne Links.
+- [x] **3.4 Sitemap & interne Verlinkung** um die neuen URLs ergänzen; sinnvolle interne Links.
   *Akzeptanz:* Sitemap vollständig; alle Seiten intern erreichbar.
-- [ ] **3.5 301-Verhalten für alte Hash-Links** sicherstellen (clientseitiges Mapping
+- [x] **3.5 301-Verhalten für alte Hash-Links** sicherstellen (clientseitiges Mapping
   `#sortiment` → `/sortiment.html`), damit geteilte Alt-Links nicht ins Leere laufen.
   *Akzeptanz:* Alte `#…`-Links landen auf der korrekten Seite.
 

@@ -196,4 +196,18 @@
   `icon-192/512.png`, `apple-touch-icon.png` (alle aus `design/`-Logo via sharp),
   `site.webmanifest`, `theme-color #FDFBF7` — auf allen 3 Seiten verlinkt. QA: 0 Konsolenfehler
   (Favicon-404 behoben), alle Dateien lokal erreichbar. **Phase 0–2 damit komplett.**
+- **2026-06-11** — **Phase 3 komplett: Multi-Page-Umbau (F-05 behoben).** SPA in 4 echte Seiten
+  zerlegt: `index.html` (Start), `sortiment.html`, `ueber-uns.html`, `kontakt.html` — per
+  Migrationsskript `scripts/split-pages.js` (Bausteine aus alter index.html extrahiert, Head je
+  Seite mit eigenem Title/Description/Canonical/OG parametrisiert, H2→H1 auf Unterseiten).
+  Gemeinsames JS inkl. Modal-Templates jetzt in `assets/js/main.js` (defer, eine Quelle statt
+  Duplikate). Nav/Footer auf echte Links, aktiver Zustand statisch + `aria-current="page"`;
+  `aria-expanded` am Mobile-Menü ergänzt (Befund aus P0.3 behoben). `navigateTo`/`page-view`-
+  Logik entfernt. Alt-Hash-Links (`/#sortiment` …) leiten per JS auf echte URLs um (auch via
+  `hashchange`); `#bewertungen` bleibt Anker auf Start. Sitemap um 3 URLs erweitert (jetzt 6).
+  QA: `scripts/qa-multipage.js` — 23 Checks (Titel/H1/Nav-Zustand je Seite, Klick-Navigation,
+  Mobile-Menü, Modals, Maps-Fassade, Reviews, Hash-Redirects, Footer-Links, 0 Konsolenfehler).
+  **Gelernt:** (1) Regex-Block-Entfernung in CSS war zu gierig/lazy → verwaiste Keyframe-Zeilen
+  brachen `.organic-shape` (visuell entdeckt, gefixt). (2) Same-Document-Hash-Navigation feuert
+  kein DOMContentLoaded → Redirect zusätzlich an `hashchange` gebunden.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
