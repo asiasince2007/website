@@ -210,4 +210,11 @@
   **Gelernt:** (1) Regex-Block-Entfernung in CSS war zu gierig/lazy → verwaiste Keyframe-Zeilen
   brachen `.organic-shape` (visuell entdeckt, gefixt). (2) Same-Document-Hash-Navigation feuert
   kein DOMContentLoaded → Redirect zusätzlich an `hashchange` gebunden.
+- **2026-06-11** — P4.1/4.2 **Interims-Brand-Visuals statt „Coming soon"** (F-06/F-07 interimistisch
+  behoben): `hero-interim.webp` (19 KB) + `tradition-interim.webp` (21 KB), je 800×1000, gerendert
+  aus `scripts/interim-visuals.html` (Markenfarben, Lampion, Logo, echte NAP-Texte) via
+  `scripts/render-interim-visuals.js`. Hero mit `fetchpriority="high"` (LCP), Tradition lazy.
+  Foto-Briefings bleiben als `TODO(inhaber)`-HTML-Kommentare erhalten. P4.3: Sortiment-Karten
+  geprüft, bewusst ohne Fotos (ADR-05), konsistent — unverändert. P4.4: Floating-Button auf
+  Mobil icon-only (runder 48-px-Button, `aria-label`), überdeckt CTAs nicht mehr funktional.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

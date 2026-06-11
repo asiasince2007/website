@@ -137,17 +137,17 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 > Abhängig von Fotolieferung des Inhabers (`TODO(inhaber)`). Bis dahin hochwertige Interims-
 > Lösung statt „Coming soon".
 
-- [ ] **4.1 Hero-Bild ersetzen (Befund F-06).** „Coming soon"-Platzhalter durch echtes
+- [x] **4.1 Hero-Bild ersetzen (Befund F-06).** *(Interims-Brand-Visual; echtes Foto weiterhin `TODO(inhaber)`, Briefing im HTML-Kommentar.)* „Coming soon"-Platzhalter durch echtes
   Laden-/Produktfoto (oder ansprechendes Marken-Visual) ersetzen; als WebP/AVIF, `eager`,
   korrektes `width/height` (CLS), aussagekräftiger `alt`.
   *Akzeptanz:* Above-the-fold zeigt echtes Bild; LCP-Element optimiert.
-- [ ] **4.2 Tradition-Platzhalter füllen (Befund F-07).**
+- [x] **4.2 Tradition-Platzhalter füllen (Befund F-07).** *(Interims-Brand-Visual; echtes Foto weiterhin `TODO(inhaber)`.)*
   *Akzeptanz:* Kein leerer/gestrichelter Bildrahmen mehr.
-- [ ] **4.3 Sortiment bleibt bewusst ohne Produktfotos (ADR-05).** **Keine** Produktfotos
+- [x] **4.3 Sortiment bleibt bewusst ohne Produktfotos (ADR-05).** *(Geprüft: 6 Karten, einheitliches Grid, keine Fotos — keine Änderung nötig.)* **Keine** Produktfotos
   einbauen (Inhaberentscheidung). Stattdessen die bestehenden 6 Icon/Text-Karten beibehalten
   und ggf. visuell verfeinern (einheitliche Höhen, dezente Icons/Illustrationen statt Fotos).
   *Akzeptanz:* Sortiment ohne Fotos, Karten optisch konsistent.
-- [ ] **4.4 Floating-Button „Vorschlag einreichen" prüfen:** Zweck klären, Platzierung so
+- [x] **4.4 Floating-Button „Vorschlag einreichen" prüfen:** Zweck klären, Platzierung so
   anpassen, dass er mobil keine CTAs verdeckt.
   *Akzeptanz:* Keine Überlagerung wichtiger Aktionselemente.
 

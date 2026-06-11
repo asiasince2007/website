@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito', sans-serif; }
+  .card {
+    width: 800px; height: 1000px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 36px; text-align: center;
+  }
+  /* Variante 1: Hero (hell) */
+  #hero { background: linear-gradient(165deg, #FDFBF7 0%, #F4EFE6 55%, #EAE2D2 100%); }
+  #hero .blob1 { position: absolute; width: 560px; height: 560px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; background: rgba(91,138,104,0.13); top: -150px; left: -160px; }
+  #hero .blob2 { position: absolute; width: 460px; height: 460px; border-radius: 50%; background: rgba(184,58,45,0.07); bottom: -120px; right: -110px; }
+  #hero .ring { position: absolute; inset: 36px; border: 2px solid rgba(91,138,104,0.25); border-radius: 9999px 9999px 48px 48px / 520px 520px 48px 48px; }
+  .lantern { width: 150px; filter: drop-shadow(0 14px 30px rgba(184,58,45,0.30)); }
+  .logo { width: 240px; height: 240px; border-radius: 50%; box-shadow: 0 16px 50px rgba(45,74,54,0.20); }
+  h1 { font-family: 'Lora', serif; font-size: 52px; font-weight: 700; color: #2D4A36; line-height: 1.2; }
+  .sub { font-size: 26px; color: #5B8A68; font-weight: 600; }
+  .badge { background: #2D4A36; color: #FDFBF7; font-size: 21px; font-weight: 700; padding: 12px 34px; border-radius: 999px; }
+  /* Variante 2: Tradition (dunkel) */
+  #tradition { background: linear-gradient(170deg, #2D4A36 0%, #233B2B 60%, #1B2E21 100%); }
+  #tradition .blob1 { position: absolute; width: 520px; height: 520px; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; background: rgba(91,138,104,0.28); top: -130px; right: -150px; }
+  #tradition .blob2 { position: absolute; width: 420px; height: 420px; border-radius: 50%; background: rgba(244,239,230,0.05); bottom: -110px; left: -100px; }
+  #tradition .ring { position: absolute; inset: 36px; border: 2px solid rgba(244,239,230,0.18); border-radius: 48px; }
+  #tradition h1 { color: #FDFBF7; }
+  #tradition .sub { color: #D4A373; }
+  #tradition .badge { background: #F4EFE6; color: #2D4A36; }
+  .inner { position: relative; display: flex; flex-direction: column; align-items: center; gap: 30px; padding: 0 70px; }
+</style>
+</head>
+<body>
+  <div class="card" id="hero">
+    <div class="blob1"></div><div class="blob2"></div><div class="ring"></div>
+    <div class="inner">
+      <svg class="lantern" viewBox="0 0 100 140" fill="none"><path d="M45 4h10v18H45z" fill="#B8923A"/><path d="M18 52c0-18 14-34 32-34s32 16 32 34v22c0 24-14 44-32 44S18 98 18 74V52z" fill="#B83A2D"/><path d="M24 54h52" stroke="#B8923A" stroke-width="4"/><path d="M24 74h52" stroke="#B8923A" stroke-width="4"/><path d="M24 94h52" stroke="#B8923A" stroke-width="4"/><path d="M50 118v16" stroke="#B8923A" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="136" r="4" fill="#B8923A"/></svg>
+      <h1>Authentische<br>asiatische Esskultur</h1>
+      <div class="sub">Frische Kräuter · Markenprodukte · Beratung</div>
+      <div class="badge">Hauptstraße 74 · Langenfeld</div>
+    </div>
+  </div>
+  <div class="card" id="tradition">
+    <div class="blob1"></div><div class="blob2"></div><div class="ring"></div>
+    <div class="inner">
+      <img class="logo" src="../assets/images/thien_phu_logo.webp" alt="">
+      <h1>Gelebte Tradition<br>seit 2007</h1>
+      <div class="sub">Inhabergeführt in Langenfeld (Rheinland)</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -184,14 +184,15 @@
                         <div class="lg:w-1/2">
                             <div class="relative">
                                 <div class="absolute -inset-4 bg-brand-beige rounded-[4rem] transform -rotate-3"></div>
-                                <!-- PLATZHALTER: Über uns – Ladeninterieur -->
-                                <div class="relative overflow-hidden rounded-[3.5rem] shadow-sm h-[350px] sm:h-[450px] lg:h-[600px] w-full border-2 border-dashed border-brand-green/40 bg-brand-beige flex flex-col items-center justify-center gap-3 p-6 text-center">
-                                    <span class="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">📷 PLATZHALTER</span>
-                                    <p class="font-serif font-bold text-brand-darkGreen text-sm">Über uns – Ladeninterieur</p>
-                                    <p class="text-xs text-gray-500 leading-relaxed max-w-[240px]">Innenaufnahme des Asia Markt Thien Phu: Ordentlich eingeräumte Regale mit bunten asiatischen Produktverpackungen, im Hintergrund ein Frischwarenbereich mit Gemüse sichtbar. Warmes Ladenlicht, Perspektive entlang eines Ganges – vermittelt Authentizität und Reichhaltigkeit. Hochformat, empfohlen: 800×1000 px.</p>
-                                    <!-- Temporäre einfarbige Abdeckung – verbirgt Platzhalter für Besucher -->
-                                    <div class="absolute inset-0 bg-brand-cream rounded-[3.5rem] placeholder-coming-soon"></div>
-                                </div>
+                                <!-- TODO(inhaber): Interims-Visual durch echtes Foto ersetzen.
+                                     Foto-Briefing: Innenaufnahme des Asia Markt Thien Phu — ordentlich
+                                     eingeräumte Regale mit bunten asiatischen Produktverpackungen, im
+                                     Hintergrund Frischwarenbereich mit Gemüse. Warmes Ladenlicht, Perspektive
+                                     entlang eines Ganges. Hochformat, ~800×1000 px. -->
+                                <img src="assets/images/tradition-interim.webp" width="800" height="1000"
+                                     alt="Gelebte Tradition seit 2007 — inhabergeführter Asia Markt Thien Phu in Langenfeld"
+                                     loading="lazy" decoding="async"
+                                     class="relative rounded-[3.5rem] shadow-sm h-[350px] sm:h-[450px] lg:h-[600px] w-full object-cover">
                                 <div class="absolute -bottom-6 -right-4 bg-white text-brand-darkGreen p-6 rounded-3xl flex flex-col items-center justify-center shadow-2xl border-2 border-brand-green/20">
                                     <svg class="svg-icon text-4xl mb-2 text-brand-gold" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M30.7 72.3C37.6 48.4 59.5 32 84.4 32l344 0c24.9 0 46.8 16.4 53.8 40.3l23.4 80.2c12.8 43.7-20.1 87.5-65.6 87.5-26.3 0-49.4-14.9-60.8-37.1-11.6 21.9-34.6 37.1-61.4 37.1-26.6 0-49.7-15-61.3-37-11.6 22-34.7 37-61.3 37-26.8 0-49.8-15.1-61.4-37.1-11.4 22.1-34.5 37.1-60.8 37.1-45.6 0-78.4-43.7-65.6-87.5L30.7 72.3zM96.4 352l320 0 0-66.4c7.6 1.6 15.5 2.4 23.5 2.4 14.3 0 28-2.6 40.5-7.2l0 151.2c0 26.5-21.5 48-48 48l-352 0c-26.5 0-48-21.5-48-48l0-151.2c12.5 4.6 26.1 7.2 40.5 7.2 8.1 0 15.9-.8 23.5-2.4l0 66.4z"/></svg>
                                     <span class="text-sm tracking-wider font-bold text-center">Gelebte<br>Tradition</span>
@@ -291,9 +292,9 @@
     <div id="modal-root"></div>
 
     <!-- Schwebender Vorschläge-Button -->
-    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white rounded-full shadow-lg flex items-center gap-2 px-4 py-3 transition duration-300">
+    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" aria-label="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white rounded-full shadow-lg flex items-center gap-2 p-3 sm:px-4 sm:py-3 transition duration-300">
         <svg class="svg-icon text-brand-gold text-lg" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9 32.7-34.4 52.7-80.9 52.7-132.1 0-106-86-192-192-192S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9l201.7 0zM288 432l-192 0 0 16c0 44.2 35.8 80 80 80l32 0c44.2 0 80-35.8 80-80l0-16zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24z"/></svg>
-        <span class="text-sm font-semibold">Vorschlag einreichen</span>
+        <span class="hidden sm:inline text-sm font-semibold">Vorschlag einreichen</span>
     </button>
 </body>
 </html>
