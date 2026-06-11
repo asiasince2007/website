@@ -49,7 +49,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 
 ## Phase 2 — SEO-Fundament (kann parallel zu Phase 1 laufen)
 
-- [ ] **2.1 `GroceryStore`-JSON-LD einbauen (Befund F-03).** Vollständiges Schema im `<head>`
+- [x] **2.1 `GroceryStore`-JSON-LD einbauen (Befund F-03).** Vollständiges Schema im `<head>`
   jeder Seite. Datenquelle: `GEDAECHTNIS.md` → NAP & Öffnungszeiten. Grundgerüst:
 
   ```html

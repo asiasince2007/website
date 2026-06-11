@@ -172,4 +172,10 @@
   iframe wird erst per JS nach Klick injiziert. Verifiziert (`scripts/qa-maps.js`): 0 Google-
   Requests vor Klick, Karte lädt korrekt nach Klick. **Erfüllt damit auch die Maps-Anforderung
   aus P6.2 (DSGVO).** Datenschutz-Text („beim Laden der Seite automatisch…") in P6.2 anpassen.
+- **2026-06-11** — P2.1 **GroceryStore-JSON-LD** in alle 3 Seiten eingebaut (identischer Block,
+  `@id: …/#store`). **Abweichung vom PLAN-Template:** `image`/`logo` = Logo-WebP statt
+  nicht existentem `storefront.jpg` (keine Erfindungen); `sameAs` weggelassen →
+  `TODO(inhaber)`-Kommentar im Head. Zusätzlich `foundingDate: 2007`, `currenciesAccepted`.
+  Lokal validiert (`scripts/qa-jsonld.js`: JSON-Parse + NAP-Abgleich, alle OK). Google
+  Rich-Results-Test nach Deploy ausführen (lokal nicht möglich).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
