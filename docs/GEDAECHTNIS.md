@@ -246,4 +246,17 @@
   (2) Highlight-Subtexte gray-500→gray-600 auf Beige. (3) Sonntag-Zeile gray-400→gray-500.
   (4) `<title>` + Description + Canonical auf Impressum/Datenschutz ergänzt (fehlten!).
   `aria-expanded` (P0.3-Befund) war bereits in P3 behoben; Fokus-Stile + alt-Texte geprüft.
+- **2026-06-11** — P6.3 **Abschluss-QA bestanden (lokal, http-server + Headless-Chrome).**
+  Überschriften-Hierarchie aller Seiten begradigt (Footer h4→h2, Sortiment-Karten h3→h2,
+  Kontakt h3/h4 neu gestuft). **Lighthouse Mobil final:** Start 91/100/100/100 ·
+  Sortiment 96/100/100/100 · Über-uns 96/100/100/100 · Kontakt 95/100/100/100 ·
+  Impressum 99/100/100/100 · Datenschutz 98/100/100/100 (Perf/A11y/BP/SEO; Baseline
+  Live-Site war 62/93/96/100). axe: 0 Verstöße; Multipage-QA: 23/23 OK; JSON-LD: 7/7 valide;
+  NAP konsistent; 0 Konsolenfehler; Sitemap 6 URLs.
+  **Nach dem Deploy (git push) noch ausstehend:** (1) Google Rich-Results-Test mit Live-URL,
+  (2) Lighthouse-Nachmessung gegen https://www.asiamarkt.info/, (3) Sharing-Vorschau
+  (WhatsApp) testen, (4) Search Console: Sitemap einreichen.
+  **Session-Zusammenfassung:** Phasen 0–6 vollständig abgearbeitet bis auf P5.3 (Rezepte —
+  bewusst offen, braucht echte Inhalte vom Inhaber). Offene `TODO(inhaber)`: echte Fotos
+  (Hero/Tradition/Storefront), `sameAs`-Profile, Rezept-Themen, GBP-Pflege.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

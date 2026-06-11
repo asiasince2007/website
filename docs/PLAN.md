@@ -180,7 +180,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   Fokusführung, alle Bilder mit sinnvollem `alt`.
 - [x] **6.2 Datenschutz/DSGVO:** Google Fonts self-hosten **oder** Consent; Maps als
   Klick-zum-Laden; `datenschutz.html`/`impressum.html` auf Vollständigkeit & Inhabername prüfen.
-- [ ] **6.3 Abschluss-QA (Definition of Done):** Lighthouse-Mobil ≥ 90 in allen Kategorien,
+- [x] **6.3 Abschluss-QA (Definition of Done):** *(Lokal erfüllt; Live-Nachmessung + Rich-Results-Test nach Deploy — siehe GEDAECHTNIS.)* Lighthouse-Mobil ≥ 90 in allen Kategorien,
   Rich-Results-Test fehlerfrei, NAP konsistent, keine Konsolenfehler, Sitemap aktuell, alle
   Seiten direkt aufrufbar. Ergebnisse in `GEDAECHTNIS.md` protokollieren.
 
