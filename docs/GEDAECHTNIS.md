@@ -232,4 +232,11 @@
   dokumentierte Fakten aus den Stammdaten. **FAQPage-JSON-LD** auf `kontakt.html` (Antworten
   identisch zum sichtbaren Inhalt, Google-Richtlinie). JSON-LD-QA: alle 7 Blöcke valide.
   P5.3 (Rezepte) bewusst offen — nur mit echten Inhalten (`TODO(inhaber)`).
+- **2026-06-11** — P6.2 **DSGVO: Google Fonts self-gehostet.** 14 WOFF2 (Lora 400/600/700,
+  Nunito 400/500/600/700, latin + latin-ext) via `scripts/fetch-fonts.js` nach `assets/fonts/`,
+  `@font-face` in `assets/css/fonts.css`, alle 6 Seiten umgestellt (+ Preload Lora-700/
+  Nunito-400). Datenschutzerklärung aktualisiert: Fonts-Abschnitt → „lokal gehostet",
+  Maps-Abschnitt → Zwei-Klick-Lösung (Einwilligung), Drittland-Liste angepasst.
+  Verifiziert: **0 externe Requests beim Seitenaufruf** auf allen Seiten, Fonts laden korrekt.
+  Impressum/Datenschutz nennen Inhaber Van Tran (Vollständigkeit geprüft).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
