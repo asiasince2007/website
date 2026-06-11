@@ -97,7 +97,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   erstellen.
   *Akzeptanz:* Sharing-Vorschau (z. B. WhatsApp) zeigt Titel + Bild.
 
-- [ ] **2.4 Review-/`aggregateRating`-Schema (Befund F-09).** Reale Werte aus dem Export
+- [x] **2.4 Review-/`aggregateRating`-Schema (Befund F-09).** Reale Werte aus dem Export
   verwenden: `aggregateRating` **ratingValue 4.39, reviewCount 100** (Quelle:
   `docs/bewertungen-kuratiert.json` → `meta`). Optional einzelne `Review`-Objekte aus
   `marquee_auswahl`. Keine erfundenen Zahlen; bei späterem Stand aktualisieren.

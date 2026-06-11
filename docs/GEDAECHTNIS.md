@@ -186,4 +186,10 @@
   Titel/URLs). **OG-Bild (1200×630, 45 KB JPG)** aus Brand-Elementen gerendert (Logo, Lora/Nunito,
   Markenfarben) via `scripts/og-template.html` + Puppeteer → `assets/images/og-image.jpg`.
   Sharing-Vorschau (WhatsApp etc.) erst nach Deploy real testbar.
+- **2026-06-11** — P2.4 **`aggregateRating`** (4.39 / 100, Quelle: Bewertungs-Export) in alle
+  3 JSON-LD-Blöcke. Einzelne `Review`-Objekte bewusst weggelassen (optional lt. PLAN).
+  **Hinweis:** Google zeigt selbst gehostete LocalBusiness-Sterne seit 2019 meist nicht als
+  Rich Result („self-serving") — Markup ist dennoch valide und für andere Suchmaschinen nützlich.
+  **Pflege:** Bei neuem Export `ratingValue`/`reviewCount` in allen 3 Dateien aktualisieren
+  (Phase 3 dedupliziert die Blöcke ohnehin in echte Einzelseiten).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
