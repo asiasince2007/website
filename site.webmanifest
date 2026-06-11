@@ -1,0 +1,14 @@
+{
+  "name": "Asia Markt Thien Phu",
+  "short_name": "Thien Phu",
+  "description": "Asiatische Lebensmittel in Langenfeld (Rheinland)",
+  "lang": "de",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FDFBF7",
+  "theme_color": "#FDFBF7",
+  "icons": [
+    { "src": "/assets/images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

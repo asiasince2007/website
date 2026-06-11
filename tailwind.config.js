@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html'],
+  content: ['./*.html', './assets/js/main.js'],
   theme: {
     extend: {
       fontFamily: {
@@ -9,7 +9,7 @@ module.exports = {
       },
       colors: {
         brand: {
-          green: '#5B8A68',
+          green: '#4D7558',
           darkGreen: '#2D4A36',
           cream: '#FDFBF7',
           beige: '#F4EFE6',

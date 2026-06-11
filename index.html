@@ -7,46 +7,76 @@
     <meta name="description" content="Asia Markt Thien Phu in Langenfeld. Original asiatische Lebensmittel, frisches Gemüse und ausgewählte Qualität. Entdecken Sie unsere Vielfalt!">
     <link rel="canonical" href="https://www.asiamarkt.info/">
 
-    <!-- Lokales Tailwind-Bundle (wenn vorhanden) -->
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-    <!-- Fallback: Runtime-Tailwind für GitHub Pages, falls styles.min.css nicht gebaut wurde -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css">
-    <!-- Google Fonts (nur genutzte Gewichte, mit display=swap) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicons & technische Meta -->
+    <meta name="theme-color" content="#FDFBF7">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-    <script>
-        // noinspection JSUnresolvedReference
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['Lora', 'serif'],
-                        sans: ['Nunito', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            green: '#5B8A68',
-                            darkGreen: '#2D4A36',
-                            cream: '#FDFBF7',
-                            beige: '#F4EFE6',
-                            earth: '#8B5A2B',
-                            accent: '#D4A373',
-                            gold: '#F59E0B',
-                            terracotta: '#B83A2D',
-                            terracottaSoft: '#C95A4D',
-                            terracottaDeep: '#8B2418',
-                            terracottaTint: '#F4E3DF'
-                        }
-                    }
-                }
-            }
-        }
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Asia Markt Thien Phu">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="Asia Markt Thien Phu | Authentische asiatische Lebensmittel in Langenfeld">
+    <meta property="og:description" content="Asia Markt Thien Phu in Langenfeld. Original asiatische Lebensmittel, frisches Gemüse und ausgewählte Qualität. Entdecken Sie unsere Vielfalt!">
+    <meta property="og:url" content="https://www.asiamarkt.info/">
+    <meta property="og:image" content="https://www.asiamarkt.info/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Asia Markt Thien Phu — Asiatische Lebensmittel in Langenfeld">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asia Markt Thien Phu | Authentische asiatische Lebensmittel in Langenfeld">
+    <meta name="twitter:description" content="Asia Markt Thien Phu in Langenfeld. Original asiatische Lebensmittel, frisches Gemüse und ausgewählte Qualität. Entdecken Sie unsere Vielfalt!">
+    <meta name="twitter:image" content="https://www.asiamarkt.info/assets/images/og-image.jpg">
+
+    <!-- Strukturierte Daten: GroceryStore (NAP-Quelle: docs/GEDAECHTNIS.md) -->
+    <!-- TODO(inhaber): sameAs mit echten Profilen füllen (Google Business, golocal, Social) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GroceryStore",
+      "@id": "https://www.asiamarkt.info/#store",
+      "name": "Asia Markt Thien Phu",
+      "image": "https://www.asiamarkt.info/assets/images/thien_phu_logo.webp",
+      "logo": "https://www.asiamarkt.info/assets/images/thien_phu_logo.webp",
+      "url": "https://www.asiamarkt.info/",
+      "telephone": "+4921731065590",
+      "priceRange": "€",
+      "foundingDate": "2007",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hauptstraße 74",
+        "postalCode": "40764",
+        "addressLocality": "Langenfeld (Rheinland)",
+        "addressCountry": "DE"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 51.1051371, "longitude": 6.9479852 },
+      "paymentAccepted": "Bargeld, Kartenzahlung",
+      "currenciesAccepted": "EUR",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+      ],
+      "hasMap": "https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.39",
+        "reviewCount": "100",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
     </script>
+
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <!-- Selbst gehostete Fonts (DSGVO, P6.2) -->
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lora-700-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-400-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/fonts.css">
 
     <style>
         body {
@@ -55,17 +85,6 @@
             overflow-y: scroll;
         }
 
-        .page-view {
-            display: none;
-        }
-        .page-view.active {
-            display: block;
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
         .organic-shape {
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -81,14 +100,14 @@
 
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #FDFBF7; }
-        ::-webkit-scrollbar-thumb { background: #5B8A68; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: #4D7558; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #2D4A36; }
 
         .prose-legal h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; color: #2D4A36; margin-top: 2rem; margin-bottom: 0.75rem; }
         .prose-legal h3 { font-family: 'Lora', serif; font-size: 1.125rem; font-weight: 600; color: #2D4A36; margin-top: 1.5rem; margin-bottom: 0.5rem; }
         .prose-legal p { color: #374151; line-height: 1.75; margin-bottom: 1rem; }
         .prose-legal ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #374151; line-height: 1.75; }
-        .prose-legal a { color: #5B8A68; text-decoration: underline; }
+        .prose-legal a { color: #4D7558; text-decoration: underline; }
 
         .header-logos { display: flex; align-items: center; justify-content: flex-start; gap: 0.15rem; }
         .header-logo-left {
@@ -111,6 +130,7 @@
             .header-logo-right { height: 3.35rem; width: 10.5rem; }
         }
     </style>
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body class="font-sans text-gray-700 antialiased flex flex-col min-h-screen">
 
@@ -119,22 +139,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24">
                 <div class="flex items-center">
-                    <a href="#start" class="header-logos group" aria-label="Asia Markt Thien Phu — Startseite">
-                        <img src="assets/images/thien_phu_logo.png" width="220" height="220" alt="Asia Markt Logo" class="header-logo-left transition-opacity duration-300 group-hover:opacity-90">
+                    <a href="/" class="header-logos group" aria-label="Asia Markt Thien Phu — Startseite">
+                        <img src="assets/images/thien_phu_logo.webp" width="220" height="220" alt="Asia Markt Logo" class="header-logo-left transition-opacity duration-300 group-hover:opacity-90">
                         <img src="assets/images/logo-thien-phu-header.svg" width="320" height="88" alt="Asia Markt Thien Phu — Asiatische Lebensmittel in Langenfeld" class="header-logo-right transition-opacity duration-300 group-hover:opacity-90">
                     </a>
                 </div>
 
                 <div class="hidden md:flex items-center space-x-2">
-                    <a href="#start" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Startseite</a>
-                    <a href="#sortiment" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Unser Sortiment</a>
-                    <a href="#ueber-uns" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Tradition &amp; Auswahl</a>
-                    <a href="#kontakt" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Kontakt</a>
+                    <a href="/" aria-current="page" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 bg-brand-green text-white hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Startseite</a>
+                    <a href="sortiment.html" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Unser Sortiment</a>
+                    <a href="ueber-uns.html" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Tradition &amp; Auswahl</a>
+                    <a href="kontakt.html" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Kontakt</a>
                 </div>
 
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-brand-darkGreen p-2 focus:outline-none" aria-label="Menü öffnen">
-                        <i class="fa-solid fa-bars text-2xl"></i>
+                    <button id="mobile-menu-button" class="text-brand-darkGreen p-2 focus:outline-none" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg class="svg-icon text-2xl" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
                     </button>
                 </div>
             </div>
@@ -142,31 +162,28 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-t border-brand-green/10 shadow-lg absolute w-full left-0">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#start" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Startseite</a>
-                <a href="#sortiment" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Unser Sortiment</a>
-                <a href="#ueber-uns" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Tradition &amp; Auswahl</a>
-                <a href="#kontakt" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Kontakt</a>
+                <a href="/" aria-current="page" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium bg-brand-green text-white hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Startseite</a>
+                <a href="sortiment.html" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Unser Sortiment</a>
+                <a href="ueber-uns.html" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Tradition &amp; Auswahl</a>
+                <a href="kontakt.html" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Kontakt</a>
             </div>
         </div>
     </nav>
 
     <main class="flex-grow pt-24">
 
-        <!-- ==========================================
-             TAB 1: STARTSEITE
-             ========================================== -->
-        <div id="start" class="page-view active">
+<div id="start">
             <section class="relative pt-12 pb-16 lg:pt-24 lg:pb-32 overflow-hidden">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12">
 
                     <div class="w-full lg:w-1/2 text-center lg:text-left">
                         <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
                             <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-darkGreen text-brand-cream text-sm font-bold shadow-sm">
-                                <i class="fa-solid fa-calendar-check text-brand-gold"></i>
+                                <svg class="svg-icon text-brand-gold" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M320 0c17.7 0 32 14.3 32 32l0 32 32 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64l32 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32zm22 161.7c-10.7-7.8-25.7-5.4-33.5 5.3L189.1 331.2 137 279.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.9 7.5 18.8 7s13.4-4.1 17.5-9.8L347.3 195.2c7.8-10.7 5.4-25.7-5.3-33.5z"/></svg>
                                 <span>Ihr Asia Markt seit 2007</span>
                             </div>
                             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cream text-brand-darkGreen text-sm font-semibold border border-brand-green/30">
-                                <i class="fa-solid fa-star text-brand-gold"></i>
+                                <svg class="svg-icon text-brand-gold" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
                                 <span>Ausgewählte Vielfalt in Langenfeld</span>
                             </div>
                         </div>
@@ -177,18 +194,18 @@
                             Erleben Sie in unserem kleinen, familiengeführten Asia Markt Thien Phu die authentische Esskultur Asiens. Wir bieten Ihnen sorgfältig ausgewählte Zutaten, bekannte asiatische Markenprodukte und regelmäßige Frischlieferungen.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <button onclick="navigateTo('kontakt')" class="bg-brand-darkGreen hover:bg-brand-green text-white font-bold py-3 px-8 rounded-full transition duration-300 text-center shadow-md flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-location-dot"></i> Kontakt &amp; Öffnungszeiten
-                            </button>
-                            <a href="#sortiment" class="bg-brand-green hover:bg-brand-darkGreen hover:ring-4 hover:ring-[var(--color-highlight-bg)] text-white font-medium py-3 px-8 rounded-full transition duration-200 text-center shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
+                            <a href="kontakt.html" class="bg-brand-darkGreen hover:bg-brand-green text-white font-bold py-3 px-8 rounded-full transition duration-300 text-center shadow-md flex items-center justify-center gap-2">
+                                <svg class="svg-icon" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg> Kontakt &amp; Öffnungszeiten
+                            </a>
+                            <a href="sortiment.html" class="bg-brand-green hover:bg-brand-darkGreen hover:ring-4 hover:ring-[var(--color-highlight-bg)] text-white font-medium py-3 px-8 rounded-full transition duration-200 text-center shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
                                 Unser Sortiment
                             </a>
                             <a href="#bewertungen" class="bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth border border-brand-earth/20 font-medium py-3 px-8 rounded-full transition duration-300 text-center flex items-center justify-center gap-2">
-                                <i class="fa-brands fa-google"></i> Kundenstimmen
+                                <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M500 261.8C500 403.3 403.1 504 260 504 122.8 504 12 393.2 12 256S122.8 8 260 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9c-88.3-85.2-252.5-21.2-252.5 118.2 0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9l-140.8 0 0-85.3 236.1 0c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg> Kundenstimmen
                             </a>
                         </div>
                         <p class="mt-5 text-sm text-gray-500 flex items-center gap-2 justify-center lg:justify-start">
-                            <i class="fa-solid fa-store text-[var(--color-highlight)]"></i>
+                            <svg class="svg-icon text-[var(--color-highlight)]" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M30.7 72.3C37.6 48.4 59.5 32 84.4 32l344 0c24.9 0 46.8 16.4 53.8 40.3l23.4 80.2c12.8 43.7-20.1 87.5-65.6 87.5-26.3 0-49.4-14.9-60.8-37.1-11.6 21.9-34.6 37.1-61.4 37.1-26.6 0-49.7-15-61.3-37-11.6 22-34.7 37-61.3 37-26.8 0-49.8-15.1-61.4-37.1-11.4 22.1-34.5 37.1-60.8 37.1-45.6 0-78.4-43.7-65.6-87.5L30.7 72.3zM96.4 352l320 0 0-66.4c7.6 1.6 15.5 2.4 23.5 2.4 14.3 0 28-2.6 40.5-7.2l0 151.2c0 26.5-21.5 48-48 48l-352 0c-26.5 0-48-21.5-48-48l0-151.2c12.5 4.6 26.1 7.2 40.5 7.2 8.1 0 15.9-.8 23.5-2.4l0 66.4z"/></svg>
                             <span>Dies ist kein Online-Shop – alle Produkte sind ausschließlich vor Ort im Laden erhältlich.</span>
                         </p>
                     </div>
@@ -196,21 +213,18 @@
                     <div class="w-full lg:w-1/2 relative flex justify-center mt-10 lg:mt-0">
                         <div class="absolute w-72 h-72 bg-brand-beige organic-shape -top-6 -left-6 z-0"></div>
                         <div class="absolute w-64 h-64 bg-brand-green/20 rounded-full -bottom-8 -right-8 z-0"></div>
-                        <!-- PLATZHALTER: Hero-Bild – Asiatische Zutaten -->
-                        <div class="relative z-10 overflow-hidden w-full max-w-md rounded-t-[10rem] rounded-b-[3rem] shadow-xl soft-border h-[550px] bg-brand-beige border-2 border-dashed border-brand-green/40 flex flex-col items-center justify-center gap-3 p-6 text-center">
-                            <span class="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">📷 PLATZHALTER</span>
-                            <p class="font-serif font-bold text-brand-darkGreen text-sm">Hero-Bild: Frische Asiatische Zutaten</p>
-                            <p class="text-xs text-gray-500 leading-relaxed max-w-[220px]">Professionelle Food-Fotografie: Farbenfrohe Vogelperspektive auf frische asiatische Zutaten auf einer Holzoberfläche – Zitronengras, Thai-Basilikum, Galangal, rote Chilis, Kaffirlimettenblätter, Pak Choi, Jasminreis, Sternanis und Koriander. Warmes Naturlicht, lebendige Farben, stimmungsvolle Tiefenschärfe. Hochformat (4:5), empfohlen: 800×1000 px.</p>
-                            <!-- Temporäre einfarbige Abdeckung – verbirgt Platzhalter für Besucher -->
-                            <figure class="absolute inset-0 bg-white rounded-t-[10rem] rounded-b-[3rem] shadow-md flex items-center justify-center">
-                                <div class="w-[92%] h-[92%] rounded-[2.5rem] bg-white flex items-center justify-center">
-                                    <span class="text-brand-darkGreen font-serif font-bold text-lg">Coming soon</span>
-                                </div>
-                            </figure>
-                        </div>
+                        <!-- TODO(inhaber): Interims-Visual durch echtes Foto ersetzen.
+                             Foto-Briefing: Professionelle Food-Fotografie, farbenfrohe Vogelperspektive auf
+                             frische asiatische Zutaten auf Holzoberfläche – Zitronengras, Thai-Basilikum,
+                             Galangal, rote Chilis, Kaffirlimettenblätter, Pak Choi, Jasminreis, Sternanis,
+                             Koriander. Warmes Naturlicht, Tiefenschärfe. Hochformat 4:5, ~800×1000 px. -->
+                        <img src="assets/images/hero-interim.webp" width="800" height="1000"
+                             alt="Asia Markt Thien Phu — authentische asiatische Esskultur in Langenfeld"
+                             fetchpriority="high" decoding="async"
+                             class="relative z-10 w-full max-w-md rounded-t-[10rem] rounded-b-[3rem] shadow-xl soft-border object-cover h-[550px]">
                         <div class="absolute bottom-12 -left-4 z-20 bg-white p-4 rounded-[2rem] shadow-lg soft-border flex items-center gap-4">
                             <div class="bg-brand-beige w-12 h-12 rounded-full flex items-center justify-center text-brand-earth">
-                                <i class="fa-solid fa-basket-shopping"></i>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M288 0c6.6 0 12.9 2.7 17.4 7.5l144 152 .5 .5 78.1 0c17.7 0 32 14.3 32 32 0 14.5-9.6 26.7-22.8 30.7L491.1 429.9c-6.5 29.3-32.5 50.1-62.5 50.1l-281.3 0c-30 0-56-20.8-62.5-50.1l-46-207.2c-13.2-3.9-22.8-16.2-22.8-30.7 0-17.7 14.3-32 32-32l78.1 0 .5-.5 144-152C275.1 2.7 281.4 0 288 0zm0 58.9L192.2 160 383.8 160 288 58.9zM208 264c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112zm80-24c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm128 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112z"/></svg>
                             </div>
                             <div class="text-left pr-4">
                                 <p class="text-xs text-gray-500 font-bold uppercase">Authentisch Asiatisch</p>
@@ -221,37 +235,46 @@
                 </div>
             </section>
 
+            <!-- Bewertungs-Marquee: echte Google-Bewertungen als Endlosband (P4b.1) -->
+            <section aria-label="Kundenbewertungen" class="reviews-marquee py-10 bg-brand-beige/40 border-y border-brand-green/10">
+                <div class="marquee group relative">
+                    <ul class="marquee__track flex gap-6 w-max list-none m-0 p-0">
+                        <!-- wird per JS aus assets/data/bewertungen-kuratiert.json gefüllt (Original + aria-hidden-Klon) -->
+                    </ul>
+                </div>
+            </section>
+
             <!-- Highlights-Leiste -->
             <section class="py-10 bg-brand-beige border-y border-brand-green/10">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
-                                <i class="fa-solid fa-truck-fast"></i>
+                                <svg class="svg-icon" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M64 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 32 50.7 0c17 0 33.3 6.7 45.3 18.7L621.3 192c12 12 18.7 28.3 18.7 45.3L640 384c0 35.3-28.7 64-64 64l-3.3 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-102.6 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-3.3 0c-35.3 0-64-28.7-64-64l0-48-40 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 240c-13.3 0-24-10.7-24-24s10.7-24 24-24l176 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 144c-13.3 0-24-10.7-24-24S10.7 96 24 96l40 0zM576 288l0-50.7-45.3-45.3-50.7 0 0 96 96 0zM256 424a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg>
                             </div>
                             <p class="font-serif font-bold text-brand-darkGreen">Frische Lieferungen</p>
-                            <p class="text-sm text-gray-500">Regelmäßig frisches Gemüse</p>
+                            <p class="text-sm text-gray-600">Regelmäßig frisches Gemüse</p>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
-                                <i class="fa-solid fa-earth-asia"></i>
+                                <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M50 284.8c4.2 2.1 9 3.2 14 3.2l50.7 0c8.5 0 16.6 3.4 22.6 9.4l13.3 13.3c6 6 14.1 9.4 22.6 9.4l18.7 0c17.7 0 32-14.3 32-32l0-40c0-13.3 10.7-24 24-24s24-10.7 24-24l0-42.7c0-8.5 3.4-16.6 9.4-22.6l13.3-13.3c6-6 9.4-14.1 9.4-22.6L304 57c0-1.2-.1-2.3-.2-3.5-15.4-3.6-31.4-5.5-47.8-5.5-114.9 0-208 93.1-208 208 0 9.8 .7 19.4 2 28.8zm403.3 37.3c-3.2-1.4-6.7-2.1-10.5-2.1L432 320c-8.8 0-16-7.2-16-16s-7.2-16-16-16l-34.7 0c-8.5 0-16.6 3.4-22.6 9.4l-45.3 45.3c-6 6-9.4 14.1-9.4 22.6l0 18.7c0 17.7 14.3 32 32 32l18.7 0c8.5 0 16.6 3.4 22.6 9.4 2.2 2.2 4.7 4.1 7.3 5.5 39.3-25.4 69.5-63.6 84.6-108.8zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zM128 368c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zM272 256c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16s16-7.2 16-16l0-32c0-8.8-7.2-16-16-16zm48-112l0 32c0 8.8 7.2 16 16 16s16-7.2 16-16l0-32c0-8.8-7.2-16-16-16s-16 7.2-16 16z"/></svg>
                             </div>
                             <p class="font-serif font-bold text-brand-darkGreen">Authentisch</p>
-                            <p class="text-sm text-gray-500">Original asiatische Marken</p>
+                            <p class="text-sm text-gray-600">Original asiatische Marken</p>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
-                                <i class="fa-solid fa-tags"></i>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M401.2 39.1L549.4 189.4c27.7 28.1 27.7 73.1 0 101.2L393 448.9c-9.3 9.4-24.5 9.5-33.9 .2s-9.5-24.5-.2-33.9L515.3 256.8c9.2-9.3 9.2-24.4 0-33.7L367 72.9c-9.3-9.4-9.2-24.6 .2-33.9s24.6-9.2 33.9 .2zM32.1 229.5L32.1 96c0-35.3 28.7-64 64-64l133.5 0c17 0 33.3 6.7 45.3 18.7l144 144c25 25 25 65.5 0 90.5L285.4 418.7c-25 25-65.5 25-90.5 0l-144-144c-12-12-18.7-28.3-18.7-45.3zm144-85.5a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
                             </div>
                             <p class="font-serif font-bold text-brand-darkGreen">Faire Preise</p>
-                            <p class="text-sm text-gray-500">Großes Angebot, kleiner Preis</p>
+                            <p class="text-sm text-gray-600">Großes Angebot, kleiner Preis</p>
                         </div>
                         <div class="flex flex-col items-center gap-2">
                             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
-                                <i class="fa-solid fa-heart"></i>
+                                <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M241 87.1l15 20.7 15-20.7C296 52.5 336.2 32 378.9 32 452.4 32 512 91.6 512 165.1l0 2.6c0 112.2-139.9 242.5-212.9 298.2-12.4 9.4-27.6 14.1-43.1 14.1s-30.8-4.6-43.1-14.1C139.9 410.2 0 279.9 0 167.7l0-2.6C0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1z"/></svg>
                             </div>
                             <p class="font-serif font-bold text-brand-darkGreen">Inhabergeführt</p>
-                            <p class="text-sm text-gray-500">Persönliche Beratung</p>
+                            <p class="text-sm text-gray-600">Persönliche Beratung</p>
                         </div>
                     </div>
                 </div>
@@ -263,11 +286,11 @@
                     <div class="text-center mb-16">
                         <div class="flex justify-center mb-4">
                             <div class="flex gap-1 text-brand-gold text-2xl">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
                             </div>
                         </div>
                         <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-darkGreen mb-4">Google Bewertungen</h2>
@@ -279,7 +302,7 @@
 
                     <div class="text-center">
                         <button onclick="openReviewModal()" class="inline-flex items-center gap-3 bg-white border-2 border-gray-200 border-l-4 border-l-[var(--color-highlight)] hover:border-[var(--color-highlight)] hover:shadow-md text-gray-800 font-bold py-3 px-8 rounded-full transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
-                            <i class="fa-brands fa-google text-brand-darkGreen"></i> Selbst eine Bewertung schreiben
+                            <svg class="svg-icon text-brand-darkGreen" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M500 261.8C500 403.3 403.1 504 260 504 122.8 504 12 393.2 12 256S122.8 8 260 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9c-88.3-85.2-252.5-21.2-252.5 118.2 0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9l-140.8 0 0-85.3 236.1 0c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg> Selbst eine Bewertung schreiben
                         </button>
                         <p class="mt-4 text-sm text-gray-500">Wir bedanken uns bei allen Kunden für ihre wertvollen Rückmeldungen!</p>
                     </div>
@@ -287,378 +310,6 @@
             </section>
         </div>
 
-        <!-- ==========================================
-             TAB 2: SORTIMENT
-             ========================================== -->
-        <div id="sortiment" class="page-view">
-            <section class="py-16 lg:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-16">
-                        <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Ausgewählte Vielfalt</p>
-                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-6">Unser asiatisches Sortiment</h2>
-                        <div class="flex justify-center">
-                            <svg width="80" height="20" viewBox="0 0 80 20" class="text-brand-green/40 fill-current" aria-hidden="true">
-                                <path d="M0,10 Q20,0 40,10 T80,10" fill="none" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <p class="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">Von frischen Kräutern und Gemüse über Nudeln, Saucen und Tiefkühlartikel bis zu Tee, Getränken und Snacks: Bei uns finden Sie alles für die asiatische Alltagsküche.</p>
-                        <div class="mt-5 inline-flex items-center gap-2 bg-[var(--color-highlight-bg)] text-[var(--color-accent-terracotta-deep)] text-sm font-medium px-5 py-3 rounded-full border border-[var(--color-accent-terracotta-soft)]/30">
-                            <i class="fa-solid fa-store"></i>
-                            <span>Kein Online-Shop – alle Produkte sind nur vor Ort im Laden erhältlich.</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-
-                        <div class="bg-white rounded-[3rem] p-8 lg:p-10 shadow-sm soft-border hover:shadow-md transition-shadow">
-                            <div class="w-full text-left">
-                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
-                                    <i class="fa-solid fa-seedling text-brand-green"></i> Immer frisch
-                                </div>
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Frische Kräuter & Gemüse</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Koriander, Basilikum, Zitronengras, Wasserspinat, Ingwer, grüne Papaya und Thai-Auberginen – ergänzt durch frisches und Silken Tofu für viele klassische Gerichte.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-[3rem] p-8 lg:p-10 shadow-sm soft-border hover:shadow-md transition-shadow">
-                            <div class="w-full text-left">
-                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
-                                    <i class="fa-solid fa-bowl-rice text-brand-green"></i> Großes Sortiment
-                                </div>
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Nudeln & Ramen</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Beliebte Marken wie SamYang und Mama sowie Udon, Ramen, Reis- und Glasnudeln – ideal für schnelle Alltagsgerichte und Suppen.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-[3rem] p-8 lg:p-10 shadow-sm soft-border hover:shadow-md transition-shadow">
-                            <div class="w-full text-left">
-                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
-                                    <i class="fa-solid fa-jar text-brand-green"></i> Namhafte Marken
-                                </div>
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Saucen & Würzmittel</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Sojasoße, Teriyaki-Soße sowie weitere Klassiker wie Currypasten und Fischsauce – passend für Wokgerichte, Marinaden und Dips.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-[3rem] p-8 lg:p-10 shadow-sm soft-border hover:shadow-md transition-shadow">
-                            <div class="w-full text-left">
-                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
-                                    <i class="fa-solid fa-mug-hot text-brand-green"></i> Beliebte Sorten
-                                </div>
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Tofu, Tee & Getränke</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Frisches und Silken Tofu, Edamame und Enoki-Pilze sowie grüner Tee, Jasmintee und beliebte asiatische Erfrischungsgetränke.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-[3rem] p-8 lg:p-10 shadow-sm soft-border hover:shadow-md transition-shadow">
-                            <div class="w-full text-left">
-                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
-                                    <i class="fa-solid fa-cookie-bite text-brand-green"></i> Aus aller Welt
-                                </div>
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Snacks & Spezialzutaten</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Beliebte Snacks wie Mochi und Reiscracker sowie Spezialzutaten wie Süßkartoffeln, Yamswurzeln, Kochbananen und Pandanblätter.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-[3rem] p-8 lg:p-10 shadow-sm soft-border hover:shadow-md transition-shadow">
-                            <div class="w-full text-left">
-                                <div class="inline-flex items-center gap-1 bg-brand-beige text-brand-earth text-xs font-bold px-3 py-1 rounded-full mb-3">
-                                    <i class="fa-solid fa-snowflake text-brand-green"></i> Tiefkühlware
-                                </div>
-                                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-3">Tiefkühlprodukte</h3>
-                                <p class="text-gray-600 leading-relaxed mb-4">Fisch, Garnelen, Muscheln, Tintenfisch sowie Fisch-, Rind- und Schweinebällchen, Gyoza und weitere Tiefkühlspezialitäten für Hot Pot, Suppen und Pfannengerichte.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ==========================================
-             TAB 3: ÜBER UNS
-             ========================================== -->
-        <div id="ueber-uns" class="page-view">
-            <section class="py-16 lg:py-24 relative overflow-hidden">
-                <div class="absolute top-20 right-0 w-96 h-96 bg-brand-green/5 rounded-full blur-3xl"></div>
-                <img src="assets/icons/lantern-accent.svg" width="100" height="140" alt="" aria-hidden="true" class="absolute right-6 top-10 h-48 w-auto opacity-[0.07]">
-
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div class="flex flex-col lg:flex-row items-center gap-16">
-
-                        <div class="lg:w-1/2">
-                            <div class="relative">
-                                <div class="absolute -inset-4 bg-brand-beige rounded-[4rem] transform -rotate-3"></div>
-                                <!-- PLATZHALTER: Über uns – Ladeninterieur -->
-                                <div class="relative overflow-hidden rounded-[3.5rem] shadow-sm h-[350px] sm:h-[450px] lg:h-[600px] w-full border-2 border-dashed border-brand-green/40 bg-brand-beige flex flex-col items-center justify-center gap-3 p-6 text-center">
-                                    <span class="inline-block bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">📷 PLATZHALTER</span>
-                                    <p class="font-serif font-bold text-brand-darkGreen text-sm">Über uns – Ladeninterieur</p>
-                                    <p class="text-xs text-gray-500 leading-relaxed max-w-[240px]">Innenaufnahme des Asia Markt Thien Phu: Ordentlich eingeräumte Regale mit bunten asiatischen Produktverpackungen, im Hintergrund ein Frischwarenbereich mit Gemüse sichtbar. Warmes Ladenlicht, Perspektive entlang eines Ganges – vermittelt Authentizität und Reichhaltigkeit. Hochformat, empfohlen: 800×1000 px.</p>
-                                    <!-- Temporäre einfarbige Abdeckung – verbirgt Platzhalter für Besucher -->
-                                    <div class="absolute inset-0 bg-brand-cream rounded-[3.5rem] placeholder-coming-soon"></div>
-                                </div>
-                                <div class="absolute -bottom-6 -right-4 bg-white text-brand-darkGreen p-6 rounded-3xl flex flex-col items-center justify-center shadow-2xl border-2 border-brand-green/20">
-                                    <i class="fa-solid fa-store text-4xl mb-2 text-brand-gold"></i>
-                                    <span class="text-sm tracking-wider font-bold text-center">Gelebte<br>Tradition</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="lg:w-1/2">
-                            <div class="flex items-center gap-3 mb-3">
-                                <img src="assets/icons/lantern-accent.svg" width="40" height="56" alt="Dezenter Lampion-Akzent" class="h-12 w-auto opacity-80" loading="lazy" decoding="async">
-                                <p class="text-brand-earth font-bold tracking-widest uppercase text-sm">Ihr lokaler Ansprechpartner</p>
-                            </div>
-                            <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-8">Aus Liebe zur asiatischen Esskultur</h2>
-
-                            <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
-                                <p>
-                                    Im Asia Markt Thien Phu dreht sich alles um den guten Geschmack. Als inhabergeführter Lebensmittelmarkt in Langenfeld (Rheinland) wählen wir die Produkte in unseren Regalen mit Sorgfalt und Fachkenntnis aus.
-                                </p>
-                                <p>
-                                    <strong>Unsere Motivation:</strong> Wir möchten Ihnen die Vielfalt der fernöstlichen Küchen zugänglich machen – von der vietnamesischen Pho über das thailändische Curry bis hin zum japanischen Ramen. Deshalb führen wir bekannte asiatische Marken und Zutaten, die auch in Asien fester Bestandteil der alltäglichen Esskultur sind.
-                                </p>
-                                <p>
-                                    Regelmäßige Frischlieferungen garantieren, dass Sie bei uns stets qualitativ hochwertiges Gemüse und frische Kräuter für Ihre Lieblingsrezepte finden.
-                                </p>
-                            </div>
-
-                            <div class="mt-10 grid grid-cols-3 gap-4">
-                                <div class="bg-brand-darkGreen rounded-2xl p-5 soft-border text-center">
-                                    <i class="fa-solid fa-calendar-check text-brand-gold text-2xl mb-2"></i>
-                                    <p class="font-serif font-bold text-brand-cream text-lg">Seit 2007</p>
-                                    <p class="text-sm text-brand-cream/70">In Langenfeld</p>
-                                </div>
-                                <div class="bg-brand-beige rounded-2xl p-5 soft-border text-center">
-                                    <i class="fa-solid fa-globe text-brand-green text-2xl mb-2"></i>
-                                    <p class="font-serif font-bold text-brand-darkGreen text-lg">Ganz Asien</p>
-                                    <p class="text-sm text-gray-600">Aus vielen Ländern & Regionen</p>
-                                </div>
-                                <div class="bg-brand-beige rounded-2xl p-5 soft-border text-center">
-                                    <i class="fa-solid fa-boxes-stacked text-brand-green text-2xl mb-2"></i>
-                                    <p class="font-serif font-bold text-brand-darkGreen text-lg">Reichhaltig</p>
-                                    <p class="text-sm text-gray-600">Für jede asiatische Küche</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ==========================================
-             TAB 4: KONTAKT
-             ========================================== -->
-        <div id="kontakt" class="page-view">
-            <section class="py-16 lg:py-24">
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                    <div class="text-center mb-16">
-                        <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Besuchen Sie uns</p>
-                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-6">Wir freuen uns auf Sie</h2>
-                        <p class="text-gray-600 text-lg">Mitten in Langenfeld (Rheinland) – leicht zu erreichen mit öffentlichen Parkmöglichkeiten direkt vor dem Laden.</p>
-                    </div>
-
-                    
-                    <div class="bg-brand-cream rounded-[4rem] p-8 md:p-12 soft-border shadow-sm relative overflow-hidden">
-                        <i class="fa-solid fa-leaf absolute text-brand-green/5 text-[20rem] -top-20 -right-10 transform rotate-45" aria-hidden="true"></i>
-
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
-
-                            <div class="space-y-10">
-                                <div>
-                                    <h3 class="font-serif font-bold text-3xl text-brand-darkGreen mb-8">Kontakt &amp; Adresse</h3>
-
-                                    <div class="flex items-start gap-6 mb-8">
-                                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-green shadow-sm soft-border flex-shrink-0">
-                                            <i class="fa-solid fa-location-dot text-2xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Asia Markt Thien Phu</h4>
-                                            <p class="text-gray-600 leading-relaxed text-lg">
-                                                Hauptstraße 74<br>
-                                                40764 Langenfeld (Rheinland)<br>
-                                                Deutschland
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-start gap-6 mb-8">
-                                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-green shadow-sm soft-border flex-shrink-0">
-                                            <i class="fa-solid fa-phone text-2xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Telefon</h4>
-                                            <a href="tel:+4921731065590" class="text-gray-600 hover:text-brand-green transition duration-300 text-lg">
-                                                02173 1065590
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-start gap-6 mb-8">
-                                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-green shadow-sm soft-border flex-shrink-0">
-                                            <i class="fa-solid fa-square-parking text-2xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Parken</h4>
-                                            <p class="text-gray-600 text-base mb-2">Gegenüber, Parkticketautomat vorhanden.</p>
-                                            <ul class="text-sm text-gray-600 space-y-1 mb-2">
-                                                <li><i class="fa-solid fa-clock text-brand-green w-4"></i> <strong>15 Min</strong> gratis · danach 1&nbsp;€/Std.</li>
-                                                <li><i class="fa-solid fa-bolt text-brand-green w-4"></i> E-Auto: <strong>5 Std.</strong> kostenlos mit Parkscheibe</li>
-                                            </ul>
-                                            <a href="https://maps.app.goo.gl/qCEvdCWsuY8Y5XcL8?g_st=ic" target="_blank" rel="noopener noreferrer"
-                                               class="text-brand-green hover:underline text-sm inline-flex items-center gap-1">
-                                                <i class="fa-solid fa-location-dot"></i> Auf Google Maps anzeigen
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-start gap-6 mb-8">
-                                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-brand-green shadow-sm soft-border flex-shrink-0">
-                                            <i class="fa-solid fa-credit-card text-2xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Bezahlung</h4>
-                                            <p class="text-gray-600 leading-relaxed text-lg">
-                                                Kartenzahlung und Bargeld werden akzeptiert.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="pt-4 border-t border-brand-green/10">
-                                        <h4 class="font-serif font-bold text-lg text-brand-darkGreen mb-3">Waren Sie zufrieden?</h4>
-                                        <button onclick="openReviewModal()" class="inline-flex items-center gap-2 text-brand-green hover:text-[var(--color-highlight)] font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
-                                            <i class="fa-brands fa-google"></i> Bewerten Sie uns auf Google Maps
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-white p-10 rounded-[3rem] shadow-sm soft-border h-full flex flex-col justify-center">
-                                <div class="flex items-center gap-4 mb-8">
-                                    <div class="w-12 h-12 bg-brand-beige rounded-full flex items-center justify-center text-brand-earth">
-                                        <i class="fa-regular fa-clock text-xl"></i>
-                                    </div>
-                                    <h3 class="font-serif font-bold text-3xl text-brand-darkGreen">Öffnungszeiten</h3>
-                                </div>
-
-                                <ul class="space-y-1.5 text-base">
-                                    <li class="flex justify-between items-center py-2.5 px-3 rounded-xl hover:bg-brand-cream/60 transition">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-2 h-2 rounded-full bg-brand-green flex-shrink-0"></span>
-                                            <span class="font-medium text-gray-700">Montag</span>
-                                        </div>
-                                        <span class="font-serif text-brand-darkGreen font-bold text-sm bg-brand-cream px-3 py-1 rounded-full">09:00 – 18:00</span>
-                                    </li>
-                                    <li class="flex justify-between items-center py-2.5 px-3 rounded-xl hover:bg-brand-cream/60 transition">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-2 h-2 rounded-full bg-brand-green flex-shrink-0"></span>
-                                            <span class="font-medium text-gray-700">Dienstag</span>
-                                        </div>
-                                        <span class="font-serif text-brand-darkGreen font-bold text-sm bg-brand-cream px-3 py-1 rounded-full">09:00 – 18:00</span>
-                                    </li>
-                                    <li class="flex justify-between items-center py-2.5 px-3 rounded-xl hover:bg-brand-cream/60 transition">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-2 h-2 rounded-full bg-brand-green flex-shrink-0"></span>
-                                            <span class="font-medium text-gray-700">Mittwoch</span>
-                                        </div>
-                                        <span class="font-serif text-brand-darkGreen font-bold text-sm bg-brand-cream px-3 py-1 rounded-full">09:00 – 18:00</span>
-                                    </li>
-                                    <li class="flex justify-between items-center py-2.5 px-3 rounded-xl hover:bg-brand-cream/60 transition">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-2 h-2 rounded-full bg-brand-green flex-shrink-0"></span>
-                                            <span class="font-medium text-gray-700">Donnerstag</span>
-                                        </div>
-                                        <span class="font-serif text-brand-darkGreen font-bold text-sm bg-brand-cream px-3 py-1 rounded-full">09:00 – 18:00</span>
-                                    </li>
-                                    <li class="flex justify-between items-center py-2.5 px-3 rounded-xl hover:bg-brand-cream/60 transition">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-2 h-2 rounded-full bg-brand-green flex-shrink-0"></span>
-                                            <span class="font-medium text-gray-700">Freitag</span>
-                                        </div>
-                                        <span class="font-serif text-brand-darkGreen font-bold text-sm bg-brand-cream px-3 py-1 rounded-full">09:00 – 18:00</span>
-                                    </li>
-                                    <li class="flex justify-between items-center py-2.5 px-3 rounded-xl hover:bg-brand-cream/60 transition">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
-                                            <span class="font-medium text-gray-700">Samstag</span>
-                                        </div>
-                                        <span class="font-serif text-brand-darkGreen font-bold text-sm bg-brand-cream px-3 py-1 rounded-full">09:00 – 14:00</span>
-                                    </li>
-                                    <li class="flex justify-between items-center py-2.5 px-3 rounded-xl">
-                                        <div class="flex items-center gap-3">
-                                            <span class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
-                                            <span class="font-medium text-gray-400">Sonntag</span>
-                                        </div>
-                                        <span class="text-sm text-gray-400 px-3 py-1">Geschlossen</span>
-                                    </li>
-                                </ul>
-
-                                <div class="mt-10 space-y-3">
-                                    <a href="https://maps.google.com/?q=Asia+Markt+Thien+Phu+Hauptstraße+74+40764+Langenfeld" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 w-full bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth font-bold py-4 px-8 rounded-full transition duration-300 shadow-sm">
-                                        <i class="fa-solid fa-map-location-dot"></i> Route auf Google Maps planen
-                                    </a>
-                                    <button onclick="openSharePanel()" id="share-btn" class="inline-flex items-center justify-center gap-3 w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-4 px-8 rounded-full transition duration-300 shadow-sm">
-                                        <i class="fa-solid fa-share-nodes"></i> Teilen
-                                    </button>
-                                    <!-- Share Panel (Fallback wenn Web Share API nicht verfügbar) -->
-                                    <div id="share-panel" class="hidden bg-white rounded-2xl soft-border shadow-md p-4 text-left space-y-2">
-                                        <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-3">Link teilen</p>
-                                        <button onclick="copyToClipboard(window.location.href, this)" class="flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl hover:bg-brand-cream transition text-gray-700 font-medium">
-                                            <i class="fa-solid fa-link text-brand-green w-4"></i> Website-Link kopieren
-                                        </button>
-                                        <button onclick="copyToClipboard('https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7', this)" class="flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl hover:bg-brand-cream transition text-gray-700 font-medium">
-                                            <i class="fa-solid fa-map-location-dot text-brand-green w-4"></i> Google Maps Link kopieren
-                                        </button>
-                                        <a href="https://wa.me/?text=Asia%20Markt%20Thien%20Phu%20in%20Langenfeld%20%F0%9F%8D%9C%20%E2%80%93%20https%3A%2F%2Fmaps.app.goo.gl%2FAYB2Qmshj8aWzXBR7" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-brand-cream transition text-gray-700 font-medium">
-                                            <i class="fa-brands fa-whatsapp text-green-500 w-4"></i> Über WhatsApp teilen
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Google Maps Embed -->
-                    <div class="mt-10 rounded-[3rem] overflow-hidden soft-border shadow-sm" style="height:450px;">
-                        <iframe
-                            title="Standort Asia Markt Thien Phu auf Google Maps"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17135.738250219!2d6.942283857049664!3d51.10095676347082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x417196e0d88ec68b%3A0xa4c0b0becc873172!2sAsia%20Markt%20Thien%20Phu!5e1!3m2!1sde!2sde!4v1776007432899!5m2!1sde!2sde"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ==========================================
-             TAB 5/6: RECHTLICHE SEITEN AUSGELAGERT
-             ========================================== -->
-        <div id="impressum" class="page-view">
-            <section class="py-20">
-                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-6">Impressum</h1>
-                    <p class="text-gray-600 mb-8">Diese Inhalte sind als eigenständige Seite ausgelagert, um die Startseite schlanker zu halten.</p>
-                    <a href="impressum.html" class="inline-flex items-center gap-2 bg-brand-darkGreen text-white font-bold py-3 px-8 rounded-full hover:bg-brand-green transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Impressum öffnen</a>
-                </div>
-            </section>
-        </div>
-
-        <div id="datenschutz" class="page-view">
-            <section class="py-20">
-                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-6">Datenschutzerklärung</h1>
-                    <p class="text-gray-600 mb-8">Diese Inhalte sind als eigenständige Seite ausgelagert, um die Startseite schlanker zu halten.</p>
-                    <a href="datenschutz.html" class="inline-flex items-center gap-2 bg-brand-darkGreen text-white font-bold py-3 px-8 rounded-full hover:bg-brand-green transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Datenschutz öffnen</a>
-                </div>
-            </section>
-        </div>
 
     </main>
 
@@ -668,7 +319,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="assets/images/thien_phu_logo.png" width="220" height="220" alt="Asia Markt Thien Phu — Asiatische Lebensmittel in Langenfeld" class="h-16 w-auto">
+                        <img src="assets/images/thien_phu_logo.webp" width="220" height="220" alt="Asia Markt Thien Phu — Asiatische Lebensmittel in Langenfeld" class="h-16 w-auto">
                     </div>
                     <p class="text-brand-cream/80 text-base leading-relaxed mb-6 max-w-sm">
                         Ihr Fachgeschäft für ausgewählte Lebensmittel und frisches Gemüse für die asiatische Küche in Langenfeld (Rheinland).
@@ -676,21 +327,21 @@
                 </div>
 
                 <div>
-                    <h4 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Webseite</h4>
+                    <h2 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Webseite</h2>
                     <ul class="space-y-1">
-                        <li><a href="#start" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Startseite</a></li>
-                        <li><a href="#sortiment" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Sortiment</a></li>
-                        <li><a href="#ueber-uns" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Unser Ansatz</a></li>
-                        <li><a href="#kontakt" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><i class="fa-solid fa-angle-right text-xs"></i> Kontakt</a></li>
+                        <li><a href="/" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Startseite</a></li>
+                        <li><a href="sortiment.html" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Sortiment</a></li>
+                        <li><a href="ueber-uns.html" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Unser Ansatz</a></li>
+                        <li><a href="kontakt.html" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Kontakt</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Besuchen Sie uns</h4>
-                    <p class="text-brand-cream/80 mb-2"><i class="fa-solid fa-location-dot w-6 text-brand-accent"></i> Hauptstraße 74</p>
-                    <p class="text-brand-cream/80 mb-4"><i class="fa-solid fa-city w-6 text-brand-accent"></i> 40764 Langenfeld (Rheinland)</p>
-                    <p class="text-brand-cream/80 mb-4"><i class="fa-solid fa-phone w-6 text-brand-accent"></i> <a href="tel:+4921731065590" class="hover:text-white transition">02173 1065590</a></p>
-                    <p class="text-brand-cream/80 text-sm flex items-start gap-2"><i class="fa-regular fa-clock w-6 text-brand-accent flex-shrink-0 mt-0.5"></i><span>Mo–Fr: 9–18 Uhr<br>Sa: 9–14 Uhr | So: Geschlossen</span></p>
+                    <h2 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Besuchen Sie uns</h2>
+                    <p class="text-brand-cream/80 mb-2"><svg class="svg-icon w-6 text-brand-accent" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg> Hauptstraße 74</p>
+                    <p class="text-brand-cream/80 mb-4"><svg class="svg-icon w-6 text-brand-accent" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M320 0c-35.3 0-64 28.7-64 64l0 32-48 0 0-72c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 72-64 0 0-72C96 10.7 85.3 0 72 0S48 10.7 48 24l0 74c-27.6 7.1-48 32.2-48 62L0 448c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-64 0 0-128c0-35.3-28.7-64-64-64L320 0zm64 112l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zm-16 80c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zm16 112l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zm112-16c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zM256 304l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zM240 192c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zM128 304l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zM112 192c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0z"/></svg> 40764 Langenfeld (Rheinland)</p>
+                    <p class="text-brand-cream/80 mb-4"><svg class="svg-icon w-6 text-brand-accent" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/></svg> <a href="tel:+4921731065590" class="hover:text-white transition">02173 1065590</a></p>
+                    <p class="text-brand-cream/80 text-sm flex items-start gap-2"><svg class="svg-icon w-6 text-brand-accent flex-shrink-0 mt-0.5" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M464 256a208 208 0 1 1 -416 0 208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0 256 256 0 1 0 -512 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg><span>Mo–Fr: 9–18 Uhr<br>Sa: 9–14 Uhr | So: Geschlossen</span></p>
                 </div>
             </div>
 
@@ -708,431 +359,10 @@
 
     <div id="modal-root"></div>
 
-    <script>
-        const W3F_KEY = 'f91a4036-f6ba-46ed-9a65-dc7d9fbabbb9';
-
-        // E-Mail nie als Klartext im HTML – wird nur per JS zusammengesetzt
-        function _em() { return ['asia.since2007', 'gmail.com'].join(String.fromCharCode(64)); }
-
-        // Setzt alle E-Mail-Links im Impressum/Datenschutz dynamisch
-        function initEmailLinks() {
-            const addr = _em();
-            document.querySelectorAll('[data-email-link]').forEach(el => {
-                el.href = 'mailto:' + addr;
-                el.textContent = addr.replace('@', '[at]');
-            });
-        }
-
-        const VALID_PAGES = ['start', 'sortiment', 'ueber-uns', 'kontakt', 'impressum', 'datenschutz'];
-        const REVIEW_FALLBACK_DATA = [
-            { name: 'evgenji', initial: 'E', color: 'bg-brand-green', text: '„Kleiner Laden mit großer Auswahl für die asiatische Küche! Im Asia Markt Thien Phu in Langenfeld findet man alles, was man für authentische asiatische Gerichte benötigt. Ob spezielle Gewürze, frische Zutaten oder exotische Saucen - die Regale sind gut bestückt. Der Inhaber ist äußerst freundlich und steht mit Rat und Tat zur Seite, gibt hilfreiche Tipps und Empfehlungen. Die persönliche Beratung macht den Einkauf zu einem besonderen Erlebnis. Ein Muss für alle Liebhaber der asiatischen Küche!“' },
-            { name: 'André', initial: 'A', color: 'bg-brand-earth', text: '„Der Inhaber ist sehr Hilfsbereit und hat auch immer einen guten Ratschlag wenn man mal eine Frage zu den unterschiedlichen Gerichten hat. Trotz geringer Ladenfläche ist die Auswahl super wie ich finde. Für mich der beste Asia Shop in der ganzen Umgebung !“' },
-            { name: 'Rachid', initial: 'R', color: 'bg-brand-accent text-brand-darkGreen', text: '„Der Laden ist zwar klein aber hat sehr viel Auswahl und die Besitzer sind sehr nett.Ich komme Mindestens 10 mal in Monat.Er hat sehr viel Auswahl von Ramen bis Fisch zu Soßen, Getränken usw.“' }
-        ];
-        let reviewsInitialized = false;
-        let modalsInitialized = false;
-
-        function ensureModals() {
-            if (modalsInitialized) return;
-            modalsInitialized = true;
-            document.getElementById('modal-root').innerHTML = document.getElementById('modal-templates').innerHTML;
-        }
-
-        function ensureReviewsLoaded() {
-            if (reviewsInitialized) return;
-            reviewsInitialized = true;
-            const grid = document.getElementById('reviews-grid');
-            const stars = '<i class="fa-solid fa-star"></i>'.repeat(5);
-            REVIEW_FALLBACK_DATA.forEach(review => {
-                const card = document.createElement('div');
-                card.className = 'bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between';
-                card.innerHTML = `
-                    <div>
-                        <div class="flex text-brand-gold text-sm mb-4">${stars}</div>
-                        <p class="text-gray-700 leading-relaxed mb-6 font-medium">${review.text}</p>
-                    </div>
-                    <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                        <div class="w-10 h-10 rounded-full ${review.color} text-white flex items-center justify-center font-bold font-serif shadow-sm">${review.initial}</div>
-                        <div>
-                            <p class="font-bold text-brand-darkGreen text-sm">${review.name}</p>
-                            <div class="flex items-center gap-1 text-xs text-gray-500"><i class="fa-brands fa-google"></i> Google Rezension</div>
-                        </div>
-                    </div>`;
-                grid.appendChild(card);
-            });
-            const fallback = document.getElementById('reviews-fallback');
-            if (fallback) fallback.classList.add('hidden');
-        }
-
-        function openSuggestionModal() {
-            ensureModals();
-            document.getElementById('suggestion-modal').classList.remove('hidden');
-            document.getElementById('suggestion-text').value = '';
-            document.getElementById('suggestion-form-area').classList.remove('hidden');
-            document.getElementById('suggestion-success').classList.add('hidden');
-            document.getElementById('suggestion-error').classList.add('hidden');
-            const btn = document.getElementById('suggestion-send-btn');
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Vorschlag senden';
-            document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
-        }
-        function closeSuggestionModal() {
-            document.getElementById('suggestion-modal').classList.add('hidden');
-        }
-        function selectCategory(btn) {
-            document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
-            btn.classList.add('bg-brand-green', 'text-white', 'border-brand-green');
-        }
-        async function submitSuggestion() {
-            if (document.getElementById('suggestion-honeypot').value) return; // Bot erkannt
-            const category = document.querySelector('.suggestion-cat.bg-brand-green')?.dataset.value || 'Allgemein';
-            const text = document.getElementById('suggestion-text').value.trim();
-            if (!text) { document.getElementById('suggestion-text').focus(); return; }
-            const btn = document.getElementById('suggestion-send-btn');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Wird gesendet…';
-            try {
-                const fd = new FormData();
-                fd.append('access_key', W3F_KEY);
-                fd.append('subject', 'Vorschlag: ' + category);
-                fd.append('message', text);
-                const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
-                const data = await res.json();
-                if (res.ok && data.success) {
-                    document.getElementById('suggestion-form-area').classList.add('hidden');
-                    document.getElementById('suggestion-success').classList.remove('hidden');
-                } else throw new Error(data.message);
-            } catch {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Vorschlag senden';
-                document.getElementById('suggestion-error').classList.remove('hidden');
-            }
-        }
-
-        async function submitFeedback() {
-            if (document.getElementById('feedback-honeypot').value) return;
-            const text = document.getElementById('feedback-text').value.trim();
-            if (!text) { document.getElementById('feedback-text').focus(); return; }
-            const btn = document.getElementById('feedback-send-btn');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Wird gesendet…';
-            try {
-                const fd = new FormData();
-                fd.append('access_key', W3F_KEY);
-                fd.append('subject', 'Kundenfeedback (nicht zufrieden)');
-                fd.append('message', text);
-                const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
-                const data = await res.json();
-                if (res.ok && data.success) {
-                    document.getElementById('review-step-no').innerHTML = `
-                        <div class="text-center py-4">
-                            <i class="fa-solid fa-circle-check text-brand-green text-4xl mb-4 block"></i>
-                            <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Vielen Dank!</h3>
-                            <p class="text-gray-600 text-sm">Ihr Feedback ist bei uns angekommen.</p>
-                        </div>`;
-                } else throw new Error();
-            } catch {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Senden';
-                document.getElementById('feedback-error').classList.remove('hidden');
-            }
-        }
-
-        function openReviewModal() {
-            ensureModals();
-            document.getElementById('review-modal').classList.remove('hidden');
-            document.getElementById('review-step-1').classList.remove('hidden');
-            document.getElementById('review-step-no').classList.add('hidden');
-        }
-        function closeReviewModal() {
-            document.getElementById('review-modal').classList.add('hidden');
-        }
-        function reviewYes() {
-            closeReviewModal();
-            window.open('https://g.page/r/CXIxh8y-sMCkEBM/review', '_blank', 'noopener,noreferrer');
-        }
-        function reviewNo() {
-            document.getElementById('review-step-1').classList.add('hidden');
-            document.getElementById('review-step-no').classList.remove('hidden');
-        }
-
-        function openSharePanel() {
-            const mapsUrl = 'https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7';
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Asia Markt Thien Phu – Langenfeld',
-                    text: 'Entdecke den Asia Markt Thien Phu in Langenfeld – dein lokaler asiatischer Supermarkt!',
-                    url: mapsUrl
-                }).catch(() => {});
-            } else {
-                const panel = document.getElementById('share-panel');
-                panel.classList.toggle('hidden');
-            }
-        }
-
-        function copyToClipboard(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
-                const original = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-check text-brand-green w-4"></i> Kopiert!';
-                setTimeout(() => { btn.innerHTML = original; }, 2000);
-            });
-        }
-
-        function navigateTo(pageId, event) {
-            if (event) {
-                event.preventDefault();
-                if (window.history && window.history.pushState) {
-                    window.history.pushState(null, null, '#' + pageId);
-                }
-            }
-
-            document.querySelectorAll('.page-view').forEach(page => {
-                page.classList.remove('active');
-            });
-
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
-
-            window.scrollTo({ top: 0, behavior: 'auto' });
-
-            document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === '#' + pageId) {
-                    link.classList.add('bg-brand-green', 'text-white');
-                    link.classList.remove('text-brand-darkGreen', 'hover:bg-brand-green/10', 'text-brand-cream/80');
-                } else {
-                    link.classList.remove('bg-brand-green', 'text-white');
-                    if (link.closest('footer')) {
-                        link.classList.add('text-brand-cream/80');
-                    } else {
-                        link.classList.add('text-brand-darkGreen', 'hover:bg-brand-green/10');
-                    }
-                }
-            });
-
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initEmailLinks();
-            document.getElementById('modal-root').innerHTML = '';
-
-            document.querySelectorAll('a[href^="#"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const pageId = this.getAttribute('href').substring(1);
-
-                    if (pageId === 'bewertungen') {
-                        e.preventDefault();
-                        ensureReviewsLoaded();
-                        const startPage = document.getElementById('start');
-                        if (!startPage.classList.contains('active')) {
-                            navigateTo('start');
-                            setTimeout(() => {
-                                document.getElementById('bewertungen').scrollIntoView({ behavior: 'smooth' });
-                            }, 100);
-                        } else {
-                            document.getElementById('bewertungen').scrollIntoView({ behavior: 'smooth' });
-                        }
-                        return;
-                    }
-
-                    if (VALID_PAGES.includes(pageId)) {
-                        navigateTo(pageId, e);
-                    }
-                });
-            });
-
-            const hash = window.location.hash.substring(1);
-            if (VALID_PAGES.includes(hash)) {
-                navigateTo(hash);
-            } else {
-                navigateTo('start');
-            }
-
-            document.getElementById('mobile-menu-button').addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
-            });
-
-            const reviewObserver = new IntersectionObserver((entries, observer) => {
-                if (entries.some(entry => entry.isIntersecting)) {
-                    ensureReviewsLoaded();
-                    observer.disconnect();
-                }
-            }, { rootMargin: '300px 0px' });
-            reviewObserver.observe(document.getElementById('bewertungen'));
-
-            // --- Google Places API: Echte Bewertungen laden (nur bei Bedarf) ---
-            // Tragen Sie hier Ihren Google API-Key (Places API aktiviert) und Ihre Place-ID ein.
-            // Den API-Key erhalten Sie in der Google Cloud Console (console.cloud.google.com).
-            // Die Place-ID finden Sie über: https://developers.google.com/maps/documentation/places/web-service/place-id
-            const GOOGLE_PLACES_API_KEY = '';  // z. B. 'AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-            const GOOGLE_PLACE_ID       = '';  // z. B. 'ChIJXXXXXXXXXXXXXXXXXXXXXXXX'
-
-            if (GOOGLE_PLACES_API_KEY && GOOGLE_PLACE_ID) {
-                const url = `https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}?fields=reviews&languageCode=de&key=${GOOGLE_PLACES_API_KEY}`;
-
-                const loadRealReviews = () => fetch(url)
-                    .then(res => res.json())
-                    .then(data => {
-                        ensureReviewsLoaded();
-                        const reviews = (data.reviews || []).filter(r => r.rating >= 4).slice(0, 3);
-                        if (reviews.length === 0) return;
-
-                        const grid = document.getElementById('reviews-grid');
-                        const fallback = document.getElementById('reviews-fallback');
-
-                        reviews.forEach(review => {
-                            const stars = Array(review.rating).fill('<i class="fa-solid fa-star"></i>').join('');
-                            const initial = (review.authorAttribution?.displayName || '?')[0].toUpperCase();
-                            const name = review.authorAttribution?.displayName || 'Google-Nutzer';
-                            const text = review.text?.text || '';
-                            const date = review.relativePublishTimeDescription || '';
-
-                            const card = document.createElement('div');
-                            card.className = 'bg-brand-cream p-8 rounded-[2rem] soft-border shadow-sm flex flex-col justify-between';
-                            card.innerHTML = `
-                                <div>
-                                    <div class="flex justify-between items-start mb-4">
-                                        <div class="flex text-brand-gold text-sm">${stars}</div>
-                                        <span class="text-xs font-semibold text-gray-400 bg-white px-2 py-1 rounded-full border border-gray-100 shadow-sm">${date}</span>
-                                    </div>
-                                    <p class="text-gray-700 leading-relaxed mb-6 font-medium">"${text}"</p>
-                                </div>
-                                <div class="flex items-center gap-3 pt-4 border-t border-brand-green/10">
-                                    <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center font-bold font-serif shadow-sm">${initial}</div>
-                                    <div>
-                                        <p class="font-bold text-brand-darkGreen text-sm">${name}</p>
-                                        <div class="flex items-center gap-1 text-xs text-gray-500">
-                                            <i class="fa-brands fa-google"></i> Google Rezension
-                                        </div>
-                                    </div>
-                                </div>`;
-                            grid.appendChild(card);
-                        });
-
-                        fallback.classList.add('hidden');
-                        grid.classList.remove('hidden');
-                        grid.classList.add('grid');
-                    })
-                    .catch(() => { /* Fallback bleibt sichtbar */ });
-
-                const startPage = document.getElementById('start');
-                const triggerReviewFetch = new IntersectionObserver((entries, observer) => {
-                    if (entries.some(entry => entry.isIntersecting)) {
-                        loadRealReviews();
-                        observer.disconnect();
-                    }
-                }, { rootMargin: '400px 0px' });
-                triggerReviewFetch.observe(startPage);
-            }
-        });
-    </script>
-
     <!-- Schwebender Vorschläge-Button -->
-    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white rounded-full shadow-lg flex items-center gap-2 px-4 py-3 transition duration-300">
-        <i class="fa-solid fa-lightbulb text-brand-gold text-lg"></i>
-        <span class="text-sm font-semibold">Vorschlag einreichen</span>
+    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" aria-label="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white rounded-full shadow-lg flex items-center gap-2 p-3 sm:px-4 sm:py-3 transition duration-300">
+        <svg class="svg-icon text-brand-gold text-lg" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9 32.7-34.4 52.7-80.9 52.7-132.1 0-106-86-192-192-192S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9l201.7 0zM288 432l-192 0 0 16c0 44.2 35.8 80 80 80l32 0c44.2 0 80-35.8 80-80l0-16zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24z"/></svg>
+        <span class="hidden sm:inline text-sm font-semibold">Vorschlag einreichen</span>
     </button>
-
-    <template id="modal-templates">
-    <!-- Vorschläge-Modal -->
-    <div id="suggestion-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeSuggestionModal()">
-        <div class="bg-white rounded-[2rem] p-8 max-w-md w-full shadow-2xl relative">
-            <button onclick="closeSuggestionModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-brand-beige hover:bg-brand-earth hover:text-white text-gray-500 transition text-lg font-bold">&times;</button>
-
-            <div class="text-center mb-6">
-                <div class="w-14 h-14 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-solid fa-lightbulb text-brand-gold text-2xl"></i>
-                </div>
-                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-1">Ihr Vorschlag</h3>
-                <p class="text-gray-500 text-sm">Wir freuen uns über jede Idee – für das Geschäft oder neue Artikel! Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Bei Fragen bitte per E-Mail an <span class="font-semibold">asia.since2007[at]gmail.com</span>.</p>
-            </div>
-
-            <!-- Honeypot Bot-Falle -->
-            <input type="text" id="suggestion-honeypot" style="display:none" tabindex="-1" autocomplete="off">
-
-            <div id="suggestion-form-area" class="space-y-4">
-                <div>
-                    <p class="text-sm font-bold text-brand-darkGreen mb-2">Kategorie</p>
-                    <div class="flex flex-wrap gap-2" id="suggestion-categories">
-                        <button type="button" onclick="selectCategory(this)" data-value="Neuer Artikel" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            📦 Neuer Artikel
-                        </button>
-                        <button type="button" onclick="selectCategory(this)" data-value="Allgemeines" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            💡 Allgemeines
-                        </button>
-                    </div>
-                </div>
-
-                <div>
-                    <p class="text-sm font-bold text-brand-darkGreen mb-2">Ihre Nachricht</p>
-                    <textarea id="suggestion-text" rows="4" placeholder="Was möchten Sie uns mitteilen?" class="w-full border-2 border-brand-green/20 rounded-2xl p-4 text-gray-700 text-sm focus:outline-none focus:border-brand-green resize-none"></textarea>
-                </div>
-
-                <button id="suggestion-send-btn" onclick="submitSuggestion()" class="w-full bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-paper-plane"></i> Vorschlag senden
-                </button>
-                <p id="suggestion-error" class="hidden text-center text-xs text-red-500">Fehler beim Senden. Bitte versuchen Sie es später erneut.</p>
-            </div>
-
-            <!-- Erfolgsmeldung -->
-            <div id="suggestion-success" class="hidden text-center py-4">
-                <i class="fa-solid fa-circle-check text-brand-green text-4xl mb-4 block"></i>
-                <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Vielen Dank!</h3>
-                <p class="text-gray-600 text-sm">Ihr Vorschlag ist bei uns angekommen. Wir freuen uns über Ihre Idee!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bewertungs-Modal -->
-    <div id="review-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeReviewModal()">
-        <div class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl relative">
-            <button onclick="closeReviewModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-brand-beige hover:bg-brand-earth hover:text-white text-gray-500 transition text-lg font-bold">&times;</button>
-
-            <!-- Schritt 1: Zufrieden? -->
-            <div id="review-step-1" class="text-center">
-                <div class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-star text-brand-gold text-2xl"></i>
-                </div>
-                <h3 class="font-serif font-bold text-2xl text-brand-darkGreen mb-2">Waren Sie zufrieden?</h3>
-                <p class="text-gray-500 mb-7">Wir freuen uns über Ihr Feedback!</p>
-                <div class="flex gap-3">
-                    <button onclick="reviewYes()" class="flex-1 inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300">
-                        <i class="fa-solid fa-thumbs-up"></i> Ja
-                    </button>
-                    <button onclick="reviewNo()" class="flex-1 inline-flex items-center justify-center gap-2 bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth font-bold py-3 rounded-full transition duration-300">
-                        <i class="fa-solid fa-thumbs-down"></i> Nein
-                    </button>
-                </div>
-            </div>
-
-            <!-- Schritt 2b: Nicht zufrieden -->
-            <div id="review-step-no" class="hidden text-center">
-                <div class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-envelope text-brand-earth text-2xl"></i>
-                </div>
-                <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-2">Das tut uns wirklich leid!</h3>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                    Was können wir verbessern? Schreiben Sie uns kurz.<br>
-                    <span class="text-xs text-gray-400">Da keine Kontaktdaten erfasst werden, ist eine persönliche Antwort leider nicht möglich. Bei Fragen: <span class="font-semibold">asia.since2007[at]gmail.com</span></span>
-                </p>
-                <div class="text-left space-y-3">
-                    <!-- Honeypot Bot-Falle -->
-                    <input type="text" id="feedback-honeypot" style="display:none" tabindex="-1" autocomplete="off">
-                    <textarea id="feedback-text" rows="3" placeholder="Ihr Feedback…" class="w-full border-2 border-brand-green/20 rounded-2xl p-3 text-gray-700 text-sm focus:outline-none focus:border-brand-green resize-none"></textarea>
-                    <button id="feedback-send-btn" onclick="submitFeedback()" class="w-full inline-flex items-center justify-center gap-2 bg-brand-earth hover:bg-brand-darkGreen text-white font-bold py-3 rounded-full transition duration-300">
-                        <i class="fa-solid fa-paper-plane"></i> Senden
-                    </button>
-                    <p id="feedback-error" class="hidden mt-2 text-center text-xs text-red-500">Fehler beim Senden. Bitte versuchen Sie es später erneut.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </template>
 </body>
 </html>

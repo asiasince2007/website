@@ -18,6 +18,26 @@
         @apply flex items-center justify-center;
     }
 
+    /* Inline-SVG-Icons (Ersatz für Font Awesome, P1.3) */
+    .svg-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+    }
+
+    .fa-spin {
+        animation: fa-spin 2s linear infinite;
+    }
+
+    @keyframes fa-spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .fa-spin { animation: none; }
+    }
+
 
     .nav-link-accent {
         text-decoration-color: transparent;
@@ -28,5 +48,36 @@
     .nav-link-accent:focus-visible {
         text-decoration: underline;
         text-decoration-color: var(--color-accent-terracotta);
+    }
+
+    /* Bewertungs-Marquee (P4b.1): nahtloses Endlosband, Pause bei Hover/Fokus */
+    .marquee {
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .marquee__track {
+        animation: marquee var(--marquee-duration, 55s) linear infinite;
+        will-change: transform;
+    }
+
+    .marquee:hover .marquee__track,
+    .marquee:focus-within .marquee__track {
+        animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .marquee__track { animation: none; }
+        .marquee {
+            overflow-x: auto;
+            -webkit-mask-image: none;
+            mask-image: none;
+        }
     }
 }
