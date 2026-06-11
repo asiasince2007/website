@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bewertungs-Marquee – Prototyp · Asia Markt Thien Phu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#5B8A68; --darkGreen:#2D4A36; --cream:#FDFBF7; --beige:#F4EFE6;
+    --gold:#F59E0B; --accent:#D4A373; --duration:55s;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);font-family:'Nunito',sans-serif;color:#374151;}
+  .wrap{max-width:1200px;margin:0 auto;padding:48px 16px;}
+  .head{text-align:center;margin-bottom:28px;}
+  .eyebrow{font-family:'Nunito';letter-spacing:.15em;text-transform:uppercase;font-size:.8rem;color:var(--accent);font-weight:700;}
+  h1{font-family:'Lora',serif;color:var(--darkGreen);font-size:2.2rem;margin:.3rem 0 .5rem;}
+  .summary{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;color:#4b5563;}
+  .summary .stars{color:var(--gold);letter-spacing:2px;}
+  .summary .num{color:var(--darkGreen);font-weight:800;}
+  .demo-note{display:block;margin-top:.6rem;font-size:.8rem;color:#9ca3af;}
+
+  /* Marquee */
+  .marquee{position:relative;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
+  .track{display:flex;gap:24px;width:max-content;
+    animation:marquee var(--duration) linear infinite;will-change:transform;}
+  .marquee:hover .track,.marquee:focus-within .track{animation-play-state:paused;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion:reduce){
+    .track{animation:none;}
+    .marquee{overflow-x:auto;}
+  }
+
+  .card{width:340px;flex:0 0 auto;background:#fff;border:1px solid rgba(91,138,104,.2);
+    border-radius:18px;padding:22px 24px;box-shadow:0 4px 14px rgba(45,74,54,.06);
+    display:flex;flex-direction:column;}
+  .card .stars{color:var(--gold);letter-spacing:2px;margin-bottom:10px;font-size:1.05rem;}
+  .card blockquote{margin:0;flex:1;line-height:1.6;color:#374151;font-size:.98rem;}
+  .card figcaption{margin-top:16px;font-weight:700;color:var(--darkGreen);font-size:.9rem;}
+  .card figcaption .src{font-weight:500;color:#9ca3af;}
+  .controls{text-align:center;margin-top:22px;}
+  .controls button{font-family:'Nunito';border:1px solid rgba(91,138,104,.35);background:var(--beige);
+    color:var(--darkGreen);font-weight:700;padding:8px 18px;border-radius:999px;cursor:pointer;}
+  .controls button:hover{background:var(--green);color:#fff;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Kundenstimmen</span>
+      <h1>Das sagen unsere Kundinnen und Kunden</h1>
+      <span class="summary"><span class="stars">★★★★★</span> <span class="num">4,39</span> · 100 Google-Bewertungen</span>
+      <span class="demo-note">Prototyp – Laufband stoppt beim Drüberfahren (Maus/Fokus). Texte sind echte Google-Bewertungen.</span>
+    </div>
+    <div class="marquee" tabindex="0" aria-label="Kundenbewertungen">
+      <ul class="track" id="track" style="list-style:none;margin:0;padding:0;"></ul>
+    </div>
+    <div class="controls">
+      <button id="speed">Tempo wechseln</button>
+    </div>
+  </div>
+
+<script>
+  const reviews = [
+    {author:"Andre Jansen", text:"Der Inhaber ist sehr Hilfsbereit und hat auch immer einen guten Ratschlag wenn man mal eine Frage zu den unterschiedlichen Gerichten hat. Trotz geringer Ladenfläche ist die Auswahl super wie ich finde. Für mich der beste Asia Shop in der ganzen Umgebung !"},
+    {author:"Maria F.", text:"Kleiner Asia-Laden, der jedoch sehr gut sortiert ist. Der Inhaber ist super freundlich. Preise angemessen. Sehr zu empfehlen."},
+    {author:"Rachid Amkhatriou", text:"Der Laden ist zwar klein aber hat sehr viel Auswahl und die Besitzer sind sehr nett. Ich komme mindestens 10 mal im Monat. Er hat sehr viel Auswahl von Ramen bis Fisch zu Soßen, Getränken usw."},
+    {author:"Luca Eff", text:"Sehr kompetente Fachberatung. Ruhige Atmosphäre. Wichtiger Einzelhändler und Bereicherung für Langenfeld."},
+    {author:"Nicole Jacobi", text:"Hier bekommt man alles was man braucht, und der Besitzer ist einfach immer so nett und hilfsbereit. Kommen immer gerne."},
+    {author:"Ralf Schaper", text:"Ich habe dort Fisch- und Soya-Sauce zu einem wirklich guten Preis bekommen, kein Vergleich zu unseren Supermärkten."},
+    {author:"Stefan Haberkorn", text:"Super freundlich und perfekte Auswahl. Ich gehe immer wieder gerne dort hin. 100% zu empfehlen!"},
+    {author:"Nico", text:"Schöner kleiner Laden, hat alles was man als Europäer für sein Asia Essen braucht und noch mehr."},
+    {author:"Martin", text:"Sehr viele Lebensmittel, immer Tipps und Rezeptideen. Bei Asia immer hier."},
+    {author:"Luz Mery Palacio Osorio", text:"Super Asia Store, finde alles was ich für meine asiatischen Gerichte brauche. Kleines aber gutes Sortiment mit unschlagbaren Preisen. Qualität ist super."},
+    {author:"Holger Schmitz", text:"Kleiner aber feiner Asia Shop mit prima Beratung und sehr gutem Angebot."},
+    {author:"Inge", text:"Eine große Auswahl trotz kleinem Ladenlokal und freundliche Beratung und Hilfe."},
+    {author:"Daniela Schmitz", text:"Ich liebe diesen kleinen Laden. Hat alles was man braucht. Macht Spaß zu schnöbern."}
+  ];
+  const card = (r,clone)=>`<li class="card" ${clone?'aria-hidden="true"':''}>
+      <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+      <blockquote>„${r.text}"</blockquote>
+      <figcaption>${r.author} <span class="src">· Google</span></figcaption>
+    </li>`;
+  const track=document.getElementById('track');
+  track.innerHTML = reviews.map(r=>card(r,false)).join('') + reviews.map(r=>card(r,true)).join('');
+  // Tempo-Umschalter (nur Demo)
+  const speeds=['75s','55s','35s']; let i=1;
+  document.getElementById('speed').onclick=()=>{i=(i+1)%speeds.length;
+    document.documentElement.style.setProperty('--duration',speeds[i]);};
+</script>
+</body>
+</html>
