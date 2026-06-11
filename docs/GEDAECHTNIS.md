@@ -239,4 +239,11 @@
   Maps-Abschnitt → Zwei-Klick-Lösung (Einwilligung), Drittland-Liste angepasst.
   Verifiziert: **0 externe Requests beim Seitenaufruf** auf allen Seiten, Fonts laden korrekt.
   Impressum/Datenschutz nennen Inhaber Van Tran (Vollständigkeit geprüft).
+- **2026-06-11** — P6.1 **A11y: axe-core-Scan (WCAG 2.1 AA) auf 0 Verstöße gebracht**
+  (`scripts/qa-axe.js`, alle 6 Seiten). Fixes: (1) **Markenfarbe `brand-green` von #5B8A68 auf
+  #4D7558 abgedunkelt** — erfüllt jetzt 4,5:1 sowohl als Weiß-auf-Grün (5,25) als auch
+  Grün-auf-Beige (4,58); überall ersetzt (Tailwind-Config + Inline-Styles aller Seiten).
+  (2) Highlight-Subtexte gray-500→gray-600 auf Beige. (3) Sonntag-Zeile gray-400→gray-500.
+  (4) `<title>` + Description + Canonical auf Impressum/Datenschutz ergänzt (fehlten!).
+  `aria-expanded` (P0.3-Befund) war bereits in P3 behoben; Fokus-Stile + alt-Texte geprüft.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

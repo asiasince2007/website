@@ -176,7 +176,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 
 ## Phase 6 — Barrierefreiheit, Recht & Qualitätssicherung
 
-- [ ] **6.1 A11y:** Kontraste (WCAG AA), sichtbare Fokus-Stile, Mobile-Menü `aria-expanded`/
+- [x] **6.1 A11y:** Kontraste (WCAG AA), sichtbare Fokus-Stile, Mobile-Menü `aria-expanded`/
   Fokusführung, alle Bilder mit sinnvollem `alt`.
 - [x] **6.2 Datenschutz/DSGVO:** Google Fonts self-hosten **oder** Consent; Maps als
   Klick-zum-Laden; `datenschutz.html`/`impressum.html` auf Vollständigkeit & Inhabername prüfen.
