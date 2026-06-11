@@ -134,4 +134,10 @@
 - **2026-06-11 (3. Sitzung, autonome Umsetzung)** — P0.1: `npm install` + `npm run build:css`
   ausgeführt; `assets/css/styles.min.css` jetzt 22 KB (war 0 Byte, Befund F-01 teilbehoben —
   CDN-Entfernung folgt in P1.2). `styles.min.css` war in `index.html` bereits verlinkt (Z. 11).
+- **2026-06-11** — P0.2 **Lighthouse-Baseline (Mobil, Live-Site, headless Chrome):**
+  Performance **62** · Accessibility **93** · Best Practices **96** · SEO **100**.
+  Metriken: LCP 21,5 s · FCP 4,5 s · TBT 0 ms · CLS 0 · Speed Index 5,3 s.
+  **Erkenntnis:** LCP-Element ist das Header-SVG-Logo — Rendering wird massiv durch das
+  render-blockierende Tailwind-CDN-Skript verzögert (F-01) → P1.2 ist der größte Hebel.
+  (Roh-Report lokal: `docs/lighthouse-baseline.json`, nicht committet.)
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
