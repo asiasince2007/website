@@ -18,7 +18,7 @@
 | **Telefon (Anzeige)** | 02173 1065590 |
 | **Telefon (`tel:`-Link)** | +4921731065590 |
 | **E-Mail** | asia.since2007@gmail.com (auf der Seite obfuskiert als `[at]`) |
-| **Inhaber** | inhabergeführt (Name öffentlich nicht bestätigt → `TODO(inhaber)`) |
+| **Inhaber** | Van Tran (Quelle: `impressum.html`, dort öffentlich genannt; für Schema-Nutzung Bestätigung → `TODO(inhaber)`) |
 | **Gegründet** | 2007 („Ihr Asia Markt seit 2007") |
 | **Google-Maps-Kurzlink** | https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7 |
 | **Geo (Laden, präzise)** | lat 51.1051371 · lon 6.9479852 (Quelle: Maps-Place-URL im Bewertungs-Export) |
@@ -151,4 +151,11 @@
   → `thien_phu_logo.webp` (8,4 KB, 220², via sharp aus `design/`-Original). Beide Referenzen in
   `index.html` (Header + Footer) umgestellt, PNG aus `assets/images/` entfernt. Original bleibt
   als Quelle in `design/` liegen. Visuell im Preview verifiziert (scharf, lädt korrekt).
+- **2026-06-11** — P1.2 **Tailwind-CDN entfernt (F-01 vollständig behoben):** CDN-Skript +
+  Inline-`tailwind.config` aus `index.html`, `impressum.html`, `datenschutz.html` entfernt;
+  alle drei binden jetzt `assets/css/styles.min.css` ein. `tailwind.config.js` → `content:
+  ['./*.html']` (erfasst künftige Seiten). Alle 3 Seiten im Preview verifiziert: 0 Requests an
+  `cdn.tailwindcss.com`, Brand-Farben/Fonts identisch. **Nebenbefund:** `impressum.html` nennt
+  öffentlich „Inhaber: Van Tran" → Stammdaten-Tabelle aktualisiert (Schema-Nutzung weiterhin
+  erst nach Inhaber-Bestätigung).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

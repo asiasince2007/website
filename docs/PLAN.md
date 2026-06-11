@@ -33,7 +33,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   (`logo-thien-phu-header.svg`) nutzen. Dublette `design/thien_phu_logo.png` entfernen oder
   aus dem ausgelieferten Pfad heraushalten.
   *Akzeptanz:* Kein Bild im Auslieferungspfad > 300 KB; Header/Footer-Logo unverändert scharf.
-- [ ] **1.2 Tailwind-CDN entfernen (Befund F-01).** `<script src="https://cdn.tailwindcss.com">`
+- [x] **1.2 Tailwind-CDN entfernen (Befund F-01).** `<script src="https://cdn.tailwindcss.com">`
   und die Inline-`tailwind.config` aus `index.html` entfernen; gebautes `styles.min.css`
   einbinden. Sicherstellen, dass `tailwind.config.js` → `content` **alle** künftigen
   HTML-Dateien erfasst (`./*.html` bzw. `./**/*.html`).
