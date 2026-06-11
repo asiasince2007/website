@@ -38,7 +38,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   einbinden. Sicherstellen, dass `tailwind.config.js` → `content` **alle** künftigen
   HTML-Dateien erfasst (`./*.html` bzw. `./**/*.html`).
   *Akzeptanz:* Kein Netzwerk-Request an `cdn.tailwindcss.com`; kein FOUC; Styling identisch.
-- [ ] **1.3 Fonts entlasten.** Nur genutzte Schriftschnitte laden (ist gesetzt); optional
+- [x] **1.3 Fonts entlasten.** Nur genutzte Schriftschnitte laden (ist gesetzt); optional
   Self-Hosting prüfen. Font Awesome durch Inline-SVG für die wenigen Icons ersetzen.
   *Akzeptanz:* Weniger Render-blockierende Requests; Icons unverändert sichtbar.
 - [ ] **1.4 Google-Maps-iframe lazy laden** (`loading="lazy"` oder Klick-zum-Laden-Fassade).

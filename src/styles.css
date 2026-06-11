@@ -18,6 +18,26 @@
         @apply flex items-center justify-center;
     }
 
+    /* Inline-SVG-Icons (Ersatz für Font Awesome, P1.3) */
+    .svg-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.125em;
+    }
+
+    .fa-spin {
+        animation: fa-spin 2s linear infinite;
+    }
+
+    @keyframes fa-spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .fa-spin { animation: none; }
+    }
+
 
     .nav-link-accent {
         text-decoration-color: transparent;

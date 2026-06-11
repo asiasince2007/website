@@ -158,4 +158,13 @@
   `cdn.tailwindcss.com`, Brand-Farben/Fonts identisch. **Nebenbefund:** `impressum.html` nennt
   öffentlich „Inhaber: Van Tran" → Stammdaten-Tabelle aktualisiert (Schema-Nutzung weiterhin
   erst nach Inhaber-Bestätigung).
+- **2026-06-11** — P1.3 **Font Awesome durch Inline-SVG ersetzt:** 75 `<i>`-Tags in 3 HTML-Dateien
+  (inkl. JS-Template-Strings) per Skript `scripts/fa-to-svg.js` durch Inline-SVGs ersetzt
+  (Pfaddaten aus offiziellen `@fortawesome/*`-npm-Paketen, dev-only via `--no-save`).
+  `.svg-icon`-Basisklasse + `fa-spin`-Keyframes (mit `prefers-reduced-motion`) in `src/styles.css`.
+  FA-Vendor-Ordner (CSS + 3 Webfonts) gelöscht → nur noch 2 Font-Requests (Lora/Nunito).
+  Verifiziert via Headless-Chrome (`scripts/qa-check.js`): alle Seiten, 0 Konsolenfehler außer
+  bekanntem `favicon.ico`-404 (→ P2.5). Font-Self-Hosting auf P6.2 (DSGVO) verschoben.
+  **Gelernt:** `npm install --no-save X` entfernt zuvor per `--no-save` installierte Pakete —
+  dev-Tools (puppeteer-core etc.) in einem Aufruf gemeinsam installieren.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
