@@ -72,6 +72,41 @@
     }
     </script>
 
+    <!-- FAQPage-Schema (P5.2) — Antworten identisch zu den sichtbaren FAQ-Inhalten -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welche Öffnungszeiten hat der Asia Markt Thien Phu?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Montag bis Freitag von 09:00 bis 18:00 Uhr, Samstag von 09:00 bis 14:00 Uhr. Sonntags ist geschlossen." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wo kann ich parken?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Direkt gegenüber dem Laden gibt es Parkplätze mit Parkticketautomat: 15 Minuten gratis, danach 1 € pro Stunde. Elektroautos parken mit Parkscheibe 5 Stunden kostenlos." }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich mit Karte bezahlen?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ja, wir akzeptieren Kartenzahlung und Bargeld." }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich online bestellen?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nein, wir sind kein Online-Shop. Alle Produkte sind ausschließlich vor Ort im Laden auf der Hauptstraße 74 in Langenfeld erhältlich." }
+        },
+        {
+          "@type": "Question",
+          "name": "Führen Sie ein bestimmtes Produkt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Unser Sortiment reicht von frischen Kräutern und Gemüse über Nudeln, Saucen und Tiefkühlware bis zu Tee, Getränken und Snacks. Bei konkreten Fragen erreichen Sie uns telefonisch unter 02173 1065590." }
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="assets/css/styles.min.css">
     <!-- Google Fonts (nur genutzte Gewichte, mit display=swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -353,6 +388,73 @@
                             <button id="maps-load-btn" type="button" class="bg-brand-darkGreen text-white font-bold py-3 px-8 rounded-full hover:bg-brand-green transition-colors">Karte laden</button>
                             <a href="https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7" target="_blank" rel="noopener noreferrer" class="text-sm text-brand-green underline hover:text-brand-darkGreen">Oder direkt in Google Maps öffnen</a>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Anfahrt & Parken (P5.1) -->
+            <section id="anfahrt" class="py-16 bg-brand-beige/40 border-y border-brand-green/10">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Gut zu erreichen</p>
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-darkGreen mb-4">Anfahrt &amp; Parken in Langenfeld</h2>
+                        <p class="text-gray-600 text-lg max-w-2xl mx-auto">Sie finden uns mitten in Langenfeld (Rheinland) auf der Hauptstraße 74 – mit öffentlichen Parkmöglichkeiten direkt gegenüber.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-[2rem] p-8 soft-border shadow-sm text-center">
+                            <div class="w-14 h-14 bg-brand-beige rounded-full flex items-center justify-center text-brand-green mx-auto mb-4">
+                                <svg class="svg-icon text-2xl" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg>
+                            </div>
+                            <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-3">Zentrale Lage</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">Hauptstraße 74, 40764 Langenfeld (Rheinland) – mitten im Zentrum.</p>
+                            <a href="https://maps.google.com/?q=Asia+Markt+Thien+Phu+Hauptstraße+74+40764+Langenfeld" target="_blank" rel="noopener noreferrer" class="text-brand-green hover:text-brand-darkGreen underline text-sm font-medium">Route auf Google Maps planen</a>
+                        </div>
+                        <div class="bg-white rounded-[2rem] p-8 soft-border shadow-sm text-center">
+                            <div class="w-14 h-14 bg-brand-beige rounded-full flex items-center justify-center text-brand-green mx-auto mb-4">
+                                <svg class="svg-icon text-2xl" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM192 256l48 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-48 0 0 64zm48 64l-48 0 0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-184c0-22.1 17.9-40 40-40l72 0c53 0 96 43 96 96s-43 96-96 96z"/></svg>
+                            </div>
+                            <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-3">Parken gegenüber</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Parkplätze mit Parkticketautomat direkt gegenüber dem Laden: <strong>15 Minuten gratis</strong>, danach 1&nbsp;€ pro Stunde.</p>
+                        </div>
+                        <div class="bg-white rounded-[2rem] p-8 soft-border shadow-sm text-center">
+                            <div class="w-14 h-14 bg-brand-beige rounded-full flex items-center justify-center text-brand-green mx-auto mb-4">
+                                <svg class="svg-icon text-2xl" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z"/></svg>
+                            </div>
+                            <h3 class="font-serif font-bold text-xl text-brand-darkGreen mb-3">E-Auto-Vorteil</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Elektroautos parken <strong>5 Stunden kostenlos</strong> – einfach Parkscheibe auslegen.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ (P5.2) mit FAQPage-Schema -->
+            <section id="faq" class="py-16 lg:py-24">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Häufige Fragen</p>
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-darkGreen">Gut zu wissen</h2>
+                    </div>
+                    <div class="space-y-4">
+                        <details class="bg-white rounded-2xl soft-border shadow-sm p-6 group">
+                            <summary class="font-serif font-bold text-lg text-brand-darkGreen cursor-pointer list-none flex justify-between items-center gap-4">Welche Öffnungszeiten hat der Asia Markt Thien Phu?<svg class="svg-icon text-brand-green transition-transform group-open:rotate-90 shrink-0" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">Montag bis Freitag von 09:00 bis 18:00 Uhr, Samstag von 09:00 bis 14:00 Uhr. Sonntags ist geschlossen.</p>
+                        </details>
+                        <details class="bg-white rounded-2xl soft-border shadow-sm p-6 group">
+                            <summary class="font-serif font-bold text-lg text-brand-darkGreen cursor-pointer list-none flex justify-between items-center gap-4">Wo kann ich parken?<svg class="svg-icon text-brand-green transition-transform group-open:rotate-90 shrink-0" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">Direkt gegenüber dem Laden gibt es Parkplätze mit Parkticketautomat: 15 Minuten gratis, danach 1&nbsp;€ pro Stunde. Elektroautos parken mit Parkscheibe 5 Stunden kostenlos.</p>
+                        </details>
+                        <details class="bg-white rounded-2xl soft-border shadow-sm p-6 group">
+                            <summary class="font-serif font-bold text-lg text-brand-darkGreen cursor-pointer list-none flex justify-between items-center gap-4">Kann ich mit Karte bezahlen?<svg class="svg-icon text-brand-green transition-transform group-open:rotate-90 shrink-0" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">Ja, wir akzeptieren Kartenzahlung und Bargeld.</p>
+                        </details>
+                        <details class="bg-white rounded-2xl soft-border shadow-sm p-6 group">
+                            <summary class="font-serif font-bold text-lg text-brand-darkGreen cursor-pointer list-none flex justify-between items-center gap-4">Kann ich online bestellen?<svg class="svg-icon text-brand-green transition-transform group-open:rotate-90 shrink-0" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">Nein, wir sind kein Online-Shop. Alle Produkte sind ausschließlich vor Ort im Laden auf der Hauptstraße 74 in Langenfeld erhältlich.</p>
+                        </details>
+                        <details class="bg-white rounded-2xl soft-border shadow-sm p-6 group">
+                            <summary class="font-serif font-bold text-lg text-brand-darkGreen cursor-pointer list-none flex justify-between items-center gap-4">Führen Sie ein bestimmtes Produkt?<svg class="svg-icon text-brand-green transition-transform group-open:rotate-90 shrink-0" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">Unser Sortiment reicht von frischen Kräutern und Gemüse über Nudeln, Saucen und Tiefkühlware bis zu Tee, Getränken und Snacks. Rufen Sie uns bei konkreten Fragen gern an: <a href="tel:+4921731065590" class="text-brand-green underline hover:text-brand-darkGreen">02173 1065590</a> – oder reichen Sie einen Produktvorschlag über den Button unten rechts ein.</p>
+                        </details>
                     </div>
                 </div>
             </section>

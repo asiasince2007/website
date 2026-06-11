@@ -165,10 +165,10 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 
 ## Phase 5 — Content-Ausbau
 
-- [ ] **5.1 Seite/Abschnitt „Anfahrt & Parken"** (lokale Relevanz, Keywords).
-- [ ] **5.2 FAQ-Sektion** (Öffnungszeiten, Parken, Bezahlung, Sortiment-Anfragen) — optional mit
-  `FAQPage`-Schema.
-- [ ] **5.3 Optionaler Rezepte-/Ratgeber-Bereich** (z. B. „Was brauche ich für Pho?") mit
+- [x] **5.1 Seite/Abschnitt „Anfahrt & Parken"** (lokale Relevanz, Keywords). *(Als Abschnitt `#anfahrt` auf `kontakt.html`.)*
+- [x] **5.2 FAQ-Sektion** (Öffnungszeiten, Parken, Bezahlung, Sortiment-Anfragen) — optional mit
+  `FAQPage`-Schema. *(Abschnitt `#faq` auf `kontakt.html`, 5 Fragen, `FAQPage`-JSON-LD.)*
+- [ ] **5.3 Optionaler Rezepte-/Ratgeber-Bereich** *(offen — nur mit echten Inhalten; `TODO(inhaber)`: Rezept-Themen freigeben)* (z. B. „Was brauche ich für Pho?") mit
   Brücke zum Sortiment — themenrelevanter Traffic-Hebel. Nur mit echten Inhalten.
   *Akzeptanz je Punkt:* Eindeutige Metadaten, interne Verlinkung, valides Schema (falls genutzt).
 

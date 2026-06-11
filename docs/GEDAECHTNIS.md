@@ -226,4 +226,10 @@
   JS-generiertes Markup (Modals, Marquee-Karten) verlor sonst Klassen wie `w-80`;
   `tailwind.config.js` entsprechend erweitert. Utility `overflow-hidden` schlug Komponenten-
   Regel im reduced-motion-Fall → `overflow` in die `.marquee`-Komponente verlegt.
+- **2026-06-11** — P5.1/5.2 **„Anfahrt & Parken"-Abschnitt** (`kontakt.html#anfahrt`, 3 Karten:
+  Lage/Route, Parken mit Automat-Konditionen, E-Auto-Vorteil) und **FAQ-Abschnitt**
+  (`kontakt.html#faq`, 5 Fragen via `<details>`-Akkordeon ohne JS) ergänzt — ausschließlich
+  dokumentierte Fakten aus den Stammdaten. **FAQPage-JSON-LD** auf `kontakt.html` (Antworten
+  identisch zum sichtbaren Inhalt, Google-Richtlinie). JSON-LD-QA: alle 7 Blöcke valide.
+  P5.3 (Rezepte) bewusst offen — nur mit echten Inhalten (`TODO(inhaber)`).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
