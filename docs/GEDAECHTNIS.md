@@ -192,4 +192,8 @@
   Rich Result („self-serving") — Markup ist dennoch valide und für andere Suchmaschinen nützlich.
   **Pflege:** Bei neuem Export `ratingValue`/`reviewCount` in allen 3 Dateien aktualisieren
   (Phase 3 dedupliziert die Blöcke ohnehin in echte Einzelseiten).
+- **2026-06-11** — P2.5 **Favicon-Set + technische Meta:** `favicon.ico` (16/32/48, Root),
+  `icon-192/512.png`, `apple-touch-icon.png` (alle aus `design/`-Logo via sharp),
+  `site.webmanifest`, `theme-color #FDFBF7` — auf allen 3 Seiten verlinkt. QA: 0 Konsolenfehler
+  (Favicon-404 behoben), alle Dateien lokal erreichbar. **Phase 0–2 damit komplett.**
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

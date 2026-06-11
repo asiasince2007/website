@@ -103,7 +103,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   `marquee_auswahl`. Keine erfundenen Zahlen; bei späterem Stand aktualisieren.
   *Akzeptanz:* Valides Markup; Zahlen = Exportwerte.
 
-- [ ] **2.5 Technische Meta:** `theme-color`, Favicon-Set, optional `site.webmanifest`.
+- [x] **2.5 Technische Meta:** `theme-color`, Favicon-Set, optional `site.webmanifest`.
   *Akzeptanz:* Favicon im Tab sichtbar; `theme-color` gesetzt.
 
 ---
