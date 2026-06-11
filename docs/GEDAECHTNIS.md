@@ -140,4 +140,11 @@
   **Erkenntnis:** LCP-Element ist das Header-SVG-Logo — Rendering wird massiv durch das
   render-blockierende Tailwind-CDN-Skript verzögert (F-01) → P1.2 ist der größte Hebel.
   (Roh-Report lokal: `docs/lighthouse-baseline.json`, nicht committet.)
+- **2026-06-11** — P0.3 **Mobil-Reflow (390 px, lokal via http-server + Headless-Chrome) geprüft.**
+  Befunde: (1) Kein horizontaler Overflow (scrollWidth = 390; dekorative absolute Shapes werden
+  geclippt). (2) Mobile-Menü öffnet/schließt korrekt (Klassen-Toggle `hidden`). (3) **`aria-expanded`
+  fehlt am `#mobile-menu-button` vollständig** (nur statisches `aria-label="Menü öffnen"`) →
+  in P6.1 beheben. (4) **Floating-Button „Vorschlag einreichen" überdeckt je nach Scroll-Position
+  den „Kundenstimmen"-CTA** → bestätigt P4.4. Screenshots: `docs/qa-mobil-390-*.jpg`;
+  QA-Skript: `scripts/mobile-screenshots.js` (puppeteer-core + System-Chrome, dev-only).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

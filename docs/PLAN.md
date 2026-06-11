@@ -20,7 +20,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   *Akzeptanz:* Datei > 0 Byte, Seite rendert lokal ohne `cdn.tailwindcss.com`.
 - [x] **0.2 Baseline messen.** Lighthouse (Mobil) für die aktuelle Live-Seite festhalten
   (Performance, SEO, Best Practices, A11y) als Vergleichswert in `GEDAECHTNIS.md`.
-- [ ] **0.3 Mobil-Reflow real testen** (Chrome DevTools, 390 px): Mobile-Menü öffnet/schließt,
+- [x] **0.3 Mobil-Reflow real testen** (Chrome DevTools, 390 px): Mobile-Menü öffnet/schließt,
   `aria-expanded` korrekt, keine horizontalen Overflows, CTAs nicht vom Floating-Button verdeckt.
   *Akzeptanz:* Screenshots in `docs/` abgelegt, Befunde notiert.
 
