@@ -153,7 +153,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 
 ### Phase 4b — Hero-Bewertungs-Marquee (gewünschtes Feature)
 
-- [ ] **4b.1 Endlos-Laufband echter Google-Bewertungen** (rechts → links) im/unter dem Hero
+- [x] **4b.1 Endlos-Laufband echter Google-Bewertungen** (rechts → links) im/unter dem Hero
   umsetzen. **Vollständige Spezifikation + Referenz-Code:** `docs/HERO-BEWERTUNGEN-KARUSSELL.md`.
   Daten: `docs/bewertungen-kuratiert.json` (`marquee_auswahl`, 13 Stück) — nach
   `assets/data/` ausliefern oder beim Build inlinen.

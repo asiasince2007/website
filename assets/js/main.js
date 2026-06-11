@@ -328,6 +328,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Bewertungs-Marquee: echte Google-Bewertungen als Endlosband — nur Startseite (P4b.1)
+    const marqueeTrack = document.querySelector('.marquee__track');
+    if (marqueeTrack) {
+        const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        fetch('assets/data/bewertungen-kuratiert.json')
+            .then(r => r.json())
+            .then(({ marquee_auswahl: reviews }) => {
+                if (!Array.isArray(reviews) || reviews.length === 0) return;
+                const card = (r, clone = false) => `
+                    <li class="w-80 shrink-0"${clone ? ' aria-hidden="true"' : ''}>
+                        <figure class="h-full bg-brand-cream soft-border rounded-2xl p-6 shadow-sm flex flex-col">
+                            <div class="text-brand-gold mb-3 tracking-wider" aria-label="5 von 5 Sternen">★★★★★</div>
+                            <blockquote class="text-gray-700 text-sm leading-relaxed flex-1">„${esc(r.text)}“</blockquote>
+                            <figcaption class="mt-4 text-sm font-semibold text-brand-darkGreen">
+                                ${esc(r.author)} <span class="font-normal text-gray-400">· Google</span>
+                            </figcaption>
+                        </figure>
+                    </li>`;
+                marqueeTrack.innerHTML = reviews.map(r => card(r)).join('')
+                                       + reviews.map(r => card(r, true)).join('');
+            })
+            .catch(() => { /* Marquee bleibt leer, Seite funktioniert weiter */ });
+    }
+
     // Bewertungen erst kurz vor Sichtbarkeit laden — nur Startseite
     const bewertungen = document.getElementById('bewertungen');
     if (bewertungen) {

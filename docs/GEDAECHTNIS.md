@@ -217,4 +217,13 @@
   Foto-Briefings bleiben als `TODO(inhaber)`-HTML-Kommentare erhalten. P4.3: Sortiment-Karten
   geprüft, bewusst ohne Fotos (ADR-05), konsistent — unverändert. P4.4: Floating-Button auf
   Mobil icon-only (runder 48-px-Button, `aria-label`), überdeckt CTAs nicht mehr funktional.
+- **2026-06-11** — P4b.1 **Bewertungs-Marquee** unter dem Hero (Spez:
+  `docs/HERO-BEWERTUNGEN-KARUSSELL.md`): 13 kuratierte echte 5-Sterne-Bewertungen aus
+  `assets/data/bewertungen-kuratiert.json` (getrimmte Kopie der docs-Datei), Karten + aria-
+  hidden-Klone für nahtlose Schleife (translateX −50 %, 55 s), Pause bei Hover/Fokus,
+  `prefers-reduced-motion` → scrollbares Band, Texte HTML-escaped. QA: `scripts/qa-marquee.js`
+  (7 Checks OK). **Wichtig gelernt: Tailwind-`content` muss `assets/js/main.js` enthalten** —
+  JS-generiertes Markup (Modals, Marquee-Karten) verlor sonst Klassen wie `w-80`;
+  `tailwind.config.js` entsprechend erweitert. Utility `overflow-hidden` schlug Komponenten-
+  Regel im reduced-motion-Fall → `overflow` in die `.marquee`-Komponente verlegt.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
