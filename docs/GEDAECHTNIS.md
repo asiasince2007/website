@@ -182,4 +182,8 @@
   Datenschutz; nach Phase 3 erweitern). `robots.txt` sperrt `cowork/`, `docs/`, `design/`,
   `demo/` (Planungs-/Designdateien, sollen nicht in den Index) und verweist auf die Sitemap.
   Lokal verifiziert (beide via http-server erreichbar).
+- **2026-06-11** — P2.3 **Open-Graph- & Twitter-Card-Meta** auf allen 3 Seiten (seitenspezifische
+  Titel/URLs). **OG-Bild (1200×630, 45 KB JPG)** aus Brand-Elementen gerendert (Logo, Lora/Nunito,
+  Markenfarben) via `scripts/og-template.html` + Puppeteer → `assets/images/og-image.jpg`.
+  Sharing-Vorschau (WhatsApp etc.) erst nach Deploy real testbar.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

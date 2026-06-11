@@ -92,7 +92,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   verweist auf die Sitemap. Sitemap nach Phase 3 um alle echten URLs ergänzen.
   *Akzeptanz:* Beide unter `https://www.asiamarkt.info/…` erreichbar (kein 404).
 
-- [ ] **2.3 Social-Meta ergänzen (Befund F-08).** Open Graph (`og:title/description/image/url/
+- [x] **2.3 Social-Meta ergänzen (Befund F-08).** Open Graph (`og:title/description/image/url/
   type=website/locale=de_DE`) + Twitter-Card im `<head>` jeder Seite. OG-Bild (1200×630)
   erstellen.
   *Akzeptanz:* Sharing-Vorschau (z. B. WhatsApp) zeigt Titel + Bild.
