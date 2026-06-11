@@ -47,10 +47,16 @@
   Saucen, Gewürze, Tiefkühlartikel, Tee, Getränke, Snacks.
 - **Kein Online-Shop** — Verkauf ausschließlich vor Ort.
 - Zielgruppe: lokale Kundschaft in Langenfeld + Umgebung, Liebhaber asiatischer Küche.
-- Sehr gute Reputation. **Google-Bewertungen (Export der 100 aktuellsten, Stand 2026-06):
-  Ø 4,39 — Verteilung 5★: 63, 4★: 22, 3★: 8, 2★: 5, 1★: 2.** Persönliche Beratung durch den
-  Inhaber wird häufig gelobt → starkes Marken-Asset. Kuratierte deutsche 5-Sterne-Bewertungen
-  für das Hero-Marquee liegen in `docs/bewertungen-kuratiert.json`.
+- Sehr gute Reputation. **Google-Maps-Profil (Stand 2026-06-11, Angabe Inhaber): Ø 4,4 bei
+  125 Bewertungen — nur Google, ohne Yelp und golocal (dort existieren weitere Profile →
+  `sameAs`-Kandidaten).** Diese Werte stehen im JSON-LD (`aggregateRating`) und sichtbar auf
+  der Startseite (Hero-Pill + Bewertungs-Sektion); bei Änderung überall nachziehen.
+  Der ältere Export (100 aktuellste, Ø 4,39 — 5★: 63, 4★: 22, 3★: 8, 2★: 5, 1★: 2) bleibt
+  Quelle der Marquee-Texte. Persönliche Beratung durch den Inhaber wird häufig gelobt →
+  starkes Marken-Asset. Kuratierte deutsche 5-Sterne-Bewertungen für das Hero-Marquee
+  liegen in `docs/bewertungen-kuratiert.json`.
+- **Kein WhatsApp Business** (Stand 2026-06-11) — kein WhatsApp-Kontakt-CTA einbauen;
+  nur die bestehende „über WhatsApp teilen"-Funktion behalten.
 - Bezahlung: Karte + Bargeld. Parken gegenüber (Automat, 15 Min gratis). Diese Fakten eignen
   sich für `paymentAccepted` im Schema bzw. lokale Content-Signale.
 
@@ -110,8 +116,10 @@
 ## 6. Offene Punkte für den Inhaber (`TODO(inhaber)`)
 
 - Echte Fotos liefern: Ladenfront, Innenraum, Regale, frisches Gemüse, Team/Inhaber.
+  (Stand 2026-06-11: „kommen bald wahrscheinlich" — Interims-Visuals bleiben bis dahin.)
 - Inhabername für Impressum/Schema bestätigen.
 - Google-Business-Profile-Zugang (für NAP-Abgleich, Fotos, Posts).
+- Yelp- und golocal-Profil-URLs liefern → als `sameAs` ins JSON-LD aufnehmen.
 - Optional: Liefer-/Reservierungswünsche, Social-Media-Profile (Instagram/Facebook?).
 
 ---
@@ -259,4 +267,32 @@
   **Session-Zusammenfassung:** Phasen 0–6 vollständig abgearbeitet bis auf P5.3 (Rezepte —
   bewusst offen, braucht echte Inhalte vom Inhaber). Offene `TODO(inhaber)`: echte Fotos
   (Hero/Tradition/Storefront), `sameAs`-Profile, Rezept-Themen, GBP-Pflege.
+- **2026-06-11 (4. Sitzung) — Conversion-Optimierung (P7, Auftrag Inhaber, mobile-first).**
+  Ziel: Besucher aus Google-Suche/Maps schneller zur Fahrt-/Anruf-Entscheidung bringen.
+  (1) **Öffnungsstatus-Badge** („Jetzt geöffnet · bis 18 Uhr" / „öffnet morgen um 9 Uhr"):
+  `openStatusNow()`/`initOpenStatus()` in `main.js`; Elemente mit `[data-open-status]`
+  (+ `data-status-dot`/`data-status-text`), Aktualisierung je Minute. Progressive Enhancement:
+  ohne JS bleiben statische Öffnungszeiten stehen. **Bewusste Limitation: keine Feiertagslogik**
+  — an Feiertagen zeigt das Badge ggf. fälschlich „geöffnet" (wie Google Maps ohne
+  Sonderzeiten). (2) **Mobile Aktionsleiste** (`.action-bar`, nur < 768 px, alle 4 Hauptseiten):
+  Anrufen / Route / Öffnungsstatus, fix am unteren Rand; `body.has-action-bar` reserviert
+  Platz (Footer nicht verdeckt), `safe-area-inset-bottom` beachtet. (3) **Floating
+  „Vorschlag einreichen" nur noch Desktop** (`hidden md:flex`) — mobil hat die Leiste Vorrang;
+  Ersatz: Footer-Button auf allen 4 Hauptseiten; FAQ-Text „Button unten rechts" → „im
+  Seitenfuß" angepasst (JSON-LD-Antwort unverändert konsistent). (4) **Hero-CTAs neu:**
+  primär „Route planen" (Maps-Deep-Link), sekundär „Anrufen" (`tel:`), tertiär Sortiment;
+  „Kundenstimmen"-Button ersetzt durch klickbare **Bewertungs-Pill „4,4 bei Google ·
+  125 Bewertungen"** (→ `#bewertungen`); Status-Zeile über den CTAs; Info-Zeile
+  „Hauptstraße 74 · Parken gegenüber (15 Min gratis) · Karte & Bargeld" ergänzt.
+  (5) **Bewertungsdaten 4,39/100 → 4,4/125** (Angabe Inhaber, nur Google) in allen 6
+  JSON-LD-Blöcken + sichtbar in der Bewertungs-Sektion. (6) **Abschluss-CTA-Sektionen**
+  auf `sortiment.html` („Alles davon finden Sie bei uns im Laden") und `ueber-uns.html`
+  („Überzeugen Sie sich vor Ort") mit Status + Route/Anruf. (7) **Kontakt:** Anker
+  `#oeffnungszeiten` (`scroll-mt-28`) + Status-Badge am Öffnungszeiten-Block.
+  (8) **Meta/OG-Description Startseite** mit Zeiten/Parken konkretisiert (SERP-CTR).
+  **QA:** JSON-LD 7/7 valide, Multipage 23/23 OK, axe 0 Verstöße, mobil 390 px ohne
+  Overflow, Statuslogik für 6 Randfälle (Werktag offen/vor/nach, Sa 13:59/15:00, So)
+  verifiziert, 0 Konsolenfehler. **Entscheidungen:** kein WhatsApp-CTA (kein Business-
+  Account), Fotos folgen separat (Interims-Visuals bleiben), Yelp/golocal nur als
+  künftige `sameAs`-Kandidaten erfasst.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
