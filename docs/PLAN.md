@@ -88,7 +88,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
   `sameAs` mit echten Profilen (Google, golocal, evtl. Social) füllen — `TODO(inhaber)`.
   *Akzeptanz:* Google Rich-Results-Test fehlerfrei; NAP exakt wie `GEDAECHTNIS.md`.
 
-- [ ] **2.2 `sitemap.xml` + `robots.txt` anlegen (Befund F-04).** Im Repo-Root. `robots.txt`
+- [x] **2.2 `sitemap.xml` + `robots.txt` anlegen (Befund F-04).** Im Repo-Root. `robots.txt`
   verweist auf die Sitemap. Sitemap nach Phase 3 um alle echten URLs ergänzen.
   *Akzeptanz:* Beide unter `https://www.asiamarkt.info/…` erreichbar (kein 404).
 

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /cowork/
+Disallow: /docs/
+Disallow: /design/
+Disallow: /demo/
+
+Sitemap: https://www.asiamarkt.info/sitemap.xml

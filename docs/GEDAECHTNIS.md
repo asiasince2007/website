@@ -178,4 +178,8 @@
   `TODO(inhaber)`-Kommentar im Head. Zusätzlich `foundingDate: 2007`, `currenciesAccepted`.
   Lokal validiert (`scripts/qa-jsonld.js`: JSON-Parse + NAP-Abgleich, alle OK). Google
   Rich-Results-Test nach Deploy ausführen (lokal nicht möglich).
+- **2026-06-11** — P2.2 **`sitemap.xml` + `robots.txt`** im Root angelegt (3 URLs: /, Impressum,
+  Datenschutz; nach Phase 3 erweitern). `robots.txt` sperrt `cowork/`, `docs/`, `design/`,
+  `demo/` (Planungs-/Designdateien, sollen nicht in den Index) und verweist auf die Sitemap.
+  Lokal verifiziert (beide via http-server erreichbar).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
