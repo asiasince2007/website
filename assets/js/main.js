@@ -20,7 +20,7 @@ function initEmailLinks() {
 const MODAL_TEMPLATES = `
     <!-- Vorschläge-Modal -->
     <div id="suggestion-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeSuggestionModal()">
-        <div class="bg-white rounded-[2rem] p-8 max-w-md w-full shadow-2xl relative">
+        <div role="dialog" aria-modal="true" aria-label="Vorschlag einreichen" tabindex="-1" class="bg-white rounded-[2rem] p-8 max-w-md w-full shadow-2xl relative focus:outline-none">
             <button onclick="closeSuggestionModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-brand-beige hover:bg-brand-earth hover:text-white text-gray-500 transition text-lg font-bold">&times;</button>
 
             <div class="text-center mb-6">
@@ -69,7 +69,7 @@ const MODAL_TEMPLATES = `
 
     <!-- Bewertungs-Modal -->
     <div id="review-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 hidden" onclick="if(event.target===this) closeReviewModal()">
-        <div class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl relative">
+        <div role="dialog" aria-modal="true" aria-label="Bewertung und Feedback" tabindex="-1" class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl relative focus:outline-none">
             <button onclick="closeReviewModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-brand-beige hover:bg-brand-earth hover:text-white text-gray-500 transition text-lg font-bold">&times;</button>
 
             <!-- Schritt 1: Zufrieden? -->
@@ -134,6 +134,72 @@ function ensureModals() {
     document.getElementById('modal-root').innerHTML = MODAL_TEMPLATES;
 }
 
+// ---------------------------------------------------------------------------
+// Modal-Verwaltung: Scroll-Lock (position:fixed — zuverlässig auch auf iOS,
+// wo overflow:hidden allein nicht greift), Escape schließt, Tab bleibt im
+// Dialog (Fokus-Falle), Fokus kehrt beim Schließen zum Auslöser zurück.
+// ---------------------------------------------------------------------------
+let _openModalId = null;
+let _lastFocused = null;
+let _lockedScrollY = 0;
+
+function _lockScroll() {
+    _lockedScrollY = window.scrollY;
+    const b = document.body.style;
+    b.position = 'fixed';
+    b.top = `-${_lockedScrollY}px`;
+    b.left = '0';
+    b.right = '0';
+    b.width = '100%';
+}
+
+function _unlockScroll() {
+    const b = document.body.style;
+    b.position = ''; b.top = ''; b.left = ''; b.right = ''; b.width = '';
+    window.scrollTo(0, _lockedScrollY);
+}
+
+function _openModal(id) {
+    ensureModals();
+    _lastFocused = document.activeElement;
+    _openModalId = id;
+    document.getElementById(id).classList.remove('hidden');
+    _lockScroll();
+    const dialog = document.querySelector('#' + id + ' [role="dialog"]');
+    if (dialog) dialog.focus();
+}
+
+function _closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+    if (_openModalId !== id) return;
+    _openModalId = null;
+    _unlockScroll();
+    if (_lastFocused && typeof _lastFocused.focus === 'function') _lastFocused.focus();
+}
+
+document.addEventListener('keydown', (e) => {
+    if (!_openModalId) return;
+    if (e.key === 'Escape') {
+        _closeModal(_openModalId);
+        return;
+    }
+    if (e.key !== 'Tab') return;
+    const modal = document.getElementById(_openModalId);
+    const focusables = Array.from(modal.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input:not([type="hidden"]), select, [tabindex]:not([tabindex="-1"])'
+    )).filter(el => el.offsetParent !== null); // versteckte Elemente (Honeypot, hidden-Schritte) ausnehmen
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && (document.activeElement === first || !modal.contains(document.activeElement))) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))) {
+        e.preventDefault();
+        first.focus();
+    }
+});
+
 function ensureReviewsLoaded() {
     if (reviewsInitialized) return;
     reviewsInitialized = true;
@@ -162,8 +228,7 @@ function ensureReviewsLoaded() {
 }
 
 function openSuggestionModal() {
-    ensureModals();
-    document.getElementById('suggestion-modal').classList.remove('hidden');
+    _openModal('suggestion-modal');
     document.getElementById('suggestion-text').value = '';
     document.getElementById('suggestion-form-area').classList.remove('hidden');
     document.getElementById('suggestion-success').classList.add('hidden');
@@ -174,7 +239,7 @@ function openSuggestionModal() {
     document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
 }
 function closeSuggestionModal() {
-    document.getElementById('suggestion-modal').classList.add('hidden');
+    _closeModal('suggestion-modal');
 }
 function selectCategory(btn) {
     document.querySelectorAll('.suggestion-cat').forEach(b => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
@@ -236,13 +301,12 @@ async function submitFeedback() {
 }
 
 function openReviewModal() {
-    ensureModals();
-    document.getElementById('review-modal').classList.remove('hidden');
+    _openModal('review-modal');
     document.getElementById('review-step-1').classList.remove('hidden');
     document.getElementById('review-step-no').classList.add('hidden');
 }
 function closeReviewModal() {
-    document.getElementById('review-modal').classList.add('hidden');
+    _closeModal('review-modal');
 }
 function reviewYes() {
     closeReviewModal();
@@ -280,14 +344,32 @@ function copyToClipboard(text, btn) {
 // Quelle der Zeiten: docs/GEDAECHTNIS.md (Mo–Fr 9–18, Sa 9–14, So zu).
 // Bewusst ohne Feiertagslogik: an Feiertagen zeigt das Badge ggf. „geöffnet",
 // obwohl zu ist — gleiches Verhalten wie Google Maps ohne Sonderzeiten.
+// Berechnung in Europe/Berlin (Laden-Zeitzone), nicht in der Gerätezeit —
+// Fallback auf Lokalzeit, falls Intl-Zeitzonen nicht verfügbar sind.
 // Ohne JS bleiben die statischen Öffnungszeiten im Markup stehen (Fallback).
 // ---------------------------------------------------------------------------
 const OPENING_HOURS = { 0: null, 1: [9, 18], 2: [9, 18], 3: [9, 18], 4: [9, 18], 5: [9, 18], 6: [9, 14] };
 const DAY_NAMES = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
+function _berlinClock(now) {
+    try {
+        const parts = new Intl.DateTimeFormat('de-DE', {
+            timeZone: 'Europe/Berlin', weekday: 'short',
+            hour: 'numeric', minute: 'numeric', hourCycle: 'h23'
+        }).formatToParts(now);
+        const get = (type) => (parts.find(p => p.type === type) || {}).value;
+        const day = { So: 0, Mo: 1, Di: 2, Mi: 3, Do: 4, Fr: 5, Sa: 6 }[(get('weekday') || '').slice(0, 2)];
+        const hour = parseInt(get('hour'), 10);
+        const minute = parseInt(get('minute'), 10);
+        if (day === undefined || isNaN(hour) || isNaN(minute)) throw new Error('Intl-Parsing fehlgeschlagen');
+        return { day, time: hour + minute / 60 };
+    } catch {
+        return { day: now.getDay(), time: now.getHours() + now.getMinutes() / 60 };
+    }
+}
+
 function openStatusNow(now = new Date()) {
-    const day = now.getDay();
-    const time = now.getHours() + now.getMinutes() / 60;
+    const { day, time } = _berlinClock(now);
     const today = OPENING_HOURS[day];
     if (today && time >= today[0] && time < today[1]) {
         return { open: true, label: `Jetzt geöffnet · bis ${today[1]} Uhr`, short: `Offen bis ${today[1]} Uhr` };
@@ -359,6 +441,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOpen = menu.classList.toggle('hidden') === false;
             menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
+        // Offenes Menü bei Klick außerhalb der Navigation oder Escape schließen
+        const closeMenu = () => {
+            const menu = document.getElementById('mobile-menu');
+            if (!menu || menu.classList.contains('hidden')) return;
+            menu.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        };
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#navbar')) closeMenu();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
     }
 
     // Google Maps erst nach Klick laden (Performance + Datenschutz) — nur Kontaktseite
@@ -382,6 +477,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Bewertungs-Marquee: echte Google-Bewertungen als Endlosband — nur Startseite (P4b.1)
     const marqueeTrack = document.querySelector('.marquee__track');
     if (marqueeTrack) {
+        // Animation pausieren, solange das Band nicht im Viewport ist (Akku/CPU)
+        const marqueeWrap = marqueeTrack.closest('.marquee');
+        if (marqueeWrap && 'IntersectionObserver' in window) {
+            new IntersectionObserver((entries) => {
+                entries.forEach(entry => marqueeWrap.classList.toggle('marquee-offscreen', !entry.isIntersecting));
+            }).observe(marqueeWrap);
+        }
         const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         fetch('assets/data/bewertungen-kuratiert.json')
             .then(r => r.json())
