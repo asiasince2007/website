@@ -1,3 +1,5 @@
 node_modules/
 .idea/
 docs/lighthouse-*.json
+gitapply.txt
+docs/qa-tmp-*.jpg

@@ -1,0 +1,19 @@
+# GitHub Pages baut diesen Branch mit Jekyll (kein .nojekyll vorhanden).
+# Diese Liste hält Planungs-, Quell- und Tooling-Dateien aus dem deployten
+# Site-Output heraus — sie bleiben im Repo (Workflow braucht docs/ etc.),
+# sind aber unter www.asiamarkt.info nicht mehr öffentlich abrufbar.
+# Hinweis: robots.txt-Disallow allein verhindert weder Zugriff noch Indexierung.
+exclude:
+  - cowork
+  - docs
+  - design
+  - demo
+  - scripts
+  - src
+  - node_modules
+  - gitapply.txt
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - README.md
+  - CLAUDE.md
