@@ -343,4 +343,28 @@
   **Gelernt:** (a) `npx http-server` ist nicht installiert — eigener Mini-Server vermeidet
   das `--no-save`-Lösch-Problem. (b) Tailwind purgt `@layer components` ohne Klassen-Fund —
   `.marquee-offscreen` zählt, weil der String in `main.js` (content-Quelle) steht.
+- **2026-06-13 — Cloudflare Web Analytics eingebaut (cookielos, ohne Consent-Banner).**
+  **Kehrt die P8-Entscheidung „Analytics bewusst NICHT umgesetzt" bewusst um** (auf Wunsch
+  des Betreibers). Gewählt: **Cloudflare Web Analytics** — kostenlos, cookielos, keine
+  Nutzerprofile, kein Fingerprinting → kein Cookie-Banner nötig (§ 25 TDDDG nicht berührt,
+  da kein Zugriff aufs Endgerät; DSGVO-Basis Art. 6 Abs. 1 lit. f). Begründung gegen
+  GoatCounter (kostenlose Version nur nicht-kommerziell) und Plausible/Umami self-hosted
+  (kein Backend auf GitHub Pages). Token: `c92451f146f343b0adca1ce1843029eb`.
+  Umsetzung: zentral in `assets/js/main.js` — Konstante `CF_ANALYTICS_TOKEN` (eine
+  Pflegestelle), Funktion `initWebAnalytics()` injiziert den Beacon nur bei gesetztem Token
+  (sonst 0 externe Requests). **Gilt nur auf den 4 Hauptseiten** (Start/Sortiment/Über-uns/
+  Kontakt — die einbinden main.js); Impressum/Datenschutz bleiben ungemessen (gewollt).
+  **Tradeoff bewusst:** bricht das „0 externe Requests beim Seitenaufruf" aus P6.2 (1 Request
+  an `static.cloudflareinsights.com`) — bei jedem gehosteten Tracker unvermeidbar.
+  **Datenschutzerklärung angepasst** (sonst widersprüchlich): Abschnitt 1 (Analyse-Aussage),
+  neuer Unterabschnitt 5 „Webanalyse (Cloudflare Web Analytics)", Abschnitt 6 (Cookies:
+  „keine eigenen Cookies" bleibt korrekt, cookielose Analyse ergänzt), Abschnitt 7
+  (USA-Drittland-Liste), Stand → Juni 2026.
+  **QA (Preview, localhost):** Beacon-Script injiziert mit korrektem Token, `beacon.min.js`
+  → 200, 0 Konsolenfehler. Der `POST /cdn-cgi/rum` schlägt auf localhost fehl (CORS) — **das
+  ist erwartet**, Cloudflare akzeptiert Messdaten nur von der registrierten Domain
+  `www.asiamarkt.info`. **Nach Deploy prüfen:** im Cloudflare-Dashboard erscheinen Aufrufe.
+  **Gelernt:** Funktion definiert, aber Aufruf in `DOMContentLoaded` zunächst vergessen →
+  Beacon fehlte; im Preview per DOM-Check (`script[src*="cloudflareinsights"]`) entdeckt und
+  Aufruf nach `initOpenStatus()` ergänzt.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

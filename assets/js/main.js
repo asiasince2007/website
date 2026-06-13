@@ -3,6 +3,11 @@
 
 const W3F_KEY = 'f91a4036-f6ba-46ed-9a65-dc7d9fbabbb9';
 
+// Cloudflare Web Analytics — cookielose Reichweitenmessung, keine Profile, kein Consent-Banner.
+// Token aus dem Cloudflare-Dashboard (Web Analytics → Add a site) hier eintragen.
+// Solange leer: KEIN Beacon, kein externer Request (0 externe Requests bleiben erhalten).
+const CF_ANALYTICS_TOKEN = 'c92451f146f343b0adca1ce1843029eb';
+
 // E-Mail nie als Klartext im HTML – wird nur per JS zusammengesetzt
 function _em() { return ['asia.since2007', 'gmail.com'].join(String.fromCharCode(64)); }
 
@@ -407,6 +412,20 @@ function initOpenStatus() {
     setInterval(render, 60 * 1000); // bei geöffnetem Tab aktuell halten
 }
 
+// ---------------------------------------------------------------------------
+// Cloudflare Web Analytics: cookielos, keine Profile, kein Banner nötig.
+// Beacon wird nur injiziert, wenn ein Token gesetzt ist (sonst 0 externe Requests).
+// Nur auf den vier Hauptseiten aktiv (main.js); Impressum/Datenschutz ungemessen.
+// ---------------------------------------------------------------------------
+function initWebAnalytics() {
+    if (!CF_ANALYTICS_TOKEN) return;
+    const s = document.createElement('script');
+    s.defer = true;
+    s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
+    document.head.appendChild(s);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Alt-Hash-Links der früheren Single-Page-Version auf echte URLs umleiten (P3.5)
     const HASH_REDIRECTS = {
@@ -433,6 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initEmailLinks();
     initOpenStatus();
+    initWebAnalytics();
 
     const menuBtn = document.getElementById('mobile-menu-button');
     if (menuBtn) {
