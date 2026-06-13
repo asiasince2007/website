@@ -25,11 +25,18 @@ function check(name, ok, extra) {
   const firstAuthor = await page.$eval('.marquee__track li figcaption', (e) => e.textContent.trim());
   check('Erster Autor aus JSON (Andre Jansen)', firstAuthor.startsWith('Andre Jansen'), firstAuthor.slice(0, 40));
 
+  // Außerhalb des Viewports (Seitenanfang): Animation per IntersectionObserver pausiert
+  const offscreenState = await page.$eval('.marquee__track', (e) => getComputedStyle(e).animationPlayState);
+  check('Offscreen pausiert (Akku/CPU)', offscreenState === 'paused', offscreenState);
+
+  // Ins Sichtfeld scrollen → Animation läuft
+  await page.evaluate(() => document.querySelector('.reviews-marquee').scrollIntoView({ block: 'center' }));
+  await new Promise((r) => setTimeout(r, 400));
   const anim = await page.$eval('.marquee__track', (e) => {
     const cs = getComputedStyle(e);
     return { name: cs.animationName, state: cs.animationPlayState, duration: cs.animationDuration };
   });
-  check('Animation läuft', anim.name === 'marquee' && anim.state === 'running', JSON.stringify(anim));
+  check('Animation läuft im Viewport', anim.name === 'marquee' && anim.state === 'running', JSON.stringify(anim));
 
   // Bewegt sich das Band wirklich?
   const x1 = await page.$eval('.marquee__track', (e) => new DOMMatrixReadOnly(getComputedStyle(e).transform).m41);

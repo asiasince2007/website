@@ -295,4 +295,52 @@
   verifiziert, 0 Konsolenfehler. **Entscheidungen:** kein WhatsApp-CTA (kein Business-
   Account), Fotos folgen separat (Interims-Visuals bleiben), Yelp/golocal nur als
   künftige `sameAs`-Kandidaten erfasst.
+- **2026-06-12 (5. Sitzung) — P8: Review-Befunde umgesetzt (Mobile/SEO/Conversion/Speed).**
+  (1) **Deploy-Hygiene:** `gitapply.txt` (4 MB, altes Patch-Artefakt, war öffentlich unter
+  /gitapply.txt abrufbar) per `git rm` entfernt + `.gitignore`. **`_config.yml` angelegt:**
+  GitHub Pages baut den Branch mit Jekyll (kein `.nojekyll`) → `exclude:`-Liste hält
+  `cowork/`, `docs/`, `design/`, `demo/`, `scripts/`, `src/`, package*/Config/README/CLAUDE.md
+  aus dem deployten Output, ohne sie aus dem Repo zu entfernen (docs/ braucht der Workflow).
+  robots.txt-Disallows bleiben als zweite Verteidigungslinie. **Nach Deploy prüfen:**
+  https://www.asiamarkt.info/docs/PLAN.md muss 404 liefern.
+  (2) **Conversion:** Alle 9 „Route"-CTAs von `maps.google.com/?q=…` (öffnete nur die
+  Place-Suche) auf den offiziellen Directions-Deep-Link
+  `https://www.google.com/maps/dir/?api=1&destination=…` umgestellt — startet die Navigation
+  direkt, ein Tap weniger. Place-/Karten-Links (Parken, Maps-Fassade, Teilen) bewusst belassen.
+  **Bewusst NICHT umgesetzt:** Analytics (auch cookielos) — Entscheidung Inhaber
+  (`TODO(inhaber)`: z. B. GoatCounter/Plausible für Anruf-/Routen-Tap-Zählung; bis dahin
+  GBP-Insights nutzen).
+  (3) **Mobile UX:** Modal-Verwaltung in `main.js` neu — Scroll-Lock via `position:fixed`
+  (overflow:hidden reicht auf iOS nicht), Escape schließt, Tab-Fokus-Falle, Fokus-Rückgabe,
+  `role="dialog"`/`aria-modal` in den Templates. Mobile-Menü schließt bei Außenklick/Escape.
+  Header mobil `h-16` (md: `h-24`), `main` `pt-16 md:pt-24`; Hero-Interim mobil
+  `h-[420px]` (lg: 550px) → Marquee/Bewertungen früher sichtbar.
+  **Bewusst NICHT umgesetzt:** `viewport-fit=cover` — würde ohne zusätzliches
+  safe-area-Padding links/rechts im Landscape Inhalte unter die Notch schieben; Browser hält
+  die Zone ohne cover selbst frei.
+  (4) **Speed:** Marquee pausiert offscreen per IntersectionObserver
+  (`.marquee-offscreen`, spart Compositing/Akku — `qa-marquee.js` entsprechend angepasst).
+  Inline-`<style>`-Blöcke aller 6 Seiten (~2 KB × 6, dupliziert) in `src/styles.css`
+  zentralisiert (body/scrollbar in `@layer base`, Rest `@layer components`); toter
+  `img[src$=".png"]`-Stil und ungenutztes `.placeholder-coming-soon` entfernt.
+  Legal-Seiten erben jetzt Noise-Hintergrund + `overflow-y:scroll` (konsistenter, gewollt).
+  PNG-Icons mit sharp (palette) komprimiert: icon-512 246→68 KB, icon-192 49→18 KB,
+  apple-touch-icon 44→16 KB. Footer-Logo `loading="lazy"`.
+  (5) **SEO:** `addressRegion: "Nordrhein-Westfalen"` in allen 6 JSON-LD-Blöcken;
+  Startseiten-Intro um „mitten in Langenfeld" ergänzt (H1 bleibt Markensprache);
+  Anker-Offsets jetzt global via `html{scroll-padding-top}` (5rem/7rem) statt `scroll-mt-28`
+  (fixt auch #bewertungen/#anfahrt/#faq, die vorher unter dem Header landeten);
+  sitemap-`lastmod` → 2026-06-12 (bei Inhaltsänderungen mitpflegen!).
+  Erwartung dokumentiert: FAQ-Rich-Results zeigt Google seit 2023 fast nur noch für
+  Behörden-/Gesundheitsseiten — Markup bleibt, aber keine Snippets erwarten.
+  (6) **Öffnungsstatus rechnet jetzt in Europe/Berlin** (`_berlinClock()` via
+  Intl.DateTimeFormat.formatToParts, Fallback Gerätezeit) — vorher zeigte die Gerätezeitzone
+  ausländischer Besucher falschen Status.
+  (7) **QA:** `scripts/dev-server.js` (dep-freier statischer Server, Port 4173) und
+  `scripts/qa-p8.js` (14 Checks: Scroll-Lock, Fokus-Falle, Escape, Außenklick,
+  Header/Hero-Maße, Berlin-TZ-Randfälle, Deep-Links, Anker-Offset) neu. Ergebnis:
+  jsonld 7/7 · multipage 23/23 · axe 0 · marquee 8/8 · p8 14/14 · 0 Konsolenfehler.
+  **Gelernt:** (a) `npx http-server` ist nicht installiert — eigener Mini-Server vermeidet
+  das `--no-save`-Lösch-Problem. (b) Tailwind purgt `@layer components` ohne Klassen-Fund —
+  `.marquee-offscreen` zählt, weil der String in `main.js` (content-Quelle) steht.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
