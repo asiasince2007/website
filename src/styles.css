@@ -167,4 +167,14 @@
     @media (min-width: 768px) {
         .action-bar { display: none; }
     }
+
+    /* Schwebender „Vorschlag einreichen"-Button: sanft ausblenden, sobald der Footer
+       im Viewport ist (per IntersectionObserver in main.js gesetzt), damit er die
+       Footer-Links (u. a. Datenschutz) nie überdeckt. Reagiert auf das vorhandene
+       Tailwind-`transition`. Klick-/Tab-Ziel wird im versteckten Zustand deaktiviert. */
+    .fab-hidden {
+        opacity: 0;
+        transform: translateY(1rem);
+        pointer-events: none;
+    }
 }

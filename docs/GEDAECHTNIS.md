@@ -367,4 +367,45 @@
   **Gelernt:** Funktion definiert, aber Aufruf in `DOMContentLoaded` zunächst vergessen →
   Beacon fehlte; im Preview per DOM-Check (`script[src*="cloudflareinsights"]`) entdeckt und
   Aufruf nach `initOpenStatus()` ergänzt.
+- **2026-06-13 — Hero-Mobil-Bugfix: schwebende „Hochwertige Auswahl"-Karte lag über dem
+  Bild-Text.** Befund (Inhaber-Screenshot, Mobil): Die absolut positionierte weiße Akzent-Karte
+  (`index.html`, `absolute bottom-12 -left-4`) überdeckte die ins Hero-Interim-Bild
+  **eingebrannte** Badge „Hauptstraße 74 · Langenfeld" und drängte die Unterzeile
+  „Frische Kräuter · Markenprodukte · Beratung". **Ursache:** Die Karte ist ein Desktop-Akzent,
+  der freie Ecken im Bild voraussetzt. Im zweispaltigen `lg`-Layout (Panel `h-[550px]`) sitzt sie
+  sauber in der leeren unteren Ecke; unterhalb `lg` stapelt das Layout und das Bild wird per
+  `object-cover` auf nahezu quadratische `h-[420px]` beschnitten → der eingebrannte, zentrierte
+  Text füllt die Mitte, die Eckfreiräume verschwinden, die Karte kollidiert. **Fix:** Karte
+  `flex` → `hidden lg:flex` — sie erscheint nur noch ab `lg` (exakt dort, wo das zweispaltige
+  Hero greift). Umpositionieren wäre wegen des `object-cover`-Zuschnitts fragil gewesen; zudem
+  ist der Akzent zukunftssicher, falls ein echtes Foto (ohne Text) das Interim ersetzt
+  (`TODO(inhaber)`). `npm run build:css` neu gebaut (`lg:flex` fehlte in `styles.min.css`).
+  **Verifiziert (Preview, Reload nach Rebuild):** 375 px & 768 px → Karte `display:none`,
+  Bild-Badge voll sichtbar, keine Überlappung; 1280 px → Karte sichtbar in der Ecke (Design
+  erhalten); 0 Konsolenfehler. (Die analoge `ueber-uns.html`-Karte nutzt `-bottom-6 -right-4`,
+  liegt also außerhalb der Bildkante und ist nicht betroffen.)
+- **2026-06-13 — Desktop-Bugfix: schwebender „Vorschlag einreichen"-Button überdeckte den
+  Footer-Link „Datenschutz".** Befund (Inhaber-Screenshot, Desktop, ganz unten gescrollt): Der
+  `fixed bottom-6 right-6`-Button (`hidden md:flex`, nur Desktop) liegt am Seitenende über der
+  rechten Footer-Legal-Leiste — `elementFromPoint` auf den „Datenschutz"-Link lieferte den
+  Button (`pointer-events:auto`), der Link war also verdeckt und nicht klickbar. **Ursache:**
+  Ein fixierter Button bleibt unten rechts im Viewport; am Seitenende sitzt dort die
+  Impressum/Datenschutz-Zeile. **Fix:** IntersectionObserver in `main.js` (`DOMContentLoaded`)
+  beobachtet `<footer>` und schaltet am Button die Klasse `fab-hidden` (`opacity:0;
+  transform:translateY(1rem); pointer-events:none`, neu in `src/styles.css`/@layer components,
+  String steht in `main.js` → bleibt im Tailwind-Purge). Button blendet beim Erreichen des
+  Footers sanft aus (vorhandenes Tailwind-`transition`) und kehrt beim Hochscrollen zurück —
+  verdeckt so nie die Footer-Inhalte. Gewählt statt CSS-`padding-bottom`-Reserve (hätte ein
+  totes Band am Footer erzeugt). `npm run build:css` neu gebaut (`fab-hidden` aufgenommen).
+  **Verifiziert (Preview):** `elementFromPoint` am „Datenschutz"-Punkt: vor Fix → Button,
+  nach `fab-hidden` → der `<a>Datenschutz</a>` (Button `opacity:0`/`pointer-events:none`);
+  Default mittig auf der Seite → Button `opacity:1`/`pointer-events:auto` sichtbar; 0 Konsolenfehler.
+  **Sandbox-Limit gelernt:** Der Claude-Preview-Renderer feuert **keine IntersectionObserver-
+  Callbacks** (auch nicht für ein im Viewport liegendes Element; `visibilityState:visible`) —
+  und Screenshots folgen der `scrollTo`-Position nicht zuverlässig. Daher IO-Trigger nicht im
+  Preview prüfbar; stattdessen funktional via `elementFromPoint`/Computed-Style verifiziert.
+  IO ist hier idiomatisch (wie Marquee-/Bewertungs-Observer) und in echten Browsern verlässlich;
+  die Projekt-Observer wurden ohnehin per Puppeteer-QA-Skripten getestet, nicht im Preview.
+  Greift auf allen 4 Hauptseiten (gemeinsames `main.js`, identische Footer-Struktur); auf
+  Seiten ohne den Button ist die Logik per Null-Guard ein No-op.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_
