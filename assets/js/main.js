@@ -494,6 +494,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Schwebenden „Vorschlag einreichen"-Button ausblenden, sobald der Footer im Blick ist,
+    // damit er die Footer-Links (u. a. Datenschutz) nicht überdeckt. Nur Desktop relevant
+    // (mobil ist der Button per `hidden` ausgeblendet); kehrt beim Hochscrollen zurück.
+    const suggestFab = document.querySelector('.fixed[aria-label="Vorschlag einreichen"]');
+    const footerEl = document.querySelector('footer');
+    if (suggestFab && footerEl && 'IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => suggestFab.classList.toggle('fab-hidden', entry.isIntersecting));
+        }).observe(footerEl);
+    }
+
     // Bewertungs-Marquee: echte Google-Bewertungen als Endlosband — nur Startseite (P4b.1)
     const marqueeTrack = document.querySelector('.marquee__track');
     if (marqueeTrack) {
