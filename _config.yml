@@ -4,7 +4,6 @@
 # sind aber unter www.asiamarkt.info nicht mehr öffentlich abrufbar.
 # Hinweis: robots.txt-Disallow allein verhindert weder Zugriff noch Indexierung.
 exclude:
-  - cowork
   - docs
   - design
   - demo

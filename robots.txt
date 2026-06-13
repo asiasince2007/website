@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /cowork/
 Disallow: /docs/
 Disallow: /design/
 Disallow: /demo/
