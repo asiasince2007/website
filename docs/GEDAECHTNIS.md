@@ -408,4 +408,45 @@
   die Projekt-Observer wurden ohnehin per Puppeteer-QA-Skripten getestet, nicht im Preview.
   Greift auf allen 4 Hauptseiten (gemeinsames `main.js`, identische Footer-Struktur); auf
   Seiten ohne den Button ist die Logik per Null-Guard ein No-op.
+- **2026-06-13 — Sicherheits-Härtung (öffentliches Repo + GitHub Pages).** Auftrag Inhaber:
+  Website besser absichern. Umgesetzt wurde, was im Code/Repo möglich ist (Account-/Pages-/
+  Web3Forms-/Cloudflare-Einstellungen liegen in den jeweiligen Oberflächen und bleiben als
+  Empfehlung offen — siehe unten).
+  (1) **Content-Security-Policy + Referrer-Policy als `<meta>`** auf allen 6 Seiten (direkt nach
+  `viewport`). GitHub Pages kann keine HTTP-Header setzen → daher Meta-Variante. Policy exakt auf
+  die real genutzten Quellen zugeschnitten: `default-src 'self'`; `script-src 'self'
+  'unsafe-inline' https://static.cloudflareinsights.com`; `connect-src 'self'
+  https://api.web3forms.com https://cloudflareinsights.com https://places.googleapis.com`;
+  `frame-src https://www.google.com` (Maps-Embed); `img-src 'self' data:` (SVG-data-URI im
+  gebauten CSS); `style-src 'self' 'unsafe-inline'`; `font-src 'self'`; `object-src 'none'`;
+  `base-uri 'self'`; `form-action 'self'`; `upgrade-insecure-requests`. `referrer` =
+  `strict-origin-when-cross-origin`. **Bewusster Tradeoff:** `script-src` braucht
+  `'unsafe-inline'`, weil die Seiten durchgängig Inline-`onclick`-Handler nutzen (Modals etc.) —
+  eine *strikte* CSP würde voraussetzen, alle Handler auf `addEventListener` umzubauen
+  (`TODO(inhaber)`, optionaler Folge-Schritt). Trotzdem Mehrwert: blockt eingeschleuste externe
+  Skripte und unerlaubte connect-/frame-/object-Ziele. **Grenze der Meta-CSP:**
+  `frame-ancestors`/`X-Frame-Options` wirken per Meta NICHT → echter Clickjacking-Schutz nur
+  über vorgelagerten Proxy (Cloudflare, s. u.).
+  (2) **Deploy-/Repo-Hygiene:** Versehentlich getrackte IDE-Dateien (`.idea/workspace.xml`,
+  `vcs.xml`, `inspectionProfiles/`) per `git rm --cached` aus der Versionierung genommen
+  (`.idea/` war bereits in `.gitignore`, wurde aber vor dem Ignore committet → im öffentlichen
+  Repo sichtbar, inkl. lokaler Pfade). Veraltetes **`cowork/`-Duplikat entfernt** (`git rm -r`)
+  — war eine Momentaufnahme der Ur-Planung (beschreibt noch „Tailwind via CDN, leeres
+  styles.min.css"); gepflegte Quelle ist `docs/`. Tote `cowork`-Verweise aus `robots.txt` und
+  `_config.yml` (`exclude:`) entfernt; historische Log-Einträge oben unberührt gelassen.
+  **QA (Preview, localhost):** CSP+Referrer auf allen Seiten aktiv, **0 CSP-Verstöße** in der
+  Konsole (Start + Kontakt inkl. nachgeladenem Maps-Iframe). Verifiziert, dass CSP nichts bricht:
+  Marquee-`fetch` (connect-src 'self') → 26 Karten, Cloudflare-Beacon injiziert (script-src),
+  Maps-Iframe-Host `www.google.com` (frame-src), Inline-`onclick` feuert (script-src
+  'unsafe-inline', per dynamischem Test-Button bestätigt), Fonts/CSS laden (self). Reviews-Grid
+  im Preview leer = bekannte IntersectionObserver-Limitation, kein CSP-Effekt.
+  **Empfehlungen (außerhalb des Codes, nicht umgesetzt — `TODO(inhaber)`):** GitHub-Account-2FA;
+  Branch-Protection auf `main` (Force-Push/Löschen sperren); Secret Scanning + Push Protection;
+  Pages „Enforce HTTPS" + Domain-Verifizierung; Web3Forms-Key (`f91a…`, zwangsläufig öffentlich
+  in `main.js`) im Web3Forms-Dashboard auf Allowed-Domain `asiamarkt.info` + Captcha/Spamfilter
+  einschränken (Honeypot allein schwach); optional Cloudflare (gratis) vor die Domain für echte
+  Header (HSTS/X-Frame-Options), WAF, Rate-Limiting, DDoS; Quelle komplett privat nur mit
+  GitHub Pro (Pages aus privatem Repo). **Gelernt:** Meta-CSP ist auf GitHub Pages der einzige
+  Header-Hebel, aber `frame-ancestors`/`X-Frame-Options` ignoriert der Browser im Meta-Tag —
+  Clickjacking-Schutz erfordert zwingend einen echten Response-Header (Proxy).
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

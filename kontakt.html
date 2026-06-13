@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sicherheit: Content-Security-Policy. GitHub Pages kann keine HTTP-Header setzen,
+         daher als Meta-Tag. Hinweis: frame-ancestors/X-Frame-Options wirken per Meta NICHT
+         (Clickjacking-Schutz nur über vorgelagerten Proxy wie Cloudflare). -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com https://places.googleapis.com; frame-src https://www.google.com; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Kontakt &amp; Öffnungszeiten | Asia Markt Thien Phu Langenfeld</title>
     <meta name="description" content="Asia Markt Thien Phu, Hauptstraße 74, 40764 Langenfeld (Rheinland). Mo–Fr 9–18 Uhr, Sa 9–14 Uhr. Telefon 02173 1065590 – mit Anfahrt, Parken und Bezahlung.">
     <link rel="canonical" href="https://www.asiamarkt.info/kontakt.html">
