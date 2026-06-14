@@ -44,10 +44,10 @@ const MODAL_TEMPLATES = `
                     <p class="text-sm font-bold text-brand-darkGreen mb-2">Kategorie</p>
                     <div class="flex flex-wrap gap-2" id="suggestion-categories">
                         <button type="button" onclick="selectCategory(this)" data-value="Neuer Artikel" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            📦 Neuer Artikel
+                            Neuer Artikel
                         </button>
                         <button type="button" onclick="selectCategory(this)" data-value="Allgemeines" class="suggestion-cat px-4 py-2 rounded-full text-sm font-medium border-2 border-brand-green/30 text-gray-600 hover:border-brand-green hover:text-brand-darkGreen transition">
-                            💡 Allgemeines
+                            Allgemeines
                         </button>
                     </div>
                 </div>
