@@ -51,6 +51,47 @@ _Künftig vermeiden:_ Vor dem Verwerfen einer Angabe mit Teilzeichenketten
 gegensuchen. Und: anonyme Attribution ist hier kein Warnzeichen, sondern die
 saubere Lösung für unbrauchbare Anzeigenamen.
 
+**F-13 · Bildattribute haben `aspect-ratio` ausgehebelt.**
+_Was passiert ist:_ Nach dem Relaunch waren sämtliche Fotos in viel zu hohe
+Kästen geschnitten — die Ladenfront mit Verhältnis 0,562 statt 1,333, das
+Eingangsfoto mit 0,332 statt 0,860.
+_Warum:_ Die Attribute `width`/`height` am `<img>` wirken als Presentational
+Hint auf **beide** CSS-Eigenschaften. `.foto` setzte `width: 100%`, aber nie
+`height` — also blieb `height: 1050px` aus dem Attribut stehen. Stehen Breite
+und Höhe beide fest, ignoriert der Browser `aspect-ratio` vollständig, und
+`object-fit: cover` beschneidet auf den falschen Kasten.
+_Wie behoben:_ `height: auto` in `.foto`. Die Attribute bleiben, sie
+reservieren den Platz und verhindern Layoutsprünge.
+_Künftig vermeiden:_ `width`/`height` am Bild und `aspect-ratio` im CSS
+vertragen sich nur mit `height: auto`. Nie am gerenderten Kasten sparen —
+Verhältnis messen (`getBoundingClientRect`), nicht nur die Breite.
+
+**F-14 · Toter Code lieferte weiter einen gültigen Zugangsschlüssel aus.**
+_Was passiert ist:_ `assets/js/main.js` wurde nach dem Relaunch von keiner
+Seite mehr eingebunden, von GitHub Pages aber weiterhin unter
+`/assets/js/main.js` mit HTTP 200 ausgeliefert — inklusive
+`W3F_KEY = 'f91a4036-…'`, dem Web3Forms-Schlüssel des alten Formulars. Damit
+ließe sich das Postfach des Inhabers zuspammen.
+_Warum:_ „Nicht mehr verlinkt" ist nicht dasselbe wie „nicht mehr abrufbar".
+Jekyll liefert jede Datei aus, die nicht in `exclude` steht.
+_Wie behoben:_ Datei nach `90_Archiv/website-v1_2026-08-09/assets/js/`
+verschoben (dort greift `exclude`), nicht gelöscht.
+_Künftig vermeiden:_ Nach jedem Umbau prüfen, welche Dateien noch öffentlich
+erreichbar sind — nicht, welche noch verlinkt sind. Der Schlüssel steht
+weiterhin in der Git-Historie und muss im Web3Forms-Konto ersetzt werden.
+
+**F-15 · Der alte Bewertungs-Dialog verstieß gegen Google-Richtlinien.**
+_Was passiert ist:_ Beim Prüfen, ob der entfallene Vorschlags-Dialog
+zurückkehren soll, fiel eine zweite Funktion auf: `reviewYes()` /
+`reviewNo()` in `main.js` fragten „Waren Sie zufrieden?" — **Ja** führte zum
+Google-Bewertungsformular, **Nein** in ein privates Feedbackfeld.
+_Warum das ein Problem ist:_ Google untersagt Review Gating ausdrücklich.
+Negative Bewertungen dürfen nicht abgefangen und positive nicht gezielt
+eingeworben werden. Verstöße können Bewertungen oder das Profil kosten — und
+das Profil ist für diesen Laden der wichtigste Kanal überhaupt.
+_Künftig vermeiden:_ Nie nach Zufriedenheit filtern, bevor um eine Bewertung
+gebeten wird. Entweder alle fragen oder niemanden.
+
 ---
 
 _Angelegt am 31.07.2026._

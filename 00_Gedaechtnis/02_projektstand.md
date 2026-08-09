@@ -35,15 +35,29 @@ Bewertungszahl überall einheitlich 4,4 / 127.
 der Merge auf `main` ist der Live-Schritt und wartet auf die Freigabe des
 Inhabers.
 
+### Nachgearbeitet am 09.08.2026
+
+Die drei zunächst offenen Punkte sind erledigt:
+
+- **Rechtsseiten** tragen jetzt das neue Design. Der Rechtstext ist
+  zeichengenau unverändert (belegt per Textvergleich, 17 bzw. 60 Textblöcke).
+- **Lighthouse** erstmals gemessen, mobil: Performance 94–99,
+  Accessibility/Best Practices/SEO jeweils 100 über alle geprüften Seiten.
+  Definition of Done damit erfüllt.
+- **Vorschlags-Dialog** kehrt bewusst nicht zurück, siehe unten.
+
+Dabei zusätzlich gefunden und behoben: ein öffentlich ausgeliefertes
+`main.js` mit gültigem Web3Forms-Schlüssel (`F-14`) und eine
+Google-widrige Bewertungsweiche in derselben Datei (`F-15`).
+
 ### Offen
 
-- `impressum.html` und `datenschutz.html` tragen weiterhin das alte
-  Tailwind-Layout. Inhaltlich unverändert und funktionsfähig, optisch aber ein
-  Bruch zum neuen Design. Beim Umbauen den Rechtstext unangetastet lassen.
-- Der Vorschlags-Dialog („Vorschlag einreichen", Web3Forms) der alten Fassung
-  ist im neuen Entwurf nicht vorgesehen und entfallen. Falls er zurück soll,
-  müssen `api.web3forms.com` wieder in die CSP und der Dialog neu gebaut werden.
-- Lighthouse ist noch nicht gemessen worden (Definition of Done verlangt ≥ 90
-  in allen vier Kategorien auf Mobil).
-- Der Umbau `docs/` → `00_Gedaechtnis/` aus einer früheren Sitzung ist weiterhin
-  **nicht committet** und liegt nur lokal vor.
+- **TODO(inhaber):** Den Web3Forms-Schlüssel `f91a4036-…` im Web3Forms-Konto
+  ersetzen oder löschen. Er steht in der Git-Historie und lässt sich daraus
+  rekonstruieren; das Entfernen aus der ausgelieferten Site genügt nicht.
+- Der **Vorschlags-Dialog** bleibt entfallen. Er hing am selben Schlüssel und
+  an `api.web3forms.com` in der CSP. Soll er zurück, dann mit neuem Schlüssel
+  und **ohne** die Bewertungsweiche aus `F-15`.
+- **WebP/AVIF** wären noch rund 96 KB wert, brauchen aber einen Encoder;
+  `System.Drawing` kann es nicht.
+- Der Umbau `docs/` → `00_Gedaechtnis/` ist seit dem 09.08.2026 committet.

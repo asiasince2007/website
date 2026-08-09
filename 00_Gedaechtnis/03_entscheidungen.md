@@ -42,6 +42,37 @@ Google-Export vom 09.08.2026 (`totalScore` 4.4, `reviewsCount` 127, einheitlich
 über alle 98 lesbaren Datensätze). Die bisherige `125` im JSON-LD war veraltet.
 Siehe auch [[04_stolperfallen]] zur Prüfung der Zitate.
 
+### 09.08.2026 — Nacharbeit nach dem Relaunch
+
+**E-15 · Rechtsseiten in das neue Design überführt, Rechtstext unangetastet.**
+`impressum.html` und `datenschutz.html` trugen weiterhin das alte
+Tailwind-Layout. Sie haben jetzt denselben Rahmen wie alle anderen Seiten.
+_Verworfene Alternative:_ die Seiten neu schreiben — zu riskant bei
+Rechtstexten. Stattdessen chirurgische Eingriffe nur an Kopf, Rahmen und
+Fußbereich; dass der Rechtstext zeichengenau identisch blieb, ist per
+Textvergleich gegen die Vorfassung belegt (17 bzw. 60 Textblöcke).
+
+**E-16 · Zwei Farbtöne des Entwurfs abgedunkelt.** `#8B7D6E` auf Creme ergab
+3,88:1 (nötig 4,5) und `#A99C8D` auf Rose 2,36:1 (nötig 3,0). Beide sind so
+weit abgedunkelt worden, wie die Schwelle es verlangt, nicht weiter:
+`#7F7265` und `#95897C`. Ebenso die Fußzeile von Alpha 0,5 auf 0,58 — sie
+verfehlte AA mit 4,47:1 um Haaresbreite.
+_Verworfen:_ die Farben unverändert lassen und den Befund hinnehmen. Bei einem
+Ladengeschäft mit älterer Kundschaft ist Lesbarkeit kein Nebenschauplatz.
+
+**E-17 · Überschriften gestaffelt.** Der Entwurf nutzt 54px nur auf der
+Startseite und 46–48px auf den Unterseiten; meine erste Fassung setzte
+überall 54px. Grundwert ist jetzt die Unterseite, `.hero h1` hebt sich ab.
+Die 48px der Kontaktseite sind auf 46px vereinheitlicht — zwei Pixel
+rechtfertigen keine eigene Klasse.
+
+**E-18 · Bilder mit `srcset` statt einer Fassung für alle.** Ein 375-px-Handy
+lud die 1400-px-Datei in einen 331-px-Kasten; Lighthouse wies 503 KB unnötige
+Bilddaten aus. Jede Aufnahme liegt jetzt in drei Breiten vor.
+_Verworfen:_ WebP oder AVIF zusätzlich — dafür fehlt hier ein Encoder
+(`System.Drawing` kann es nicht), und die Ersparnis wäre nach dem Verkleinern
+nur noch rund 96 KB. Bleibt als Option, wenn ein Encoder verfügbar ist.
+
 ---
 
 _Angelegt am 31.07.2026._
