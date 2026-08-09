@@ -3,3 +3,13 @@ node_modules/
 docs/lighthouse-*.json
 gitapply.txt
 docs/qa-tmp-*.jpg
+
+# Interne Notfall-Unterlagen gehoeren NICHT in ein oeffentliches Repo.
+Einbruch_Notfall_Anleitung_*.md
+Einbruch_Notfall_Anleitung_*.pdf
+
+# Rohmaterial, nicht Teil der ausgelieferten Site:
+# Originalfotos des Inhabers (~41 MB) und der Export aus Claude Design (~100 MB).
+# Die fertig zugeschnittenen Webfassungen liegen in assets/images/.
+Fotos/
+asiamarkt-website-verbessern/
