@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sicherheit: Content-Security-Policy. GitHub Pages kann keine HTTP-Header setzen,
+         daher als Meta-Tag. Hinweis: frame-ancestors/X-Frame-Options wirken per Meta NICHT
+         (Clickjacking-Schutz nur über vorgelagerten Proxy wie Cloudflare). -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com https://places.googleapis.com; frame-src https://www.google.com; form-action 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Asia Markt Thien Phu | Authentische asiatische Lebensmittel in Langenfeld</title>
+    <meta name="description" content="Asia Markt Thien Phu in Langenfeld – original asiatische Lebensmittel & frisches Gemüse. Mo–Fr 9–18, Sa 9–14 Uhr · Hauptstraße 74 · Parken direkt gegenüber.">
+    <link rel="canonical" href="https://www.asiamarkt.info/">
+
+    <!-- Favicons & technische Meta -->
+    <meta name="theme-color" content="#FDFBF7">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Asia Markt Thien Phu">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:title" content="Asia Markt Thien Phu | Authentische asiatische Lebensmittel in Langenfeld">
+    <meta property="og:description" content="Asia Markt Thien Phu in Langenfeld – original asiatische Lebensmittel & frisches Gemüse. Mo–Fr 9–18, Sa 9–14 Uhr · Hauptstraße 74 · Parken direkt gegenüber.">
+    <meta property="og:url" content="https://www.asiamarkt.info/">
+    <meta property="og:image" content="https://www.asiamarkt.info/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Asia Markt Thien Phu — Asiatische Lebensmittel in Langenfeld">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asia Markt Thien Phu | Authentische asiatische Lebensmittel in Langenfeld">
+    <meta name="twitter:description" content="Asia Markt Thien Phu in Langenfeld – original asiatische Lebensmittel & frisches Gemüse. Mo–Fr 9–18, Sa 9–14 Uhr · Hauptstraße 74 · Parken direkt gegenüber.">
+    <meta name="twitter:image" content="https://www.asiamarkt.info/assets/images/og-image.jpg">
+
+    <!-- Strukturierte Daten: GroceryStore (NAP-Quelle: docs/GEDAECHTNIS.md) -->
+    <!-- TODO(inhaber): sameAs mit echten Profilen füllen (Google Business, golocal, Social) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GroceryStore",
+      "@id": "https://www.asiamarkt.info/#store",
+      "name": "Asia Markt Thien Phu",
+      "image": "https://www.asiamarkt.info/assets/images/thien_phu_logo.webp",
+      "logo": "https://www.asiamarkt.info/assets/images/thien_phu_logo.webp",
+      "url": "https://www.asiamarkt.info/",
+      "telephone": "+4921731065590",
+      "priceRange": "€",
+      "foundingDate": "2007",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hauptstraße 74",
+        "postalCode": "40764",
+        "addressLocality": "Langenfeld (Rheinland)",
+        "addressRegion": "Nordrhein-Westfalen",
+        "addressCountry": "DE"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 51.1051371, "longitude": 6.9479852 },
+      "paymentAccepted": "Bargeld, Kartenzahlung",
+      "currenciesAccepted": "EUR",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+      ],
+      "hasMap": "https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "125",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <!-- Selbst gehostete Fonts (DSGVO, P6.2) -->
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lora-700-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-400-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/fonts.css">
+
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body class="has-action-bar font-sans text-gray-700 antialiased flex flex-col min-h-screen">
+
+    <!-- Header & Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-cream border-b border-brand-green/20 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 md:h-24">
+                <div class="flex items-center">
+                    <a href="/" class="header-logos group" aria-label="Asia Markt Thien Phu — Startseite">
+                        <img src="assets/images/thien_phu_logo.webp" width="220" height="220" alt="Asia Markt Logo" class="header-logo-left transition-opacity duration-300 group-hover:opacity-90">
+                        <img src="assets/images/logo-thien-phu-header.svg" width="320" height="88" alt="Asia Markt Thien Phu — Asiatische Lebensmittel in Langenfeld" class="header-logo-right transition-opacity duration-300 group-hover:opacity-90">
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-2">
+                    <a href="/" aria-current="page" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 bg-brand-green text-white hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Startseite</a>
+                    <a href="sortiment.html" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Unser Sortiment</a>
+                    <a href="ueber-uns.html" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Tradition &amp; Auswahl</a>
+                    <a href="kontakt.html" class="nav-link nav-link-accent px-4 py-2 rounded-full font-medium transition-all duration-300 text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Kontakt</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-brand-darkGreen p-2 focus:outline-none" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg class="svg-icon text-2xl" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-t border-brand-green/10 shadow-lg absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="/" aria-current="page" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium bg-brand-green text-white hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Startseite</a>
+                <a href="sortiment.html" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Unser Sortiment</a>
+                <a href="ueber-uns.html" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Tradition &amp; Auswahl</a>
+                <a href="kontakt.html" class="nav-link-mobile nav-link-accent block px-4 py-3 rounded-2xl text-base font-medium text-brand-darkGreen hover:bg-[var(--color-highlight-bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-16 md:pt-24">
+
+<div id="start">
+            <section class="relative pt-12 pb-16 lg:pt-24 lg:pb-32 overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12">
+
+                    <div class="w-full lg:w-1/2 text-center lg:text-left">
+                        <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+                            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-darkGreen text-brand-cream text-sm font-bold shadow-sm">
+                                <svg class="svg-icon text-brand-gold" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M320 0c17.7 0 32 14.3 32 32l0 32 32 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64l32 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32zm22 161.7c-10.7-7.8-25.7-5.4-33.5 5.3L189.1 331.2 137 279.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.9 7.5 18.8 7s13.4-4.1 17.5-9.8L347.3 195.2c7.8-10.7 5.4-25.7-5.3-33.5z"/></svg>
+                                <span>Ihr Asia Markt seit 2007</span>
+                            </div>
+                            <a href="#bewertungen" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cream text-brand-darkGreen text-sm font-semibold border border-brand-green/30 hover:border-brand-green transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
+                                <svg class="svg-icon text-brand-gold" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <span><strong>4,4</strong> bei Google · 125 Bewertungen</span>
+                            </a>
+                        </div>
+                        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-brand-darkGreen mb-6 leading-tight">
+                            Originaler Geschmack. <br>Aus echter Tradition.
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                            Erleben Sie in unserem kleinen, familiengeführten Asia Markt Thien Phu mitten in Langenfeld die authentische Esskultur Asiens. Wir bieten Ihnen sorgfältig ausgewählte Zutaten, bekannte asiatische Markenprodukte und regelmäßige Frischlieferungen.
+                        </p>
+                        <p class="mb-4 flex items-center gap-2 justify-center lg:justify-start text-sm font-bold text-brand-darkGreen" data-open-status>
+                            <span data-status-dot class="hidden w-2.5 h-2.5 rounded-full flex-shrink-0" aria-hidden="true"></span>
+                            <span data-status-text>Mo–Fr 9–18 Uhr · Sa 9–14 Uhr · So geschlossen</span>
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Asia+Markt+Thien+Phu%2C+Hauptstra%C3%9Fe+74%2C+40764+Langenfeld" target="_blank" rel="noopener noreferrer" class="bg-brand-darkGreen hover:bg-brand-green text-white font-bold py-3 px-8 rounded-full transition duration-300 text-center shadow-md flex items-center justify-center gap-2">
+                                <svg class="svg-icon" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M576 48c0-11.1-5.7-21.4-15.2-27.2s-21.2-6.4-31.1-1.4L413.5 77.5 234.1 17.6c-8.1-2.7-16.8-2.1-24.4 1.7l-128 64C70.8 88.8 64 99.9 64 112l0 352c0 11.1 5.7 21.4 15.2 27.2s21.2 6.4 31.1 1.4l116.1-58.1 173.3 57.8c-4.3-6.4-8.5-13.1-12.6-19.9-11-18.3-21.9-39.3-30-61.8l-101.2-33.7 0-284.5 128 42.7 0 99.3c31-35.8 77-58.4 128-58.4 22.6 0 44.2 4.4 64 12.5L576 48zM512 224c-66.3 0-120 52.8-120 117.9 0 68.9 64.1 150.4 98.6 189.3 11.6 13 31.3 13 42.9 0 34.5-38.9 98.6-120.4 98.6-189.3 0-65.1-53.7-117.9-120-117.9zM472 344a40 40 0 1 1 80 0 40 40 0 1 1 -80 0z"/></svg> Route planen
+                            </a>
+                            <a href="tel:+4921731065590" class="bg-brand-green hover:bg-brand-darkGreen hover:ring-4 hover:ring-[var(--color-highlight-bg)] text-white font-bold py-3 px-8 rounded-full transition duration-200 text-center shadow-sm flex items-center justify-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
+                                <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/></svg> Anrufen
+                            </a>
+                            <a href="sortiment.html" class="bg-brand-beige hover:bg-brand-earth hover:text-white text-brand-earth border border-brand-earth/20 font-medium py-3 px-8 rounded-full transition duration-300 text-center">
+                                Unser Sortiment
+                            </a>
+                        </div>
+                        <p class="mt-5 text-sm text-gray-600 flex flex-wrap items-center gap-x-2 gap-y-1 justify-center lg:justify-start">
+                            <svg class="svg-icon text-brand-green" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg>
+                            <span>Hauptstraße 74, Langenfeld · Parken direkt gegenüber (15 Min gratis) · Karte &amp; Bargeld</span>
+                        </p>
+                        <p class="mt-2 text-sm text-gray-500 flex items-center gap-2 justify-center lg:justify-start">
+                            <svg class="svg-icon text-[var(--color-highlight)]" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M30.7 72.3C37.6 48.4 59.5 32 84.4 32l344 0c24.9 0 46.8 16.4 53.8 40.3l23.4 80.2c12.8 43.7-20.1 87.5-65.6 87.5-26.3 0-49.4-14.9-60.8-37.1-11.6 21.9-34.6 37.1-61.4 37.1-26.6 0-49.7-15-61.3-37-11.6 22-34.7 37-61.3 37-26.8 0-49.8-15.1-61.4-37.1-11.4 22.1-34.5 37.1-60.8 37.1-45.6 0-78.4-43.7-65.6-87.5L30.7 72.3zM96.4 352l320 0 0-66.4c7.6 1.6 15.5 2.4 23.5 2.4 14.3 0 28-2.6 40.5-7.2l0 151.2c0 26.5-21.5 48-48 48l-352 0c-26.5 0-48-21.5-48-48l0-151.2c12.5 4.6 26.1 7.2 40.5 7.2 8.1 0 15.9-.8 23.5-2.4l0 66.4z"/></svg>
+                            <span>Dies ist kein Online-Shop – alle Produkte sind ausschließlich vor Ort im Laden erhältlich.</span>
+                        </p>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 relative flex justify-center mt-10 lg:mt-0">
+                        <div class="absolute w-72 h-72 bg-brand-beige organic-shape -top-6 -left-6 z-0"></div>
+                        <div class="absolute w-64 h-64 bg-brand-green/20 rounded-full -bottom-8 -right-8 z-0"></div>
+                        <!-- TODO(inhaber): Interims-Visual durch echtes Foto ersetzen.
+                             Foto-Briefing: Professionelle Food-Fotografie, farbenfrohe Vogelperspektive auf
+                             frische asiatische Zutaten auf Holzoberfläche – Zitronengras, Thai-Basilikum,
+                             Galangal, rote Chilis, Kaffirlimettenblätter, Pak Choi, Jasminreis, Sternanis,
+                             Koriander. Warmes Naturlicht, Tiefenschärfe. Hochformat 4:5, ~800×1000 px. -->
+                        <img src="assets/images/hero-interim.webp" width="800" height="1000"
+                             alt="Asia Markt Thien Phu — authentische asiatische Esskultur in Langenfeld"
+                             fetchpriority="high" decoding="async"
+                             class="relative z-10 w-full max-w-md rounded-t-[10rem] rounded-b-[3rem] shadow-xl soft-border object-cover h-[420px] lg:h-[550px]">
+                        <div class="absolute bottom-12 -left-4 z-20 bg-white p-4 rounded-[2rem] shadow-lg soft-border hidden lg:flex items-center gap-4">
+                            <div class="bg-brand-beige w-12 h-12 rounded-full flex items-center justify-center text-brand-earth">
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M288 0c6.6 0 12.9 2.7 17.4 7.5l144 152 .5 .5 78.1 0c17.7 0 32 14.3 32 32 0 14.5-9.6 26.7-22.8 30.7L491.1 429.9c-6.5 29.3-32.5 50.1-62.5 50.1l-281.3 0c-30 0-56-20.8-62.5-50.1l-46-207.2c-13.2-3.9-22.8-16.2-22.8-30.7 0-17.7 14.3-32 32-32l78.1 0 .5-.5 144-152C275.1 2.7 281.4 0 288 0zm0 58.9L192.2 160 383.8 160 288 58.9zM208 264c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112zm80-24c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm128 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112z"/></svg>
+                            </div>
+                            <div class="text-left pr-4">
+                                <p class="text-xs text-gray-500 font-bold uppercase">Authentisch Asiatisch</p>
+                                <p class="font-serif font-bold text-brand-darkGreen">Hochwertige Auswahl</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bewertungs-Marquee: echte Google-Bewertungen als Endlosband (P4b.1) -->
+            <section aria-label="Kundenbewertungen" class="reviews-marquee py-10 bg-brand-beige/40 border-y border-brand-green/10">
+                <div class="marquee group relative">
+                    <ul class="marquee__track flex gap-6 w-max list-none m-0 p-0">
+                        <!-- wird per JS aus assets/data/bewertungen-kuratiert.json gefüllt (Original + aria-hidden-Klon) -->
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Highlights-Leiste -->
+            <section class="py-10 bg-brand-beige border-y border-brand-green/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <svg class="svg-icon" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M64 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 32 50.7 0c17 0 33.3 6.7 45.3 18.7L621.3 192c12 12 18.7 28.3 18.7 45.3L640 384c0 35.3-28.7 64-64 64l-3.3 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-102.6 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-3.3 0c-35.3 0-64-28.7-64-64l0-48-40 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 240c-13.3 0-24-10.7-24-24s10.7-24 24-24l176 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 144c-13.3 0-24-10.7-24-24S10.7 96 24 96l40 0zM576 288l0-50.7-45.3-45.3-50.7 0 0 96 96 0zM256 424a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Frische Lieferungen</p>
+                            <p class="text-sm text-gray-600">Regelmäßig frisches Gemüse</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M50 284.8c4.2 2.1 9 3.2 14 3.2l50.7 0c8.5 0 16.6 3.4 22.6 9.4l13.3 13.3c6 6 14.1 9.4 22.6 9.4l18.7 0c17.7 0 32-14.3 32-32l0-40c0-13.3 10.7-24 24-24s24-10.7 24-24l0-42.7c0-8.5 3.4-16.6 9.4-22.6l13.3-13.3c6-6 9.4-14.1 9.4-22.6L304 57c0-1.2-.1-2.3-.2-3.5-15.4-3.6-31.4-5.5-47.8-5.5-114.9 0-208 93.1-208 208 0 9.8 .7 19.4 2 28.8zm403.3 37.3c-3.2-1.4-6.7-2.1-10.5-2.1L432 320c-8.8 0-16-7.2-16-16s-7.2-16-16-16l-34.7 0c-8.5 0-16.6 3.4-22.6 9.4l-45.3 45.3c-6 6-9.4 14.1-9.4 22.6l0 18.7c0 17.7 14.3 32 32 32l18.7 0c8.5 0 16.6 3.4 22.6 9.4 2.2 2.2 4.7 4.1 7.3 5.5 39.3-25.4 69.5-63.6 84.6-108.8zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zM128 368c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zM272 256c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16s16-7.2 16-16l0-32c0-8.8-7.2-16-16-16zm48-112l0 32c0 8.8 7.2 16 16 16s16-7.2 16-16l0-32c0-8.8-7.2-16-16-16s-16 7.2-16 16z"/></svg>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Authentisch</p>
+                            <p class="text-sm text-gray-600">Original asiatische Marken</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M401.2 39.1L549.4 189.4c27.7 28.1 27.7 73.1 0 101.2L393 448.9c-9.3 9.4-24.5 9.5-33.9 .2s-9.5-24.5-.2-33.9L515.3 256.8c9.2-9.3 9.2-24.4 0-33.7L367 72.9c-9.3-9.4-9.2-24.6 .2-33.9s24.6-9.2 33.9 .2zM32.1 229.5L32.1 96c0-35.3 28.7-64 64-64l133.5 0c17 0 33.3 6.7 45.3 18.7l144 144c25 25 25 65.5 0 90.5L285.4 418.7c-25 25-65.5 25-90.5 0l-144-144c-12-12-18.7-28.3-18.7-45.3zm144-85.5a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Faire Preise</p>
+                            <p class="text-sm text-gray-600">Großes Angebot, kleiner Preis</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green soft-border shadow-sm">
+                                <svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M241 87.1l15 20.7 15-20.7C296 52.5 336.2 32 378.9 32 452.4 32 512 91.6 512 165.1l0 2.6c0 112.2-139.9 242.5-212.9 298.2-12.4 9.4-27.6 14.1-43.1 14.1s-30.8-4.6-43.1-14.1C139.9 410.2 0 279.9 0 167.7l0-2.6C0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1z"/></svg>
+                            </div>
+                            <p class="font-serif font-bold text-brand-darkGreen">Inhabergeführt</p>
+                            <p class="text-sm text-gray-600">Persönliche Beratung</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Google Reviews Section -->
+            <section id="bewertungen" class="py-20 bg-white relative border-y border-brand-green/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <div class="flex justify-center mb-4">
+                            <div class="flex gap-1 text-brand-gold text-2xl">
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                                <svg class="svg-icon" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z"/></svg>
+                            </div>
+                        </div>
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-darkGreen mb-2">Google Bewertungen</h2>
+                        <p class="font-serif text-xl font-bold text-brand-darkGreen mb-3">4,4 von 5 Sternen · 125 Bewertungen auf Google Maps</p>
+                        <p class="text-gray-600 text-lg">Das sagen unsere Kunden über den Asia Markt Thien Phu in Langenfeld.</p>
+                    </div>
+
+                    <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"></div>
+                    <p id="reviews-fallback" class="text-center text-sm text-gray-500 mb-12">Kundenstimmen werden bei Bedarf geladen …</p>
+
+                    <div class="text-center">
+                        <button onclick="openReviewModal()" class="inline-flex items-center gap-3 bg-white border-2 border-gray-200 border-l-4 border-l-[var(--color-highlight)] hover:border-[var(--color-highlight)] hover:shadow-md text-gray-800 font-bold py-3 px-8 rounded-full transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
+                            <svg class="svg-icon text-brand-darkGreen" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M500 261.8C500 403.3 403.1 504 260 504 122.8 504 12 393.2 12 256S122.8 8 260 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9c-88.3-85.2-252.5-21.2-252.5 118.2 0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9l-140.8 0 0-85.3 236.1 0c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg> Selbst eine Bewertung schreiben
+                        </button>
+                        <p class="mt-4 text-sm text-gray-500">Wir bedanken uns bei allen Kunden für ihre wertvollen Rückmeldungen!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darkGreen pt-16 pb-8 mt-auto border-t-[6px] border-brand-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/images/thien_phu_logo.webp" width="220" height="220" alt="Asia Markt Thien Phu — Asiatische Lebensmittel in Langenfeld" class="h-16 w-auto" loading="lazy" decoding="async">
+                    </div>
+                    <p class="text-brand-cream/80 text-base leading-relaxed mb-6 max-w-sm">
+                        Ihr Fachgeschäft für ausgewählte Lebensmittel und frisches Gemüse für die asiatische Küche in Langenfeld (Rheinland).
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Webseite</h2>
+                    <ul class="space-y-1">
+                        <li><a href="/" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Startseite</a></li>
+                        <li><a href="sortiment.html" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Sortiment</a></li>
+                        <li><a href="ueber-uns.html" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Unser Ansatz</a></li>
+                        <li><a href="kontakt.html" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs" viewBox="0 0 256 512" fill="currentColor" aria-hidden="true"><path d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> Kontakt</a></li>
+                        <li><button onclick="openSuggestionModal()" class="nav-link inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-brand-cream/80 hover:text-brand-accent transition duration-300"><svg class="svg-icon text-xs text-brand-gold" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9 32.7-34.4 52.7-80.9 52.7-132.1 0-106-86-192-192-192S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9l201.7 0zM288 432l-192 0 0 16c0 44.2 35.8 80 80 80l32 0c44.2 0 80-35.8 80-80l0-16zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24z"/></svg> Vorschlag einreichen</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="font-serif font-bold text-xl text-brand-beige mb-6 border-b border-brand-green/30 pb-2 inline-block">Besuchen Sie uns</h2>
+                    <p class="text-brand-cream/80 mb-2"><svg class="svg-icon w-6 text-brand-accent" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/></svg> Hauptstraße 74</p>
+                    <p class="text-brand-cream/80 mb-4"><svg class="svg-icon w-6 text-brand-accent" viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M320 0c-35.3 0-64 28.7-64 64l0 32-48 0 0-72c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 72-64 0 0-72C96 10.7 85.3 0 72 0S48 10.7 48 24l0 74c-27.6 7.1-48 32.2-48 62L0 448c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-64 0 0-128c0-35.3-28.7-64-64-64L320 0zm64 112l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zm-16 80c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zm16 112l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zm112-16c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zM256 304l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zM240 192c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0zM128 304l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16zM112 192c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16l32 0z"/></svg> 40764 Langenfeld (Rheinland)</p>
+                    <p class="text-brand-cream/80 mb-4"><svg class="svg-icon w-6 text-brand-accent" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/></svg> <a href="tel:+4921731065590" class="hover:text-white transition">02173 1065590</a></p>
+                    <p class="text-brand-cream/80 text-sm flex items-start gap-2"><svg class="svg-icon w-6 text-brand-accent flex-shrink-0 mt-0.5" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M464 256a208 208 0 1 1 -416 0 208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0 256 256 0 1 0 -512 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg><span>Mo–Fr: 9–18 Uhr<br>Sa: 9–14 Uhr | So: Geschlossen</span></p>
+                </div>
+            </div>
+
+            <div class="border-t border-brand-green/40 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-brand-cream/60 text-sm font-medium">
+                    © 2026 Asia Markt Thien Phu. Alle Rechte vorbehalten.
+                </p>
+                <div class="flex gap-6 text-sm items-center">
+                    <a href="impressum.html" class="nav-link px-4 py-2 rounded-full text-brand-cream/60 hover:text-white transition">Impressum</a>
+                    <a href="datenschutz.html" class="nav-link px-4 py-2 rounded-full text-brand-cream/60 hover:text-white transition">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-root"></div>
+
+    <!-- Schwebender Vorschläge-Button (nur Desktop — mobil hat die Aktionsleiste Vorrang, Footer-Link als Ersatz) -->
+    <button onclick="openSuggestionModal()" title="Vorschlag einreichen" aria-label="Vorschlag einreichen" class="fixed bottom-6 right-6 z-40 bg-brand-darkGreen hover:bg-brand-green text-white rounded-full shadow-lg hidden md:flex items-center gap-2 px-4 py-3 transition duration-300">
+        <svg class="svg-icon text-brand-gold text-lg" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9 32.7-34.4 52.7-80.9 52.7-132.1 0-106-86-192-192-192S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9l201.7 0zM288 432l-192 0 0 16c0 44.2 35.8 80 80 80l32 0c44.2 0 80-35.8 80-80l0-16zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24z"/></svg>
+        <span class="text-sm font-semibold">Vorschlag einreichen</span>
+    </button>
+
+    <!-- Mobile Aktionsleiste (Conversion): Anrufen / Route / Öffnungsstatus -->
+    <nav class="action-bar" aria-label="Schnellaktionen">
+        <a href="tel:+4921731065590" class="flex flex-col items-center justify-center gap-1 py-2.5 text-xs font-bold text-brand-darkGreen hover:bg-brand-beige transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
+            <svg class="svg-icon text-base text-brand-green" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/></svg> Anrufen
+        </a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Asia+Markt+Thien+Phu%2C+Hauptstra%C3%9Fe+74%2C+40764+Langenfeld" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center gap-1 py-2.5 text-xs font-bold text-brand-darkGreen hover:bg-brand-beige transition border-x border-brand-green/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]">
+            <svg class="svg-icon text-base text-brand-green" viewBox="0 0 640 512" fill="currentColor" aria-hidden="true"><path d="M576 48c0-11.1-5.7-21.4-15.2-27.2s-21.2-6.4-31.1-1.4L413.5 77.5 234.1 17.6c-8.1-2.7-16.8-2.1-24.4 1.7l-128 64C70.8 88.8 64 99.9 64 112l0 352c0 11.1 5.7 21.4 15.2 27.2s21.2 6.4 31.1 1.4l116.1-58.1 173.3 57.8c-4.3-6.4-8.5-13.1-12.6-19.9-11-18.3-21.9-39.3-30-61.8l-101.2-33.7 0-284.5 128 42.7 0 99.3c31-35.8 77-58.4 128-58.4 22.6 0 44.2 4.4 64 12.5L576 48zM512 224c-66.3 0-120 52.8-120 117.9 0 68.9 64.1 150.4 98.6 189.3 11.6 13 31.3 13 42.9 0 34.5-38.9 98.6-120.4 98.6-189.3 0-65.1-53.7-117.9-120-117.9zM472 344a40 40 0 1 1 80 0 40 40 0 1 1 -80 0z"/></svg> Route
+        </a>
+        <a href="kontakt.html#oeffnungszeiten" class="flex flex-col items-center justify-center gap-1 py-2.5 text-xs font-bold text-brand-darkGreen hover:bg-brand-beige transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-highlight)]" data-open-status="short">
+            <svg class="svg-icon text-base text-brand-green" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M464 256a208 208 0 1 1 -416 0 208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0 256 256 0 1 0 -512 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+            <span class="flex items-center gap-1.5"><span data-status-dot class="hidden w-1.5 h-1.5 rounded-full flex-shrink-0" aria-hidden="true"></span><span data-status-text>Öffnungszeiten</span></span>
+        </a>
+    </nav>
+</body>
+</html>
