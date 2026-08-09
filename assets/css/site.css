@@ -214,7 +214,15 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 .hero figure { margin: 0; }
 .hero figcaption { margin-top: 10px; font-size: 14px; color: var(--grau-zart); }
 
-.foto { width: 100%; object-fit: cover; border-radius: var(--radius); background: var(--rose); }
+/* `height: auto` ist hier zwingend und nicht kosmetisch: Die Attribute
+   width/height am <img> wirken als Presentational Hint auf die
+   CSS-Eigenschaften width und height. `width: 100%` ueberschreibt den einen,
+   ohne diese Zeile bliebe aber `height: 1050px` aus dem Attribut stehen.
+   Stehen Breite und Hoehe beide fest, ignoriert der Browser `aspect-ratio` —
+   und `object-fit: cover` schneidet das Foto in einen viel zu hohen Kasten.
+   Die Attribute bleiben trotzdem erhalten, sie reservieren den Platz vor dem
+   Laden und verhindern so das Springen des Layouts. */
+.foto { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--rose); }
 .foto-4-3        { aspect-ratio: 4 / 3; }
 .foto-3-4        { aspect-ratio: 3 / 4; }
 .foto-schaufenster { aspect-ratio: 1600 / 1136; }
@@ -261,6 +269,9 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;
 }
 .seiten-kopf p { margin: 0; font-size: clamp(18px, 2vw, 19px); line-height: 1.6; color: var(--tinte-weich); max-width: 30em; }
+/* „Der Laden" gibt der Bildspalte weniger Platz als das Sortiment — das
+   Eingangsfoto ist hochkant und wuerde sonst zu hoch aufragen. */
+.seiten-kopf-schmal { grid-template-columns: 1.15fr .85fr; }
 
 .warengruppe {
   display: grid; grid-template-columns: 15em 1fr; gap: 28px;
