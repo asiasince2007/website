@@ -7,7 +7,7 @@
     <!-- Sicherheit: Content-Security-Policy. GitHub Pages kann keine HTTP-Header setzen,
          daher als Meta-Tag. Hinweis: frame-ancestors/X-Frame-Options wirken per Meta NICHT
          (Clickjacking-Schutz nur über vorgelagerten Proxy wie Cloudflare). -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com https://places.googleapis.com; frame-src https://www.google.com; form-action 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; frame-src https://www.google.com; form-action 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Datenschutzerklärung — Asia Markt Thien Phu</title>
     <meta name="description" content="Datenschutzerklärung des Asia Markt Thien Phu in Langenfeld (Rheinland).">
@@ -74,22 +74,57 @@
       }
     }
     </script>
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-    <!-- Selbst gehostete Fonts (DSGVO, P6.2) -->
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lora-700-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-700-latin.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-400-latin.woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/site.css">
+
+    <script src="assets/js/site.js" defer></script>
 </head>
-<body class="font-sans text-gray-700 antialiased">
-<main class="py-16 lg:py-24">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-            <a href="/" class="inline-flex items-center gap-2 text-brand-green hover:text-brand-darkGreen mb-6"><svg class="svg-icon" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 105.4-105.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg> Zurück zur Startseite</a>
-            <p class="text-brand-earth font-bold tracking-widest uppercase text-sm mb-3">Rechtliche Angaben</p>
-            <h1 class="font-serif text-4xl md:text-5xl font-bold text-brand-darkGreen mb-4">Datenschutzerklärung</h1>
-            <div class="w-16 h-1 bg-brand-green rounded-full"></div>
-        </div>
-        <div class="bg-white rounded-[3rem] p-8 md:p-12 soft-border shadow-sm prose-legal">
+<body>
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<div class="topbar">
+    <span>Hauptstraße 74, 40764 Langenfeld</span>
+    <span class="teiler" aria-hidden="true"></span>
+    <a href="tel:+4921731065590">02173 1065590</a>
+    <span class="teiler" aria-hidden="true"></span>
+    <span data-status-text>Mo bis Fr 9 bis 18 Uhr, Samstag 9 bis 14 Uhr</span>
+</div>
+
+<header class="kopf">
+    <div class="kopf-innen">
+        <a href="/" class="marke">
+            <img src="assets/images/thien_phu_logo.webp" width="220" height="220" alt="" loading="eager" decoding="async">
+            <span>
+                <span class="marke-name">Asia Markt Thien Phu</span>
+                <span class="marke-zusatz">Asiatische Lebensmittel in Langenfeld, seit 2007</span>
+            </span>
+        </a>
+
+        <button type="button" id="menue-schalter" class="menue-schalter"
+                aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnavigation">
+            <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+        </button>
+
+        <nav id="hauptnavigation" class="nav" aria-label="Hauptnavigation">
+            <a href="/">Start<span class="marker"></span></a>
+            <a href="sortiment.html">Sortiment<span class="marker"></span></a>
+            <a href="ueber-uns.html">Der Laden<span class="marker"></span></a>
+            <a href="kontakt.html">Kontakt<span class="marker"></span></a>
+            <a href="tel:+4921731065590" class="btn-anruf">Anrufen</a>
+        </nav>
+    </div>
+</header>
+
+<main id="inhalt">
+    <div class="rechtstext-kopf">
+        <p class="rubrik">Rechtliche Angaben</p>
+        <h1>Datenschutzerklärung</h1>
+        <div class="strich"></div>
+    </div>
+    <div class="rechtstext">
 
 
                         <h2>1. Datenschutz auf einen Blick</h2>
@@ -239,12 +274,37 @@
                         <p>
                             Diese Datenschutzerklärung hat den Stand <strong>Juni 2026</strong>. Durch Weiterentwicklung der Website oder geänderte gesetzliche Vorgaben kann eine Anpassung erforderlich werden. Die jeweils aktuelle Fassung ist auf dieser Seite abrufbar.
                         </p>
-        </div>
     </div>
 </main>
-<script>
-function _em(){ return ['asia.since2007','gmail.com'].join(String.fromCharCode(64)); }
-const addr=_em();document.querySelectorAll('[data-email-link]').forEach(el=>{el.href='mailto:'+addr;el.textContent=addr.replace('@','[at]');});
-</script>
+
+<footer class="fuss">
+    <div class="fuss-oben">
+        <div>
+            <p class="fuss-name">Asia Markt Thien Phu</p>
+            <p>Asiatische Lebensmittel in Langenfeld (Rheinland). Inhabergeführt seit 2007.</p>
+        </div>
+        <div>
+            <p class="anschrift">Hauptstraße 74<br>40764 Langenfeld</p>
+            <p><a href="tel:+4921731065590">02173 1065590</a></p>
+        </div>
+        <div>
+            <div class="fuss-zeiten">
+                <span>Mo bis Fr</span><span>9 bis 18 Uhr</span>
+                <span>Samstag</span><span>9 bis 14 Uhr</span>
+                <span>Sonntag</span><span>geschlossen</span>
+            </div>
+        </div>
+    </div>
+    <div class="fuss-unten">
+        <div class="fuss-unten-innen">
+            <span>© 2026 Asia Markt Thien Phu</span>
+            <span class="fuss-rechtliches">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html" aria-current="page">Datenschutz</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>

@@ -142,11 +142,28 @@
     });
   }
 
+  /* ------------------------------------------------- E-Mail-Adresse ------
+     Nur Impressum und Datenschutz. Die Adresse steht bewusst nicht im
+     Quelltext, sondern wird erst hier zusammengesetzt — das haelt einfache
+     Adresssammler fern. Frueher stand dieser Code als Inline-Skript in beiden
+     Seiten; das ginge mit der verschaerften CSP (ohne 'unsafe-inline') nicht
+     mehr, deshalb liegt er jetzt hier. */
+  function email() {
+    var stellen = document.querySelectorAll('[data-email-link]');
+    if (!stellen.length) return;
+    var adresse = ['asia.since2007', 'gmail.com'].join(String.fromCharCode(64));
+    for (var i = 0; i < stellen.length; i++) {
+      stellen[i].href = 'mailto:' + adresse;
+      stellen[i].textContent = adresse.replace('@', '[at]');
+    }
+  }
+
   function start() {
     statusAnzeigen();
     navigation();
     einblenden();
     karte();
+    email();
     // Der Status haengt an der Uhrzeit — minuetlich nachziehen.
     setInterval(statusAnzeigen, 60000);
   }

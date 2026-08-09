@@ -12,11 +12,34 @@ Die vier Seiten der ersten Website-Fassung, abgelöst durch den Relaunch
 
 ## Wichtig beim Lesen dieser Dateien
 
-Die Seiten lagen ursprünglich im **Repo-Wurzelverzeichnis** und verweisen
-entsprechend relativ auf `assets/css/styles.min.css`, `assets/js/main.js`,
-`assets/fonts/` und `assets/images/`. Aus dem Archivordner heraus greifen diese
-Pfade ins Leere — die Dateien sind hier als **Textbeleg** abgelegt, nicht als
-lauffähige Kopie.
+Die Seiten lagen ursprünglich im **Repo-Wurzelverzeichnis**. `styles.min.css`
+und `main.js` sind am 09.08.2026 mit hierher gewandert und liegen unter
+denselben relativen Pfaden wie zuvor — beim Öffnen aus diesem Ordner heraus
+laden Layout und Skript also. Fonts und Bilder fehlen, sie liegen weiterhin
+nur im Wurzelverzeichnis.
+
+## Warum `main.js` nicht mehr ausgeliefert wird
+
+Die Datei enthält in Zeile 4 den Web3Forms-Zugriffsschlüssel
+`W3F_KEY = 'f91a4036-…'` des Vorschlags- und Feedbackformulars. Nach dem
+Relaunch referenzierte sie keine einzige Seite mehr, sie wurde von GitHub Pages
+aber weiterhin unter `/assets/js/main.js` öffentlich ausgeliefert — toter Code
+mit einem funktionsfähigen Schlüssel, mit dem sich das Postfach des Inhabers
+zuspammen ließe. Mit dem Umzug in diesen Ordner (`_config.yml` → `exclude`)
+ist sie nicht mehr abrufbar.
+
+> **TODO(inhaber):** Der Schlüssel steht weiterhin in der Git-Historie und
+> lässt sich daraus rekonstruieren. Er sollte im Web3Forms-Konto **ersetzt oder
+> gelöscht** werden. Das kann nur der Kontoinhaber tun.
+
+## Warum der Bewertungs-Dialog nicht zurückkehren sollte
+
+`main.js` enthält mit `reviewYes()` / `reviewNo()` eine Bewertungsweiche: Auf
+die Frage „Waren Sie zufrieden?" führte **Ja** direkt zum Google-Bewertungs­
+formular, **Nein** dagegen in ein privates Feedbackfeld. Google untersagt
+dieses Vorgehen ausdrücklich — negative Bewertungen dürfen nicht abgefangen
+und positive nicht gezielt eingeworben werden (Review Gating). Sollte das
+Formular je zurückkehren, dann ohne diese Verzweigung.
 
 Der exakte, lauffähige Live-Stand steht im Git-Verlauf: Commit `19ed9a4`
 („Merge pull request #48"). So lässt er sich vollständig wiederherstellen:

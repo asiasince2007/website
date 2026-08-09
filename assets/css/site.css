@@ -12,8 +12,12 @@
   --tinte-weich:  #463B31;
   --grau:         #5A4E43;
   --grau-hell:    #7C6F62;
-  --grau-zart:    #8B7D6E;
-  --grau-still:   #A99C8D;  /* z. B. „geschlossen" */
+  /* Zwei Toene des Entwurfs waren zu hell fuer WCAG AA und sind so weit
+     abgedunkelt, wie noetig — nicht weiter. Belegt mit Lighthouse:
+     #8B7D6E auf Creme ergab 3,88:1 (noetig 4,5), #A99C8D auf Rose 2,37:1
+     (noetig 3,0 fuer grossen Fettdruck). */
+  --grau-zart:    #7F7265;  /* war #8B7D6E — jetzt 4,51:1 auf Creme */
+  --grau-still:   #95897C;  /* war #A99C8D — jetzt 3,01:1 auf Rose; „geschlossen" */
   --rot:          #B4342E;  /* Akzent: Schaufensterrahmen */
   --rot-dunkel:   #8E2320;
   --rose:         #FBEEEC;  /* Baender */
@@ -188,7 +192,11 @@ a:hover { color: var(--rot-dunkel); }
 }
 
 h1, h2, h3 { letter-spacing: -.02em; font-weight: 700; }
-h1 { font-size: clamp(34px, 5.2vw, 54px); line-height: 1.08; margin: 0 0 18px; text-wrap: balance; }
+/* Der Entwurf staffelt die Ueberschriften: 54px nur auf der Startseite,
+   46-48px auf den Unterseiten. Der Grundwert ist deshalb die Unterseite,
+   die Startseite hebt sich per .hero davon ab. */
+h1 { font-size: clamp(31px, 4.4vw, 46px); line-height: 1.1; margin: 0 0 18px; text-wrap: balance; }
+.hero h1 { font-size: clamp(34px, 5.2vw, 54px); line-height: 1.08; }
 h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 
 .blende { background: var(--rose); border-top: 1px solid var(--linie-zart); border-bottom: 1px solid var(--linie-zart); }
@@ -226,7 +234,10 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 .foto-4-3        { aspect-ratio: 4 / 3; }
 .foto-3-4        { aspect-ratio: 3 / 4; }
 .foto-schaufenster { aspect-ratio: 1600 / 1136; }
-.foto-eingang    { aspect-ratio: 1400 / 1628; }
+/* Beim Eingangsfoto sind oben 22 % abgeschnitten: dort waren der
+   Betonunterzug und die zusammengerollte, ausgefranste Markise zu sehen.
+   Dadurch weicht das Verhaeltnis bewusst vom Entwurf (1400/1628) ab. */
+.foto-eingang    { aspect-ratio: 1200 / 1089; }
 
 .info-band {
   max-width: var(--bahn); margin: 0 auto;
@@ -349,6 +360,41 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 .maps-fassade .klein { font-size: 15px; color: var(--grau); max-width: 34em; line-height: 1.6; }
 .maps-rahmen iframe { display: block; width: 100%; height: 100%; min-height: 380px; border: 0; }
 
+/* ------------------------------------------------- Impressum, Datenschutz
+   Fliesstextseiten. Schmalere Spalte als der Rest der Seite: Rechtstexte
+   werden gelesen, nicht ueberflogen, und lange Zeilen ermueden. */
+
+.rechtstext-kopf { max-width: 52rem; margin: 0 auto; padding: 44px var(--rand) 0; }
+.rechtstext-kopf h1 { margin: 0 0 14px; }
+.rechtstext-kopf .strich { width: 64px; height: 4px; border-radius: 2px; background: var(--rot); }
+
+.rechtstext {
+  max-width: 52rem; margin: 0 auto;
+  padding: 28px var(--rand) 8px;
+  font-size: 17px; line-height: 1.75; color: var(--grau);
+}
+.rechtstext h2 {
+  font-size: 24px; font-weight: 700; color: var(--tinte);
+  margin: 34px 0 10px; letter-spacing: -.01em;
+}
+.rechtstext h2:first-child { margin-top: 0; }
+.rechtstext h3 {
+  font-size: 19px; font-weight: 700; color: var(--tinte);
+  margin: 24px 0 8px; letter-spacing: 0;
+}
+.rechtstext p { margin: 0 0 14px; }
+.rechtstext ul { margin: 0 0 14px; padding-left: 1.4em; }
+.rechtstext li { margin-bottom: 6px; }
+.rechtstext strong { color: var(--tinte); }
+.rechtstext a { text-decoration: underline; text-underline-offset: 2px; }
+/* Lange URLs und E-Mail-Adressen duerfen auf dem Handy umbrechen. */
+.rechtstext a[href^="http"], .rechtstext a[href^="mailto"] { overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  .rechtstext { font-size: 16px; }
+  .rechtstext h2 { font-size: 21px; }
+}
+
 /* ----------------------------------------------------------------- Footer */
 
 .fuss { margin-top: 52px; background: var(--tinte); color: #FBF3EA; }
@@ -372,9 +418,10 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   max-width: var(--bahn); margin: 0 auto;
   padding: 16px var(--rand);
   display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between;
-  font-size: 14px; color: rgba(243, 233, 218, .5);
+  /* .5 ergab auf #241C16 nur 4,47:1 und verfehlte AA um Haaresbreite. */
+  font-size: 14px; color: rgba(243, 233, 218, .58);
 }
-.fuss-unten-innen a { color: rgba(243, 233, 218, .5); }
+.fuss-unten-innen a { color: rgba(243, 233, 218, .58); }
 .fuss-unten-innen a:hover { color: #fff; }
 .fuss-rechtliches { display: flex; gap: 18px; }
 
