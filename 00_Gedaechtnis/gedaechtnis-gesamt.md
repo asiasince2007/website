@@ -82,7 +82,7 @@
   ausgenommen, siehe F-06/F-07.)
 - **ADR-06 (2026-06-11): Hero-Bewertungs-Marquee.** Unter/zum Hero ein endlos von rechts nach
   links laufendes Band echter Google-Bewertungen. Spez + Referenzcode:
-  `docs/HERO-BEWERTUNGEN-KARUSSELL.md`; Daten: `docs/bewertungen-kuratiert.json`.
+  `00_Gedaechtnis/hero-bewertungen-karussell.md`; Daten: `docs/bewertungen-kuratiert.json`.
 
 ---
 
@@ -226,7 +226,7 @@
   geprüft, bewusst ohne Fotos (ADR-05), konsistent — unverändert. P4.4: Floating-Button auf
   Mobil icon-only (runder 48-px-Button, `aria-label`), überdeckt CTAs nicht mehr funktional.
 - **2026-06-11** — P4b.1 **Bewertungs-Marquee** unter dem Hero (Spez:
-  `docs/HERO-BEWERTUNGEN-KARUSSELL.md`): 13 kuratierte echte 5-Sterne-Bewertungen aus
+  `00_Gedaechtnis/hero-bewertungen-karussell.md`): 13 kuratierte echte 5-Sterne-Bewertungen aus
   `assets/data/bewertungen-kuratiert.json` (getrimmte Kopie der docs-Datei), Karten + aria-
   hidden-Klone für nahtlose Schleife (translateX −50 %, 55 s), Pause bei Hover/Fokus,
   `prefers-reduced-motion` → scrollbares Band, Texte HTML-escaped. QA: `scripts/qa-marquee.js`
@@ -302,7 +302,7 @@
   `cowork/`, `docs/`, `design/`, `demo/`, `scripts/`, `src/`, package*/Config/README/CLAUDE.md
   aus dem deployten Output, ohne sie aus dem Repo zu entfernen (docs/ braucht der Workflow).
   robots.txt-Disallows bleiben als zweite Verteidigungslinie. **Nach Deploy prüfen:**
-  https://www.asiamarkt.info/docs/PLAN.md muss 404 liefern.
+  https://www.asiamarkt.info/00_Gedaechtnis/plan-relaunch.md muss 404 liefern.
   (2) **Conversion:** Alle 9 „Route"-CTAs von `maps.google.com/?q=…` (öffnete nur die
   Place-Suche) auf den offiziellen Directions-Deep-Link
   `https://www.google.com/maps/dir/?api=1&destination=…` umgestellt — startet die Navigation

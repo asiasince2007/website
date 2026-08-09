@@ -2,8 +2,8 @@
 
 > **Für Claude Code zur autonomen Umsetzung.** Phasen in Reihenfolge abarbeiten.
 > Jede Aufgabe hat **Akzeptanzkriterien**. Erledigtes abhaken (`[x]`), klein committen,
-> nach jeder Phase `docs/GEDAECHTNIS.md` → „Änderungs- & Lernprotokoll" ergänzen.
-> Verbindliche Fakten (NAP, Öffnungszeiten) ausschließlich aus `docs/GEDAECHTNIS.md`.
+> nach jeder Phase `00_Gedaechtnis/gedaechtnis-gesamt.md` → „Änderungs- & Lernprotokoll" ergänzen.
+> Verbindliche Fakten (NAP, Öffnungszeiten) ausschließlich aus `00_Gedaechtnis/gedaechtnis-gesamt.md`.
 
 **Leitplanken:** Deutsch only · kein Online-Shop · GitHub-Pages-kompatibel (statisch) ·
 NAP überall identisch · nichts erfinden (`TODO(inhaber)` statt Platzhalter-Fakten).
@@ -154,7 +154,7 @@ vollständigem `GroceryStore`-Schema und Lighthouse-Mobil ≥ 90 in allen Katego
 ### Phase 4b — Hero-Bewertungs-Marquee (gewünschtes Feature)
 
 - [x] **4b.1 Endlos-Laufband echter Google-Bewertungen** (rechts → links) im/unter dem Hero
-  umsetzen. **Vollständige Spezifikation + Referenz-Code:** `docs/HERO-BEWERTUNGEN-KARUSSELL.md`.
+  umsetzen. **Vollständige Spezifikation + Referenz-Code:** `00_Gedaechtnis/hero-bewertungen-karussell.md`.
   Daten: `docs/bewertungen-kuratiert.json` (`marquee_auswahl`, 13 Stück) — nach
   `assets/data/` ausliefern oder beim Build inlinen.
   *Akzeptanz (Kurzfassung):* nahtlose Endlosschleife, Pause bei Hover/Fokus,

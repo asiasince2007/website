@@ -1,0 +1,49 @@
+# 02 — Projektstand
+
+> **Diese Inhalte stehen gesammelt in [`gedaechtnis-gesamt.md`](gedaechtnis-gesamt.md).** Jene Datei ist historisch als **eine** durchgehende Wissensdatei geführt worden, deren sieben Abschnitte genau den kanonischen Kerndateien entsprechen. Bei der Vereinheitlichung am 31.07.2026 wurde sie bewusst **nicht** zerschnitten, weil ihre Abschnitte aufeinander verweisen und das Änderungsprotokoll am Ende sie zusammenhält.
+
+Maßgeblich sind **Abschnitt 6 (Offene Punkte für den Inhaber)** und **Abschnitt 7 (Änderungs- und Lernprotokoll, append-only)** der Gesamtdatei sowie [`plan-relaunch.md`](plan-relaunch.md) mit dem phasenweisen Arbeitsplan und seinen Akzeptanzkriterien.
+
+## Neue Einträge
+
+_Neue Standmeldungen können wahlweise hier oder direkt im entsprechenden Abschnitt von `gedaechtnis-gesamt.md` ergänzt werden — aber konsequent an **einer** Stelle. Wird diese Datei genutzt, gehört ein Verweis darauf in den betreffenden Abschnitt der Gesamtdatei._
+
+---
+
+_Angelegt am 31.07.2026._
+
+## Archiviert am 31.07.2026
+
+Das Projekt wurde auf Wunsch des Nutzers nach `ZZ_Archiv_Abgeschlossene-Projekte/` verschoben. Der Stand der Website bleibt unverändert live; der Ordner wird nur nicht mehr aktiv weiterentwickelt.
+
+**Was beim Wiederaufnehmen zuerst zu lesen ist:** `gedaechtnis-gesamt.md` (Abschnitt 5 „Bekannte Fehler & Fixes", `F-01` bis `F-09`) und `plan-relaunch.md`. Die dort offenen Punkte — leere `styles.min.css`, 3,48 MB großes Logo, fehlendes JSON-LD, fehlende Sitemap, Platzhalterbilder — sind zum Zeitpunkt der Archivierung **nicht** erledigt.
+
+## Relaunch auf „Richtung A" am 09.08.2026
+
+Das Projekt wurde trotz Archivierung wieder angefasst: Die in Claude Design
+entworfene Richtung A („Ladenschild") ist als echte Multi-Page-Struktur
+umgesetzt. Begründungen der Abweichungen stehen in [`03_entscheidungen.md`](03_entscheidungen.md)
+(`E-10` bis `E-14`), die dabei aufgetretenen Fehler in
+[`04_stolperfallen.md`](04_stolperfallen.md) (`F-10` bis `F-12`).
+
+**Erledigt damit auch:** Platzhalterbilder (jetzt echte Ladenfotos des
+Inhabers), JSON-LD auf Start- und Kontaktseite, aktuelle `sitemap.xml`,
+Bewertungszahl überall einheitlich 4,4 / 127.
+
+**Stand:** Branch `relaunch-richtung-a`, Pull Request
+[#49](https://github.com/asiasince2007/website/pull/49). **Noch nicht live** —
+der Merge auf `main` ist der Live-Schritt und wartet auf die Freigabe des
+Inhabers.
+
+### Offen
+
+- `impressum.html` und `datenschutz.html` tragen weiterhin das alte
+  Tailwind-Layout. Inhaltlich unverändert und funktionsfähig, optisch aber ein
+  Bruch zum neuen Design. Beim Umbauen den Rechtstext unangetastet lassen.
+- Der Vorschlags-Dialog („Vorschlag einreichen", Web3Forms) der alten Fassung
+  ist im neuen Entwurf nicht vorgesehen und entfallen. Falls er zurück soll,
+  müssen `api.web3forms.com` wieder in die CSP und der Dialog neu gebaut werden.
+- Lighthouse ist noch nicht gemessen worden (Definition of Done verlangt ≥ 90
+  in allen vier Kategorien auf Mobil).
+- Der Umbau `docs/` → `00_Gedaechtnis/` aus einer früheren Sitzung ist weiterhin
+  **nicht committet** und liegt nur lokal vor.

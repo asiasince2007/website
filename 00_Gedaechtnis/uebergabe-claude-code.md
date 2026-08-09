@@ -1,5 +1,7 @@
 # Übergabe an Claude Code — Schritt für Schritt
 
+> **Pfade am 31.07.2026 aktualisiert.** Projektordner heißt jetzt `ZZ_Archiv_Abgeschlossene-Projekte/Biz_Asia-Website/`; die Planungsdateien liegen in `00_Gedaechtnis/` statt in `docs/`. In `docs/` verblieben nur die Nicht-Markdown-Artefakte (Screenshots, Lighthouse-Baseline, kuratierte Bewertungen).
+
 > Ziel: Die Planungsdateien ins Repo bringen und Claude Code phasenweise umsetzen lassen.
 > Hinweis: Es gibt **keinen** GitHub-Konnektor in der Konnektor-Liste — das Repo wird daher
 > klassisch per Git/GitHub Desktop verwaltet (beides ist auf deinem Rechner installiert).
@@ -18,10 +20,10 @@ cd website
 
 ## Schritt 2 — Planungsdateien ins Repo kopieren
 
-Aus dem Cowork-Ordner **„Asia Website"** ins geklonte Repo übernehmen:
+Aus dem Cowork-Ordner **`ZZ_Archiv_Abgeschlossene-Projekte/Biz_Asia-Website`** (bis 31.07.2026 „Asia Website") ins geklonte Repo übernehmen:
 
 - `CLAUDE.md` → **ins Repo-Root** (Claude Code liest das automatisch zuerst).
-- gesamten Ordner `docs/` → ins Repo-Root (`ANALYSE.md`, `PLAN.md`, `GEDAECHTNIS.md`,
+- gesamten Ordner `00_Gedaechtnis/` → ins Repo-Root (die Dateien hießen bis 31.07.2026 `docs/ANALYSE.md`, `docs/PLAN.md`, `docs/GEDAECHTNIS.md`;
   `HERO-BEWERTUNGEN-KARUSSELL.md`, `BILD-PROMPTS.md`, `bewertungen-kuratiert.json`,
   `UEBERGABE-CLAUDE-CODE.md`).
 - Für das Marquee zur Laufzeit zusätzlich eine Kopie der Bewertungen nach
@@ -30,25 +32,25 @@ Aus dem Cowork-Ordner **„Asia Website"** ins geklonte Repo übernehmen:
 
 ```bash
 # Beispiel (Pfade ggf. anpassen)
-cp "/c/Users/yphu/Documents/Claude/Projects/Asia Website/CLAUDE.md" .
-cp -r "/c/Users/yphu/Documents/Claude/Projects/Asia Website/docs" .
-mkdir -p assets/data && cp docs/bewertungen-kuratiert.json assets/data/
+cp "/c/Users/yphu/Documents/Claude/Projects/ZZ_Archiv_Abgeschlossene-Projekte/Biz_Asia-Website/CLAUDE.md" .
+cp -r "/c/Users/yphu/Documents/Claude/Projects/ZZ_Archiv_Abgeschlossene-Projekte/Biz_Asia-Website/00_Gedaechtnis" ./docs
+mkdir -p assets/data && cp ../docs/bewertungen-kuratiert.json assets/data/   # bewertungen-kuratiert.json liegt weiterhin in docs/
 git add -A && git commit -m "docs: Analyse, Plan, Gedächtnis & Bewertungsdaten ergänzen"
 git push
 ```
 
 ## Schritt 3 — Claude Code starten
 
-Im Repo-Ordner Claude Code öffnen. Es liest `CLAUDE.md` → folgt zu `docs/GEDAECHTNIS.md`
-und `docs/PLAN.md`. Du arbeitest die Phasen der Reihe nach ab.
+Im Repo-Ordner Claude Code öffnen. Es liest `CLAUDE.md` → folgt zu `00_Gedaechtnis/gedaechtnis-gesamt.md`
+und `00_Gedaechtnis/plan-relaunch.md`. Du arbeitest die Phasen der Reihe nach ab.
 
 ## Schritt 4 — Empfohlene Start-Prompts (eine Phase pro Prompt)
 
 1. **Setup/Performance:**
-   > „Lies CLAUDE.md, docs/GEDAECHTNIS.md und docs/PLAN.md. Setze Phase 0 und Phase 1 um:
+   > „Lies CLAUDE.md, 00_Gedaechtnis/gedaechtnis-gesamt.md und 00_Gedaechtnis/plan-relaunch.md. Setze Phase 0 und Phase 1 um:
    > Tailwind-Build statt CDN, leeres styles.min.css beheben, das 3,5-MB-Logo optimieren,
    > Fonts/Icons entlasten, Google-Maps lazy. Halte dich an die Akzeptanzkriterien und
-   > aktualisiere docs/GEDAECHTNIS.md."
+   > aktualisiere 00_Gedaechtnis/gedaechtnis-gesamt.md."
 
 2. **SEO-Fundament:**
    > „Setze Phase 2 um: GroceryStore-JSON-LD (Werte aus GEDAECHTNIS.md), sitemap.xml + robots.txt,
@@ -59,7 +61,7 @@ und `docs/PLAN.md`. Du arbeitest die Phasen der Reihe nach ab.
    > auf echte Links, seitenspezifische Title/Description/H1, Sitemap & alte Hash-Links mappen."
 
 4. **Marquee:**
-   > „Setze Phase 4b um: das Hero-Bewertungs-Laufband nach docs/HERO-BEWERTUNGEN-KARUSSELL.md,
+   > „Setze Phase 4b um: das Hero-Bewertungs-Laufband nach 00_Gedaechtnis/hero-bewertungen-karussell.md,
    > Daten aus assets/data/bewertungen-kuratiert.json."
 
 5. **Bilder (sobald vorhanden):**
@@ -70,11 +72,11 @@ und `docs/PLAN.md`. Du arbeitest die Phasen der Reihe nach ab.
 
 ## Schritt 5 — Offene Zulieferungen von dir (`TODO(inhaber)`)
 
-- Zwei Bilder (Hero + „Über uns") — selbst fotografieren oder per KI nach `docs/BILD-PROMPTS.md`.
+- Zwei Bilder (Hero + „Über uns") — selbst fotografieren oder per KI nach `00_Gedaechtnis/bild-prompts.md`.
 - Inhabername für Impressum/Schema bestätigen.
 - Google Business Profile pflegen (Kategorien, Fotos, Beiträge) — wirkt stark aufs Local-Ranking.
 
 ## Definition of Done (gilt je Änderung)
 
 Build läuft fehlerfrei · Lighthouse-Mobil ≥ 90 in allen vier Kategorien · valides JSON-LD
-(Rich-Results-Test) · NAP konsistent · keine Konsolenfehler · `docs/GEDAECHTNIS.md` aktualisiert.
+(Rich-Results-Test) · NAP konsistent · keine Konsolenfehler · `00_Gedaechtnis/gedaechtnis-gesamt.md` aktualisiert.
