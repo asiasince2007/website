@@ -130,10 +130,24 @@
     var rahmen = document.getElementById('karte-rahmen');
     if (!knopf || !rahmen) return;
 
+    /* Die Startansicht der Karte steckt im pb-Parameter. Die drei Werte, auf
+       die es ankommt:
+         !1d  Hoehe des Sichtfelds in Metern. Kleiner = naeher dran.
+              Umrechnung: 1d = 768 * 156543,03 * cos(Breitengrad) / 2^Zoom
+              Zoom 15 -> 2304   Zoom 16 -> 1152   Zoom 17 -> 576   Zoom 18 -> 288
+         !2d  Laenge des Mittelpunkts
+         !3d  Breite des Mittelpunkts
+         !5e  Kartentyp, 0 = Karte, 1 = Satellit
+
+       Die urspruenglich von Google erzeugte URL stand auf 1d17135 (Zoom 12,1)
+       und war auf 51.10096 / 6.94228 zentriert — 612 m neben dem Laden. Bei
+       Zoom 12 faellt das nicht auf, ab Zoom 16 waere der Laden aus dem Bild
+       gelaufen. Mittelpunkt deshalb auf die Koordinaten aus dem JSON-LD
+       gesetzt und erst dann herangezoomt. */
     knopf.addEventListener('click', function () {
       var iframe = document.createElement('iframe');
       iframe.title = 'Standort Asia Markt Thien Phu auf Google Maps';
-      iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17135.738250219!2d6.942283857049664!3d51.10095676347082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x417196e0d88ec68b%3A0xa4c0b0becc873172!2sAsia%20Markt%20Thien%20Phu!5e1!3m2!1sde!2sde!4v1776007432899!5m2!1sde!2sde';
+      iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d576!2d6.9479852!3d51.1051371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x417196e0d88ec68b%3A0xa4c0b0becc873172!2sAsia%20Markt%20Thien%20Phu!5e1!3m2!1sde!2sde!4v1776007432899!5m2!1sde!2sde';
       iframe.loading = 'lazy';
       iframe.allowFullscreen = true;
       iframe.referrerPolicy = 'no-referrer-when-downgrade';

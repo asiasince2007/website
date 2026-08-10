@@ -92,6 +92,23 @@ das Profil ist für diesen Laden der wichtigste Kanal überhaupt.
 _Künftig vermeiden:_ Nie nach Zufriedenheit filtern, bevor um eine Bewertung
 gebeten wird. Entweder alle fragen oder niemanden.
 
+**F-16 · Die Google-Maps-Karte war 612 m neben dem Laden zentriert.**
+_Was passiert ist:_ Auf die Bitte, den Standardzoom der Karte zu vergrößern,
+zeigte die Zerlegung des `pb`-Parameters: Sichtfeld 17 135 m (Zoom 12,1),
+Mittelpunkt 51.10096 / 6.94228. Der Laden liegt aber auf 51.10514 / 6.94799 —
+612 m entfernt. Ein reines Hineinzoomen hätte ihn aus dem Bild geschoben:
+schon bei Zoom 16 liegt er außerhalb des Sichtfelds.
+_Warum es niemandem auffiel:_ Bei Zoom 12 umfasst das Bild 17 km. Der
+Marker war sichtbar, nur eben nicht in der Mitte — bei der Weite fällt ein
+halber Kilometer nicht auf.
+_Wie behoben:_ Mittelpunkt auf die Koordinaten aus dem JSON-LD gesetzt und
+erst dann auf Zoom 17 (`1d576`) gestellt. Die Umrechnungsformel steht als
+Kommentar in `assets/js/site.js`.
+_Künftig vermeiden:_ Von Google erzeugte Embed-URLs übernehmen den
+Kartenausschnitt, den man beim Kopieren gerade sah — nicht die Position des
+Betriebs. Vor jedem Zoomen den Mittelpunkt gegen die bekannten Koordinaten
+prüfen. Nebenbei: `!5e1` bedeutet Satellitenansicht, `!5e0` wäre die Karte.
+
 ---
 
 _Angelegt am 31.07.2026._
