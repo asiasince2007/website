@@ -73,6 +73,26 @@ _Verworfen:_ WebP oder AVIF zusätzlich — dafür fehlt hier ein Encoder
 (`System.Drawing` kann es nicht), und die Ersparnis wäre nach dem Verkleinern
 nur noch rund 96 KB. Bleibt als Option, wenn ein Encoder verfügbar ist.
 
+**E-19 · Zwei Fotos oben beschnitten, Seitenverhältnisse weichen bewusst ab.**
+Auf Wunsch des Inhabers zeigen Eingangs- und Schaufensterfoto nicht mehr den
+Bereich oberhalb des Ladens — beim Eingang Betonunterzug und zusammengerollte,
+ausgefranste Markise (22 % oben weg, jetzt 1200/1089 statt 1400/1628), beim
+Schaufenster Unterzug und cremefarbener Sturz oberhalb des roten Rahmens
+(13,6 % weg, jetzt 1400/858 statt 1600/1136). Der rote Rahmen bleibt oben als
+schmaler Streifen erhalten, sonst verlöre das Bild seinen Rahmen.
+
+Beide Zuschnitte stammen aus der jeweils höchstauflösenden Quelle in
+`asiamarkt-website-verbessern/project/uploads/`, nicht aus der bereits
+komprimierten Webfassung. Beim Schaufenster ist das die unretuschierte
+`schaufenster.jpg` mit 1600×1136 — daher stammt auch das `1600/1136` des
+Entwurfs.
+
+_Abgewogen:_ Der Schaufenster-Zuschnitt bringt die beiden Bilder der
+Startgalerie fast auf gleiche Höhe (Unterschied von 56 px auf 9 px). In der
+Dreiergalerie auf „Der Laden" wächst die Höhenspanne dagegen von 88 px auf
+129 px. Das ist hingenommen: Der Entwurf setzt dort `align-items: start`,
+die versetzte Anordnung ist gewollt.
+
 ---
 
 _Angelegt am 31.07.2026._
