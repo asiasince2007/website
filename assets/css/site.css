@@ -232,12 +232,12 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
    Laden und verhindern so das Springen des Layouts. */
 .foto { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--rose); }
 .foto-4-3        { aspect-ratio: 4 / 3; }
-.foto-3-4        { aspect-ratio: 3 / 4; }
-/* Beim Schaufensterfoto sind oben 13,6 % abgeschnitten: dort lagen der
-   Betonunterzug und der cremefarbene Sturz oberhalb des roten Rahmens.
-   Der Rahmen selbst bleibt oben als schmaler Streifen erhalten. Deshalb
-   1400/858 statt der 1600/1136 des Entwurfs. */
-.foto-schaufenster { aspect-ratio: 1400 / 858; }
+/* Gemeinsames Format fuer Ladenschild, Schaufenster und Haus. Der Entwurf gab
+   jedem der drei ein eigenes Verhaeltnis (4/3, 1600/1136, 3/4); nebeneinander
+   in der Galerie ergab das drei verschieden hohe Kacheln und eine unruhige
+   Reihe. Ein gemeinsames 16:10 loest das an der Wurzel, statt die Hoehen
+   nachtraeglich anzugleichen. */
+.foto-16-10      { aspect-ratio: 16 / 10; }
 /* Beim Eingangsfoto sind oben 22 % abgeschnitten: dort waren der
    Betonunterzug und die zusammengerollte, ausgefranste Markise zu sehen.
    Dadurch weicht das Verhaeltnis bewusst vom Entwurf (1400/1628) ab. */
@@ -274,7 +274,11 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 .bewertungen footer { font-size: 14px; font-weight: 700; color: var(--grau-zart); }
 
 .galerie-2 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 20px; align-items: start; }
-.galerie-3 { display: grid; grid-template-columns: 1.3fr 1.3fr .9fr; gap: 20px; align-items: start; }
+/* Drei gleich breite Spalten. Der Entwurf hatte 1.3fr 1.3fr .9fr, weil das
+   dritte Bild hochkant war — bei gleichem Format waere das jetzt eine
+   willkuerlich schmalere Kachel. `align-items: start` kann entfallen, da alle
+   drei ohnehin gleich hoch sind. */
+.galerie-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
 /* ------------------------------------------------------------- Sortiment - */
 
