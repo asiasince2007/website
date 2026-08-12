@@ -93,8 +93,12 @@ kein Request an Google), Cookie-Banner zu Recht nicht vorhanden, AGB und
 Widerrufsbelehrung mangels Vertragsschluss nicht nötig, BFSG nicht anwendbar.
 
 **Offen, nur vom Inhaber zu klären:** Umsatzsteuer-Identifikationsnummer vorhanden?
-Zehn oder weniger Beschäftigte (§ 36 Abs. 3 VSBG)? Wurden mit Web3Forms je
-Standardvertragsklauseln geschlossen?
+Wurden mit Web3Forms je Standardvertragsklauseln geschlossen?
+
+Die Frage nach der Betriebsgröße hat der Inhaber am 12.08.2026 beantwortet: zwei
+Personen, keine besondere Rechtsform. Was daraus folgt, steht in
+[`01_kontext.md`](01_kontext.md) — kurz: § 36 VSBG, § 38 BDSG und das BFSG greifen
+alle nicht, an den Seiten ist deshalb nichts zu ändern.
 
 ### Am selben Tag behoben und live gestellt
 
