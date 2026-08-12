@@ -93,6 +93,52 @@ Dreiergalerie auf „Der Laden" wächst die Höhenspanne dagegen von 88 px auf
 129 px. Das ist hingenommen: Der Entwurf setzt dort `align-items: start`,
 die versetzte Anordnung ist gewollt.
 
+### 12.08.2026 — Rechtskorrekturen an Impressum, Datenschutz und Bewertungen
+
+**E-20 · E-Mail-Adresse steht wieder im Klartext im Quelltext.** Die Adresse wurde
+bis dahin erst im Browser aus zwei Teilstrings zusammengesetzt (`email()` in
+`site.js`); ohne JavaScript stand im Impressum gar keine. § 5 Abs. 1 Nr. 2 DDG
+verlangt sie aber „leicht erkennbar, unmittelbar erreichbar und ständig verfügbar".
+_Verworfene Alternative:_ den Spamschutz behalten und nur eine Grafik ergänzen —
+scheitert an derselben Anforderung und zusätzlich an der Barrierefreiheit. Der
+Schutz war ohnehin wirkungslos: Die Teilstrings standen offen in `site.js`.
+Die Funktion `email()` ist entfallen, das Attribut `data-email-link` existiert
+nicht mehr.
+
+**E-21 · `aggregateRating` aus allen JSON-LD-Blöcken entfernt.** Eine Bewertung,
+mit der ein Unternehmen sich selbst auszeichnet, verstößt gegen Googles
+Richtlinie zu Bewertungs-Rich-Results (self-serving reviews) und riskiert eine
+manuelle Maßnahme — und das Google-Profil ist für diesen Laden der wichtigste
+Kanal (vgl. `F-15`). _Verworfen:_ die Auszeichnung behalten und auf Kulanz hoffen.
+Die Note 4,4 aus 127 Bewertungen steht weiterhin im sichtbaren Text von Start-
+und Ladenseite, jetzt mit Quellenangabe. Rückgängig zu machen ist das mit einem
+Commit, falls der Inhaber anders entscheidet.
+
+**E-22 · Bewertungszitate anonymisiert und mit Echtheitshinweis versehen.**
+Zwei der drei Zitate auf der Startseite trugen den Klarnamen der Verfasserin
+oder des Verfassers. Alle drei sind jetzt einheitlich als „Google-Bewertung,
+Monat Jahr" ausgewiesen — dieselbe Lösung, die `F-12` schon für das dritte Zitat
+gefunden hatte. Dazu kommt der Hinweis nach § 5b Abs. 3 UWG (ob und wie die
+Echtheit sichergestellt wird) samt Link auf das vollständige Google-Profil; der
+Link entkräftet zugleich den Vorwurf, nur die guten Stimmen zu zeigen.
+
+**E-23 · Die Karte lässt sich wieder ausblenden.** Art. 7 Abs. 3 DSGVO verlangt,
+dass der Widerruf einer Einwilligung so einfach ist wie ihre Erteilung. Bisher
+half nur das Neuladen der Seite. `karte()` in `site.js` erzeugt nach dem Laden
+einen Knopf „Karte ausblenden"; er stellt die Fassade wieder her, meldet den
+Ladeknopf neu an und setzt den Fokus zurück. Der Knopf sitzt in der neuen
+`.maps-spalte` **neben** dem Rahmen, nicht darin: `.maps-rahmen` hat
+`overflow: hidden` und hätte ihn verschluckt. Nebenbei ist die
+`referrerPolicy` des iframes von `no-referrer-when-downgrade` auf
+`strict-origin-when-cross-origin` gezogen — Google bekommt jetzt nur noch die
+Herkunft, nicht die vollständige Adresse der Kontaktseite.
+
+**E-24 · Cloudflare aus der CSP entfernt.** `script-src` und `connect-src`
+erlaubten weiterhin `static.cloudflareinsights.com`, obwohl der Beacon seit dem
+Relaunch nicht mehr geladen wird. Die Prüfung der Live-Seite hat bestätigt, dass
+auch serverseitig nichts injiziert wird (`Server: GitHub.com`, kein
+Cloudflare-Proxy). Erlaubnis und Wirklichkeit stimmen damit wieder überein.
+
 ---
 
 _Angelegt am 31.07.2026._

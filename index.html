@@ -7,7 +7,7 @@
     <!-- Sicherheit: Content-Security-Policy. GitHub Pages kann keine HTTP-Header setzen,
          daher als Meta-Tag. Hinweis: frame-ancestors/X-Frame-Options wirken per Meta NICHT
          (Clickjacking-Schutz nur über vorgelagerten Proxy wie Cloudflare). -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; frame-src https://www.google.com; form-action 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; frame-src https://www.google.com; form-action 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <title>Asia Markt Thien Phu | Asiatische Lebensmittel in Langenfeld</title>
@@ -38,7 +38,10 @@
     <meta name="twitter:image" content="https://www.asiamarkt.info/assets/images/og-image.jpg">
 
     <!-- Strukturierte Daten: GroceryStore. NAP-Quelle: 00_Gedaechtnis/gedaechtnis-gesamt.md
-         Bewertung belegt durch den Google-Export vom 09.08.2026 (totalScore 4.4, reviewsCount 127). -->
+         KEIN aggregateRating: Eine Bewertung, die das Unternehmen ueber sich selbst
+         auszeichnet, verstoesst gegen Googles Richtlinie zu Bewertungs-Rich-Results
+         (self-serving reviews). Die Note steht weiterhin im sichtbaren Text, mit
+         Quellenangabe und dem Hinweis nach § 5b Abs. 3 UWG. -->
     <!-- TODO(inhaber): sameAs mit echten Profilen füllen (Google Business, golocal, Social) -->
     <script type="application/ld+json">
     {
@@ -70,14 +73,7 @@
         { "@type": "OpeningHoursSpecification",
           "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
       ],
-      "hasMap": "https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.4",
-        "reviewCount": "127",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
+      "hasMap": "https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7"
     }
     </script>
 
@@ -216,7 +212,7 @@
             <div class="bewertungen">
                 <blockquote>
                     <p>„Immer freundlich und gut gelaunt! Alle Grundlagen sind da und was er nicht hat besorgt er gerne!“</p>
-                    <footer>Nee Liebernich, August 2026</footer>
+                    <footer>Google-Bewertung, August 2026</footer>
                 </blockquote>
                 <blockquote>
                     <p>„Trotz, dass es ein kleiner Laden ist, findet man dort alles, sogar Produkte, die man viel schwerer/kaum findet.“</p>
@@ -224,9 +220,15 @@
                 </blockquote>
                 <blockquote>
                     <p>„Hier bekommt man alles, was man braucht, und der Besitzer ist einfach immer so nett und hilfsbereit.“</p>
-                    <footer>Nicole Jacobi, Februar 2026</footer>
+                    <footer>Google-Bewertung, Februar 2026</footer>
                 </blockquote>
             </div>
+            <!-- Pflichtangabe nach § 5b Abs. 3 UWG: Wer Verbraucherbewertungen zugaenglich
+                 macht, muss sagen, ob und wie er ihre Echtheit sicherstellt. -->
+            <p style="margin:24px 0 0;font-size:15px;line-height:1.7;color:var(--grau)">
+                Die Zitate stammen unverändert aus unserem öffentlichen Google-Profil (Stand 9. August 2026). Wir selbst prüfen nicht nach, ob die Verfasserinnen und Verfasser bei uns eingekauft haben — die Bewertungen werden nicht von uns entgegengenommen, sondern von Google, und welche Maßnahmen Google gegen unechte Bewertungen ergreift, liegt außerhalb unseres Einflusses.
+                <a href="https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7" target="_blank" rel="noopener">Alle Bewertungen ansehen, auch die kritischen</a>.
+            </p>
         </div>
     </section>
 
