@@ -139,6 +139,48 @@ Relaunch nicht mehr geladen wird. Die Prüfung der Live-Seite hat bestätigt, da
 auch serverseitig nichts injiziert wird (`Server: GitHub.com`, kein
 Cloudflare-Proxy). Erlaubnis und Wirklichkeit stimmen damit wieder überein.
 
+### 12.08.2026 — Zwischenseite für die Routenplanung
+
+**E-25 · `route.html` als zählbare Zwischenstation vor Google Maps.**
+Der Inhaber wollte wissen, wie oft „Route planen" gedrückt wird. Klicks auf
+einen Link, der die Seite verlässt, hinterlassen im Serverprotokoll nichts —
+gemessen werden könnten sie nur mit JavaScript im Browser, und das ist nach der
+Linie der Aufsichtsbehörden einwilligungspflichtig (§ 25 Abs. 1 TDDDG, EDSA-
+Leitlinien 2/2023). Beide „Route planen"-Knöpfe zeigen deshalb jetzt auf
+`/route.html`; diese Seite leitet per `<meta http-equiv="refresh">` sofort zu
+Google weiter. Aus dem Klick wird damit eine gewöhnliche Seitenanfrage, die
+jede serverseitige Statistik zählt — ohne Skript, ohne Cookie, ohne Zugriff auf
+das Endgerät.
+
+_Verworfene Alternative:_ das Cloudflare-Web-Analytics-Snippet einbauen, das
+der Inhaber am selben Tag geschickt hatte. Es ist der JavaScript-Beacon, nicht
+der Proxy — also genau die einwilligungspflichtige Variante. Auf seine Ansage
+hin nicht umgesetzt.
+
+_Umsetzungsdetails, die nicht offensichtlich sind:_
+
+- **Kein JavaScript.** `<meta refresh>` funktioniert auch ohne, und ein
+  `location.replace` wäre mit der CSP ohne `'unsafe-inline'` ohnehin nicht
+  gegangen. Die CSP der Seite setzt zusätzlich `script-src 'none'`.
+- **`noindex, nofollow`**, und die Seite steht bewusst *nicht* in der
+  `sitemap.xml`. Ein `Disallow` in `robots.txt` wäre falsch: Dann käme Google
+  gar nicht erst an das `noindex` heran.
+- **Die aufrufenden Links behalten `target="_blank"`.** Das ist kein Zufall:
+  `<meta refresh>` hinterlässt in manchen Browsern einen Verlaufseintrag, und
+  der Zurück-Knopf liefe in eine Schleife. In einem frischen Tab gibt es
+  nichts, wohin zurück.
+- **Weiterleitungsziel zeichengleich** mit dem bisherigen Direktlink, geprüft
+  gegen die archivierte Fassung.
+- Für **„Anrufen"** gibt es kein Gegenstück. Ein `tel:`-Link löst keine
+  Serveranfrage aus, und eine Zwischenseite davor wäre unzuverlässig. Diese
+  Zahl steht im Google-Unternehmensprofil unter „Leistung".
+
+_Noch offen:_ Gezählt wird erst, wenn der Cloudflare-Proxy steht — GitHub Pages
+gibt keine Protokolle heraus. Die Datenschutzerklärung braucht dafür heute
+nichts: Der Aufruf von `route.html` ist eine gewöhnliche Seitenanfrage und von
+Abschnitt 3 (Server-Protokolle, Art. 6 Abs. 1 lit. f) gedeckt. Ein
+klarstellender Satz kommt beim Umschreiben für Cloudflare dazu.
+
 ---
 
 _Angelegt am 31.07.2026._
