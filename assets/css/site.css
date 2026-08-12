@@ -353,7 +353,14 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 .kontakt-unten { margin-top: 20px; display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: stretch; }
 .kontakt-unten .karte p:last-child { margin-bottom: 0; }
 
-/* Google-Maps-Fassade (Zwei-Klick-Loesung, siehe datenschutz.html) */
+/* Google-Maps-Fassade (Zwei-Klick-Loesung, siehe datenschutz.html)
+   Die Spalte traegt Rahmen und Widerrufsknopf untereinander. Der Knopf steht
+   bewusst ausserhalb des Rahmens: der hat overflow:hidden und wuerde ihn
+   verschlucken. */
+.maps-spalte { display: flex; flex-direction: column; gap: 12px; }
+.maps-spalte .maps-rahmen { flex: 1; }
+.maps-widerruf { margin: 0; text-align: right; }
+.maps-widerruf button { font-size: 15px; padding: 8px 18px; }
 .maps-rahmen {
   border: 1px solid var(--linie-zart); border-radius: var(--radius);
   overflow: hidden; min-height: 380px; background: var(--rose);

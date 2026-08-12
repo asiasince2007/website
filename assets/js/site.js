@@ -126,9 +126,13 @@
      Die Karte laedt erst auf ausdruecklichen Klick. Vorher gehen keinerlei
      Daten an Google. So beschrieben in datenschutz.html. */
   function karte() {
-    var knopf = document.getElementById('karte-laden');
     var rahmen = document.getElementById('karte-rahmen');
-    if (!knopf || !rahmen) return;
+    if (!rahmen) return;
+    var spalte = (rahmen.closest && rahmen.closest('.maps-spalte')) || rahmen.parentNode;
+    if (!spalte) return;
+
+    var fassade = rahmen.innerHTML;   // fuer den Widerruf aufheben
+    var widerruf = null;
 
     /* Die Startansicht der Karte steckt im pb-Parameter. Die drei Werte, auf
        die es ankommt:
@@ -144,40 +148,68 @@
        Zoom 12 faellt das nicht auf, ab Zoom 16 waere der Laden aus dem Bild
        gelaufen. Mittelpunkt deshalb auf die Koordinaten aus dem JSON-LD
        gesetzt und erst dann herangezoomt. */
-    knopf.addEventListener('click', function () {
+    function laden() {
       var iframe = document.createElement('iframe');
       iframe.title = 'Standort Asia Markt Thien Phu auf Google Maps';
       iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d576!2d6.9479852!3d51.1051371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x417196e0d88ec68b%3A0xa4c0b0becc873172!2sAsia%20Markt%20Thien%20Phu!5e1!3m2!1sde!2sde!4v1776007432899!5m2!1sde!2sde';
       iframe.loading = 'lazy';
       iframe.allowFullscreen = true;
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      // Google bekommt nur die Herkunft, nicht die vollstaendige Adresse der
+      // Seite — dieselbe Regel wie im Referrer-Meta-Tag der Seite.
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       rahmen.innerHTML = '';
       rahmen.appendChild(iframe);
-    });
+      widerrufZeigen();
+    }
+
+    /* Widerruf der Einwilligung nach Art. 7 Abs. 3 DSGVO: Er muss so einfach
+       sein wie das Erteilen. Ein Klick nimmt die Karte wieder aus der Seite,
+       danach steht wieder die Fassade da. So beschrieben in datenschutz.html. */
+    function widerrufZeigen() {
+      if (widerruf) return;
+      widerruf = document.createElement('p');
+      widerruf.className = 'maps-widerruf';
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'btn';
+      b.textContent = 'Karte ausblenden';
+      b.addEventListener('click', ausblenden);
+      widerruf.appendChild(b);
+      spalte.appendChild(widerruf);
+    }
+
+    function ausblenden() {
+      rahmen.innerHTML = fassade;
+      if (widerruf && widerruf.parentNode) widerruf.parentNode.removeChild(widerruf);
+      widerruf = null;
+      anmelden();
+      var neu = document.getElementById('karte-laden');
+      if (neu) neu.focus();
+    }
+
+    // Der Ladeknopf steckt in der Fassade und wird beim Ausblenden neu
+    // erzeugt — die Anmeldung des Zuhoerers muss deshalb wiederholbar sein.
+    function anmelden() {
+      var knopf = document.getElementById('karte-laden');
+      if (knopf) knopf.addEventListener('click', laden);
+    }
+
+    anmelden();
   }
 
   /* ------------------------------------------------- E-Mail-Adresse ------
-     Nur Impressum und Datenschutz. Die Adresse steht bewusst nicht im
-     Quelltext, sondern wird erst hier zusammengesetzt — das haelt einfache
-     Adresssammler fern. Frueher stand dieser Code als Inline-Skript in beiden
-     Seiten; das ginge mit der verschaerften CSP (ohne 'unsafe-inline') nicht
-     mehr, deshalb liegt er jetzt hier. */
-  function email() {
-    var stellen = document.querySelectorAll('[data-email-link]');
-    if (!stellen.length) return;
-    var adresse = ['asia.since2007', 'gmail.com'].join(String.fromCharCode(64));
-    for (var i = 0; i < stellen.length; i++) {
-      stellen[i].href = 'mailto:' + adresse;
-      stellen[i].textContent = adresse.replace('@', '[at]');
-    }
-  }
+     Frueher wurde die Adresse hier per JavaScript zusammengesetzt, um
+     Adresssammlern das Auslesen zu erschweren. Das ist entfallen: § 5 Abs. 1
+     Nr. 2 DDG verlangt die E-Mail-Adresse „leicht erkennbar, unmittelbar
+     erreichbar und staendig verfuegbar" — ohne JavaScript stand im Impressum
+     gar keine Adresse. Sie steht jetzt im Klartext in impressum.html und
+     datenschutz.html. */
 
   function start() {
     statusAnzeigen();
     navigation();
     einblenden();
     karte();
-    email();
     // Der Status haengt an der Uhrzeit — minuetlich nachziehen.
     setInterval(statusAnzeigen, 60000);
   }

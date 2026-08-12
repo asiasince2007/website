@@ -109,6 +109,53 @@ Kartenausschnitt, den man beim Kopieren gerade sah — nicht die Position des
 Betriebs. Vor jedem Zoomen den Mittelpunkt gegen die bekannten Koordinaten
 prüfen. Nebenbei: `!5e1` bedeutet Satellitenansicht, `!5e0` wäre die Karte.
 
+### 12.08.2026 — bei der Rechtsprüfung aufgetreten
+
+**F-17 · Die Datenschutzerklärung beschrieb drei Dienste, die es nicht mehr gab.**
+_Was passiert ist:_ Der Relaunch am 09.08.2026 hat die beiden Web3Forms-Formulare,
+den Cloudflare-Beacon und Font Awesome entfernt. Die Datenschutzerklärung
+beschrieb alle drei drei Tage später immer noch als aktiv im Einsatz — inklusive
+US-Datenverarbeitung, IP-Adressen und der Behauptung, man stütze sich gegenüber
+Web3Forms auf Standardvertragsklauseln.
+_Warum:_ Die Rechtsseiten sind beim Relaunch bewusst nur äußerlich angefasst
+worden („Rechtstext zeichengenau unverändert", `E-15`). Das war für das Layout
+richtig und für den Inhalt falsch: Wer Dienste entfernt, ändert damit den
+Sachverhalt, den die Erklärung beschreibt.
+_Wie behoben:_ Erklärung auf den tatsächlichen Stand umgeschrieben (`E-20` ff.).
+_Künftig vermeiden:_ Die Datenschutzerklärung ist kein Rechtstext, den man
+konserviert, sondern eine Beschreibung des Codes. Wird ein Drittanbieter
+entfernt oder ergänzt, gehört sie in denselben Commit. Eine schnelle Gegenprobe:
+`grep` die Erklärung nach allen genannten Anbietern und suche jeden davon im
+ausgelieferten Code.
+
+**F-18 · „TMG durch DDG ersetzen" ist beim Haftungsabschnitt falsch.**
+_Was passiert ist:_ Bei der ersten Durchsicht hatte ich notiert, aus
+„§§ 8 bis 10 TMG" werde „§§ 8 bis 10 DDG". Die Gegenprüfung am Gesetzestext hat
+das widerlegt.
+_Warum:_ Das DDG hat die Nummerierung nicht übernommen. § 7 DDG heißt
+„Beschränkte Verantwortlichkeit" und verweist nur auf die Artikel 4 bis 8 der
+Verordnung (EU) 2022/2065; §§ 8 bis 10 DDG regeln Sperrungsanspruch,
+Anbieterlisten und Auskunftsverlangen — mit den Haftungsprivilegien hat das
+nichts zu tun. Die stehen jetzt unmittelbar im DSA.
+_Wie behoben:_ Der Abschnitt „Haftung für Inhalte" zitiert Art. 4 bis 6 und
+Art. 8 DSA sowie § 7 Abs. 1 DDG.
+_Künftig vermeiden:_ Bei einer Gesetzesablösung nie die Paragrafennummern
+mitnehmen. Inhaltsverzeichnis der neuen Fassung öffnen und jede zitierte Norm
+einzeln nachschlagen. Gehört auch ins
+[Universal-Technikgedächtnis](../../../00_UNIVERSAL_Technikgedaechtnis.md), weil
+derselbe Fehler in jedem Projekt mit deutschem Impressum lauert.
+
+**F-19 · Der Spamschutz der E-Mail-Adresse hat die Pflichtangabe gelöscht.**
+_Was passiert ist:_ `site.js` setzte die Adresse erst im Browser zusammen. Im
+HTML stand an allen vier Stellen nur `…`. Ohne JavaScript — und für alles, was
+kein JavaScript ausführt — hatte das Impressum keine E-Mail-Adresse.
+_Warum:_ Der Schutzgedanke war richtig, die Abwägung falsch. § 5 Abs. 1 Nr. 2
+DDG verlangt „unmittelbar erreichbar und ständig verfügbar"; und der Schutz
+wirkte gar nicht, weil beide Teilstrings offen in `site.js` standen.
+_Wie behoben:_ Adresse im Klartext, `email()` entfernt (`E-20`).
+_Künftig vermeiden:_ Pflichtangaben nie hinter JavaScript legen. Die Probe ist
+einfach: `curl` die Seite und sieh nach, ob die Angabe im Quelltext steht.
+
 ---
 
 _Angelegt am 31.07.2026._
