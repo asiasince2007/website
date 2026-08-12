@@ -27,6 +27,30 @@ nur im Änderungsprotokoll:
 | § 38 Abs. 1 BDSG | mindestens 20 Personen ständig mit automatisierter Verarbeitung | kein Datenschutzbeauftragter zu benennen. So steht es in Abschnitt 2 der Datenschutzerklärung. |
 | BFSG (seit 28.06.2025) | Kleinstunternehmen: unter 10 Beschäftigte **und** höchstens 2 Mio. € Jahresumsatz | nicht anwendbar — und zusätzlich greift die Ausnahme für reine Informationsseiten ohne Vertragsschluss. |
 
+### Domain und DNS (geprüft am 12.08.2026)
+
+Die Domain `asiamarkt.info` ist bei **IONOS** gekauft, dort liegen auch die
+Nameserver (`ns1018.ui-dns.biz` und Geschwister). Ausgeliefert wird von
+**GitHub Pages**, direkt und ohne CDN davor (`Server: GitHub.com`).
+
+| Eintrag | Wert |
+|---|---|
+| `asiamarkt.info` A | 185.199.108.153, .109.153, .110.153, .111.153 (GitHub Pages) |
+| `www` CNAME | `asiasince2007.github.io` |
+| MX | `mx00.ionos.de`, `mx01.ionos.de` |
+| TXT | `v=spf1 include:_spf-eu.ionos.com ~all` |
+| CAA | keine gesetzt |
+
+**Die MX- und SPF-Einträge sind IONOS-Voreinstellung, kein Postfach im Betrieb.**
+Der Inhaber hat am 12.08.2026 bestätigt, dass er keine E-Mail auf der Domain
+nutzt; die Adresse im Impressum ist eine GMail-Adresse. Wer künftig das DNS
+umzieht, muss die Einträge trotzdem mitnehmen — kostenlos und sichert die
+Option ab, später doch ein Postfach einzurichten.
+
+Dass **keine CAA-Records** gesetzt sind, ist wichtig für GitHub Pages: Existierte
+auch nur einer, müsste er `letsencrypt.org` enthalten, sonst bekommt die Domain
+kein HTTPS-Zertifikat mehr.
+
 **Weiterhin offen:** ob eine Umsatzsteuer-Identifikationsnummer nach § 27a UStG
 existiert. Falls ja, ist ihre Angabe im Impressum nach § 5 Abs. 1 Nr. 6 DDG
 Pflicht; der Platzhalter steht als `TODO(inhaber)` in `impressum.html`.
