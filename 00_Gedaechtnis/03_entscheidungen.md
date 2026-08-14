@@ -280,9 +280,10 @@ harmlos**. Er hat zwei verschiedene Aufgaben, und nur eine davon ist korrekt.
 | Spanne | `Mo–Fr`, `9–18 Uhr` | richtig, bleibt |
 | Gedankenstrich | „Asia Markt Thien Phu in Langenfeld – frische Kräuter …" | dasselbe Muster wie „—", entfernt |
 
-Neun solcher Gedankenstriche standen in den Seitenbeschreibungen und im Titel
+Elf solcher Gedankenstriche standen in den Seitenbeschreibungen und im Titel
 von `ueber-uns.html`, also genau dort, wo sie in Google-Treffern und beim
-Teilen sichtbar werden. Sie sind durch Doppelpunkt, Komma oder Punkt ersetzt.
+Teilen sichtbar werden: drei in `index.html`, zwei in `sortiment.html`, vier
+in `ueber-uns.html`, zwei in `kontakt.html`. Sie sind durch Doppelpunkt, Komma oder Punkt ersetzt.
 Übrig bleiben ausschließlich Spannen; die Gegenprobe listet nur noch
 `Mo–Fr`, `9–18` und `9–14`.
 
