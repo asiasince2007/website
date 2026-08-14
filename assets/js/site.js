@@ -1,4 +1,4 @@
-/* Asia Markt Thien Phu — Designrichtung A
+/* Asia Markt Thien Phu, Designrichtung A
    Ersetzt die DCLogic-Laufzeit des Design-Entwurfs durch schlichtes JavaScript.
    Ohne JavaScript bleibt die Seite vollstaendig lesbar: Der Status-Text steht
    als sinnvoller Vorgabewert im HTML, die Navigation sind gewoehnliche Links. */
@@ -105,7 +105,7 @@
 
     // Sicherheitsnetz: Der Effekt darf Inhalte niemals dauerhaft verstecken.
     // Ein funktionierender IntersectionObserver meldet sich unmittelbar nach
-    // observe() fuer jedes Ziel — auch fuer nicht sichtbare. Bleibt diese erste
+    // observe() fuer jedes Ziel, auch fuer nicht sichtbare. Bleibt diese erste
     // Meldung aus, ist er in dieser Umgebung wirkungslos: dann alles zeigen.
     var hatGemeldet = false;
     var beobachter = new IntersectionObserver(function (eintraege) {
@@ -144,7 +144,7 @@
          !5e  Kartentyp, 0 = Karte, 1 = Satellit
 
        Die urspruenglich von Google erzeugte URL stand auf 1d17135 (Zoom 12,1)
-       und war auf 51.10096 / 6.94228 zentriert — 612 m neben dem Laden. Bei
+       und war auf 51.10096 / 6.94228 zentriert, 612 m neben dem Laden. Bei
        Zoom 12 faellt das nicht auf, ab Zoom 16 waere der Laden aus dem Bild
        gelaufen. Mittelpunkt deshalb auf die Koordinaten aus dem JSON-LD
        gesetzt und erst dann herangezoomt. */
@@ -155,7 +155,7 @@
       iframe.loading = 'lazy';
       iframe.allowFullscreen = true;
       // Google bekommt nur die Herkunft, nicht die vollstaendige Adresse der
-      // Seite — dieselbe Regel wie im Referrer-Meta-Tag der Seite.
+      // Seite, dieselbe Regel wie im Referrer-Meta-Tag der Seite.
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       rahmen.innerHTML = '';
       rahmen.appendChild(iframe);
@@ -188,7 +188,7 @@
     }
 
     // Der Ladeknopf steckt in der Fassade und wird beim Ausblenden neu
-    // erzeugt — die Anmeldung des Zuhoerers muss deshalb wiederholbar sein.
+    // erzeugt, die Anmeldung des Zuhoerers muss deshalb wiederholbar sein.
     function anmelden() {
       var knopf = document.getElementById('karte-laden');
       if (knopf) knopf.addEventListener('click', laden);
@@ -201,7 +201,7 @@
      Frueher wurde die Adresse hier per JavaScript zusammengesetzt, um
      Adresssammlern das Auslesen zu erschweren. Das ist entfallen: § 5 Abs. 1
      Nr. 2 DDG verlangt die E-Mail-Adresse „leicht erkennbar, unmittelbar
-     erreichbar und staendig verfuegbar" — ohne JavaScript stand im Impressum
+     erreichbar und staendig verfuegbar", ohne JavaScript stand im Impressum
      gar keine Adresse. Sie steht jetzt im Klartext in impressum.html und
      datenschutz.html. */
 
@@ -210,7 +210,7 @@
     navigation();
     einblenden();
     karte();
-    // Der Status haengt an der Uhrzeit — minuetlich nachziehen.
+    // Der Status haengt an der Uhrzeit, minuetlich nachziehen.
     setInterval(statusAnzeigen, 60000);
   }
 
