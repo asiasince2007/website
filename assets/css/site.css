@@ -12,8 +12,8 @@
   --tinte-weich:  #463B31;
   --grau:         #5A4E43;
   --grau-hell:    #7C6F62;
-  /* Zwei Toene des Entwurfs waren zu hell fuer WCAG AA und sind so weit
-     abgedunkelt, wie noetig, nicht weiter. Belegt mit Lighthouse:
+  /* Zwei Toene des Entwurfs waren zu hell fuer WCAG AA und sind nur so weit
+     abgedunkelt wie noetig. Belegt mit Lighthouse:
      #8B7D6E auf Creme ergab 3,88:1 (noetig 4,5), #A99C8D auf Rose 2,37:1
      (noetig 3,0 fuer grossen Fettdruck). */
   --grau-zart:    #7F7265;  /* war #8B7D6E, jetzt 4,51:1 auf Creme */
@@ -275,7 +275,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 
 .galerie-2 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 20px; align-items: start; }
 /* Drei gleich breite Spalten. Der Entwurf hatte 1.3fr 1.3fr .9fr, weil das
-   dritte Bild hochkant war, bei gleichem Format waere das jetzt eine
+   dritte Bild hochkant war. Bei gleichem Format waere das jetzt eine
    willkuerlich schmalere Kachel. `align-items: start` kann entfallen, da alle
    drei ohnehin gleich hoch sind. */
 .galerie-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -288,7 +288,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;
 }
 .seiten-kopf p { margin: 0; font-size: clamp(18px, 2vw, 19px); line-height: 1.6; color: var(--tinte-weich); max-width: 30em; }
-/* „Der Laden" gibt der Bildspalte weniger Platz als das Sortiment, das
+/* „Der Laden" gibt der Bildspalte weniger Platz als das Sortiment. Das
    Eingangsfoto ist hochkant und wuerde sonst zu hoch aufragen. */
 .seiten-kopf-schmal { grid-template-columns: 1.15fr .85fr; }
 
@@ -393,16 +393,6 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   margin: 34px 0 10px; letter-spacing: -.01em;
 }
 .rechtstext h2:first-child { margin-top: 0; }
-/* Adressen und Dateinamen im Rechtstext, etwa /route.html im Abschnitt zur
-   Besucherstatistik. Ohne eigene Regel faellt der Browser auf eine deutlich
-   kleinere Vorgabeschrift zurueck. */
-.rechtstext code {
-  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
-  font-size: .92em;
-  background: var(--rose);
-  border-radius: 4px;
-  padding: .08em .34em;
-}
 .rechtstext h3 {
   font-size: 19px; font-weight: 700; color: var(--tinte);
   margin: 24px 0 8px; letter-spacing: 0;

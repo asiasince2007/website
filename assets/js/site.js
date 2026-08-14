@@ -155,7 +155,7 @@
       iframe.loading = 'lazy';
       iframe.allowFullscreen = true;
       // Google bekommt nur die Herkunft, nicht die vollstaendige Adresse der
-      // Seite, dieselbe Regel wie im Referrer-Meta-Tag der Seite.
+      // Seite. Dieselbe Regel wie im Referrer-Meta-Tag.
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       rahmen.innerHTML = '';
       rahmen.appendChild(iframe);
@@ -188,7 +188,7 @@
     }
 
     // Der Ladeknopf steckt in der Fassade und wird beim Ausblenden neu
-    // erzeugt, die Anmeldung des Zuhoerers muss deshalb wiederholbar sein.
+    // erzeugt. Die Anmeldung des Zuhoerers muss deshalb wiederholbar sein.
     function anmelden() {
       var knopf = document.getElementById('karte-laden');
       if (knopf) knopf.addEventListener('click', laden);
@@ -201,7 +201,7 @@
      Frueher wurde die Adresse hier per JavaScript zusammengesetzt, um
      Adresssammlern das Auslesen zu erschweren. Das ist entfallen: § 5 Abs. 1
      Nr. 2 DDG verlangt die E-Mail-Adresse „leicht erkennbar, unmittelbar
-     erreichbar und staendig verfuegbar", ohne JavaScript stand im Impressum
+     erreichbar und staendig verfuegbar". Ohne JavaScript stand im Impressum
      gar keine Adresse. Sie steht jetzt im Klartext in impressum.html und
      datenschutz.html. */
 
@@ -210,7 +210,7 @@
     navigation();
     einblenden();
     karte();
-    // Der Status haengt an der Uhrzeit, minuetlich nachziehen.
+    // Der Status haengt an der Uhrzeit und wird minuetlich nachgezogen.
     setInterval(statusAnzeigen, 60000);
   }
 
