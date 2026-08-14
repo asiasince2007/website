@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Asia Markt Thien Phu — Designrichtung A („Ladenschild")
+   Asia Markt Thien Phu, Designrichtung A („Ladenschild")
    Handgeschriebenes Stylesheet, kein Build-Schritt noetig.
    Die abgeloeste Fassung nutzte Tailwind (src/styles.css -> styles.min.css);
    diese Richtung kommt mit deutlich weniger CSS aus.
@@ -13,11 +13,11 @@
   --grau:         #5A4E43;
   --grau-hell:    #7C6F62;
   /* Zwei Toene des Entwurfs waren zu hell fuer WCAG AA und sind so weit
-     abgedunkelt, wie noetig — nicht weiter. Belegt mit Lighthouse:
+     abgedunkelt, wie noetig, nicht weiter. Belegt mit Lighthouse:
      #8B7D6E auf Creme ergab 3,88:1 (noetig 4,5), #A99C8D auf Rose 2,37:1
      (noetig 3,0 fuer grossen Fettdruck). */
-  --grau-zart:    #7F7265;  /* war #8B7D6E — jetzt 4,51:1 auf Creme */
-  --grau-still:   #95897C;  /* war #A99C8D — jetzt 3,01:1 auf Rose; „geschlossen" */
+  --grau-zart:    #7F7265;  /* war #8B7D6E, jetzt 4,51:1 auf Creme */
+  --grau-still:   #95897C;  /* war #A99C8D, jetzt 3,01:1 auf Rose; „geschlossen" */
   --rot:          #B4342E;  /* Akzent: Schaufensterrahmen */
   --rot-dunkel:   #8E2320;
   --rose:         #FBEEEC;  /* Baender */
@@ -201,7 +201,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 
 .blende { background: var(--rose); border-top: 1px solid var(--linie-zart); border-bottom: 1px solid var(--linie-zart); }
 
-/* Einblenden beim Scrollen — nur wenn erwuenscht und JS aktiv */
+/* Einblenden beim Scrollen, nur wenn erwuenscht und JS aktiv */
 @media (prefers-reduced-motion: no-preference) {
   html.js-reveal [data-reveal] {
     opacity: 0; transform: translateY(16px);
@@ -226,7 +226,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
    width/height am <img> wirken als Presentational Hint auf die
    CSS-Eigenschaften width und height. `width: 100%` ueberschreibt den einen,
    ohne diese Zeile bliebe aber `height: 1050px` aus dem Attribut stehen.
-   Stehen Breite und Hoehe beide fest, ignoriert der Browser `aspect-ratio` —
+   Stehen Breite und Hoehe beide fest, ignoriert der Browser `aspect-ratio`,
    und `object-fit: cover` schneidet das Foto in einen viel zu hohen Kasten.
    Die Attribute bleiben trotzdem erhalten, sie reservieren den Platz vor dem
    Laden und verhindern so das Springen des Layouts. */
@@ -275,7 +275,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 
 .galerie-2 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 20px; align-items: start; }
 /* Drei gleich breite Spalten. Der Entwurf hatte 1.3fr 1.3fr .9fr, weil das
-   dritte Bild hochkant war — bei gleichem Format waere das jetzt eine
+   dritte Bild hochkant war, bei gleichem Format waere das jetzt eine
    willkuerlich schmalere Kachel. `align-items: start` kann entfallen, da alle
    drei ohnehin gleich hoch sind. */
 .galerie-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -288,7 +288,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;
 }
 .seiten-kopf p { margin: 0; font-size: clamp(18px, 2vw, 19px); line-height: 1.6; color: var(--tinte-weich); max-width: 30em; }
-/* „Der Laden" gibt der Bildspalte weniger Platz als das Sortiment — das
+/* „Der Laden" gibt der Bildspalte weniger Platz als das Sortiment, das
    Eingangsfoto ist hochkant und wuerde sonst zu hoch aufragen. */
 .seiten-kopf-schmal { grid-template-columns: 1.15fr .85fr; }
 
@@ -393,7 +393,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   margin: 34px 0 10px; letter-spacing: -.01em;
 }
 .rechtstext h2:first-child { margin-top: 0; }
-/* Adressen und Dateinamen im Rechtstext — etwa /route.html im Abschnitt zur
+/* Adressen und Dateinamen im Rechtstext, etwa /route.html im Abschnitt zur
    Besucherstatistik. Ohne eigene Regel faellt der Browser auf eine deutlich
    kleinere Vorgabeschrift zurueck. */
 .rechtstext code {

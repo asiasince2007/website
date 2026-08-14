@@ -222,6 +222,50 @@ Antippen vor. Das kann die Zählung von `/route.html` leicht nach oben
 verzerren, weil auch ein abgebrochener Klick schon einen Abruf auslöst.
 Verzerrung gering, Geschwindigkeitsgewinn real — bewusst angelassen.
 
+### 14.08.2026 — Rechtstexte auf das Pflichtprogramm gekürzt
+
+**E-29 · Impressum von neun Abschnitten auf zwei.** Übrig bleiben die Angaben
+nach § 5 Abs. 1 DDG und die Kontaktdaten. Gestrichen wurden:
+
+| Gestrichen | Warum |
+|---|---|
+| Berufsrechtliche Regelungen (LMIV, LFGB) | § 5 DDG verlangt so etwas nicht. Die Aufsichtsbehörde nach Nr. 3 ist nur bei **zulassungspflichtigen** Tätigkeiten zu nennen; Lebensmitteleinzelhandel ist nach Art. 6 Abs. 2 VO (EG) 852/2004 lediglich **registrierungspflichtig**. |
+| Verantwortlich nach § 18 Abs. 2 MStV | Gilt für journalistisch-redaktionelle Angebote. Eine Ladenwebsite ist keines. |
+| Verbraucherstreitbeilegung | § 36 VSBG greift bei zehn oder weniger Beschäftigten nicht, siehe [`01_kontext.md`](01_kontext.md). |
+| Haftung für Inhalte, Haftung für Links, Urheberrecht | Nicht vorgeschrieben und nach herrschender Meinung wirkungslos: Die Haftungsprivilegien der Art. 4 bis 6 DSA gelten kraft Gesetzes, das Urheberrecht entsteht nach § 7 UrhG mit dem Werk. Der Link-Disclaimer kann sogar schaden, weil er den Eindruck erweckt, man habe die verlinkten Inhalte geprüft. |
+
+**E-30 · Datenschutzerklärung von elf Abschnitten auf fünf.** Geblieben ist,
+was Art. 13 DSGVO und § 25 TDDDG verlangen: Verantwortlicher, Aufruf der
+Website (GitHub, Cloudflare, Statistik, USA), Google Maps mit Einwilligung und
+Widerruf, Betroffenenrechte, und das Widerspruchsrecht gesondert nach
+Art. 21 Abs. 4 DSGVO. Gestrichen: „Datenschutz auf einen Blick" (eine
+Zusammenfassung ist nirgends vorgeschrieben), der Satz zum
+Datenschutzbeauftragten (Art. 13 Abs. 1 lit. b verlangt seine Kontaktdaten nur
+„gegebenenfalls"; ist keiner benannt, gibt es nichts mitzuteilen), die
+Abschnitte zu Schriftarten und Cookies (beides Aussagen über Verarbeitungen,
+die *nicht* stattfinden, also ohne Informationspflicht), der eigene
+Drittland-Abschnitt (in Abschnitt 2 und 3 eingearbeitet) und die Stand-Angabe
+(nicht vorgeschrieben).
+
+_Belegt und nicht geraten:_ GitHub Inc. hat eine **eigene**
+DPF-Zertifizierung, unabhängig von Microsoft. Cloudflare, Inc. und Google LLC
+sind ebenfalls zertifiziert. Alle drei sind namentlich genannt, wie es
+Art. 13 Abs. 1 lit. e und f verlangt.
+
+_Abgewogen:_ Kürzen erhöht das Risiko, eine Pflichtangabe zu verlieren. Die
+Gegenprobe lief deshalb buchstabenweise gegen Art. 13 Abs. 1 lit. a bis f und
+Abs. 2 lit. a bis f. Zwei Buchstaben sind hier gegenstandslos: lit. e des
+Abs. 2 (Bereitstellungspflicht) mangels Eingabefeldern, lit. f (automatisierte
+Entscheidungsfindung) mangels solcher.
+
+**E-31 · Geviertstriche entfernt.** Alle 32 Vorkommen von „—" in den
+ausgelieferten Dateien sind ersetzt, in Fließtext und Kommentaren durch Komma
+oder Doppelpunkt, in Seitentiteln durch „|" wie auf den übrigen Seiten. Der
+**Halbgeviertstrich „–" bleibt** und ist kein Fehler: In „Mo–Fr" und
+„9–18 Uhr" ist er die korrekte deutsche Schreibweise für Spannen. Der
+Geviertstrich ist dagegen eine englische Konvention und im Deutschen ohnehin
+fehl am Platz.
+
 ---
 
 _Angelegt am 31.07.2026._
