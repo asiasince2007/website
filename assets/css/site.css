@@ -393,6 +393,16 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   margin: 34px 0 10px; letter-spacing: -.01em;
 }
 .rechtstext h2:first-child { margin-top: 0; }
+/* Adressen und Dateinamen im Rechtstext — etwa /route.html im Abschnitt zur
+   Besucherstatistik. Ohne eigene Regel faellt der Browser auf eine deutlich
+   kleinere Vorgabeschrift zurueck. */
+.rechtstext code {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: .92em;
+  background: var(--rose);
+  border-radius: 4px;
+  padding: .08em .34em;
+}
 .rechtstext h3 {
   font-size: 19px; font-weight: 700; color: var(--tinte);
   margin: 24px 0 8px; letter-spacing: 0;

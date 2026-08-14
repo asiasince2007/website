@@ -181,6 +181,47 @@ nichts: Der Aufruf von `route.html` ist eine gewöhnliche Seitenanfrage und von
 Abschnitt 3 (Server-Protokolle, Art. 6 Abs. 1 lit. f) gedeckt. Ein
 klarstellender Satz kommt beim Umschreiben für Cloudflare dazu.
 
+### 14.08.2026 — Cloudflare als Proxy davor, Datenschutzerklärung nachgezogen
+
+**E-26 · Auslieferung läuft jetzt über Cloudflare.** Die Nameserver liegen bei
+Cloudflare, der Proxy ist aktiv (`Server: cloudflare`, `CF-RAY: …-FRA`).
+Abschnitt 3 der Datenschutzerklärung heißt deshalb nicht mehr
+„Hosting – GitHub Pages", sondern „Hosting, Auslieferung und
+Besucherstatistik" und hat drei Unterabschnitte: GitHub speichert, Cloudflare
+liefert aus und schützt, aus denselben Anfragen entsteht die Statistik.
+Cloudflare ist als Auftragsverarbeiter benannt, Rechtsgrundlage Art. 6 Abs. 1
+lit. f DSGVO, USA-Übermittlung in Abschnitt 7 mit DPF-Zertifizierung.
+
+**E-27 · Das Bot-Skript von Cloudflare wird von unserer eigenen CSP gestoppt.**
+Cloudflare hängt auf jeder Seite ein Inline-Skript ans Dokumentende, das
+`/cdn-cgi/challenge-platform/scripts/jsd/main.js` nachladen würde. Unsere CSP
+steht in Zeile 10 und erlaubt `script-src 'self'` **ohne** `'unsafe-inline'`;
+die Einschleusung sitzt in Zeile 288, also danach. Cloudflare sendet keinen
+eigenen CSP-Header, der das aufweichen würde. Das Skript wird deshalb
+blockiert und lädt nie.
+
+**Das ist die tragende Säule der Einwilligungsfreiheit** — und sie ist dünner,
+als sie aussieht: Wer je `'unsafe-inline'` in die CSP schreibt, macht die
+Aussage „keine Skripte, kein Zugriff auf das Endgerät" in Abschnitt 3 und 6
+der Datenschutzerklärung unwahr und braucht ein Einwilligungsbanner.
+_Verworfene Alternative:_ die Aussage auf die CSP zu stützen und das im Text zu
+erwähnen — zu fragil für einen Rechtstext. Die Erklärung sagt schlicht, was
+gilt; die Abhängigkeit steht hier.
+
+**E-28 · Zwei Cloudflare-Schalter bleiben zu prüfen.**
+*Email Address Obfuscation* (Scrape Shield) ist noch an: Sie ersetzt die
+E-Mail-Adresse in `impressum.html` und `datenschutz.html` durch
+`/cdn-cgi/l/email-protection`; im Quelltext steht die Adresse damit **nicht**
+mehr. Im Browser mit JavaScript erscheint sie normal — der Inhaber hat das mit
+einem Screenshot belegt —, ohne JavaScript aber gar nicht. Das ist derselbe
+Mangel wie in `F-19`, nur kleiner: Screenreader führen JavaScript aus, betroffen
+sind allein Besucher mit abgeschaltetem JavaScript. Empfehlung steht, die
+Entscheidung liegt beim Inhaber.
+*Speed Brain* (Prefetch, `eagerness: conservative`) ist an und lädt Links beim
+Antippen vor. Das kann die Zählung von `/route.html` leicht nach oben
+verzerren, weil auch ein abgebrochener Klick schon einen Abruf auslöst.
+Verzerrung gering, Geschwindigkeitsgewinn real — bewusst angelassen.
+
 ---
 
 _Angelegt am 31.07.2026._
