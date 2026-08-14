@@ -261,10 +261,35 @@ Entscheidungsfindung) mangels solcher.
 **E-31 · Geviertstriche entfernt.** Alle 32 Vorkommen von „—" in den
 ausgelieferten Dateien sind ersetzt, in Fließtext und Kommentaren durch Komma
 oder Doppelpunkt, in Seitentiteln durch „|" wie auf den übrigen Seiten. Der
-**Halbgeviertstrich „–" bleibt** und ist kein Fehler: In „Mo–Fr" und
-„9–18 Uhr" ist er die korrekte deutsche Schreibweise für Spannen. Der
-Geviertstrich ist dagegen eine englische Konvention und im Deutschen ohnehin
-fehl am Platz.
+Geviertstrich ist eine englische Konvention und im Deutschen ohnehin fehl am
+Platz.
+
+_Nachtrag am selben Tag, zwei Fehler im ersten Durchgang:_
+
+**Erstens** war die Ersetzung mechanisch (überall ein Komma) und hat sechs
+Kommafehler erzeugt, darunter vier Komma­splices in Kommentaren von `site.js`
+und `site.css`. Nachgezogen mit Punkt, Doppelpunkt oder Umformulierung.
+Merke: Ein Gedankenstrich verbindet zwei Hauptsätze; ein Komma darf das im
+Deutschen nur eingeschränkt, ein Punkt immer.
+
+**Zweitens**, und wichtiger: Der Halbgeviertstrich „–" ist **nicht pauschal
+harmlos**. Er hat zwei verschiedene Aufgaben, und nur eine davon ist korrekt.
+
+| Verwendung | Beispiel | Bewertung |
+|---|---|---|
+| Spanne | `Mo–Fr`, `9–18 Uhr` | richtig, bleibt |
+| Gedankenstrich | „Asia Markt Thien Phu in Langenfeld – frische Kräuter …" | dasselbe Muster wie „—", entfernt |
+
+Neun solcher Gedankenstriche standen in den Seitenbeschreibungen und im Titel
+von `ueber-uns.html`, also genau dort, wo sie in Google-Treffern und beim
+Teilen sichtbar werden. Sie sind durch Doppelpunkt, Komma oder Punkt ersetzt.
+Übrig bleiben ausschließlich Spannen; die Gegenprobe listet nur noch
+`Mo–Fr`, `9–18` und `9–14`.
+
+**E-32 · Die CSS-Regel `.rechtstext code` ist wieder entfallen.** Sie war für
+die Erwähnung von `/route.html` in der Datenschutzerklärung angelegt worden;
+mit der Kürzung auf das gesetzliche Minimum (`E-30`) ist diese Erwähnung
+weggefallen, und kein Rechtstext enthält mehr ein `<code>`-Element.
 
 ---
 
