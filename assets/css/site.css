@@ -60,9 +60,8 @@ a:hover { color: var(--rot-dunkel); }
   max-width: var(--bahn); margin: 0 auto; padding: 26px var(--rand) 0;
   display: flex; flex-direction: column; align-items: center; gap: 22px;
 }
-.marke { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--rot); }
+.marke { display: block; text-decoration: none; color: var(--rot); }
 .marke:hover { color: var(--rot-dunkel); }
-.marke img { width: 68px; height: 68px; object-fit: contain; flex: none; }
 .marke-name {
   display: block; font-family: var(--schrift-titel); font-size: 30px;
   font-weight: 700; line-height: 1.25;
@@ -275,9 +274,8 @@ h3 { line-height: 1.4; }
   html { scroll-padding-top: 95px; }
   .kopf { position: sticky; top: 0; border-bottom: 2px solid var(--rot); }
   .kopf-innen { flex-direction: row; justify-content: space-between; gap: 12px; padding-block: 14px; min-height: 76px; }
-  .marke { gap: 10px; min-width: 0; }
+  .marke { min-width: 0; }
   .marke-name { font-size: 22px; }
-  .marke img { width: 46px; height: 46px; }
   .marke-zusatz { display: none; }
   .menue-bereit .menue-schalter { display: block; }
   .nav {
@@ -329,7 +327,6 @@ h3 { line-height: 1.4; }
   .topbar .teiler { display: none; }
   .topbar [data-status-text] { flex-basis: 100%; text-align: center; }
   .marke-name { font-size: 18px; }
-  .marke img { width: 38px; height: 38px; }
   .kopf-innen { gap: 8px; }
   .btn-reihe { flex-direction: column; align-items: stretch; }
   .btn { text-align: center; }

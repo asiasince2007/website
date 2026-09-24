@@ -9,9 +9,12 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
 test('Git enthält nur Website-Bestand, keine lokalen Gedächtnis- oder Prüfunterlagen', () => {
   const tracked = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean);
-  for (const file of tracked) assert.doesNotMatch(file,
-    /^(?:00_Gedaechtnis\/|90_Archiv\/|docs\/|\.claude\/|\.idea\/|node_modules\/|CLAUDE\.md$|AGENTS\.md$)/,
-    `nur lokal aufbewahren: ${file}`);
+  for (const file of tracked) {
+    assert.doesNotMatch(file,
+      /^(?:00_Gedaechtnis\/|90_Archiv\/|docs\/|\.claude\/|\.idea\/|node_modules\/)/,
+      `nur lokal aufbewahren: ${file}`);
+    assert.doesNotMatch(file, /\.md$/i, `Markdown einschließlich README bleibt lokal: ${file}`);
+  }
 });
 
 test('Interne HTML-Links, Medien und seitenübergreifende Sprungziele existieren', () => {

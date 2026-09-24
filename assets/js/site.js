@@ -11,7 +11,7 @@
        'JJJJ-MM-TT': { zeiten: [], bestaetigtAm: 'JJJJ-MM-TT' } fuer geschlossen
        oder zeiten: [['10:00', '13:00']] fuer bestaetigte Sonderzeiten.
      Optional: hinweis: 'Betriebsferien'. Keine echten Sonderzeiten bestaetigt.
-     Pflegeablauf: README.md, Abschnitt Pflege.
+     Nach Aenderungen npm test ausfuehren: Logik, Zeitzonen und HTML-Konsistenz.
      Bei geaenderten Wochenzeiten auch HTML und JSON-LD aktualisieren. */
   var OEFFNUNGSZEITEN = {
     woche: [[], [['09:00', '18:00']], [['09:00', '18:00']],
