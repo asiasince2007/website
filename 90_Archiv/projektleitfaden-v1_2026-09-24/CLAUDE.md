@@ -1,6 +1,8 @@
 # CLAUDE.md — Projektleitfaden für Claude Code
 
-> **Aktiver Stand: 24.09.2026.** Statische Mehrseitenwebsite mit `site.css`/`site.js`; `main` wird über GitHub Pages und Cloudflare öffentlich ausgeliefert. Aktuelle Anleitung: `README.md`. Historische Projekteinstufung und Tailwind-Pläne sind überholt.
+> **Abgeschlossenes Projekt.** Dieser Ordner liegt im Archiv `ZZ_Archiv_Abgeschlossene-Projekte/`. Er wird vollständig aufbewahrt, aber nicht mehr fortgeschrieben. Inhalte können überholt sein — vor jeder Wiederverwendung Aktualität prüfen. Soll wieder daran gearbeitet werden, wandert der Ordner zurück auf die oberste Ebene.
+>
+> **Achtung, dieses Projekt ist live.** Der Ordner ist ein Git-Repository, dessen `main`-Branch über GitHub Pages die öffentlich erreichbare Website ausliefert (`www.asiamarkt.info`, CNAME im Repo). Archiviert heißt hier: es wird nicht mehr aktiv weiterentwickelt — **nicht**, dass Änderungen folgenlos wären. Ein Push auf `main` geht sofort live.
 
 > Dieses Repo ist die Website von **Asia Markt Thien Phu**, einem inhabergeführten
 > asiatischen Lebensmittelgeschäft in Langenfeld (Rheinland).
@@ -45,7 +47,8 @@ Durchgängig **Deutsch**. Zentrale Fachbegriffe bei Erstnennung zusätzlich mit 
 1. **Lies zuerst `00_Gedaechtnis/gedaechtnis-gesamt.md`** — dort stehen verbindliche Fakten (NAP, Öffnungszeiten),
    getroffene Architektur­entscheidungen, bekannte Fehler und ihre Fixes. Aktualisiere diese
    Datei nach jeder Sitzung (Abschnitt „Änderungs- & Lernprotokoll").
-2. **Lies den aktuellen Stand in `00_Gedaechtnis/02_projektstand.md`.** Die Kundenanalyse und ihre Umsetzung vom 24.09.2026 sind maßgeblich. Der Juni-Relaunchplan ist Historie und keine aktuelle offene Aufgabenliste.
+2. **Arbeite den `00_Gedaechtnis/plan-relaunch.md` phasenweise ab.** Jede Aufgabe hat Akzeptanzkriterien.
+   Hake erledigte Punkte ab (`[x]`) und committe in kleinen, thematisch sauberen Schritten.
 3. **NAP-Konsistenz ist heilig.** Name, Adresse, Telefon müssen exakt mit dem Google
    Business Profile übereinstimmen — überall identisch (Footer, Kontakt, Schema, Impressum).
    Siehe `00_Gedaechtnis/gedaechtnis-gesamt.md` → „Stammdaten (NAP)".
@@ -53,44 +56,36 @@ Durchgängig **Deutsch**. Zentrale Fachbegriffe bei Erstnennung zusätzlich mit 
    wenn sie belegt sind. Im Zweifel als `TODO(inhaber)` markieren statt zu erfinden.
 5. **Sprache:** ausschließlich Deutsch (Entscheidung des Inhabers). Kein i18n/hreflang nötig.
 6. **Es ist KEIN Online-Shop.** Conversion-Ziele sind: Anruf, Routenplanung, Google-Bewertung,
-   vollständiges Google-Profil. Niemals Warenkorb/Checkout oder einen unbelegten WhatsApp-Kontakt bauen.
+   WhatsApp-Weiterleitung. Niemals Warenkorb/Checkout bauen.
 
-## Aktiver Stack und fachliche Regeln
+## Tech-Stack (Ist → Soll)
 
-- Sechs statische Inhaltsseiten plus `/route.html`, aktive Dateien `assets/css/site.css` und `assets/js/site.js`. Keine Framework- oder Tailwind-Migration. Vorhandene URLs, Gestaltung und Geschäftsidentität erhalten.
-- Öffnungsstatus ausschließlich in `Europe/Berlin`; elf NRW-Feiertage, ungeklärte Tage sowie Heiligabend/Silvester neutral behandeln. Bestätigte Ausnahmen in `OEFFNUNGSZEITEN`, Anleitung: `00_Gedaechtnis/oeffnungszeiten-pflegen.md`.
-- Navigation und reguläre Zeiten bleiben ohne JavaScript erreichbar. **Cloudflare-Obfuscation bleibt ausdrücklich aktiv (Inhaberentscheidung 24.09.2026, E-34). Keine `email_off`-Ausnahme.** Lokaler E-Mail-Klartext belegt nicht die Live-Darstellung.
-- Routenaktionen weiter über `/route.html`. Google Maps erst nach Freigabe laden und wieder ausblendbar halten. Vor Freigabe keine Google-Anfragen.
-- Öffentliche Parkregeln von belegten Bedingungen konkreter Stellplätze trennen. Quellen und Datum sichtbar führen. E-Parkregel nach dem 31.12.2026 neu prüfen.
-- Aktuell 4,4 Sterne, Stand 24.09.2026, ohne genaue Anzahl. Durchschnitt und Zitatdaten getrennt pflegen; keine `aggregateRating`-Eigenbewertung im Schema. Neue Werte nur nach Quellenprüfung.
+- **Ist:** Eine einzige `index.html` (~1140 Zeilen) mit JS-gesteuertem Seiten-Umschalten
+  (`page-view`-Divs), Tailwind über `cdn.tailwindcss.com` (Runtime), leeres `styles.min.css`.
+- **Soll (siehe PLAN.md):** Echte Multi-Page-Struktur (eigene `.html`-Dateien & URLs),
+  Tailwind als Build-Schritt (`npm run build:css`), JSON-LD-Schema, `sitemap.xml`/`robots.txt`,
+  optimierte Bilder. Bleibt statisch und GitHub-Pages-kompatibel.
 
 ## Build & Deploy
 
 ```bash
-npm ci
-npm run dev           # Port 4173, kein Build für die aktive Website
-npm test              # aktive Logik, Struktur, JSON-LD und Browser
-npm run qa:lighthouse # aktuelle lokale Mobilmessung
+npm install
+npm run build:css      # erzeugt assets/css/styles.min.css aus src/styles.css
 # Deploy: Push auf main → GitHub Pages (CNAME: www.asiamarkt.info)
 ```
 
-Node ab 22.19 und Chrome erforderlich, weitere Hinweise in README. Historischer CSS-Build heißt ausdrücklich `legacy:build:css`. Am 24.09.2026 hat der Inhaber Push und Merge am Ende der geprüften Umsetzung autorisiert. Nach Deployment reale Auslieferung einschließlich Cloudflare-E-Mail, Karte und Cacheversionen prüfen.
-
 ## Verzeichnis-Konventionen
 
-- `00_Gedaechtnis/` — aktives Projektgedächtnis, vom Pages-Output ausgeschlossen.
-- `docs/` — Belege; aktuelle Rohprüfungen in `docs/qa-output/` werden nicht eingecheckt.
+- `docs/` — Analyse, Plan, Gedächtnis (diese Planungsdateien, nicht Teil der ausgelieferten Site).
 - `assets/images/` — optimierte Bilder (WebP/AVIF + Fallback). Keine Datei > 300 KB committen.
 - `assets/vendor/` — Drittanbieter (Font Awesome). Möglichst durch Inline-SVG ersetzen.
-- `src/styles.css` — historische Tailwind-Quelle, nicht Teil des aktuellen Layouts.
-- `tests/` und `scripts/qa-lighthouse.mjs` — aktuelle Prüfungen; alte QA-Skripte archiviert unter `90_Archiv/qa-v1_2026-09-24/`.
-- Alle Prüf-/Gedächtnis-/Archivdateien in `_config.yml` ausschließen. Sie bleiben trotzdem im öffentlichen Git-Repository. Keine vertraulichen Daten einchecken.
+- `src/styles.css` — Tailwind-Quelle (Direktiven + `@layer`).
 
 ## Definition of Done (global)
 
-Prüfen: 320/390/768/1280 px, Menü/Tastatur, ohne JavaScript, Karte/Routenlink, konsistente Geschäftsdaten und reguläre Zeiten, Zeitzonen/Wochenenden/NRW-Feiertage und bestätigte Ausnahmen. `npm test` muss bestehen. Lighthouse lokal mobil neu messen (Ziel vier Kategorien ≥90); Datum/Umgebung nennen und keine früheren Werte als aktuellen Nachweis verwenden. Isolierte Maps-/Routentests ersetzen keine Live-Prüfung, automatische Axe-Tests keine vollständige Prüfung mit Hilfsmitteln, JSON-LD-Tests keinen Google Rich-Results-Test.
-
-Projektstand/Gedächtnis fortschreiben, Prüfgrenzen und externe Schritte benennen. Cacheversionen bei CSS-/JS-Änderungen auf allen Seiten synchronisieren. Sitemap-`lastmod` nur bei tatsächlichen Änderungen pflegen.
+Eine Änderung gilt erst als fertig, wenn: Build läuft fehlerfrei, Lighthouse (Mobil)
+in allen vier Kategorien ≥ 90, valides JSON-LD (Rich-Results-Test), NAP konsistent,
+keine Konsolenfehler, und `00_Gedaechtnis/gedaechtnis-gesamt.md` aktualisiert ist.
 
 ---
 

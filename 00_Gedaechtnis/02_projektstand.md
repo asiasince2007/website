@@ -1,5 +1,21 @@
 # 02 — Projektstand
 
+## Umsetzung der Kundenanalyse, 24.09.2026
+
+Die belegten Verbesserungen sind umgesetzt. Details, Quellen und aktuelle Prüfung im [Umsetzungsbericht](umsetzung-kundenanalyse_2026-09-24.md), Pflege der Ausnahmezeiten in [Öffnungszeiten pflegen](oeffnungszeiten-pflegen.md). `site.js` berechnet Berliner Standortzeit, elf NRW-Feiertage und bestätigte Ausnahmen. Unbekannte Feiertagszeiten sowie Heiligabend/Silvester bekommen einen ehrlichen Prüfhinweis. Keine Sonderöffnung eingetragen. Navigation funktioniert ohne JavaScript; Anrufkontrast, Datenschutzumbruch, Sortimentszugang, Besuchsabschlüsse und Parkangaben sind korrigiert.
+
+**Inhaberentscheidung:** Cloudflare-E-Mail-Schutz bleibt aktiv, keine Obfuscation-Ausnahme. **Bewertungen:** 4,4 Sterne erneut sichtbar, Stand 24.09.2026; genaue Anzahl nicht weiter veröffentlicht, weil die neue eingeschränkte Maps-Ansicht sie nicht zeigt. Alle sechs Sitemap-Daten spiegeln tatsächliche Änderungen wider.
+
+Aktive Tests: `npm test` (14 Logik-/Strukturtests, 36 Browserfälle), `npm run qa:lighthouse` (neue lokale Messung, kein Rückgriff auf Augustwerte). Historische QA-Werkzeuge und überholte Anleitungen sind archiviert; README/CLAUDE beschreiben den aktuellen Stack. Push und Merge hat der Inhaber im letzten Satz seines Umsetzungsauftrags ausdrücklich autorisiert; Veröffentlichung läuft über Feature-Branch/PR auf `main`. Der nachfolgende Deployment-/Live-Nachweis wird separat protokolliert, nicht aus lokalen Tests abgeleitet.
+
+**Externe Restpunkte, gebündelt:** Website-Link im Google-Unternehmensprofil auf `https://www.asiamarkt.info/` ändern; konkrete Parkbeschilderung gegenüber bestätigen; tatsächliche Feiertags-/Sonderzeiten einschließlich 24./31. Dezember bestätigen. Keine dieser offenen Angaben wurde erfunden. E-Parkregel spätestens zum Jahreswechsel neu prüfen. Historische Inhaber-TODOs (z. B. früherer Web3Forms-Schlüssel) sind durch diese Websiteänderung nicht erledigt.
+
+## Vorherige Analyse vom 24.09.2026
+
+Die ausführliche [Kundenanalyse](kundenanalyse_2026-09-24.md) vergleicht das lokale Projekt mit der Live-Website und dem öffentlichen Google-Profil. **Analyse abgeschlossen; Empfehlungen noch nicht umgesetzt.** Keine Website-Quelldatei geändert, kein Deployment. Bestätigte Befunde: Gerätezeitzone/fehlende Feiertagsausnahmen im Öffnungsstatus, Menübutton mit 2,77:1 Kontrast, fehlende Routenabschlüsse auf Sortiment/Ladenseite, E-Mail-Obfuscation und verborgenes Mobilmenü ohne JavaScript, Überschriftenüberlauf auf Datenschutz bei 320 px. Kleine Pflegepunkte betreffen Parkbedingungen, Google-Profil-Link, Bewertungsstand und Sitemap. 24 Layoutkombinationen und 44 interne HTTP-Ziele geprüft; JSON-LD-Prüfung erfolgreich. Neue Lighthouse-Messung durch API-Tageslimit verhindert.
+
+Die folgenden älteren Einträge bleiben als Historie erhalten. Maßgeblich für die aktive Gestaltung sind inzwischen `assets/css/site.css` und `assets/js/site.js`; alte Tailwind-/Modal-Tests sind kein aktueller Qualitätsnachweis. Die Live-Seite wird über Cloudflare ausgeliefert. Google zeigte am 24.09.2026 4,4 Sterne/128 Bewertungen; erneut prüfen, bevor dieser Momentwert veröffentlicht wird.
+
 > **Diese Inhalte stehen gesammelt in [`gedaechtnis-gesamt.md`](gedaechtnis-gesamt.md).** Jene Datei ist historisch als **eine** durchgehende Wissensdatei geführt worden, deren sieben Abschnitte genau den kanonischen Kerndateien entsprechen. Bei der Vereinheitlichung am 31.07.2026 wurde sie bewusst **nicht** zerschnitten, weil ihre Abschnitte aufeinander verweisen und das Änderungsprotokoll am Ende sie zusammenhält.
 
 Maßgeblich sind **Abschnitt 6 (Offene Punkte für den Inhaber)** und **Abschnitt 7 (Änderungs- und Lernprotokoll, append-only)** der Gesamtdatei sowie [`plan-relaunch.md`](plan-relaunch.md) mit dem phasenweisen Arbeitsplan und seinen Akzeptanzkriterien.

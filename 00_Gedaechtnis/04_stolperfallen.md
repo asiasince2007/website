@@ -6,6 +6,22 @@ Maßgeblich ist **Abschnitt 5 (Bekannte Fehler und Fixes)** der Gesamtdatei — 
 
 ## Neue Einträge
 
+### 24.09.2026 — Kundenanalyse und anschließende Korrektur
+
+**Umsetzungsstatus:** F-20 durch Berliner Zeit/NRW-Kalender/Ausnahmeliste und aktive Tests behoben. F-21 durch spezifische `.nav .btn-anruf`-Regeln einschließlich Hover/Fokus behoben. F-22: Mobilnavigation behoben; Cloudflare-E-Mail-Schutz wird auf ausdrücklichen Wunsch erhalten (E-34), kein weiter offener Abschaltauftrag. F-23 durch geeigneten Wortumbruch mit Trennstelle behoben, ohne Abschneiden. Die folgenden Befundtexte dokumentieren den Zustand **vor** der Umsetzung.
+
+**F-24 · Auch Quellenangaben benötigen Kontrast.** Beim aktuellen Axe-Scan nach Einblenden der Bewertungszitate lag deren Footertext auf rosafarbenem Band bei 4,12:1. Frühere Prüfungen des verdeckten Inhalts erfassten ihn nicht. Textfarbe auf vorhandenen dunkleren Grauton gestellt. Künftig Reveal-Inhalte vor dem Scan sichtbar scrollen; Messung der Menüfarben ersetzt nicht den Scan der restlichen Seite.
+
+**F-25 · Vollseitige Screenshots und Lighthouse-Aufräumen unter Windows.** Vollseitiger Screenshot nach Scrollen kann den Sticky-Kopf mitten im Bild festhalten; vor Aufnahme auf Dokumentanfang scrollen. Lighthouse lieferte gültige Messungen, scheiterte aber danach beim Löschen seines noch gesperrten temporären Chrome-Profils (EPERM). QA-Skript nutzt jetzt ein eigenes, Git-ignoriertes Profil unter `docs/qa-output/`; Browser wird beendet, Profil bleibt lokal. Messfehler, Aufräumfehler und Websitefehler getrennt berichten.
+
+**F-20 · Öffnungsstatus-Regression und fehlende Ausnahmen.** Der aktuelle `site.js` verwendet wieder Gerätezeit, obwohl das Juni-Protokoll bereits eine Europe/Berlin-Korrektur beschreibt. Live-Zeitzonenwechsel erzeugt widersprüchliche Zustände; Quelltests melden am 03.10. und 25.12.2026 geöffnet. Ursache: einfache Wochentagstabelle ohne Ausnahmen; historische Tests zielen auf entfernten Code. **Noch nicht behoben.** Vermeidung: Tests auf aktive Datei, Standortzeitzone und bestätigte beziehungsweise ausdrücklich ungeklärte Ausnahmen.
+
+**F-21 · Spezifität nimmt Anrufbutton die weiße Schrift.** `.nav a` überschreibt `.btn-anruf`; gemessen 2,77:1 statt 4,5:1. **Noch nicht behoben.** Künftig tatsächliche berechnete Farben im Desktop- und offenen Mobilmenü prüfen, nicht nur die isolierte Buttonregel.
+
+**F-22 · Lokaler Klartext beweist keinen live erreichbaren Kontakt.** Cloudflare ersetzt die E-Mail in Impressum und Datenschutz; ohne JavaScript steht live `[email protected]`. Das bereits in E-28 beschriebene Problem besteht weiterhin. **Noch nicht behoben.** Künftige Prüfung muss nach Auslieferung und ohne JavaScript erfolgen. Auch das Mobilmenü braucht einen sichtbaren Grundzustand bei ausgefallenem Skript.
+
+**F-23 · Lange Überschrift läuft bei 320 px über.** „Datenschutzerklärung“ erzeugt im Browser 328 px Dokumentbreite bei 305 px verfügbarer Inhaltsbreite. **Noch nicht behoben.** Geeigneten Wortumbruch testen; bloßes Verstecken horizontalen Überlaufs wäre kein Fix. Belege und gesamte Abdeckung in [Kundenanalyse](kundenanalyse_2026-09-24.md).
+
 _Neue Stolperfallen können wahlweise hier oder direkt im entsprechenden Abschnitt von `gedaechtnis-gesamt.md` ergänzt werden — aber konsequent an **einer** Stelle. Wird diese Datei genutzt, gehört ein Verweis darauf in den betreffenden Abschnitt der Gesamtdatei._
 
 ### 09.08.2026 — beim Relaunch aufgetreten

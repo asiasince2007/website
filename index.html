@@ -80,9 +80,17 @@
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-700-latin.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-400-latin.woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/site.css?v=20260924">
 
-    <script src="assets/js/site.js" defer></script>
+    <script src="assets/js/site.js?v=20260924" defer></script>
+    <!-- Statische Mobilnavigation bei deaktiviertem JavaScript, ohne Lade-Sprung. -->
+    <noscript><style>
+        @media (max-width: 900px) {
+            .kopf { position: static; }
+            .kopf-innen { flex-wrap: wrap; }
+            .nav { display: flex; position: static; width: 100%; }
+        }
+    </style></noscript>
 </head>
 <body>
 
@@ -93,7 +101,7 @@
     <span class="teiler" aria-hidden="true"></span>
     <a href="tel:+4921731065590">02173 1065590</a>
     <span class="teiler" aria-hidden="true"></span>
-    <span data-status-text>Mo bis Fr 9 bis 18 Uhr, Samstag 9 bis 14 Uhr</span>
+    <span data-status-text>Regulär: Mo–Fr 9–18, Sa 9–14 Uhr</span>
 </div>
 
 <header class="kopf">
@@ -127,7 +135,7 @@
         <div data-reveal>
             <p class="status-badge">
                 <span class="punkt" data-status-punkt aria-hidden="true"></span>
-                <span data-status-text>Mo bis Fr 9 bis 18 Uhr, Samstag 9 bis 14 Uhr</span>
+                <span data-status-text>Regulär: Mo–Fr 9–18, Sa 9–14 Uhr</span>
             </p>
             <h1>Alles für die asiatische Küche, mitten in Langenfeld.</h1>
             <p class="lead">Kleiner Laden, große Auswahl. Frische Kräuter, Nudeln, Saucen und Tiefkühlware. Dazu Beratung von jemandem, der die Sachen selbst kocht.</p>
@@ -159,11 +167,13 @@
                     <span>Samstag</span><span>9 bis 14 Uhr</span>
                     <span class="zu">Sonntag</span><span class="zu">geschlossen</span>
                 </div>
+                <p class="zeiten-hinweis">Feiertage und Sonderzeiten bitte telefonisch prüfen.</p>
             </div>
             <div>
                 <p class="rubrik">Parken</p>
-                <p>Direkt gegenüber, mit Automat.</p>
-                <p class="stark">15 Min gratis, danach 1 €/Std.<br>E-Auto 5 Std. frei (Parkscheibe).</p>
+                <p>Parkplätze direkt gegenüber.</p>
+                <p class="stark">Stadttarif: bis 15 Min kostenfrei.<br>Parkvorgang am Automaten starten.</p>
+                <p><a href="kontakt.html#parken">Tarife und Parkbedingungen</a></p>
             </div>
             <div>
                 <p class="rubrik">Bezahlen</p>
@@ -180,7 +190,7 @@
         </div>
         <div class="kategorien" data-reveal>
             <div>
-                <p class="titel">Frische Kräuter und Gemüse</p>
+                <p class="titel">Frische Kräuter, Gemüse und Tofu</p>
                 <p class="bsp">Koriander, Zitronengras, Pak Choi, Ingwer, Tofu</p>
             </div>
             <div>
@@ -192,12 +202,12 @@
                 <p class="bsp">Soja, Fischsauce, Currypasten, Teriyaki</p>
             </div>
             <div>
-                <p class="titel">Tofu, Tee und Getränke</p>
-                <p class="bsp">Silken Tofu, Edamame, Jasmintee, Erfrischungen</p>
+                <p class="titel">Tee und Getränke</p>
+                <p class="bsp">Grüner Tee, Jasmintee, asiatische Erfrischungen</p>
             </div>
             <div>
-                <p class="titel">Snacks und Spezialzutaten</p>
-                <p class="bsp">Mochi, Reiscracker, Yams, Pandanblätter</p>
+                <p class="titel">Snacks und Süßigkeiten</p>
+                <p class="bsp">Mochi, Reiscracker, asiatische Süßigkeiten</p>
             </div>
             <div>
                 <p class="titel">Tiefkühlprodukte</p>
@@ -209,7 +219,7 @@
 
     <section class="blende">
         <div class="bahn" style="padding-block: 52px" data-reveal>
-            <p style="margin:0 0 26px;font-size:15px;font-weight:700;color:var(--rot-dunkel)">4,4 von 5 Sternen aus 127 Bewertungen bei Google</p>
+            <p style="margin:0 0 26px;font-size:15px;font-weight:700;color:var(--rot-dunkel)">4,4 von 5 Sternen bei Google</p>
             <div class="bewertungen">
                 <blockquote>
                     <p>„Immer freundlich und gut gelaunt! Alle Grundlagen sind da und was er nicht hat besorgt er gerne!“</p>
@@ -229,7 +239,7 @@
                  Verlangt ist die Auskunft, nicht ihre Ausfuehrlichkeit. Sie muss aber bei den
                  Bewertungen stehen; hinter einem Link waere sie vorenthalten. -->
             <p style="margin:22px 0 0;font-size:14px;line-height:1.6;color:var(--grau)">
-                Aus unserem Google-Profil, Stand August 2026. Ob die Bewertenden bei uns eingekauft haben, prüfen wir nicht nach.
+                Aus unserem Google-Profil. Sternebewertung: Stand 24.09.2026. Ob die Bewertenden bei uns eingekauft haben, prüfen wir nicht nach.
                 <a href="https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7" target="_blank" rel="noopener">Alle Bewertungen bei Google</a>
             </p>
         </div>
@@ -272,6 +282,7 @@
                 <span>Samstag</span><span>9 bis 14 Uhr</span>
                 <span>Sonntag</span><span>geschlossen</span>
             </div>
+            <p class="fuss-hinweis">An Feiertagen können die Zeiten abweichen. Bitte vorher anrufen.</p>
         </div>
     </div>
     <div class="fuss-unten">

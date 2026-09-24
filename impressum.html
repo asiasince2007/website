@@ -70,9 +70,17 @@
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-700-latin.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-400-latin.woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/site.css?v=20260924">
 
-    <script src="assets/js/site.js" defer></script>
+    <script src="assets/js/site.js?v=20260924" defer></script>
+    <!-- Statische Mobilnavigation bei deaktiviertem JavaScript, ohne Lade-Sprung. -->
+    <noscript><style>
+        @media (max-width: 900px) {
+            .kopf { position: static; }
+            .kopf-innen { flex-wrap: wrap; }
+            .nav { display: flex; position: static; width: 100%; }
+        }
+    </style></noscript>
 </head>
 <body>
 
@@ -83,7 +91,7 @@
     <span class="teiler" aria-hidden="true"></span>
     <a href="tel:+4921731065590">02173 1065590</a>
     <span class="teiler" aria-hidden="true"></span>
-    <span data-status-text>Mo bis Fr 9 bis 18 Uhr, Samstag 9 bis 14 Uhr</span>
+    <span data-status-text>Regulär: Mo–Fr 9–18, Sa 9–14 Uhr</span>
 </div>
 
 <header class="kopf">
@@ -155,6 +163,7 @@
                 <span>Samstag</span><span>9 bis 14 Uhr</span>
                 <span>Sonntag</span><span>geschlossen</span>
             </div>
+            <p class="fuss-hinweis">An Feiertagen können die Zeiten abweichen. Bitte vorher anrufen.</p>
         </div>
     </div>
     <div class="fuss-unten">

@@ -1,31 +1,44 @@
 # Asia Markt Thien Phu — Website-Projekt
 
-> **Abgeschlossenes Projekt.** Dieser Ordner liegt im Archiv `ZZ_Archiv_Abgeschlossene-Projekte/`. Er wird vollständig aufbewahrt, aber nicht mehr fortgeschrieben. Inhalte können überholt sein — vor jeder Wiederverwendung Aktualität prüfen. Soll wieder daran gearbeitet werden, wandert der Ordner zurück auf die oberste Ebene.
->
-> **Achtung, dieses Projekt ist live.** Der Ordner ist ein Git-Repository, dessen `main`-Branch über GitHub Pages die öffentlich erreichbare Website ausliefert (`www.asiamarkt.info`, CNAME im Repo). Archiviert heißt hier: es wird nicht mehr aktiv weiterentwickelt — **nicht**, dass Änderungen folgenlos wären. Ein Push auf `main` geht sofort live.
+**Aktives Projekt, Stand 24.09.2026.** `main` wird über GitHub Pages veröffentlicht; Cloudflare liegt davor. Ein Merge auf `main` verändert die öffentliche Website.
 
-Analyse, Plan und Gedächtnis zur Verbesserung der Website von **Asia Markt Thien Phu**
+Statische Website von **Asia Markt Thien Phu**
 (asiatisches Lebensmittelgeschäft, Hauptstraße 74, 40764 Langenfeld).
 Live: https://www.asiamarkt.info/ · Repo: `asiasince2007/website` (GitHub Pages).
 
-## Dateien
+## Aktueller Einstieg
 
 | Datei | Zweck |
 |---|---|
-| `CLAUDE.md` | Leitfaden für Claude Code (Regeln, Stack, Definition of Done). Wird bei der Umsetzung zuerst gelesen. |
-| `00_Gedaechtnis/analyse-ausgangslage.md` | Ausführliche Ist-Analyse: Technik, SEO, Performance, Visuell/UX, Content, A11y/Recht — mit Schweregraden. |
-| `00_Gedaechtnis/plan-relaunch.md` | Phasenweiser, abhakbarer Umsetzungsplan mit Akzeptanzkriterien für autonome Ausführung. |
-| `00_Gedaechtnis/gedaechtnis-gesamt.md` | Lebendes Gedächtnis: Stammdaten (NAP), Entscheidungen, bekannte Fehler/Fixes, Lernprotokoll. |
-| `00_Gedaechtnis/hero-bewertungen-karussell.md` | Konzept + fertiger Referenz-Code für das Hero-Bewertungs-Laufband (rechts→links, Endlosschleife). |
-| `docs/bewertungen-kuratiert.json` | Kuratierte echte Google-Bewertungen (13 fürs Marquee + 35er-Pool) inkl. Statistik (100, Ø 4,39). |
+| `CLAUDE.md` | Verbindliche Arbeitsregeln und aktueller Stack. |
+| `00_Gedaechtnis/02_projektstand.md` | Aktueller Stand, Prüfnachweise und offene externe Schritte. |
+| `00_Gedaechtnis/kundenanalyse_2026-09-24.md` | Ausgangsanalyse aus Kundensicht, vor der Umsetzung. |
+| `00_Gedaechtnis/umsetzung-kundenanalyse_2026-09-24.md` | Änderungen, Quellen, tatsächlich durchgeführte Tests und Prüfgrenzen. |
+| `00_Gedaechtnis/oeffnungszeiten-pflegen.md` | Reguläre Zeiten, NRW-Feiertage und bestätigte Ausnahmen pflegen. |
+| `00_Gedaechtnis/_INDEX.md` | Einstieg in Entscheidungen, Fehlerwissen und historische Protokolle. |
 
-## So geht es weiter
+## Technik und lokale Prüfung
 
-1. **Diese vier Dateien ins Repo übernehmen** (z. B. `docs/` + `CLAUDE.md` ins Root von
-   `asiasince2007/website` kopieren), damit Claude Code sie direkt liest. Commit/Push machst du.
-2. **Claude Code starten** und mit Phase 0 → 1 → 2 … aus `PLAN.md` beginnen.
-3. Nach jeder Sitzung `00_Gedaechtnis/gedaechtnis-gesamt.md` aktualisieren (Lernprotokoll).
+Sechs eigenständige HTML-Seiten plus `/route.html`. Aktive Gestaltung und Verhalten liegen in **`assets/css/site.css` und `assets/js/site.js`**. Kein Build-Schritt für die Website erforderlich. `fonts.css`, lokale Schriftdateien und vorhandene Ladenfotos bleiben eingebunden. Tailwind-Quellen und `styles.min.css` sind historische, unbenutzte Bestände.
 
-> Hinweis: Es ist **kein** GitHub-Konnektor aktiv verbunden. Das öffentliche Repo wurde für
-> die Analyse direkt geklont. Für automatisches Pushen wäre ein GitHub-Konnektor oder ein
-> lokaler Git-Workflow nötig.
+```bash
+npm ci
+npm run dev             # http://127.0.0.1:4173
+npm test                # Statuslogik, Struktur/JSON-LD, 36 Browserfälle
+npm run qa:lighthouse   # aktuelle lokale Mobilmessung aller sechs Seiten
+```
+
+Voraussetzungen: Node ab 22.19 und installiertes Chrome. Falls Chrome fehlt: `npx playwright install chrome`. Getestet am 24.09.2026 mit Node 26.7 und lokalem Chrome. Ergebnisse/Screenshots liegen in `docs/qa-output/` (Git-ignoriert). Die Browserprüfung deckt 320, 390, 768 und 1280 px ab. Maps-/Routenintegration in der reproduzierbaren Suite nutzt kontrollierte Netzwerkantworten; echte Drittanbieter und Cloudflare zusätzlich live prüfen. Automatische Axe-Tests sind keine vollständige WCAG-Zertifizierung, JSON-LD-Tests kein Google Rich-Results-Test, lokale Lighthouse-Werte keine Felddaten.
+
+Historische QA-Skripte: `90_Archiv/qa-v1_2026-09-24/`. Frühere README-/CLAUDE-Fassungen: `90_Archiv/projektleitfaden-v1_2026-09-24/`. Nicht den alten Tailwind-/Modal-Tests folgen. Der verbleibende Befehl `legacy:build:css` dient ausschließlich historischen Quellen und ändert nicht das aktuelle Layout.
+
+## Pflege und Veröffentlichung
+
+- Wochenzeiten im sichtbaren HTML, in vier JSON-LD-Blöcken und im zentralen `OEFFNUNGSZEITEN`-Objekt synchron halten. Sonderzeiten nur nach Inhaberbestätigung; Anleitung oben.
+- **Cloudflare-E-Mail-Schutz bleibt auf ausdrücklichen Inhaberwunsch aktiv.** Keine Obfuscation-Ausnahme vorbereiten oder aktivieren. Die E-Mail kann deshalb ohne JavaScript live verborgen bleiben; lokale Darstellung und Live-Prüfung unterscheiden.
+- Routenlinks verwenden weiter `/route.html`. Keine Produkte, Bestände, Zahlungsarten oder Aussagen zur Zugänglichkeit ergänzen, die nicht belegt sind.
+- Bei Assetänderungen die CSS-/JS-Version in allen sechs Seiten synchron erhöhen; Sitemap-`lastmod` nur bei echten Seitenänderungen pflegen.
+- Push/Merge nur im beauftragten Rahmen; am 24.09.2026 wurden beide ausdrücklich autorisiert. Nach dem Merge Pages-Deployment und Live-Auslieferung prüfen.
+- Den Website-Link im Google-Unternehmensprofil separat auf `https://www.asiamarkt.info/` setzen. Eine Repository-Änderung erledigt diesen externen Schritt nicht.
+
+`_config.yml` schließt Dokumentation, Archiv und Testwerkzeuge vom Pages-Output aus. Das Git-Repository selbst ist öffentlich; keine vertraulichen Unterlagen oder Zugangsschlüssel einchecken.

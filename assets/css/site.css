@@ -36,7 +36,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 110px; }
 
 body {
   margin: 0;
@@ -125,12 +125,12 @@ a:hover { color: var(--rot-dunkel); }
 .nav a[aria-current="page"] .marker { display: block; height: 3px; border-radius: 2px; background: var(--rot); margin: 6px 2px -4px; }
 .nav .marker { display: none; }
 
-.btn-anruf {
+.nav .btn-anruf {
   margin-left: 8px; padding: 11px 20px; border-radius: 8px;
   background: var(--rot); color: #fff;
   font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap;
 }
-.btn-anruf:hover { background: var(--rot-dunkel); color: #fff; }
+.nav .btn-anruf:hover, .nav .btn-anruf:focus-visible { background: var(--rot-dunkel); color: #fff; }
 
 /* Menue-Schalter nur mobil */
 .menue-schalter {
@@ -141,25 +141,27 @@ a:hover { color: var(--rot-dunkel); }
 .menue-schalter svg { display: block; width: 22px; height: 22px; fill: currentColor; }
 
 @media (max-width: 900px) {
-  .menue-schalter { display: block; }
+  .menue-bereit .menue-schalter { display: block; }
   .marke-zusatz { display: none; }
   .marke-name { font-size: 18px; }
   .marke img { width: 42px; height: 42px; }
 
   .nav {
     display: none;
-    position: absolute; left: 0; right: 0; top: 100%;
+    position: absolute; left: 0; right: 0; top: 100%; width: 100%;
     flex-direction: column; align-items: stretch; gap: 4px;
     background: var(--creme);
     border-bottom: 1px solid var(--linie);
     padding: 12px var(--rand) 20px;
     box-shadow: 0 12px 24px rgba(36, 28, 22, .1);
   }
-  .nav.offen { display: flex; }
+  /* Ohne aktiviertes JavaScript stellt der kleine noscript-Block in jeder
+     Seite die Links in den Dokumentfluss. So springt beim JS-Start nichts. */
+  .menue-bereit .nav.offen { display: flex; }
   .nav a { padding: 13px 14px; font-size: 17px; }
   .nav a[aria-current="page"] { background: rgba(180, 52, 46, .1); }
   .nav a[aria-current="page"] .marker { display: none; }
-  .btn-anruf { margin-left: 0; text-align: center; margin-top: 6px; }
+  .nav .btn-anruf { margin-left: 0; text-align: center; margin-top: 6px; }
 }
 
 /* -------------------------------------------------------------- Bausteine */
@@ -184,6 +186,7 @@ a:hover { color: var(--rot-dunkel); }
 }
 .punkt { width: 9px; height: 9px; border-radius: 50%; background: var(--rot); flex: none; }
 .punkt.offen { background: var(--gruen); }
+.punkt.unklar { background: var(--grau); }
 
 .rubrik {
   margin: 0 0 10px;
@@ -191,7 +194,7 @@ a:hover { color: var(--rot-dunkel); }
   text-transform: uppercase; color: var(--rot);
 }
 
-h1, h2, h3 { letter-spacing: -.02em; font-weight: 700; }
+h1, h2, h3 { letter-spacing: -.02em; font-weight: 700; hyphens: auto; overflow-wrap: anywhere; }
 /* Der Entwurf staffelt die Ueberschriften: 54px nur auf der Startseite,
    46-48px auf den Unterseiten. Der Grundwert ist deshalb die Unterseite,
    die Startseite hebt sich per .hero davon ab. */
@@ -271,7 +274,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 .bewertungen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 .bewertungen blockquote { margin: 0; border-left: 3px solid var(--rot); padding-left: 20px; }
 .bewertungen p { margin: 0 0 12px; font-size: 19px; line-height: 1.55; color: var(--tinte); }
-.bewertungen footer { font-size: 14px; font-weight: 700; color: var(--grau-zart); }
+.bewertungen footer { font-size: 14px; font-weight: 700; color: var(--grau); }
 
 .galerie-2 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 20px; align-items: start; }
 /* Drei gleich breite Spalten. Der Entwurf hatte 1.3fr 1.3fr .9fr, weil das
@@ -309,6 +312,18 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 }
 .hinweis-kasten p { margin: 0; font-size: 18px; line-height: 1.6; color: var(--tinte-weich); max-width: 34em; }
 .hinweis-kasten a { font-size: 17px; font-weight: 700; white-space: nowrap; }
+
+.sortiment-kopf { max-width: var(--bahn); margin: 0 auto; padding: 36px var(--rand) 0; }
+.sortiment-kopf .lead { max-width: 42em; margin-bottom: 16px; }
+.sortiment-kopf .verfuegbarkeit { margin: 0; font-size: 16px; color: var(--grau); }
+.sortiment-spruenge { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.sortiment-spruenge a { padding: 9px 12px; border: 1px solid var(--linie); border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; }
+.sortiment-spruenge a:hover { background: var(--rose); }
+.warengruppen { padding-block: 24px; }
+.besuch { margin-top: 32px; padding: 28px; border: 1px solid var(--linie); border-radius: var(--radius); background: var(--rose); }
+.besuch h2 { font-size: 26px; }
+.besuch p { margin: 8px 0 18px; color: var(--grau); }
+.zeiten-hinweis { font-size: 14px; color: var(--grau); }
 
 /* ----------------------------------------------------------- Der Laden --- */
 
@@ -371,6 +386,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
   text-align: center; gap: 14px; padding: 32px;
 }
 .maps-fassade p { margin: 0; }
+.maps-fassade button[hidden] { display: none; }
 .maps-fassade .titel { font-size: 20px; font-weight: 700; color: var(--tinte); }
 .maps-fassade .klein { font-size: 15px; color: var(--grau); max-width: 34em; line-height: 1.6; }
 .maps-rahmen iframe { display: block; width: 100%; height: 100%; min-height: 380px; border: 0; }
@@ -420,6 +436,7 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 }
 .fuss-name { margin: 0 0 10px; font-size: 21px; font-weight: 700; }
 .fuss p { margin: 0; font-size: 16px; line-height: 1.65; color: rgba(243, 233, 218, .68); }
+.fuss .fuss-hinweis { margin-top: 12px; font-size: 14px; max-width: 26em; }
 .fuss .anschrift { font-size: 16px; font-weight: 700; line-height: 1.6; color: #FBF3EA; margin-bottom: 8px; }
 .fuss a { color: var(--gold); }
 .fuss a:hover { color: #fff; }
