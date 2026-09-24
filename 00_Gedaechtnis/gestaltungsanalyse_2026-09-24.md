@@ -2,7 +2,7 @@
 
 Stand: 24.09.2026. Auftrag: die Website persönlicher, traditioneller und weniger austauschbar gestalten; ausschließlich Darstellung ändern, keine Informationen erfinden oder streichen und die vorhandene SEO-Substanz erhalten.
 
-Die Umsetzung liegt lokal auf `codex/klassische-ladengestaltung`. Ausgangspunkt ist `main`, Commit `3e1e459` nach PR #53. Es wurde in diesem Auftrag bisher weder gepusht noch veröffentlicht. Frühere Veröffentlichungsnachweise anderer Änderungen gelten nicht als Nachweis dieser Gestaltung.
+Die Umsetzung entstand auf `codex/klassische-ladengestaltung`, ausgehend von `main`, Commit `3e1e459` nach PR #53. Auf den anschließenden ausdrücklichen Push-/Merge-Auftrag wurde sie mit [PR #54](https://github.com/asiasince2007/website/pull/54), Merge `539d6b8`, am 24.09.2026 um 16:42 Uhr MESZ veröffentlicht. Der [Pages-Lauf 36014734951](https://github.com/asiasince2007/website/actions/runs/36014734951) ist erfolgreich. Die aktuelle Live-Prüfung steht in Abschnitt 9.
 
 ## 1. Umfang und Quellen
 
@@ -105,10 +105,21 @@ Die lokale mobile Lighthouse-Messung lief von 16:24 bis 16:25 Uhr MESZ am 24.09.
 | Impressum | 100 | 100 | 100 | 100 | 0 |
 | Datenschutz | 100 | 100 | 100 | 100 | 0 |
 
-Die beiden fotoreichen Seiten erreichen lokal einen LCP von ungefähr 2,56 beziehungsweise 2,63 Sekunden; die übrigen liegen bei ungefähr 1,58 Sekunden. Das sind Labormessungen mit simulierter mobiler Last, keine realen Nutzungsdaten. Der SEO-Score misst ausgewählte technische Voraussetzungen, keine Rankings. Axe und Lighthouse sind keine vollständige WCAG-Zertifizierung. Die reproduzierbaren Karten- und Routentests verwenden kontrollierte Google-Antworten; die echte Google-Auslieferung wurde für diese neue lokale Gestaltung nicht als neu geprüft behauptet. Der bestehende Cloudflare-E-Mail-Schutz bleibt unverändert und muss bei einer Veröffentlichung wieder live betrachtet werden.
+Die beiden fotoreichen Seiten erreichen lokal einen LCP von ungefähr 2,56 beziehungsweise 2,63 Sekunden; die übrigen liegen bei ungefähr 1,58 Sekunden. Das sind Labormessungen mit simulierter mobiler Last, keine realen Nutzungsdaten. Der SEO-Score misst ausgewählte technische Voraussetzungen, keine Rankings. Axe und Lighthouse sind keine vollständige WCAG-Zertifizierung. Die reproduzierbaren Karten- und Routentests verwenden kontrollierte Google-Antworten; die echte Google-Auslieferung wurde anschließend im Veröffentlichungsschritt separat geprüft (Abschnitt 9). Der bestehende Cloudflare-E-Mail-Schutz bleibt unverändert und wurde nach Veröffentlichung erneut live geprüft (Abschnitt 9).
 
 ## 8. Ablage und Übergabe
 
 Aktive Gestaltung: `assets/css/site.css`. JavaScriptänderung: ausschließlich die bisherige Scroll-Einblendung entfernt. HTMLänderungen: Schriftvorladung und Cacheversion. Vorfassungen von CSS/JS: `90_Archiv/gestaltung-v1_2026-09-24/`, mit Herkunftsangabe. Reproduzierbarer Bestandserhalt: `scripts/qa-design-preservation.cjs`. Rohberichte und Screenshots: `docs/qa-output/`, weiterhin Git-ignoriert. Archiv, Dokumentation und Prüfscripte bleiben über `_config.yml` vom Pages-Output ausgeschlossen.
 
-Die Dokumentation des aktuellen Standes und der Entscheidungen wurde fortgeschrieben. Für einen späteren Live-Schritt sind die geprüften Änderungen des Gestaltungsbranches zu veröffentlichen und anschließend die ausgelieferten Seiten samt Cacheversion und Cloudflare-Verhalten zu kontrollieren. Dieser Bericht bezeichnet die lokale Vorschau ausdrücklich nicht als bereits veröffentlichte Website.
+Die Dokumentation des aktuellen Standes und der Entscheidungen wurde fortgeschrieben. Der anschließend ausdrücklich beauftragte Live-Schritt ist mit PR #54 erledigt. Die folgenden Nachweise betreffen die tatsächlich veröffentlichte Fassung.
+
+
+## 9. Veröffentlichung und Live-Prüfung
+
+Am 24.09.2026 hat der Inhaber ausdrücklich Push und Merge beauftragt. Commit `3a4821e` wurde über PR #54 mit `539d6b8` in `main` gemergt. GitHub Pages hat diesen Commit im Lauf `36014734951` erfolgreich gebaut und veröffentlicht.
+
+Die HTTP-Prüfung ab 16:43 Uhr MESZ bestätigt HTTP 200 für alle sechs Inhaltsseiten hinter Cloudflare, durchgehend Assetversion `2026092403`, gleiche Canonicals und JSON-LD sowie identischen CSS-/JS-Inhalt nach Zeilenendnormalisierung. Die neu hinzugekommenen Dokumentations-, Archiv- und Prüfscripte sind über die öffentliche Domain nicht abrufbar (vier kontrollierte Pfade HTTP 404). Rohbeleg: `docs/qa-output/design/publication-http.json`.
+
+Im echten Browser wurden die neue Startansicht bei 390 px, Öffnen des Mobilmenüs und Schließen per Escape kontrolliert. Die verschleierten E-Mail-Adressen auf Impressum und Datenschutz werden korrekt zum sichtbaren `mailto:`-Kontakt decodiert. Auf Kontakt war vor Freigabe kein Karten-Iframe vorhanden; nach Freigabe erschien die echte Google-Satellitenkarte mit dem Marker für Asia Markt Thien Phu, nach „Karte ausblenden“ war der Iframe wieder entfernt. `/route.html` führte zum Google-Maps-Routenziel Asia Markt Thien Phu, Hauptstraße 74, 40764 Langenfeld (Rheinland). Es wurden keine Anrufe oder E-Mails ausgelöst.
+
+Die lokale Test-/Lighthouse-Messung aus Abschnitt 7 bleibt ein Labornachweis; der aktuelle Live-Test ergänzt ihn, ersetzt aber keine Search-Console- oder Felddatenprüfung. Die bekannte Cloudflare-Einschränkung bei deaktiviertem JavaScript bleibt gemäß Inhaberentscheidung unverändert.

@@ -1,12 +1,12 @@
 # 02 — Projektstand
 
-## Klassische Ladenansicht, 24.09.2026, lokal geprüft
+## Klassische Ladenansicht, 24.09.2026, veröffentlicht und live geprüft
 
 **Neuester Arbeitsstand:** Auf Inhaberwunsch die Darstellung aller sechs Inhaltsseiten überarbeitet. Geschäftskopf mit größerer Marke, lokale Lora-Überschriften, Arial-Fließtext, Schaufensterrot/Naturtöne, rechteckige Fotos, offene Kontaktspalten und ruhige Faktenzeilen. Scroll-Einblendungen entfernt. Der gesamte HTML-Body jeder Seite sowie Texte, Links, Alt-Texte, Überschriften und SEO-Daten bleiben gegen Ausgangscommit `3e1e459` identisch. Cacheversion überall `2026092403`. Vollständige Analyse, vier lokale Referenzen, Fachquellen und Nachweise: [Gestaltungsanalyse](gestaltungsanalyse_2026-09-24.md).
 
 **Prüfungen:** 15 Logik-/Strukturtests und 36 Browserfälle bestanden; 320/390/768/1280 px, Axe, Menü/Tastatur, ohne JS, Karte/Route und Feiertagsstatus. Inhaltserhalt aller sechs Seiten und 46 weiterer Dateien separat geprüft. Neue mobile Lighthouse-Messung am 24.09.2026, 16:24 bis 16:25 Uhr MESZ: Performance 97 bis 100, übrige Kategorien jeweils 100, CLS überall 0. Alle sechs Desktopansichten sowie ausgewählte Mobilansichten visuell geprüft. Kein Ranking- oder vollständiger WCAG-Nachweis.
 
-**Veröffentlichung:** Änderungen auf `codex/klassische-ladengestaltung` lokal, noch kein Push/Merge/Deployment dieses Gestaltungsstands. Vorschau `http://127.0.0.1:4173/`. Frühere Live-Nachweise unten betreffen die vorherige Gestaltung. Vorfassungen in `90_Archiv/gestaltung-v1_2026-09-24/`. Externe Restpunkte der inhaltlichen Vorgängeraufträge bleiben unverändert.
+**Veröffentlichung:** Auf ausdrücklichen Push-/Merge-Auftrag mit [PR #54](https://github.com/asiasince2007/website/pull/54) veröffentlicht, Merge `539d6b8` am 24.09.2026 um 16:42 Uhr MESZ. [Pages-Lauf 36014734951](https://github.com/asiasince2007/website/actions/runs/36014734951) erfolgreich. Live-Prüfung ab 16:43 Uhr MESZ: alle sechs Seiten HTTP 200, CSS/JS `2026092403` identisch zum Workspace, Canonicals/JSON-LD unverändert, Mobilmenü einschließlich Escape, Cloudflare-E-Mail-Decodierung auf beiden Rechtsseiten, echte Karte mit richtigem Ladenmarker und Widerruf sowie Routenweiterleitung zum richtigen Google-Maps-Ziel bestätigt. Neue Dokumentation, Archiv und Testwerkzeuge liefern live 404. Vorfassungen in `90_Archiv/gestaltung-v1_2026-09-24/`. Externe Restpunkte der inhaltlichen Vorgängeraufträge bleiben unverändert.
 
 ## Umsetzung der Kundenanalyse, 24.09.2026
 

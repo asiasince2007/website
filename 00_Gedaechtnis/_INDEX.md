@@ -13,7 +13,7 @@ Neue Gedächtniseinträge werden hier sofort ergänzt, sonst sind sie faktisch u
 
 ## Thematische Einträge
 
-- [Gestaltungsanalyse und klassische Ladenansicht](gestaltungsanalyse_2026-09-24.md) — vollständiger Seitenvergleich, vier lokale Vorbilder, Forschungsquellen, reiner Darstellungsumbau, Inhalts-/SEO-Erhalt und neue Prüfungen; E-43, F-26/F-27; lokal auf Gestaltungsbranch, 24.09.2026.
+- [Gestaltungsanalyse und klassische Ladenansicht](gestaltungsanalyse_2026-09-24.md) — vollständiger Seitenvergleich, vier lokale Vorbilder, Forschungsquellen, reiner Darstellungsumbau, Inhalts-/SEO-Erhalt und neue Prüfungen; E-43, F-26/F-27; mit PR #54 veröffentlicht und live geprüft, 24.09.2026.
 
 - [Parkautomat bei EM Kabüffken, E-42](03_entscheidungen.md) — Inhaberbeschreibung ergänzt, Pflicht für kostenlose 15 Minuten deutlich, verstreute Hinweise zu einem Orientierungshinweis gebündelt, 24.09.2026.
 
@@ -34,3 +34,5 @@ Neue Gedächtniseinträge werden hier sofort ergänzt, sonst sind sie faktisch u
 ---
 
 _Struktur vereinheitlicht am 31.07.2026. Bedeutung der Kerndateien: siehe `../CLAUDE.md`._
+
+- [Veröffentlichung der klassischen Ladenansicht](gestaltungsanalyse_2026-09-24.md#9-veröffentlichung-und-live-prüfung) — PR #54, erfolgreicher Pages-Lauf und aktuelle Live-Prüfung, E-44, 24.09.2026.

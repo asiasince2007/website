@@ -10,7 +10,7 @@ Live: https://www.asiamarkt.info/ · Repo: `asiasince2007/website` (GitHub Pages
 
 | Datei | Zweck |
 |---|---|
-| `00_Gedaechtnis/gestaltungsanalyse_2026-09-24.md` | Neueste klassische Ladenansicht: Analyse aller Seiten, lokale Vorbilder, Quellen und Nachweis des Inhalts-/SEO-Erhalts. Lokal geprüft, noch nicht veröffentlicht. |
+| `00_Gedaechtnis/gestaltungsanalyse_2026-09-24.md` | Neueste klassische Ladenansicht: Analyse aller Seiten, lokale Vorbilder, Quellen und Nachweis des Inhalts-/SEO-Erhalts. Mit PR #54 veröffentlicht und live geprüft. |
 | `CLAUDE.md` | Verbindliche Arbeitsregeln und aktueller Stack. |
 | `00_Gedaechtnis/02_projektstand.md` | Aktueller Stand, Prüfnachweise und offene externe Schritte. |
 | `00_Gedaechtnis/kundenanalyse_2026-09-24.md` | Ausgangsanalyse aus Kundensicht, vor der Umsetzung. |
@@ -37,7 +37,7 @@ Historische QA-Skripte: `90_Archiv/qa-v1_2026-09-24/`. Frühere README-/CLAUDE-F
 
 ## Pflege und Veröffentlichung
 
-Die neueste lokale Darstellung folgt E-43: vorhandene Lora für Überschriften, Arial im Fließtext, Schaufensterrot und helle Naturtöne, klassische Navigation und keine Scroll-Einblendungen. Alle sechs HTML-Bodies bleiben gegenüber `3e1e459` unverändert. CSS-/JS-Vorfassungen liegen in `90_Archiv/gestaltung-v1_2026-09-24/`. Stand und Veröffentlichungsgrenze im Gestaltungsbericht oben; ältere Live-Prüfungen belegen diesen neuen Branch noch nicht.
+Die aktuelle veröffentlichte Darstellung folgt E-43: vorhandene Lora für Überschriften, Arial im Fließtext, Schaufensterrot und helle Naturtöne, klassische Navigation und keine Scroll-Einblendungen. Alle sechs HTML-Bodies bleiben gegenüber `3e1e459` unverändert. CSS-/JS-Vorfassungen liegen in `90_Archiv/gestaltung-v1_2026-09-24/`. Mit PR #54 veröffentlicht; aktuelle Pages-/Live-Nachweise einschließlich Cloudflare stehen im Gestaltungsbericht oben.
 
 - Wochenzeiten im sichtbaren HTML, in vier JSON-LD-Blöcken und im zentralen `OEFFNUNGSZEITEN`-Objekt synchron halten. Sonderzeiten nur nach Inhaberbestätigung; Anleitung oben.
 - An gesetzlichen NRW-Feiertagen immer geschlossen (Inhaberbestätigung 24.09.2026). 24. und 31. Dezember: 9 bis 14 Uhr nur vorläufig vorgemerkt, endgültige Bestätigung offen. Keine pauschalen Feiertagswarnungen mehr, kurze Information über mögliche kurzfristige Schließungen.

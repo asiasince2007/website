@@ -323,3 +323,5 @@ weggefallen, und kein Rechtstext enthält mehr ein `<code>`-Element.
 ---
 
 _Angelegt am 31.07.2026._
+
+**E-44 · Klassische Ladenansicht veröffentlichen, 24.09.2026.** Der Inhaber beauftragt nach der lokalen Abnahme ausdrücklich „pushe und merge“. PR #54 wurde konfliktfrei gemergt, Pages-Deployment und reale Auslieferung wurden erfolgreich geprüft. Die frühere Beschränkung des Gestaltungsberichts auf eine lokale Vorschau ist damit überholt. Details und Prüfgrenzen in Abschnitt 9 des Gestaltungsberichts.
