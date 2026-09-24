@@ -2,6 +2,10 @@
 
 ## Umsetzung der Kundenanalyse, 24.09.2026
 
+**Kleine Textkorrektur im Anschluss:** Auf Inhaberwunsch den Zusatz zu beschrankten Parkplätzen, Tiefgaragen und Parkhäusern auf der Kontaktseite entfernt. Laut Inhaber sind die gegenüberliegenden Plätze normale Straßenparkplätze; deshalb ist die Aufzählung hier entbehrlich. Übrige Parkangaben und Quellen unverändert, konkrete Beschilderung weiterhin maßgeblich. Entscheidung E-41.
+
+Prüfung dieser Textkorrektur: `npm test` erneut bestanden, 15 Logik-/Strukturtests und 36 Browserfälle einschließlich Kontakt bei 320/390/768/1280 px. Keine neue Lighthouse-Messung für die reine Satzkürzung.
+
 Die Grundverbesserungen sind mit [PR #50](https://github.com/asiasince2007/website/pull/50) gemergt und über [Pages-Lauf 35996808054](https://github.com/asiasince2007/website/actions/runs/35996808054) veröffentlicht. Live-Prüfung am 24.09.2026 erfolgreich: alle sechs Seiten, identische CSS/JS-Assets, mobile Navigation, E-Mail-Decodierung hinter Cloudflare, Karte mit richtigem Marker, Routen-Zielaufruf ohne JavaScript und Feiertagslogik in fremder Gerätezeitzone. Google kann vor der Route seine eigene Einwilligungsseite zeigen. Interne Test-/Gedächtnis-/Archivpfade liefern live 404.
 
 **Aktueller Nachtrag ebenfalls veröffentlicht:** [PR #51](https://github.com/asiasince2007/website/pull/51), Merge `e37f8a4`, [Pages-Lauf 35999848486](https://github.com/asiasince2007/website/actions/runs/35999848486) erfolgreich. Erneute Live-Prüfung ab 14:34 Uhr MESZ bestanden, neue Assets `2026092402` identisch zu lokal. Inhaber bestätigt Feiertage immer geschlossen. Statuslogik und statische Angaben angepasst, pauschale Feiertagswarnungen entfernt. Neuer kompakter Hinweis auf kurzfristige Schließungen; „bis“ statt Halbgeviertstrich; zusätzliche Sortimentsbuttons entfernt. Externe Linkhaftung geprüft, kein pauschaler Haftungsausschluss ergänzt. Details und aktuelle Nachprüfung in [Nacharbeit](nacharbeit-kundenangaben_2026-09-24.md); die erste Umsetzung ist im [Umsetzungsbericht](umsetzung-kundenanalyse_2026-09-24.md) dokumentiert. Pflege: [Öffnungszeiten](oeffnungszeiten-pflegen.md).

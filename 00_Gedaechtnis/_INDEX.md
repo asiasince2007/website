@@ -13,6 +13,8 @@ Neue Gedächtniseinträge werden hier sofort ergänzt, sonst sind sie faktisch u
 
 ## Thematische Einträge
 
+- [Parkhinweis gekürzt, E-41](03_entscheidungen.md) — Inhaber bestätigt gegenüberliegende Straßenparkplätze; ortsfremde Ausnahmen auf Kontakt entfernt, 24.09.2026.
+
 - [Kundenanalyse vom 24.09.2026](kundenanalyse_2026-09-24.md) — Ausgangsprüfung vor Umsetzung; Befunde und Prüfgrenzen bleiben historisch erhalten.
 - [Umsetzung der Kundenanalyse](umsetzung-kundenanalyse_2026-09-24.md) — Änderungen, aktuelle Tests, Quellen und externe Schritte vom 24.09.2026; Entscheidungen E-33 bis E-37 und Fehlerwissen F-20 bis F-25.
 - [Nacharbeit der Kundenangaben](nacharbeit-kundenangaben_2026-09-24.md) — jüngste Inhabervorgaben, Feiertage geschlossen, offene Jahresendzeiten, entfernte Sortimentsbuttons, Linkhaftung, verifizierte Bewertungszahl und Abschlussprüfung; E-38 bis E-40.
