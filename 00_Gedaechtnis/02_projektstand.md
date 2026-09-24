@@ -2,6 +2,10 @@
 
 ## Umsetzung der Kundenanalyse, 24.09.2026
 
+**Neuester Kontaktnachtrag:** Auf Inhaberwunsch die drei verstreuten Beschilderungs-/Tarif-/Höchstparkdauerhinweise entfernt. Stattdessen ein gemeinsamer Hinweis: „Die Angaben dienen zur Orientierung. Bitte prüfen Sie vor dem Parken die aktuellen Regeln auf den Schildern und am Parkautomaten.“ Die Pflicht, auch die kostenlosen 15 Minuten am Automaten zu starten, ist mit „müssen“ eindeutig formuliert. Standort des Parkautomaten ergänzt: ungefähr vor bzw. auf Höhe von „EM Kabüffken“, erkennbar am roten runden Schild mit weißer Schrift über dem Eingang und den „Früh Kölsch“-Schildern. Quelle dieser Ortsbeschreibung ist die Inhaberangabe vom 24.09.2026, keine eigene Vor-Ort-Prüfung. Entscheidung E-42. Allgemeine Parkregeln und Stadtquellen bleiben erhalten; Quellenbeschriftung ausdrücklich auf Parkregeln bezogen.
+
+Prüfung des neuesten Nachtrags: vollständiges `npm test` nach Ergänzung des Automatenstandorts bestanden (15 Logik-/Strukturtests, 36 Browserfälle). Nach dem anschließenden sprachlichen Nachtrag erneut alle vier Kontakt-Layout-/Axe-Fälle bei 320/390/768/1280 px und die drei Strukturtests bestanden. Keine neue Lighthouse-Messung für diese Textänderung.
+
 **Kleine Textkorrektur im Anschluss:** Auf Inhaberwunsch den Zusatz zu beschrankten Parkplätzen, Tiefgaragen und Parkhäusern auf der Kontaktseite entfernt. Laut Inhaber sind die gegenüberliegenden Plätze normale Straßenparkplätze; deshalb ist die Aufzählung hier entbehrlich. Übrige Parkangaben und Quellen unverändert, konkrete Beschilderung weiterhin maßgeblich. Entscheidung E-41.
 
 Prüfung dieser Textkorrektur: `npm test` erneut bestanden, 15 Logik-/Strukturtests und 36 Browserfälle einschließlich Kontakt bei 320/390/768/1280 px. Keine neue Lighthouse-Messung für die reine Satzkürzung.

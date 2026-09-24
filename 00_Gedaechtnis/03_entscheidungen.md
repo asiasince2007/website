@@ -6,6 +6,10 @@ Maßgeblich ist **Abschnitt 3 (Architektur-Entscheidungen in ADR-Kurzform)** der
 
 ## Neue Einträge
 
+**E-42 · Konkrete Orientierung zum Parkautomaten, 24.09.2026.** Auf ausdrücklichen Wunsch des Inhabers den Beschilderungs-/Tarifsatz unmittelbar nach „direkt gegenüber“ entfernt. Stattdessen die vom Inhaber gelieferte Orientierung zum Automaten bei „EM Kabüffken“ aufgenommen: rotes rundes Schild mit weißer Schrift über dem Eingang und „Früh Kölsch“-Schilder. „Auf Höhe des Lokals“ bewahrt die ungefähre Ortsangabe, ohne einen vermessenen Standort zu behaupten. Verworfen: erfundene Hausnummer, Entfernung oder Kartenmarkierung. Die Beschreibung stammt vom Inhaber; die Stadtquellen belegen die weiterhin separat genannten allgemeinen Parkregeln.
+
+**Ergänzung zu E-42 im selben Auftrag:** Auch „Maßgeblich ist die Beschilderung am konkreten Parkplatz“ und „Die Höchstparkdauer vor Ort beachten“ entfernt. Ein gemeinsamer freundlicher Hinweis nach den Parkregeln kennzeichnet die Angaben als Orientierung und bittet um Prüfung der aktuellen Regeln auf Schildern und am Automaten. Kostenlose 15 Minuten müssen am Automaten gestartet werden, jetzt ausdrücklich mit „müssen“ und vollständigen Sätzen formuliert. Verworfen: verstreute Wiederholungen oder ein pauschaler Haftungsausschluss.
+
 **E-41 · Parkhinweis auf den Besuch vor Ort begrenzen, 24.09.2026.** Inhaber bestätigt die gegenüberliegenden Plätze als normale Straßenparkplätze und wünscht die Entfernung der Aufzählung zu beschrankten Parkplätzen/Tiefgaragen/Parkhäusern. Nur diesen Zusatz aus `kontakt.html` entfernt. Alternative, die vollständige städtische Ausnahmenliste weiterhin im kurzen Besuchshinweis aufzuführen, wegen fehlender Ortsrelevanz verworfen. Keine neue Tarifbestätigung daraus ableiten; Quelle und Hinweis auf konkrete Beschilderung bleiben bestehen.
 
 ### 24.09.2026 — Umsetzung der Kundenanalyse
