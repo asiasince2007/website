@@ -8,17 +8,17 @@
     "test:browser": "playwright test",
     "test": "npm run test:unit && npm run test:browser",
     "qa:lighthouse": "node scripts/qa-lighthouse.mjs",
-    "legacy:build:css": "tailwindcss -c tailwind.config.js -i ./src/styles.css -o ./assets/css/styles.min.css --minify"
+    "build:icons": "node scripts/build-icons.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "private": true,
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.63.0",
-    "lighthouse": "13.5.0",
-    "tailwindcss": "^3.4.17"
+    "chrome-launcher": "1.2.1",
+    "lighthouse": "13.5.0"
+  },
+  "engines": {
+    "node": ">=22.19.0"
   }
 }

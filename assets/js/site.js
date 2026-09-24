@@ -11,7 +11,7 @@
        'JJJJ-MM-TT': { zeiten: [], bestaetigtAm: 'JJJJ-MM-TT' } fuer geschlossen
        oder zeiten: [['10:00', '13:00']] fuer bestaetigte Sonderzeiten.
      Optional: hinweis: 'Betriebsferien'. Keine echten Sonderzeiten bestaetigt.
-     Anleitung: 00_Gedaechtnis/oeffnungszeiten-pflegen.md.
+     Pflegeablauf: README.md, Abschnitt Pflege.
      Bei geaenderten Wochenzeiten auch HTML und JSON-LD aktualisieren. */
   var OEFFNUNGSZEITEN = {
     woche: [[], [['09:00', '18:00']], [['09:00', '18:00']],
@@ -84,6 +84,8 @@
     return result;
   }
 
+  // Vertrag: [] = bestätigt geschlossen, null = unbekannt/ungültig,
+  // sonst sortierte Minutenintervalle [Beginn, Ende) in Berliner Ortszeit.
   function tagesplan(datum, config) {
     var key = datumSchluessel(datum), ausnahmen = config.ausnahmen || {};
     // Inhaberbestaetigung 24.09.2026: An gesetzlichen NRW-Feiertagen immer zu.
@@ -108,6 +110,8 @@
     return Math.floor(min / 60) + (rest ? ':' + String(rest).padStart(2, '0') : '') + ' Uhr';
   }
 
+  // Reine Berechnung ohne DOM: momentane Öffnung und nächste verlässliche Zeit.
+  // config ist nur für Tests optional; die Website verwendet OEFFNUNGSZEITEN.
   function status(jetzt, config) {
     config = config || OEFFNUNGSZEITEN;
     var uhr;

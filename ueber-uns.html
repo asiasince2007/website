@@ -12,10 +12,10 @@
     <link rel="canonical" href="https://www.asiamarkt.info/ueber-uns.html">
 
     <meta name="theme-color" content="#FFFBF5">
-    <link rel="icon" href="/favicon.ico" sizes="48x48">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico?v=2026092404" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png?v=2026092404">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png?v=2026092404">
+    <link rel="manifest" href="/site.webmanifest?v=2026092404">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Asia Markt Thien Phu">
@@ -29,10 +29,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lora-700-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/site.css?v=2026092403">
+    <link rel="stylesheet" href="assets/css/fonts.css?v=2026092404">
+    <link rel="stylesheet" href="assets/css/site.css?v=2026092404">
 
-    <script src="assets/js/site.js?v=2026092403" defer></script>
+    <script src="assets/js/site.js?v=2026092404" defer></script>
     <!-- Statische Mobilnavigation bei deaktiviertem JavaScript, ohne Lade-Sprung. -->
     <noscript><style>
         @media (max-width: 900px) {
@@ -54,6 +54,7 @@
     <span data-status-text>Regulär: Mo bis Fr 9 bis 18, Sa 9 bis 14 Uhr</span>
 </div>
 
+<!-- Gemeinsamer Seitenkopf: Navigation auf allen sechs Inhaltsseiten synchron halten. -->
 <header class="kopf">
     <div class="kopf-innen">
         <a href="/" class="marke">
@@ -70,10 +71,10 @@
         </button>
 
         <nav id="hauptnavigation" class="nav" aria-label="Hauptnavigation">
-            <a href="/">Start<span class="marker"></span></a>
-            <a href="sortiment.html">Sortiment<span class="marker"></span></a>
-            <a href="ueber-uns.html" aria-current="page">Der Laden<span class="marker"></span></a>
-            <a href="kontakt.html">Kontakt<span class="marker"></span></a>
+            <a href="/">Start</a>
+            <a href="sortiment.html">Sortiment</a>
+            <a href="ueber-uns.html" aria-current="page">Der Laden</a>
+            <a href="kontakt.html">Kontakt</a>
             <a href="tel:+4921731065590" class="btn-anruf">Anrufen</a>
         </nav>
     </div>
@@ -84,7 +85,7 @@
     <section class="seiten-kopf seiten-kopf-schmal">
         <div>
             <h1>Der Laden</h1>
-            <p style="font-size:clamp(19px,2.2vw,21px);line-height:1.55;max-width:24em">Seit 2007 an der Hauptstraße. Ein Familienbetrieb, kein Filialist.</p>
+            <p class="laden-einleitung">Seit 2007 an der Hauptstraße. Ein Familienbetrieb, kein Filialist.</p>
         </div>
         <img src="assets/images/laden-eingang.jpg" width="1200" height="1089" class="foto foto-eingang"
              srcset="assets/images/laden-eingang-400.jpg 400w,
@@ -95,8 +96,8 @@
              loading="eager" decoding="async" fetchpriority="high">
     </section>
 
-    <section class="bahn" style="padding-block: 40px 48px">
-        <div class="laden-text" data-reveal>
+    <section class="bahn laden-geschichte">
+        <div class="laden-text">
             <div>
                 <p>Wir suchen die Ware selbst aus: bekannte asiatische Marken, die auch in Asien im Alltag auf dem Tisch stehen, von der vietnamesischen Pho über thailändisches Curry bis zum japanischen Ramen.</p>
                 <p>Frisches Gemüse und Kräuter kommen regelmäßig neu. Und wenn Sie nicht weiterwissen: fragen Sie. Das ist der Vorteil eines kleinen Ladens.</p>
@@ -121,11 +122,11 @@
             </div>
         </div>
         <!-- Pflichtangabe nach § 5b Abs. 3 UWG, weil oben eine Sternebewertung steht. -->
-        <p style="margin:18px 0 0;font-size:14px;line-height:1.6;color:var(--grau)" data-reveal>
+        <p class="bewertungsquelle">
             Aus unserem <a href="https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7" target="_blank" rel="noopener">Google-Profil</a>. Sternebewertung: Stand 24.09.2026. Ob die Bewertenden bei uns eingekauft haben, prüfen wir nicht nach.
         </p>
 
-        <div class="galerie-3" data-reveal style="margin-top:40px">
+        <div class="galerie-3 laden-galerie">
             <img src="assets/images/ladenschild.jpg" width="1200" height="750" class="foto foto-16-10"
                  srcset="assets/images/ladenschild-480.jpg 480w,
                          assets/images/ladenschild-800.jpg 800w,
@@ -165,6 +166,7 @@
 
 </main>
 
+<!-- Gemeinsame Geschäftsdaten und Wochenzeiten: siehe Öffnungszeiten-Pflegeanleitung. -->
 <footer class="fuss">
     <div class="fuss-oben">
         <div>

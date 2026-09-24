@@ -16,10 +16,10 @@
 
     <!-- Favicons & technische Meta -->
     <meta name="theme-color" content="#FFFBF5">
-    <link rel="icon" href="/favicon.ico" sizes="48x48">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico?v=2026092404" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png?v=2026092404">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png?v=2026092404">
+    <link rel="manifest" href="/site.webmanifest?v=2026092404">
 
     <!-- Open Graph / Twitter Card -->
     <meta property="og:type" content="website">
@@ -37,7 +37,7 @@
     <meta name="twitter:description" content="Asia Markt Thien Phu in Langenfeld: frische Kräuter, Nudeln, Saucen und Tiefkühlware. Mo bis Fr 9 bis 18, Sa 9 bis 14 Uhr · Hauptstraße 74 · Parken direkt gegenüber.">
     <meta name="twitter:image" content="https://www.asiamarkt.info/assets/images/og-image.jpg">
 
-    <!-- Strukturierte Daten: GroceryStore. NAP-Quelle: 00_Gedaechtnis/gedaechtnis-gesamt.md
+    <!-- Strukturierte Daten: GroceryStore. Geschäftsdaten wie im sichtbaren Footer; Konsistenzprüfung in tests/struktur.test.js
          KEIN aggregateRating: Eine Bewertung, die das Unternehmen ueber sich selbst
          auszeichnet, verstoesst gegen Googles Richtlinie zu Bewertungs-Rich-Results
          (self-serving reviews). Die Note steht weiterhin im sichtbaren Text, mit
@@ -78,10 +78,10 @@
     </script>
 
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lora-700-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/site.css?v=2026092403">
+    <link rel="stylesheet" href="assets/css/fonts.css?v=2026092404">
+    <link rel="stylesheet" href="assets/css/site.css?v=2026092404">
 
-    <script src="assets/js/site.js?v=2026092403" defer></script>
+    <script src="assets/js/site.js?v=2026092404" defer></script>
     <!-- Statische Mobilnavigation bei deaktiviertem JavaScript, ohne Lade-Sprung. -->
     <noscript><style>
         @media (max-width: 900px) {
@@ -103,10 +103,11 @@
     <span data-status-text>Regulär: Mo bis Fr 9 bis 18, Sa 9 bis 14 Uhr</span>
 </div>
 
+<!-- Gemeinsamer Seitenkopf: Navigation auf allen sechs Inhaltsseiten synchron halten. -->
 <header class="kopf">
     <div class="kopf-innen">
+        <!-- Auf der Startseite bewusst nur der Geschäftsname; Logo bleibt als Tab-Symbol. -->
         <a href="/" class="marke">
-            <img src="assets/images/thien_phu_logo.webp" width="220" height="220" alt="" loading="eager" decoding="async">
             <span>
                 <span class="marke-name">Asia Markt Thien Phu</span>
                 <span class="marke-zusatz">Asiatische Lebensmittel in Langenfeld, seit 2007</span>
@@ -119,10 +120,10 @@
         </button>
 
         <nav id="hauptnavigation" class="nav" aria-label="Hauptnavigation">
-            <a href="/" aria-current="page">Start<span class="marker"></span></a>
-            <a href="sortiment.html">Sortiment<span class="marker"></span></a>
-            <a href="ueber-uns.html">Der Laden<span class="marker"></span></a>
-            <a href="kontakt.html">Kontakt<span class="marker"></span></a>
+            <a href="/" aria-current="page">Start</a>
+            <a href="sortiment.html">Sortiment</a>
+            <a href="ueber-uns.html">Der Laden</a>
+            <a href="kontakt.html">Kontakt</a>
             <a href="tel:+4921731065590" class="btn-anruf">Anrufen</a>
         </nav>
     </div>
@@ -131,7 +132,7 @@
 <main id="inhalt">
 
     <section class="hero">
-        <div data-reveal>
+        <div>
             <p class="status-badge">
                 <span class="punkt" data-status-punkt aria-hidden="true"></span>
                 <span data-status-text>Regulär: Mo bis Fr 9 bis 18, Sa 9 bis 14 Uhr</span>
@@ -145,7 +146,7 @@
                 <a href="/route.html" target="_blank" rel="noopener" class="btn btn-rand">Route planen</a>
             </div>
         </div>
-        <figure data-reveal>
+        <figure>
             <img src="assets/images/ladenfront.jpg" width="1400" height="1050" class="foto foto-4-3"
                  srcset="assets/images/ladenfront-480.jpg 480w,
                          assets/images/ladenfront-800.jpg 800w,
@@ -182,12 +183,12 @@
         </div>
     </section>
 
-    <section class="bahn" style="padding-block: 48px">
-        <div data-reveal>
+    <section class="bahn sortiment-vorschau">
+        <div>
             <h2>Das führen wir</h2>
-            <p style="margin:0 0 28px;font-size:18px;color:var(--grau-hell)">Sechs Bereiche. Die ganze Liste steht im Sortiment.</p>
+            <p class="sortiment-einleitung">Sechs Bereiche. Die ganze Liste steht im Sortiment.</p>
         </div>
-        <div class="kategorien" data-reveal>
+        <div class="kategorien">
             <div>
                 <p class="titel">Frische Kräuter, Gemüse und Tofu</p>
                 <p class="bsp">Koriander, Zitronengras, Pak Choi, Ingwer, Tofu</p>
@@ -213,12 +214,12 @@
                 <p class="bsp">Garnelen, Muscheln, Gyoza, Fischbällchen</p>
             </div>
         </div>
-        <p style="margin:22px 0 0;font-size:17px;font-weight:700"><a href="sortiment.html">Zum ganzen Sortiment</a></p>
+        <p class="sortiment-link"><a href="sortiment.html">Zum ganzen Sortiment</a></p>
     </section>
 
     <section class="blende">
-        <div class="bahn" style="padding-block: 52px" data-reveal>
-            <p style="margin:0 0 26px;font-size:15px;font-weight:700;color:var(--rot-dunkel)">4,4 von 5 Sternen aus 128 Bewertungen bei Google</p>
+        <div class="bahn kundenstimmen">
+            <p class="bewertungsstand">4,4 von 5 Sternen aus 128 Bewertungen bei Google</p>
             <div class="bewertungen">
                 <blockquote>
                     <p>„Immer freundlich und gut gelaunt! Alle Grundlagen sind da und was er nicht hat besorgt er gerne!“</p>
@@ -237,15 +238,15 @@
                  macht, muss sagen, ob und wie er ihre Echtheit sicherstellt. Bewusst knapp:
                  Verlangt ist die Auskunft, nicht ihre Ausfuehrlichkeit. Sie muss aber bei den
                  Bewertungen stehen; hinter einem Link waere sie vorenthalten. -->
-            <p style="margin:22px 0 0;font-size:14px;line-height:1.6;color:var(--grau)">
+            <p class="bewertungsquelle">
                 Aus unserem Google-Profil. Sternebewertung: Stand 24.09.2026. Ob die Bewertenden bei uns eingekauft haben, prüfen wir nicht nach.
                 <a href="https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7" target="_blank" rel="noopener">Alle Bewertungen bei Google</a>
             </p>
         </div>
     </section>
 
-    <section class="bahn" style="padding-block: 52px">
-        <div class="galerie-2" data-reveal>
+    <section class="bahn laden-einblicke">
+        <div class="galerie-2">
             <img src="assets/images/schaufenster.jpg" width="1200" height="750" class="foto foto-16-10"
                  srcset="assets/images/schaufenster-480.jpg 480w,
                          assets/images/schaufenster-800.jpg 800w,
@@ -265,6 +266,7 @@
 
 </main>
 
+<!-- Gemeinsame Geschäftsdaten und Wochenzeiten: siehe Öffnungszeiten-Pflegeanleitung. -->
 <footer class="fuss">
     <div class="fuss-oben">
         <div>

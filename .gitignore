@@ -1,10 +1,15 @@
 node_modules/
 .idea/
-docs/lighthouse-*.json
 gitapply.txt
-docs/qa-tmp-*.jpg
-docs/qa-output/
-.claude/worktrees/
+
+# Nur Website-Code, Assets, Quellen, Tests und technische Anleitung versionieren.
+# Inhaberwunsch 24.09.2026: Projektgedächtnis, Berichte und Archive bleiben lokal.
+docs/
+00_Gedaechtnis/
+90_Archiv/
+CLAUDE.md
+AGENTS.md
+.claude/
 
 # Interne Notfall-Unterlagen gehoeren NICHT in ein oeffentliches Repo.
 Einbruch_Notfall_Anleitung_*.md

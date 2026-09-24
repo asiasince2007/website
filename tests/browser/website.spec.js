@@ -1,6 +1,10 @@
 const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
-const pages = ['/', '/sortiment.html', '/ueber-uns.html', '/kontakt.html', '/impressum.html', '/datenschutz.html'];
+const { PAGES } = require('../../scripts/site-files.js');
+const pages = PAGES.map(file => file === 'index.html' ? '/' : '/' + file);
+
+// Drittanbieter werden in den Interaktionstests kontrolliert beantwortet.
+// Diese Suite prüft den Website-Code; reale Google-/Cloudflare-Funktion separat.
 
 test('Verzögertes JavaScript verursacht keinen Sprung durch das Mobilmenü', async ({ page }) => {
   await page.setViewportSize({width:390,height:844});
@@ -32,8 +36,8 @@ for (const width of [320, 390, 768, 1280]) {
       for (const link of await page.locator('a[href^="#"]').all()) {
         await expect(page.locator(await link.getAttribute('href'))).toHaveCount(1);
       }
-      // Reveal-Ziele tatsaechlich sichtbar scrollen, damit Kontrast geprueft wird.
-      for (const target of await page.locator('[data-reveal]').all()) {
+      // Hauptbereiche sichtbar prüfen; keine Abhängigkeit von alten Reveal-Markern.
+      for (const target of await page.locator('main > section, main > div').all()) {
         await target.scrollIntoViewIfNeeded();
         await expect(target).toHaveCSS('opacity', '1');
       }
@@ -85,6 +89,40 @@ test('Ohne JavaScript: sechs Seiten erreichbar, Menü sichtbar, reguläre Zeiten
   await expect(page.locator('#karte-laden')).toBeHidden();
   await expect(page.getByRole('link', {name:'Oder direkt in Google Maps öffnen'})).toBeVisible();
   await context.close();
+});
+
+test('Startseite ohne Bildlogo; Browsericons mit transparenten Ecken und vollständigem Kreis', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.marke img')).toHaveCount(0);
+  await expect(page.locator('.marke')).toContainText('Asia Markt Thien Phu');
+  // Tatsächliche Pixel prüfen: CSS-Rundung hätte auf ein Tab-Symbol keinen Einfluss.
+  const icons = await page.evaluate(async () => {
+    const paths = ['/assets/images/icon-192.png', '/assets/images/icon-512.png', '/assets/images/apple-touch-icon.png'];
+    const ico = new DataView(await (await fetch('/favicon.ico')).arrayBuffer());
+    for (let i = 0; i < ico.getUint16(4, true); i++) {
+      const entry = 6 + i * 16;
+      const length = ico.getUint32(entry + 8, true), offset = ico.getUint32(entry + 12, true);
+      paths.push('data:image/png;base64,' + btoa(String.fromCharCode(...new Uint8Array(ico.buffer, offset, length))));
+    }
+    const result = [];
+    for (const path of paths) {
+      const img = new Image(); img.src = path; await img.decode();
+      const canvas = document.createElement('canvas'); canvas.width = img.width; canvas.height = img.height;
+      const ctx = canvas.getContext('2d'); ctx.drawImage(img, 0, 0);
+      const alpha = (x, y) => ctx.getImageData(x, y, 1, 1).data[3];
+      result.push({ size: img.width, height: img.height,
+        corners: [[0, 0], [img.width - 1, 0], [0, img.height - 1], [img.width - 1, img.height - 1]].map(([x,y]) => alpha(x,y)),
+        center: alpha(img.width / 2, img.height / 2),
+        top: alpha(img.width / 2, 1), bottom: alpha(img.width / 2, img.height - 2) });
+    }
+    return result;
+  });
+  expect(icons.map(icon => icon.size)).toEqual([192, 512, 180, 16, 32, 48]);
+  for (const icon of icons) {
+    expect(icon.height).toBe(icon.size);
+    expect(icon.corners).toEqual([0, 0, 0, 0]);
+    expect(icon.center).toBe(255); expect(icon.top).toBe(255); expect(icon.bottom).toBe(255);
+  }
 });
 
 test('Sortiment früh erreichbar, ohne zusätzliche Gruppenbuttons, Besuchsaktionen vorhanden', async ({ page }) => {
