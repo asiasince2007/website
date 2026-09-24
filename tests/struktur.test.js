@@ -53,5 +53,8 @@ test('Aktive Assets, kanonische URLs und Sitemap stimmen mit den sechs Inhaltsse
     assert.match(html, /assets\/css\/site\.css\?v=\d+/);
     assert.match(html, /assets\/js\/site\.js\?v=\d+/);
     assert.doesNotMatch(html, /styles\.min\.css|assets\/js\/main\.js|email_off/);
+    assert.doesNotMatch(html, /[–—]/, `${file}: Zeitspannen mit bis schreiben`);
+    assert.doesNotMatch(html, /An Feiertagen können|Feiertage und Sonderzeiten bitte/);
+    assert.match(html, /Sonntag &amp; Feiertage/);
   }
 });

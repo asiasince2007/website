@@ -1,5 +1,7 @@
 # Umsetzung der Kundenanalyse vom 24.09.2026
 
+**Historischer Stand der Grundumsetzung aus PR #50.** Anschließend bestätigte der Inhaber die Feiertagsschließung und beauftragte weitere Vereinfachungen. Aktuell maßgeblich: [Nacharbeit](nacharbeit-kundenangaben_2026-09-24.md) und `02_projektstand.md`. Die nachfolgenden Angaben zu Feiertagsunsicherheit, Gruppenbuttons und zunächst weggelassener Bewertungsanzahl beschreiben die zuerst veröffentlichte Fassung; die Nacharbeit ersetzt diese Punkte. PR #50 wurde erfolgreich veröffentlicht und live geprüft.
+
 Grundlage: [Kundenanalyse](kundenanalyse_2026-09-24.md), aktueller August-Code und anschließender Umsetzungsauftrag des Inhabers. Bestehende Gestaltung, Geschäftsidentität, sechs statische Inhaltsseiten und vorhandene URLs bleiben erhalten. Bearbeitet wurden insbesondere die tatsächlich eingebundenen Dateien `assets/css/site.css` und `assets/js/site.js`.
 
 ## Änderungen und Begründung

@@ -58,11 +58,12 @@ Durchgängig **Deutsch**. Zentrale Fachbegriffe bei Erstnennung zusätzlich mit 
 ## Aktiver Stack und fachliche Regeln
 
 - Sechs statische Inhaltsseiten plus `/route.html`, aktive Dateien `assets/css/site.css` und `assets/js/site.js`. Keine Framework- oder Tailwind-Migration. Vorhandene URLs, Gestaltung und Geschäftsidentität erhalten.
-- Öffnungsstatus ausschließlich in `Europe/Berlin`; elf NRW-Feiertage, ungeklärte Tage sowie Heiligabend/Silvester neutral behandeln. Bestätigte Ausnahmen in `OEFFNUNGSZEITEN`, Anleitung: `00_Gedaechtnis/oeffnungszeiten-pflegen.md`.
+- Öffnungsstatus ausschließlich in `Europe/Berlin`; elf NRW-Feiertage sind laut Inhaber **immer geschlossen** (Nachtrag 24.09.2026). Heiligabend/Silvester: 9 bis 14 Uhr vorläufig vorgemerkt, erst nach endgültiger Bestätigung veröffentlichen. Bestätigte Ausnahmen in `OEFFNUNGSZEITEN`, Anleitung: `00_Gedaechtnis/oeffnungszeiten-pflegen.md`. Feste Feiertagsschließung hat Vorrang vor versehentlichen Öffnungseinträgen.
 - Navigation und reguläre Zeiten bleiben ohne JavaScript erreichbar. **Cloudflare-Obfuscation bleibt ausdrücklich aktiv (Inhaberentscheidung 24.09.2026, E-34). Keine `email_off`-Ausnahme.** Lokaler E-Mail-Klartext belegt nicht die Live-Darstellung.
 - Routenaktionen weiter über `/route.html`. Google Maps erst nach Freigabe laden und wieder ausblendbar halten. Vor Freigabe keine Google-Anfragen.
 - Öffentliche Parkregeln von belegten Bedingungen konkreter Stellplätze trennen. Quellen und Datum sichtbar führen. E-Parkregel nach dem 31.12.2026 neu prüfen.
-- Aktuell 4,4 Sterne, Stand 24.09.2026, ohne genaue Anzahl. Durchschnitt und Zitatdaten getrennt pflegen; keine `aggregateRating`-Eigenbewertung im Schema. Neue Werte nur nach Quellenprüfung.
+- Aktuell 4,4 Sterne bei 128 Bewertungen, Stand 24.09.2026, zuletzt im echten Google-Embed visuell bestätigt. Durchschnitt und Zitatdaten getrennt pflegen; keine `aggregateRating`-Eigenbewertung im Schema. Neue Werte nur nach Quellenprüfung.
+- Sichtbare Texte und Metadaten ohne Halb-/Geviertstriche, Zeitspannen mit „bis“. Sortiments-Sprungbuttons auf Wunsch entfernt. Kurzer Schließungshinweis statt pauschaler Feiertagsunsicherheit. Kein pauschaler Linkhaftungsausschluss im Datenschutz; Stadtseiten klar als externe Quellen bezeichnen. Begründung/Quellen: `00_Gedaechtnis/nacharbeit-kundenangaben_2026-09-24.md`.
 
 ## Build & Deploy
 

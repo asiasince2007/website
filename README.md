@@ -14,6 +14,7 @@ Live: https://www.asiamarkt.info/ · Repo: `asiasince2007/website` (GitHub Pages
 | `00_Gedaechtnis/02_projektstand.md` | Aktueller Stand, Prüfnachweise und offene externe Schritte. |
 | `00_Gedaechtnis/kundenanalyse_2026-09-24.md` | Ausgangsanalyse aus Kundensicht, vor der Umsetzung. |
 | `00_Gedaechtnis/umsetzung-kundenanalyse_2026-09-24.md` | Änderungen, Quellen, tatsächlich durchgeführte Tests und Prüfgrenzen. |
+| `00_Gedaechtnis/nacharbeit-kundenangaben_2026-09-24.md` | Letzte Inhabervorgaben: Feiertage geschlossen, Texte vereinfacht, Buttons entfernt, Linkhaftung geprüft. |
 | `00_Gedaechtnis/oeffnungszeiten-pflegen.md` | Reguläre Zeiten, NRW-Feiertage und bestätigte Ausnahmen pflegen. |
 | `00_Gedaechtnis/_INDEX.md` | Einstieg in Entscheidungen, Fehlerwissen und historische Protokolle. |
 
@@ -35,6 +36,8 @@ Historische QA-Skripte: `90_Archiv/qa-v1_2026-09-24/`. Frühere README-/CLAUDE-F
 ## Pflege und Veröffentlichung
 
 - Wochenzeiten im sichtbaren HTML, in vier JSON-LD-Blöcken und im zentralen `OEFFNUNGSZEITEN`-Objekt synchron halten. Sonderzeiten nur nach Inhaberbestätigung; Anleitung oben.
+- An gesetzlichen NRW-Feiertagen immer geschlossen (Inhaberbestätigung 24.09.2026). 24. und 31. Dezember: 9 bis 14 Uhr nur vorläufig vorgemerkt, endgültige Bestätigung offen. Keine pauschalen Feiertagswarnungen mehr, kurze Information über mögliche kurzfristige Schließungen.
+- Zeitspannen in sichtbaren Texten und Metadaten mit „bis“, keine Halb-/Geviertstriche. Keine zusätzlichen Warengruppenbuttons auf der kurzen Sortimentsseite.
 - **Cloudflare-E-Mail-Schutz bleibt auf ausdrücklichen Inhaberwunsch aktiv.** Keine Obfuscation-Ausnahme vorbereiten oder aktivieren. Die E-Mail kann deshalb ohne JavaScript live verborgen bleiben; lokale Darstellung und Live-Prüfung unterscheiden.
 - Routenlinks verwenden weiter `/route.html`. Keine Produkte, Bestände, Zahlungsarten oder Aussagen zur Zugänglichkeit ergänzen, die nicht belegt sind.
 - Bei Assetänderungen die CSS-/JS-Version in allen sechs Seiten synchron erhöhen; Sitemap-`lastmod` nur bei echten Seitenänderungen pflegen.

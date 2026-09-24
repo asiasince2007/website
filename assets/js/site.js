@@ -86,17 +86,20 @@
 
   function tagesplan(datum, config) {
     var key = datumSchluessel(datum), ausnahmen = config.ausnahmen || {};
+    // Inhaberbestaetigung 24.09.2026: An gesetzlichen NRW-Feiertagen immer zu.
+    // Die feste Feiertagsregel hat Vorrang vor versehentlich gepflegten Zeiten.
+    var feiertag = nrwFeiertage(datum.getUTCFullYear())[key];
+    if (feiertag) return { zeiten: [], anlass: feiertag };
     if (Object.prototype.hasOwnProperty.call(ausnahmen, key)) {
       var ausnahme = ausnahmen[key];
       var bestaetigt = ausnahme && /^\d{4}-\d{2}-\d{2}$/.test(ausnahme.bestaetigtAm || '');
       return { zeiten: bestaetigt ? intervalle(ausnahme.zeiten) : null,
         anlass: ausnahme && ausnahme.hinweis || 'Sonderzeiten' };
     }
-    var feiertag = nrwFeiertage(datum.getUTCFullYear())[key];
     // Heiligabend und Silvester sind keine gesetzlichen Feiertage. Ohne
     // bestaetigte Zeiten trotzdem keine gewoehnliche Ganztagesoeffnung zusagen.
     var besonders = { '12-24': 'Heiligabend', '12-31': 'Silvester' }[key.slice(5)];
-    if (feiertag || besonders) return { zeiten: null, anlass: feiertag || besonders };
+    if (besonders) return { zeiten: null, anlass: besonders };
     return { zeiten: intervalle(config.woche[datum.getUTCDay()]), anlass: '' };
   }
 
@@ -122,13 +125,14 @@
         text: 'Gerade geschlossen, öffnet heute um ' + uhrzeit(zeit[0]) };
     }
     var unbekannt = false;
+    var geschlossen = heute.anlass ? 'Heute geschlossen (' + heute.anlass + '), ' : 'Gerade geschlossen, ';
     for (var i = 1; i <= 366; i++) {
       var datum = tagVerschieben(uhr.datum, i), plan = tagesplan(datum, config);
       if (plan.zeiten === null) { unbekannt = true; continue; }
       if (!plan.zeiten.length) continue;
       var wann = i === 1 ? 'morgen' : TAGE[datum.getUTCDay()];
       if (i >= 7) wann += ', ' + datum.getUTCDate() + '.' + (datum.getUTCMonth() + 1) + '.';
-      return { offen: false, text: 'Gerade geschlossen, ' +
+      return { offen: false, text: geschlossen +
         (unbekannt ? 'nächste reguläre Öffnung ' : 'öffnet ') + wann + ' um ' + uhrzeit(plan.zeiten[0][0]) +
         (unbekannt ? '. Sonderzeiten bitte prüfen.' : '') };
     }
