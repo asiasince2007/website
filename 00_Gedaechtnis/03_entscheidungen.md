@@ -6,6 +6,18 @@ Maßgeblich ist **Abschnitt 3 (Architektur-Entscheidungen in ADR-Kurzform)** der
 
 ## Neue Einträge
 
+### 24.09.2026 — Umsetzung der Kundenanalyse
+
+**E-33 · Standortzeit und bestätigte Ausnahmepläne.** Aktive Logik in `site.js` nutzt `Europe/Berlin`, UTC-Kalendertage und elf NRW-Feiertage. Ungeklärte Feiertage sowie Heiligabend/Silvester bleiben neutral. Reguläre HTML-Zeiten bleiben ohne JavaScript vorhanden. Verworfen: Gerätezeit, ungeprüfte Sonderöffnungen und pauschale Öffnungszusagen am nächsten Wochentag. Zentrale Pflege und Nachweise siehe [Anleitung](oeffnungszeiten-pflegen.md).
+
+**E-34 · E-Mail-Schutz bewusst erhalten.** Der Inhaber widerspricht ausdrücklich der in der Analyse vorgeschlagenen Cloudflare-Ausnahme und möchte Schutz vor Adresssammlern. Keine `email_off`-Markierung und keine Cloudflare-Einstellungsänderung. Die bekannte fehlende Live-Adresse ohne JavaScript wird als Grenze dokumentiert. Diese neue Entscheidung ersetzt die frühere offene Abschaltempfehlung; nicht erneut ungefragt abschalten. Mobile Navigation bekommt unabhängig davon einen funktionierenden Zustand ohne JavaScript.
+
+**E-35 · Bestehende Gestaltung, kürzerer Kundenweg.** Routen-/Anrufabschluss auf Sortiment und Ladenseite, frühere telefonische Bestandsprüfung und sechs klare Warengruppen. Das wiederholte Außenfoto entfällt nur im Kopf der Sortimentsseite; vorhandene Fotos bleiben im Projekt/auf den anderen Seiten. Keine neuen Produkte oder Produktfoto-Pflicht, kein Shop und keine zusätzliche feste Aktionsleiste. Routenweiterleitung über `/route.html` bleibt erhalten.
+
+**E-36 · Quellengebundene Park- und Bewertungsangaben.** Stadtbedingungen inklusive Registrierung der kostenlosen 15 Minuten und befristeter E-Parkregel präzisiert; konkrete Stellplätze nicht ungeprüft einem Tarif zugeordnet. Google zeigte erneut 4,4 Sterne, aber in der neuen eingeschränkten Ansicht keine Bewertungsanzahl. Deshalb genaue Anzahl weggelassen, Sterne mit Prüfdatum 24.09.2026 beibehalten. Verworfen: 128 aus der früheren Sitzung ohne aktuelle Sichtbarkeit übernehmen. Bestehende Zitatdaten unverändert.
+
+**E-37 · Aktive Tests und autorisierte Veröffentlichung.** Playwright/Axe prüfen die tatsächlichen sechs HTML-Seiten und aktiven Assets. Alte Puppeteer-/Modaltests sind archiviert; Tailwind bleibt nur historisch verfügbar. Neue lokale Lighthouse-Messung statt alter Scorebehauptung. Der ausdrücklich abschließende Push-/Merge-Auftrag des Inhabers hat Vorrang vor der zuvor im selben Auftrag übernommenen Formulierung „lokal ohne Veröffentlichung“. Google-Profil-Änderung bleibt gesonderter externer Schritt.
+
 _Neue Entscheidungen können wahlweise hier oder direkt im entsprechenden Abschnitt von `gedaechtnis-gesamt.md` ergänzt werden — aber konsequent an **einer** Stelle. Wird diese Datei genutzt, gehört ein Verweis darauf in den betreffenden Abschnitt der Gesamtdatei._
 
 ### 09.08.2026 — Relaunch auf Designrichtung A („Ladenschild")

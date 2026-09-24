@@ -1,0 +1,242 @@
+[
+  {
+    "brokenImages": [],
+    "client": 305,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/",
+    "routeLinks": 1,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "brokenImages": [],
+    "client": 305,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/sortiment.html",
+    "routeLinks": 0,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "brokenImages": [],
+    "client": 305,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/ueber-uns.html",
+    "routeLinks": 0,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "brokenImages": [],
+    "client": 305,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/kontakt.html",
+    "routeLinks": 1,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "brokenImages": [],
+    "client": 305,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/impressum.html",
+    "routeLinks": 0,
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "brokenImages": [],
+    "client": 305,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/datenschutz.html",
+    "routeLinks": 0,
+    "scroll": 328,
+    "width": 320
+  },
+  {
+    "brokenImages": [],
+    "client": 375,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/",
+    "routeLinks": 1,
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "client": 375,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/sortiment.html",
+    "routeLinks": 0,
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "client": 375,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/ueber-uns.html",
+    "routeLinks": 0,
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "client": 375,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/kontakt.html",
+    "routeLinks": 1,
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "client": 375,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/impressum.html",
+    "routeLinks": 0,
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "client": 375,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/datenschutz.html",
+    "routeLinks": 0,
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "client": 753,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/",
+    "routeLinks": 1,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "client": 753,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/sortiment.html",
+    "routeLinks": 0,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "client": 753,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/ueber-uns.html",
+    "routeLinks": 0,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "client": 753,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/kontakt.html",
+    "routeLinks": 1,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "client": 753,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/impressum.html",
+    "routeLinks": 0,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "client": 753,
+    "h1": 1,
+    "navDisplay": "none",
+    "path": "/datenschutz.html",
+    "routeLinks": 0,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "client": 1265,
+    "h1": 1,
+    "navDisplay": "flex",
+    "path": "/",
+    "routeLinks": 1,
+    "scroll": 1265,
+    "width": 1280
+  },
+  {
+    "brokenImages": [],
+    "client": 1265,
+    "h1": 1,
+    "navDisplay": "flex",
+    "path": "/sortiment.html",
+    "routeLinks": 0,
+    "scroll": 1265,
+    "width": 1280
+  },
+  {
+    "brokenImages": [],
+    "client": 1265,
+    "h1": 1,
+    "navDisplay": "flex",
+    "path": "/ueber-uns.html",
+    "routeLinks": 0,
+    "scroll": 1265,
+    "width": 1280
+  },
+  {
+    "brokenImages": [],
+    "client": 1265,
+    "h1": 1,
+    "navDisplay": "flex",
+    "path": "/kontakt.html",
+    "routeLinks": 1,
+    "scroll": 1265,
+    "width": 1280
+  },
+  {
+    "brokenImages": [],
+    "client": 1265,
+    "h1": 1,
+    "navDisplay": "flex",
+    "path": "/impressum.html",
+    "routeLinks": 0,
+    "scroll": 1265,
+    "width": 1280
+  },
+  {
+    "brokenImages": [],
+    "client": 1265,
+    "h1": 1,
+    "navDisplay": "flex",
+    "path": "/datenschutz.html",
+    "routeLinks": 0,
+    "scroll": 1265,
+    "width": 1280
+  }
+]

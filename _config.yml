@@ -18,3 +18,5 @@ exclude:
   - tailwind.config.js
   - README.md
   - CLAUDE.md
+  - tests
+  - playwright.config.js

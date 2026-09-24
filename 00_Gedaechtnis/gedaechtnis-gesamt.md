@@ -1,9 +1,11 @@
 # Projekt-Gedächtnis — Asia Markt Thien Phu Website
 
+> **Aktualitätshinweis 24.09.2026:** Die folgenden Juni-Angaben sind historisch und durch neuere Entscheidungen in `03_entscheidungen.md` ergänzt/ersetzt. Aktuell: [Umsetzungsbericht](umsetzung-kundenanalyse_2026-09-24.md), `02_projektstand.md` und [Öffnungszeitenpflege](oeffnungszeiten-pflegen.md). Mehrseitenwebsite mit `site.css`/`site.js`, Cloudflare, Berliner Zeit und NRW-Ausnahmen; kein aktives Tailwind-Layout. E-Mail-Schutz bleibt ausdrücklich aktiv. Bewertungsanzeige 4,4 Sterne ohne Anzahl, Stand 24.09.2026; kein `aggregateRating`. Die folgenden älteren Park-/Bewertungs-/Build-Angaben nicht ungeprüft übernehmen.
+
 > **Zweck:** Lebendes Gedächtnis dieses Projekts. Hier stehen verbindliche Fakten,
 > Architektur­entscheidungen, Konventionen sowie ein laufendes Protokoll aller
 > Erkenntnisse, Fehler und Fixes. **Vor jeder Arbeitssitzung lesen, nach jeder ergänzen.**
-> Letzte Aktualisierung: 2026-06-11 (Einrichtung des Projekts & Erst-Analyse).
+> Einrichtung: 2026-06-11. Letzte Aktualisierung: 2026-09-24.
 
 ---
 
@@ -17,13 +19,13 @@
 | **Land** | Deutschland |
 | **Telefon (Anzeige)** | 02173 1065590 |
 | **Telefon (`tel:`-Link)** | +4921731065590 |
-| **E-Mail** | asia.since2007@gmail.com (auf der Seite obfuskiert als `[at]`) |
+| **E-Mail** | asia.since2007@gmail.com (lokales HTML; live Cloudflare-Obfuscation, Inhaberwunsch 24.09.2026) |
 | **Inhaber** | Van Tran (Quelle: `impressum.html`, dort öffentlich genannt; für Schema-Nutzung Bestätigung → `TODO(inhaber)`) |
 | **Gegründet** | 2007 („Ihr Asia Markt seit 2007") |
 | **Google-Maps-Kurzlink** | https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7 |
 | **Geo (Laden, präzise)** | lat 51.1051371 · lon 6.9479852 (Quelle: Maps-Place-URL im Bewertungs-Export) |
 | **Bezahlung** | Kartenzahlung und Bargeld |
-| **Parken** | gegenüber, Parkticketautomat; 15 Min gratis, danach 1 €/Std.; E-Auto 5 Std. kostenlos mit Parkscheibe |
+| **Parken** | Stellplätze gegenüber; aktuelle allgemeine Stadtregeln und Quellen auf `kontakt.html#parken`. Konkrete Beschilderung/Tarifzuordnung noch bestätigen; keine pauschale Tarifzusage aus dieser Zeile ableiten. |
 
 **Öffnungszeiten (verbindlich):**
 
@@ -449,4 +451,6 @@
   GitHub Pro (Pages aus privatem Repo). **Gelernt:** Meta-CSP ist auf GitHub Pages der einzige
   Header-Hebel, aber `frame-ancestors`/`X-Frame-Options` ignoriert der Browser im Meta-Tag —
   Clickjacking-Schutz erfordert zwingend einen echten Response-Header (Proxy).
+- **2026-09-24 — Kundenanalyse der aktuellen Website abgeschlossen, Umsetzung offen.** Sechs Inhaltsseiten und Routenweiterleitung mit lokalem Code und öffentlichem Google-Profil abgeglichen; 24 Layoutkombinationen, 44 interne HTTP-Ziele und vier JSON-LD-Blöcke geprüft. Bestätigte Fehler: Gerätezeitzone/fehlende Feiertagsausnahmen, zu geringer Menübutton-Kontrast, E-Mail-Obfuscation und Mobilnavigation ohne JS sowie Datenschutzüberschrift bei 320 px. Priorisierte Kundenverbesserungen und Prüfgrenzen in [kundenanalyse_2026-09-24.md](kundenanalyse_2026-09-24.md); F-20 bis F-23 in `04_stolperfallen.md`. Kein Website-Code geändert, kein Push. Gelernt: Historische Tests/Build-Anleitungen passen nicht automatisch zur aktiven August-Gestaltung; alte Lighthouse-Werte nicht als aktuellen Nachweis ausgeben. Aktueller PageSpeed-Versuch scheiterte am API-Tageslimit.
+- **2026-09-24 — Kundenverbesserungen umgesetzt.** Berliner Standortzeit/elf NRW-Feiertage/bestätigte Ausnahmen, neutrale Hinweise bei ungeklärten Feiertagen und Jahresend-Sondertagen, statische Zeiten, mobile Navigation ohne JavaScript, kontrastreiche Anruf- und Bewertungsangaben, Datenschutz-Wortumbruch. Kürzeres Sortiment mit früher Verfügbarkeitsprüfung, klare Gruppen, Route/Anruf auf Sortiment und Ladenseite, städtisch belegte Parkbedingungen und aktueller datierter Sternewert ohne unbestätigte Anzahl. Cloudflare-E-Mail-Schutz bleibt ausdrücklich erhalten. Anleitungen aktualisiert, alte Tests archiviert, neue Tests auf aktive Quellen. Prüfbericht und externe Schritte in [Umsetzung](umsetzung-kundenanalyse_2026-09-24.md); Entscheidungen E-33 bis E-37, Stolperfallen F-20 bis F-25, Konventionen vom 24.09.2026. Inhaber hat abschließend Push und Merge autorisiert. Gelernt: aktuelle automatisierte Scans müssen auch eingeblendete Inhalte erfassen; lokale Prüfung beweist keine Cloudflare-Livefunktion.
 - _(Nächste Einträge hier anhängen: Datum — was geändert, was gelernt, welcher Fehler/Fix.)_

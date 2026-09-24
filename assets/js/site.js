@@ -6,38 +6,133 @@
   'use strict';
 
   /* ---------------------------------------------------------- Oeffnungszeiten
-     Index = Wochentag nach Date#getDay (0 = Sonntag). Werte in Minuten. */
-  var ZEITEN = [
-    null,          // Sonntag
-    [540, 1080],   // Montag    9:00 - 18:00
-    [540, 1080],   // Dienstag
-    [540, 1080],   // Mittwoch
-    [540, 1080],   // Donnerstag
-    [540, 1080],   // Freitag
-    [540, 840]     // Samstag   9:00 - 14:00
-  ];
+     ZENTRALE PFLEGESTELLE: Zeiten als HH:MM, Index 0 = Sonntag.
+     Ausnahmen nur mit Bestaetigung des Inhabers eintragen. Schema:
+       'JJJJ-MM-TT': { zeiten: [], bestaetigtAm: 'JJJJ-MM-TT' } fuer geschlossen
+       oder zeiten: [['10:00', '13:00']] fuer bestaetigte Sonderzeiten.
+     Optional: hinweis: 'Betriebsferien'. Keine echten Sonderzeiten bestaetigt.
+     Anleitung: 00_Gedaechtnis/oeffnungszeiten-pflegen.md.
+     Bei geaenderten Wochenzeiten auch HTML und JSON-LD aktualisieren. */
+  var OEFFNUNGSZEITEN = {
+    woche: [[], [['09:00', '18:00']], [['09:00', '18:00']],
+      [['09:00', '18:00']], [['09:00', '18:00']], [['09:00', '18:00']],
+      [['09:00', '14:00']]],
+    ausnahmen: {}
+  };
   var TAGE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+  var berlinFormat;
 
-  function status(jetzt) {
-    var tag = jetzt.getDay();
-    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
-    var heute = ZEITEN[tag];
+  function datumSchluessel(datum) { return datum.toISOString().slice(0, 10); }
 
-    if (heute && min >= heute[0] && min < heute[1]) {
-      return { offen: true, text: 'Jetzt geöffnet, heute bis ' + Math.floor(heute[1] / 60) + ' Uhr' };
+  function tagVerschieben(datum, anzahl) {
+    var d = new Date(datum.getTime());
+    d.setUTCDate(d.getUTCDate() + anzahl);
+    return d;
+  }
+
+  // Gregorianische Osterformel; nur UTC-Kalendertage, keine DST-Millisekunden.
+  function ostersonntag(jahr) {
+    var a = jahr % 19, b = Math.floor(jahr / 100), c = jahr % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var n = h + l - 7 * m + 114;
+    return new Date(Date.UTC(jahr, Math.floor(n / 31) - 1, n % 31 + 1));
+  }
+
+  // Elf Feiertage nach § 2 Feiertagsgesetz NRW. Keine Feiertage anderer Laender.
+  function nrwFeiertage(jahr) {
+    var tage = {};
+    var fest = { '01-01': 'Neujahr', '05-01': 'Tag der Arbeit',
+      '10-03': 'Tag der Deutschen Einheit', '11-01': 'Allerheiligen',
+      '12-25': '1. Weihnachtstag', '12-26': '2. Weihnachtstag' };
+    Object.keys(fest).forEach(function (tag) { tage[jahr + '-' + tag] = fest[tag]; });
+    var ostern = ostersonntag(jahr);
+    [[-2, 'Karfreitag'], [1, 'Ostermontag'], [39, 'Christi Himmelfahrt'],
+      [50, 'Pfingstmontag'], [60, 'Fronleichnam']].forEach(function (eintrag) {
+      tage[datumSchluessel(tagVerschieben(ostern, eintrag[0]))] = eintrag[1];
+    });
+    return tage;
+  }
+
+  function berlinUhr(jetzt) {
+    if (!berlinFormat) berlinFormat = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+    });
+    var teile = {};
+    berlinFormat.formatToParts(jetzt).forEach(function (teil) { teile[teil.type] = teil.value; });
+    return { datum: new Date(Date.UTC(+teile.year, +teile.month - 1, +teile.day)),
+      minuten: +teile.hour * 60 + +teile.minute };
+  }
+
+  function minuten(zeit) {
+    if (typeof zeit !== 'string' || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(zeit)) return NaN;
+    return +zeit.slice(0, 2) * 60 + +zeit.slice(3);
+  }
+
+  function intervalle(zeiten) {
+    if (!Array.isArray(zeiten)) return null;
+    var ende = -1, result = [];
+    for (var i = 0; i < zeiten.length; i++) {
+      if (!Array.isArray(zeiten[i]) || zeiten[i].length !== 2) return null;
+      var von = minuten(zeiten[i][0]), bis = minuten(zeiten[i][1]);
+      if (!Number.isFinite(von) || !Number.isFinite(bis) || von >= bis || von < ende) return null;
+      result.push([von, bis]); ende = bis;
     }
-    // Vor der Oeffnung am selben Tag
-    if (heute && min < heute[0]) {
-      return { offen: false, text: 'Gerade geschlossen, öffnet heute um 9 Uhr' };
+    return result;
+  }
+
+  function tagesplan(datum, config) {
+    var key = datumSchluessel(datum), ausnahmen = config.ausnahmen || {};
+    if (Object.prototype.hasOwnProperty.call(ausnahmen, key)) {
+      var ausnahme = ausnahmen[key];
+      var bestaetigt = ausnahme && /^\d{4}-\d{2}-\d{2}$/.test(ausnahme.bestaetigtAm || '');
+      return { zeiten: bestaetigt ? intervalle(ausnahme.zeiten) : null,
+        anlass: ausnahme && ausnahme.hinweis || 'Sonderzeiten' };
     }
-    // Sonst: naechsten Tag mit Oeffnungszeiten suchen
-    for (var i = 1; i <= 7; i++) {
-      var t = (tag + i) % 7;
-      if (!ZEITEN[t]) continue;
-      var wann = i === 1 ? 'morgen' : TAGE[t];
-      return { offen: false, text: 'Gerade geschlossen, öffnet ' + wann + ' um 9 Uhr' };
+    var feiertag = nrwFeiertage(datum.getUTCFullYear())[key];
+    // Heiligabend und Silvester sind keine gesetzlichen Feiertage. Ohne
+    // bestaetigte Zeiten trotzdem keine gewoehnliche Ganztagesoeffnung zusagen.
+    var besonders = { '12-24': 'Heiligabend', '12-31': 'Silvester' }[key.slice(5)];
+    if (feiertag || besonders) return { zeiten: null, anlass: feiertag || besonders };
+    return { zeiten: intervalle(config.woche[datum.getUTCDay()]), anlass: '' };
+  }
+
+  function uhrzeit(min) {
+    var rest = min % 60;
+    return Math.floor(min / 60) + (rest ? ':' + String(rest).padStart(2, '0') : '') + ' Uhr';
+  }
+
+  function status(jetzt, config) {
+    config = config || OEFFNUNGSZEITEN;
+    var uhr;
+    try { uhr = berlinUhr(jetzt); }
+    catch (_) { return { offen: false, unklar: true, text: 'Öffnungszeiten bitte telefonisch prüfen' }; }
+    var heute = tagesplan(uhr.datum, config);
+    if (heute.zeiten === null) return { offen: false, unklar: true,
+      text: 'Heute ' + (heute.anlass || 'Sonderzeiten') + ': Öffnungszeiten bitte telefonisch prüfen' };
+    for (var n = 0; n < heute.zeiten.length; n++) {
+      var zeit = heute.zeiten[n];
+      if (uhr.minuten >= zeit[0] && uhr.minuten < zeit[1]) {
+        return { offen: true, text: 'Jetzt geöffnet, heute bis ' + uhrzeit(zeit[1]) };
+      }
+      if (uhr.minuten < zeit[0]) return { offen: false,
+        text: 'Gerade geschlossen, öffnet heute um ' + uhrzeit(zeit[0]) };
     }
-    return { offen: false, text: 'Gerade geschlossen' };
+    var unbekannt = false;
+    for (var i = 1; i <= 366; i++) {
+      var datum = tagVerschieben(uhr.datum, i), plan = tagesplan(datum, config);
+      if (plan.zeiten === null) { unbekannt = true; continue; }
+      if (!plan.zeiten.length) continue;
+      var wann = i === 1 ? 'morgen' : TAGE[datum.getUTCDay()];
+      if (i >= 7) wann += ', ' + datum.getUTCDate() + '.' + (datum.getUTCMonth() + 1) + '.';
+      return { offen: false, text: 'Gerade geschlossen, ' +
+        (unbekannt ? 'nächste reguläre Öffnung ' : 'öffnet ') + wann + ' um ' + uhrzeit(plan.zeiten[0][0]) +
+        (unbekannt ? '. Sonderzeiten bitte prüfen.' : '') };
+    }
+    return { offen: false, text: 'Geschlossen. Nächste Öffnung bitte telefonisch erfragen.' };
   }
 
   function statusAnzeigen() {
@@ -45,7 +140,10 @@
     var texte = document.querySelectorAll('[data-status-text]');
     var punkte = document.querySelectorAll('[data-status-punkt]');
     for (var i = 0; i < texte.length; i++) texte[i].textContent = s.text;
-    for (var j = 0; j < punkte.length; j++) punkte[j].classList.toggle('offen', s.offen);
+    for (var j = 0; j < punkte.length; j++) {
+      punkte[j].classList.toggle('offen', s.offen);
+      punkte[j].classList.toggle('unklar', !!s.unklar);
+    }
   }
 
   /* ------------------------------------------------------------- Navigation */
@@ -67,6 +165,12 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('offen')) { zu(); schalter.focus(); }
     });
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !schalter.contains(e.target)) zu();
+    });
+    // Schalter erst nach Anmeldung aktivieren. Ohne JS zeigt der noscript-
+    // Block im HTML die Links im normalen Dokumentfluss, ohne toten Schalter.
+    nav.closest('header').classList.add('menue-bereit');
     // Beim Wechsel auf Desktopbreite den mobilen Zustand zuruecksetzen
     if (window.matchMedia) {
       var mq = window.matchMedia('(min-width: 901px)');
@@ -191,29 +295,31 @@
     // erzeugt. Die Anmeldung des Zuhoerers muss deshalb wiederholbar sein.
     function anmelden() {
       var knopf = document.getElementById('karte-laden');
-      if (knopf) knopf.addEventListener('click', laden);
+      if (knopf) { knopf.addEventListener('click', laden); knopf.hidden = false; }
     }
 
     anmelden();
   }
 
-  /* ------------------------------------------------- E-Mail-Adresse ------
-     Frueher wurde die Adresse hier per JavaScript zusammengesetzt, um
-     Adresssammlern das Auslesen zu erschweren. Das ist entfallen: § 5 Abs. 1
-     Nr. 2 DDG verlangt die E-Mail-Adresse „leicht erkennbar, unmittelbar
-     erreichbar und staendig verfuegbar". Ohne JavaScript stand im Impressum
-     gar keine Adresse. Sie steht jetzt im Klartext in impressum.html und
-     datenschutz.html. */
+  /* E-Mail: Im Quell-HTML vorhanden; Cloudflare verschleiert sie bei der
+     Live-Auslieferung. Auf ausdruecklichen Inhaberwunsch (24.09.2026) bleibt
+     dieser Schutz aktiv. Keine email_off-Ausnahme und keine lokale zweite
+     Verschleierung. Live-Funktion einschliesslich CSP separat pruefen. */
 
   function start() {
-    statusAnzeigen();
     navigation();
+    statusAnzeigen();
     einblenden();
     karte();
     // Der Status haengt an der Uhrzeit und wird minuetlich nachgezogen.
     setInterval(statusAnzeigen, 60000);
   }
 
+  // Dieselbe Logik wird in Node getestet, die Website bleibt ein normales Script.
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { status: status, nrwFeiertage: nrwFeiertage, config: OEFFNUNGSZEITEN };
+  }
+  if (typeof document === 'undefined') return;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
