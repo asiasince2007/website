@@ -4,6 +4,7 @@ import { launch } from 'chrome-launcher';
 import { spawn } from 'node:child_process';
 import { mkdir, mkdtemp, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import siteFiles from './site-files.js';
 const base = 'http://127.0.0.1:4173';
 let server;
 try { await fetch(base); } catch {
@@ -20,7 +21,8 @@ try {
   const userDataDir = await mkdtemp(resolve('docs/qa-output/lighthouse-profile-'));
   chrome = await launch({ userDataDir, chromeFlags: ['--headless', '--no-first-run', '--disable-extensions'] });
   const summary = [];
-  for (const page of ['index','sortiment','ueber-uns','kontakt','impressum','datenschutz']) {
+  for (const file of siteFiles.PAGES) {
+    const page = file.replace('.html', '');
     const { lhr } = await lighthouse(`${base}/${page}.html`, { port: chrome.port, logLevel:'error',
       onlyCategories:['performance','accessibility','best-practices','seo'], output:'json', maxWaitForLoad:30000 });
     await writeFile(`docs/qa-output/lighthouse-${page}.json`, JSON.stringify(lhr));

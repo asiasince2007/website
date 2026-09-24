@@ -2,9 +2,17 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const root = path.resolve(__dirname, '..');
-const pages = ['index.html','sortiment.html','ueber-uns.html','kontakt.html','impressum.html','datenschutz.html','route.html'];
+const { execFileSync } = require('node:child_process');
+const { ROOT: root, PAGES } = require('../scripts/site-files.js');
+const pages = [...PAGES, 'route.html'];
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+
+test('Git enthält nur Website-Bestand, keine lokalen Gedächtnis- oder Prüfunterlagen', () => {
+  const tracked = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean);
+  for (const file of tracked) assert.doesNotMatch(file,
+    /^(?:00_Gedaechtnis\/|90_Archiv\/|docs\/|\.claude\/|\.idea\/|node_modules\/|CLAUDE\.md$|AGENTS\.md$)/,
+    `nur lokal aufbewahren: ${file}`);
+});
 
 test('Interne HTML-Links, Medien und seitenübergreifende Sprungziele existieren', () => {
   for (const file of pages) {
@@ -15,6 +23,54 @@ test('Interne HTML-Links, Medien und seitenübergreifende Sprungziele existieren
       assert.ok(fs.existsSync(path.join(root,target)), `${file}: ${raw}`);
       if (url.hash) assert.ok(read(target).includes(`id="${decodeURIComponent(url.hash.slice(1))}"`), `${file}: ${raw}`);
     }
+  }
+});
+
+test('Cacheversionen, Navigation und Footer bleiben seitenübergreifend synchron', () => {
+  const versions = new Set();
+  const navigations = new Set();
+  const footers = new Set();
+  for (const file of PAGES) {
+    const html = read(file);
+    for (const [, version] of html.matchAll(/(?:src|href)="[^\"]+\?v=(\d+)"/g)) versions.add(version);
+    navigations.add(html.match(/<nav id="hauptnavigation"[\s\S]*?<\/nav>/)[0].replace(/ aria-current="page"/g, '').replace(/\s+/g, ' '));
+    footers.add(html.match(/<footer class="fuss">[\s\S]*?<\/footer>/)[0].replace(/ aria-current="page"/g, '').replace(/\s+/g, ' '));
+    assert.doesNotMatch(html, /data-reveal|class="marker"| style="/, `${file}: keine abgelösten Marker oder Inline-Stile`);
+  }
+  assert.equal(versions.size, 1, 'eine Version für Styles, Script und Icons');
+  assert.equal(navigations.size, 1, 'identische Navigation, außer aktivem Eintrag');
+  assert.equal(footers.size, 1, 'identische Geschäftsdaten im Footer');
+});
+
+test('Jedes aktive Asset ist erreichbar und jede lokale Asset-Referenz existiert', () => {
+  const seen = new Set();
+  const queue = [...pages, 'site.webmanifest'];
+  const origin = 'https://www.asiamarkt.info';
+  const add = (raw, from) => {
+    const url = new URL(raw.replaceAll('&amp;', '&'), origin + '/' + from);
+    if (url.origin !== origin) return;
+    const file = decodeURIComponent(url.pathname.slice(1)) || 'index.html';
+    assert.ok(fs.existsSync(path.join(root, file)), `${from}: ${raw}`);
+    if (!seen.has(file)) queue.push(file);
+  };
+  while (queue.length) {
+    const file = queue.shift();
+    if (seen.has(file)) continue;
+    seen.add(file);
+    if (!/\.(html|css|webmanifest)$/.test(file)) continue;
+    const text = read(file);
+    for (const [, raw] of text.matchAll(/(?:href|src)="([^"]+)"/g)) add(raw, file);
+    for (const [, candidates] of text.matchAll(/srcset="([^"]+)"/g)) {
+      for (const candidate of candidates.split(',')) add(candidate.trim().split(/\s+/)[0], file);
+    }
+    for (const [, raw] of text.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g)) add(raw, file);
+    // JSON-LD-Logos und Manifest-Icons werden nicht als HTML-Bild eingebunden.
+    for (const [, raw] of text.matchAll(/"(?:image|logo|src)"\s*:\s*"([^"]+)"/g)) add(raw, file);
+    for (const [, raw] of text.matchAll(/content="(https:\/\/www\.asiamarkt\.info\/assets\/[^\"]+)"/g)) add(raw, file);
+  }
+  for (const file of fs.readdirSync(path.join(root, 'assets'), { recursive: true })) {
+    const relative = 'assets/' + file.replaceAll('\\', '/');
+    if (fs.statSync(path.join(root, relative)).isFile()) assert.ok(seen.has(relative), `unreferenziertes Asset: ${relative}`);
   }
 });
 

@@ -1,20 +1,17 @@
 /* Asia Markt Thien Phu: klassische Ladenwebsite, September 2026.
-   Gestaltung aus vorhandenem Logo, Schaufensterrot und echten Ladenfotos.
-   Zentrale Quelle ohne Build; Vorfassung in 90_Archiv/gestaltung-v1_2026-09-24. */
+   Farben, Layout und Komponenten aller sechs Inhaltsseiten. Keine Build-Quelle.
+   Zentrale Quelle ohne Build; Änderungen an Komponenten hier vornehmen. */
 
 :root {
   --creme: #FFFBF5;
-  --weiss: #FFFFFF;
   --tinte: #302c26;
   --tinte-weich: #49443c;
   --grau: #5d574f;
   --grau-hell: #655e54;
-  --grau-zart: #655e54;
   --grau-still: #6b645a;
   --rot: #932f29;
   --rot-dunkel: #71231f;
   --rose: #f1eee5;
-  --rose-kraeftig: #e9e5da;
   --braun: #3b342c;
   --braun-text: #f8f3e9;
   --gold: #f1d5a4;
@@ -41,10 +38,6 @@ a { color: var(--rot); text-underline-offset: .2em; text-decoration-thickness: 1
 a:hover { color: var(--rot-dunkel); }
 :focus-visible { outline: 3px solid var(--rot); outline-offset: 4px; }
 .bahn { max-width: var(--bahn); margin: 0 auto; padding-inline: var(--rand); }
-.sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-}
 .skip-link {
   position: fixed; top: 8px; left: 8px; z-index: 100;
   padding: 10px 18px; background: var(--rot); color: #fff;
@@ -85,7 +78,6 @@ a:hover { color: var(--rot-dunkel); }
   color: var(--tinte); text-decoration: none;
 }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--rot); text-decoration: underline; text-underline-offset: 7px; }
-.nav .marker { display: none; }
 .nav .btn-anruf {
   margin-left: 14px; padding: 8px 22px; border: 1px solid var(--rot);
   background: var(--rot); color: #fff; border-radius: var(--radius);
@@ -166,6 +158,14 @@ h3 { line-height: 1.4; }
 .galerie-2 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 24px; align-items: start; }
 .galerie-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
+/* Inhaltsspezifische Abstände: keine konkurrierenden Inline-Stile im HTML. */
+.sortiment-vorschau { padding-block: 48px; }
+.sortiment-einleitung { margin: 0 0 28px; font-size: 18px; color: var(--grau-hell); }
+.sortiment-link { margin: 22px 0 0; font-size: 17px; font-weight: 700; }
+.kundenstimmen, .laden-einblicke { padding-block: 52px; }
+.bewertungsstand { margin: 0 0 26px; font-size: 15px; font-weight: 700; color: var(--rot-dunkel); }
+.bewertungsquelle { margin: 22px 0 0; font-size: 14px; line-height: 1.6; color: var(--grau); }
+
 /* Sortiment: die vollstaendige Warenliste wie in einem gedruckten Verzeichnis. */
 .sortiment-kopf { max-width: var(--bahn); margin: 0 auto; padding: 34px var(--rand) 0; }
 .sortiment-kopf .lead { max-width: 42em; margin: 0 0 13px; font-size: 18px; }
@@ -185,6 +185,10 @@ h3 { line-height: 1.4; }
   display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;
 }
 .seiten-kopf p { margin: 0; font-size: 19px; line-height: 1.65; color: var(--tinte-weich); max-width: 30em; }
+.seiten-kopf .laden-einleitung { font-size: clamp(19px, 2.2vw, 21px); line-height: 1.55; max-width: 24em; }
+.laden-geschichte { padding-block: 40px 48px; }
+.laden-geschichte .bewertungsquelle { margin-top: 18px; }
+.laden-galerie { margin-top: 40px; }
 .seiten-kopf-schmal { grid-template-columns: 1.2fr .8fr; }
 .laden-text { display: grid; grid-template-columns: 1.25fr 1fr; gap: 52px; align-items: start; }
 .laden-text p { margin: 0 0 16px; font-size: 18px; line-height: 1.75; color: var(--tinte-weich); }
@@ -196,6 +200,8 @@ h3 { line-height: 1.4; }
 .kennzahlen .was { margin: 0; font-size: 15px; color: var(--grau); }
 
 /* Kontakt: offene Spalten statt einer Sammlung von Karten. */
+.kontakt-inhalt { padding-block: 44px; }
+.kontakt-einleitung { margin: 0 0 30px; font-size: 19px; color: var(--grau-hell); }
 .karten-paar { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; }
 .karte { padding: 25px 0; border-top: 1px solid var(--linie); }
 .karte .adresse { margin: 0 0 20px; font-size: 22px; font-weight: 700; line-height: 1.5; color: var(--tinte); }
