@@ -6,6 +6,8 @@ Maßgeblich ist **Abschnitt 3 (Architektur-Entscheidungen in ADR-Kurzform)** der
 
 ## Neue Einträge
 
+**E-41 · Parkhinweis auf den Besuch vor Ort begrenzen, 24.09.2026.** Inhaber bestätigt die gegenüberliegenden Plätze als normale Straßenparkplätze und wünscht die Entfernung der Aufzählung zu beschrankten Parkplätzen/Tiefgaragen/Parkhäusern. Nur diesen Zusatz aus `kontakt.html` entfernt. Alternative, die vollständige städtische Ausnahmenliste weiterhin im kurzen Besuchshinweis aufzuführen, wegen fehlender Ortsrelevanz verworfen. Keine neue Tarifbestätigung daraus ableiten; Quelle und Hinweis auf konkrete Beschilderung bleiben bestehen.
+
 ### 24.09.2026 — Umsetzung der Kundenanalyse
 
 **Neuester Nachtrag E-38 bis E-40:** Diese Vorgaben ersetzen die zuvor am selben Tag gewählten Varianten, soweit sie widersprechen.
