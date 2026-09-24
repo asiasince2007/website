@@ -1,486 +1,339 @@
-/* ==========================================================================
-   Asia Markt Thien Phu, Designrichtung A („Ladenschild")
-   Handgeschriebenes Stylesheet, kein Build-Schritt noetig.
-   Die abgeloeste Fassung nutzte Tailwind (src/styles.css -> styles.min.css);
-   diese Richtung kommt mit deutlich weniger CSS aus.
-   ========================================================================== */
+/* Asia Markt Thien Phu: klassische Ladenwebsite, September 2026.
+   Gestaltung aus vorhandenem Logo, Schaufensterrot und echten Ladenfotos.
+   Zentrale Quelle ohne Build; Vorfassung in 90_Archiv/gestaltung-v1_2026-09-24. */
 
 :root {
-  --creme:        #FFFBF5;  /* Seitenhintergrund */
-  --weiss:        #FFFFFF;
-  --tinte:        #241C16;  /* Fliesstext, Ueberschriften */
-  --tinte-weich:  #463B31;
-  --grau:         #5A4E43;
-  --grau-hell:    #7C6F62;
-  /* Zwei Toene des Entwurfs waren zu hell fuer WCAG AA und sind nur so weit
-     abgedunkelt wie noetig. Belegt mit Lighthouse:
-     #8B7D6E auf Creme ergab 3,88:1 (noetig 4,5), #A99C8D auf Rose 2,37:1
-     (noetig 3,0 fuer grossen Fettdruck). */
-  --grau-zart:    #7F7265;  /* war #8B7D6E, jetzt 4,51:1 auf Creme */
-  --grau-still:   #95897C;  /* war #A99C8D, jetzt 3,01:1 auf Rose; „geschlossen" */
-  --rot:          #B4342E;  /* Akzent: Schaufensterrahmen */
-  --rot-dunkel:   #8E2320;
-  --rose:         #FBEEEC;  /* Baender */
-  --rose-kraeftig:#F7E3E2;  /* Status-Badge */
-  --braun:        #3B2B22;  /* Topbar */
-  --braun-text:   #FDF6EA;
-  --gold:         #F2B441;  /* Footer-Link */
-  --gruen:        #2F8F4E;  /* Status: geoeffnet */
-  --linie:        rgba(120, 70, 70, .24);
-  --linie-zart:   rgba(120, 70, 70, .20);
-
-  --bahn:         1200px;   /* max. Inhaltsbreite */
-  --rand:         22px;     /* seitlicher Innenabstand */
-  --radius:       10px;
+  --creme: #FFFBF5;
+  --weiss: #FFFFFF;
+  --tinte: #302c26;
+  --tinte-weich: #49443c;
+  --grau: #5d574f;
+  --grau-hell: #655e54;
+  --grau-zart: #655e54;
+  --grau-still: #6b645a;
+  --rot: #932f29;
+  --rot-dunkel: #71231f;
+  --rose: #f1eee5;
+  --rose-kraeftig: #e9e5da;
+  --braun: #3b342c;
+  --braun-text: #f8f3e9;
+  --gold: #f1d5a4;
+  --gruen: #376d42;
+  --linie: #d3ccbf;
+  --linie-zart: #ded8cd;
+  --bahn: 1140px;
+  --rand: 22px;
+  --radius: 2px;
+  --schrift-titel: Lora, Georgia, "Times New Roman", serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 110px; }
-
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
 body {
-  margin: 0;
-  background: var(--creme);
-  color: var(--tinte);
-  font-family: Nunito, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
+  margin: 0; background: var(--creme); color: var(--tinte);
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px; line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
-
 img { display: block; max-width: 100%; }
-
-a { color: var(--rot); }
+button { font: inherit; cursor: pointer; }
+a { color: var(--rot); text-underline-offset: .2em; text-decoration-thickness: 1px; }
 a:hover { color: var(--rot-dunkel); }
-
-:focus-visible {
-  outline: 3px solid var(--rot);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
+:focus-visible { outline: 3px solid var(--rot); outline-offset: 4px; }
 .bahn { max-width: var(--bahn); margin: 0 auto; padding-inline: var(--rand); }
-
-/* Nur fuer Screenreader sichtbar */
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
-
-/* Sprungmarke fuer Tastaturnutzer */
 .skip-link {
-  position: absolute; left: -9999px; top: 0; z-index: 100;
-  background: var(--rot); color: #fff; padding: 12px 20px;
-  font-weight: 700; text-decoration: none;
+  position: fixed; top: 8px; left: 8px; z-index: 100;
+  padding: 10px 18px; background: var(--rot); color: #fff;
+  transform: translateY(-160%);
 }
-.skip-link:focus { left: 0; color: #fff; }
+.skip-link:focus { transform: none; color: #fff; }
 
-/* --------------------------------------------------------------- Topbar - */
-
+/* Schmale Servicezeile und eigenstaendiger Geschaeftskopf. */
 .topbar {
-  background: var(--braun);
-  color: var(--braun-text);
-  padding: 9px 20px;
-  display: flex; flex-wrap: wrap; gap: 6px 20px;
-  align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 600;
-  text-align: center;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 4px 20px; padding: 7px var(--rand);
+  background: var(--rose); border-bottom: 1px solid var(--linie-zart);
+  color: var(--grau); font-size: 13px;
 }
-.topbar a { color: var(--braun-text); text-decoration: underline; text-underline-offset: 3px; }
-.topbar a:hover { color: #fff; }
-.topbar .teiler { width: 1px; height: 15px; background: rgba(255, 247, 240, .35); }
-
-@media (max-width: 620px) {
-  .topbar .teiler { display: none; }
-  .topbar { font-size: 14px; gap: 2px 14px; }
-}
-
-/* --------------------------------------------------------------- Header - */
-
-.kopf {
-  position: sticky; top: 0; z-index: 40;
-  background: rgba(255, 251, 245, .94);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--linie);
-}
+.topbar a { color: var(--tinte); }
+.topbar a:hover { color: var(--rot); }
+.topbar .teiler { width: 1px; height: 13px; background: var(--linie); }
+.kopf { position: relative; z-index: 40; background: var(--creme); }
 .kopf-innen {
-  max-width: var(--bahn); margin: 0 auto;
-  padding: 12px var(--rand);
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  max-width: var(--bahn); margin: 0 auto; padding: 26px var(--rand) 0;
+  display: flex; flex-direction: column; align-items: center; gap: 22px;
 }
-
-.marke { display: flex; align-items: center; gap: 13px; text-decoration: none; color: var(--tinte); }
-.marke:hover { color: var(--tinte); }
-.marke img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; flex: none; }
-.marke-name { display: block; font-size: 21px; font-weight: 700; line-height: 1.15; letter-spacing: -.01em; }
-.marke-zusatz { display: block; font-size: 13px; font-weight: 600; color: var(--grau-zart); margin-top: 1px; }
-
-.nav { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.marke { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--rot); }
+.marke:hover { color: var(--rot-dunkel); }
+.marke img { width: 68px; height: 68px; object-fit: contain; flex: none; }
+.marke-name {
+  display: block; font-family: var(--schrift-titel); font-size: 30px;
+  font-weight: 700; line-height: 1.25;
+}
+.marke-zusatz { display: block; font-size: 14px; color: var(--grau); margin-top: 5px; }
+.nav {
+  display: flex; justify-content: center; gap: 16px; align-items: center;
+  width: 100%; padding: 9px 0;
+  border-top: 1px solid var(--linie); border-bottom: 2px solid var(--rot);
+}
 .nav a {
-  padding: 9px 16px; border-radius: 8px;
-  font-size: 15px; font-weight: 700; color: var(--tinte); text-decoration: none;
+  padding: 8px 19px; font-size: 15px; font-weight: 700;
+  color: var(--tinte); text-decoration: none;
 }
-.nav a:hover { background: rgba(180, 52, 46, .1); color: var(--rot); }
-.nav a[aria-current="page"] { color: var(--rot); }
-.nav a[aria-current="page"] .marker { display: block; height: 3px; border-radius: 2px; background: var(--rot); margin: 6px 2px -4px; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--rot); text-decoration: underline; text-underline-offset: 7px; }
 .nav .marker { display: none; }
-
 .nav .btn-anruf {
-  margin-left: 8px; padding: 11px 20px; border-radius: 8px;
-  background: var(--rot); color: #fff;
-  font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap;
+  margin-left: 14px; padding: 8px 22px; border: 1px solid var(--rot);
+  background: var(--rot); color: #fff; border-radius: var(--radius);
+  white-space: nowrap; text-decoration: none;
 }
 .nav .btn-anruf:hover, .nav .btn-anruf:focus-visible { background: var(--rot-dunkel); color: #fff; }
-
-/* Menue-Schalter nur mobil */
 .menue-schalter {
-  display: none;
-  background: none; border: 1.5px solid var(--linie); border-radius: 8px;
-  padding: 9px 11px; cursor: pointer; color: var(--tinte);
+  display: none; flex: none; padding: 11px; background: transparent;
+  border: 1px solid var(--linie); border-radius: var(--radius); color: var(--tinte);
 }
 .menue-schalter svg { display: block; width: 22px; height: 22px; fill: currentColor; }
 
-@media (max-width: 900px) {
-  .menue-bereit .menue-schalter { display: block; }
-  .marke-zusatz { display: none; }
-  .marke-name { font-size: 18px; }
-  .marke img { width: 42px; height: 42px; }
-
-  .nav {
-    display: none;
-    position: absolute; left: 0; right: 0; top: 100%; width: 100%;
-    flex-direction: column; align-items: stretch; gap: 4px;
-    background: var(--creme);
-    border-bottom: 1px solid var(--linie);
-    padding: 12px var(--rand) 20px;
-    box-shadow: 0 12px 24px rgba(36, 28, 22, .1);
-  }
-  /* Ohne aktiviertes JavaScript stellt der kleine noscript-Block in jeder
-     Seite die Links in den Dokumentfluss. So springt beim JS-Start nichts. */
-  .menue-bereit .nav.offen { display: flex; }
-  .nav a { padding: 13px 14px; font-size: 17px; }
-  .nav a[aria-current="page"] { background: rgba(180, 52, 46, .1); }
-  .nav a[aria-current="page"] .marker { display: none; }
-  .nav .btn-anruf { margin-left: 0; text-align: center; margin-top: 6px; }
-}
-
-/* -------------------------------------------------------------- Bausteine */
-
+/* Klare Hierarchie, ohne Abzeichen oder Einblendeanimationen. */
+h1, h2, h3 { font-family: var(--schrift-titel); font-weight: 700; hyphens: auto; overflow-wrap: anywhere; }
+h1 { font-size: clamp(29px, 3.4vw, 40px); line-height: 1.25; margin: 0 0 18px; text-wrap: balance; hyphens: manual; }
+h2 { font-size: clamp(25px, 2.6vw, 30px); line-height: 1.35; margin: 0 0 12px; }
+h3 { line-height: 1.4; }
+.rubrik { margin: 0 0 12px; font-family: var(--schrift-titel); font-size: 20px; font-weight: 700; color: var(--rot); line-height: 1.35; }
 .btn {
-  display: inline-block;
-  font-size: 17px; font-weight: 700;
-  padding: 15px 26px; border-radius: 8px; text-decoration: none;
+  display: inline-block; padding: 11px 19px; border: 1px solid transparent;
+  border-radius: var(--radius); font-size: 16px; font-weight: 700;
+  line-height: 1.5; text-decoration: none;
 }
-.btn-primaer { background: var(--rot); color: #fff; }
-.btn-primaer:hover { background: var(--rot-dunkel); color: #fff; }
-.btn-rand { background: transparent; color: var(--tinte); border: 1.5px solid rgba(51, 41, 31, .28); }
-.btn-rand:hover { background: var(--tinte); color: var(--creme); }
-
-.btn-reihe { display: flex; flex-wrap: wrap; gap: 12px; }
-
+.btn-primaer { background: var(--rot); border-color: var(--rot); color: #fff; }
+.btn-primaer:hover { background: var(--rot-dunkel); border-color: var(--rot-dunkel); color: #fff; }
+.btn-rand { border-color: #8d8173; background: transparent; color: var(--tinte); }
+.btn-rand:hover { background: var(--rose); color: var(--rot-dunkel); }
+.btn-reihe { display: flex; flex-wrap: wrap; gap: 10px; }
 .status-badge {
-  margin: 0 0 16px; display: inline-flex; align-items: center; gap: 9px;
-  background: var(--rose-kraeftig); color: var(--tinte-weich);
-  padding: 8px 15px; border-radius: 6px;
-  font-size: 14px; font-weight: 700;
+  margin: 0 0 17px; display: flex; align-items: center; gap: 9px;
+  font-size: 14px; line-height: 1.5; color: var(--grau);
 }
-.punkt { width: 9px; height: 9px; border-radius: 50%; background: var(--rot); flex: none; }
+.punkt { width: 8px; height: 8px; border-radius: 50%; background: var(--rot); flex: none; }
 .punkt.offen { background: var(--gruen); }
 .punkt.unklar { background: var(--grau); }
+.blende { background: var(--rose); border-block: 1px solid var(--linie-zart); }
 
-.rubrik {
-  margin: 0 0 10px;
-  font-size: 13px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--rot);
-}
-
-h1, h2, h3 { letter-spacing: -.02em; font-weight: 700; hyphens: auto; overflow-wrap: anywhere; }
-/* Der Entwurf staffelt die Ueberschriften: 54px nur auf der Startseite,
-   46-48px auf den Unterseiten. Der Grundwert ist deshalb die Unterseite,
-   die Startseite hebt sich per .hero davon ab. */
-h1 { font-size: clamp(31px, 4.4vw, 46px); line-height: 1.1; margin: 0 0 18px; text-wrap: balance; }
-.hero h1 { font-size: clamp(34px, 5.2vw, 54px); line-height: 1.08; }
-h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
-
-.blende { background: var(--rose); border-top: 1px solid var(--linie-zart); border-bottom: 1px solid var(--linie-zart); }
-
-/* Einblenden beim Scrollen, nur wenn erwuenscht und JS aktiv */
-@media (prefers-reduced-motion: no-preference) {
-  html.js-reveal [data-reveal] {
-    opacity: 0; transform: translateY(16px);
-    transition: opacity .7s ease, transform .7s ease;
-  }
-  html.js-reveal [data-reveal].sichtbar { opacity: 1; transform: none; }
-}
-@media print { [data-reveal] { opacity: 1 !important; transform: none !important; } }
-
-/* ----------------------------------------------------------------- Start - */
-
+/* Start: das vorhandene Schaufensterfoto und ein kompakter Willkommenstext. */
 .hero {
-  max-width: var(--bahn); margin: 0 auto;
-  padding: 48px var(--rand) 40px;
-  display: grid; grid-template-columns: 1fr 1.15fr; gap: 52px; align-items: center;
+  max-width: var(--bahn); margin: 0 auto; padding: 34px var(--rand) 36px;
+  display: grid; grid-template-columns: 1.12fr 1fr; gap: 40px; align-items: center;
 }
-.hero p.lead { margin: 0 0 28px; font-size: clamp(18px, 2.1vw, 20px); line-height: 1.6; color: var(--tinte-weich); max-width: 29em; }
-.hero figure { margin: 0; }
-.hero figcaption { margin-top: 10px; font-size: 14px; color: var(--grau-zart); }
-
-/* `height: auto` ist hier zwingend und nicht kosmetisch: Die Attribute
-   width/height am <img> wirken als Presentational Hint auf die
-   CSS-Eigenschaften width und height. `width: 100%` ueberschreibt den einen,
-   ohne diese Zeile bliebe aber `height: 1050px` aus dem Attribut stehen.
-   Stehen Breite und Hoehe beide fest, ignoriert der Browser `aspect-ratio`,
-   und `object-fit: cover` schneidet das Foto in einen viel zu hohen Kasten.
-   Die Attribute bleiben trotzdem erhalten, sie reservieren den Platz vor dem
-   Laden und verhindern so das Springen des Layouts. */
+.hero > div { grid-column: 2; grid-row: 1; }
+.hero figure { grid-column: 1; grid-row: 1; margin: 0; }
+.hero h1 { font-size: clamp(29px, 3.2vw, 38px); line-height: 1.25; }
+.hero p.lead { margin: 0 0 23px; font-size: 18px; line-height: 1.7; color: var(--tinte-weich); max-width: 32em; }
+.hero figcaption { margin-top: 9px; font-size: 13px; line-height: 1.55; color: var(--grau); }
+/* height:auto hebt die HTML-Hoehenvorgabe auf; die Attribute reservieren Platz. */
 .foto { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--rose); }
-.foto-4-3        { aspect-ratio: 4 / 3; }
-/* Gemeinsames Format fuer Ladenschild, Schaufenster und Haus. Der Entwurf gab
-   jedem der drei ein eigenes Verhaeltnis (4/3, 1600/1136, 3/4); nebeneinander
-   in der Galerie ergab das drei verschieden hohe Kacheln und eine unruhige
-   Reihe. Ein gemeinsames 16:10 loest das an der Wurzel, statt die Hoehen
-   nachtraeglich anzugleichen. */
-.foto-16-10      { aspect-ratio: 16 / 10; }
-/* Beim Eingangsfoto sind oben 22 % abgeschnitten: dort waren der
-   Betonunterzug und die zusammengerollte, ausgefranste Markise zu sehen.
-   Dadurch weicht das Verhaeltnis bewusst vom Entwurf (1400/1628) ab. */
-.foto-eingang    { aspect-ratio: 1200 / 1089; }
-
+.foto-4-3 { aspect-ratio: 4 / 3; }
+.foto-16-10 { aspect-ratio: 16 / 10; }
+.foto-eingang { aspect-ratio: 1200 / 1089; }
 .info-band {
-  max-width: var(--bahn); margin: 0 auto;
-  padding-inline: var(--rand);
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  max-width: var(--bahn); margin: 0 auto; padding-inline: var(--rand);
+  display: grid; grid-template-columns: 1.2fr 1fr .85fr;
 }
-.info-band > div { padding: 30px 34px; }
+.info-band > div { padding: 26px 25px; }
 .info-band > div:first-child { padding-left: 0; }
 .info-band > div:last-child { padding-right: 0; }
 .info-band > div + div { border-left: 1px solid var(--linie); }
-.info-band p { margin: 0 0 6px; font-size: 17px; line-height: 1.6; color: var(--grau); }
-.info-band p.stark { font-weight: 700; color: var(--tinte); margin-bottom: 0; }
-
-.zeiten {
-  display: grid; grid-template-columns: auto auto; justify-content: start;
-  column-gap: 28px; row-gap: 5px; font-size: 19px; font-weight: 700;
-}
-.zeiten span:nth-child(even) { text-align: right; }
+.info-band p { margin: 0 0 7px; font-size: 16px; line-height: 1.6; color: var(--grau); }
+.info-band .rubrik { margin-bottom: 13px; font-size: 20px; color: var(--rot); }
+.info-band p.stark { font-weight: 700; color: var(--tinte); }
+.zeiten { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 4px 20px; font-size: 16px; }
+.zeiten span:nth-child(even) { text-align: right; font-weight: 700; }
 .zeiten .zu { color: var(--grau-still); }
-
-.kategorien { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; }
-.kategorien > div { padding: 20px 0; border-top: 1px solid var(--linie); }
+.zeiten-hinweis, .info-band .zeiten-hinweis { font-size: 14px; line-height: 1.6; color: var(--grau); }
+.info-band .zeiten-hinweis { margin-top: 12px; }
+.kategorien { display: grid; grid-template-columns: 1fr 1fr; column-gap: 52px; }
+.kategorien > div { padding: 18px 0; border-top: 1px solid var(--linie); }
 .kategorien > div:nth-last-child(-n+2) { border-bottom: 1px solid var(--linie); }
-.kategorien .titel { margin: 0 0 5px; font-size: 20px; font-weight: 700; }
-.kategorien .bsp { margin: 0; font-size: 16px; line-height: 1.55; color: var(--grau-hell); }
+.kategorien .titel { margin: 0 0 6px; font-family: var(--schrift-titel); font-size: 20px; font-weight: 700; line-height: 1.4; }
+.kategorien .bsp { margin: 0; font-size: 16px; line-height: 1.65; color: var(--grau); }
+.bewertungen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.bewertungen blockquote { margin: 0; padding: 0 0 0 18px; border-left: 2px solid #b7a98f; }
+.bewertungen p { margin: 0 0 13px; font-family: Georgia, "Times New Roman", serif; font-size: 20px; line-height: 1.65; color: var(--tinte); }
+.bewertungen footer { font-size: 13px; color: var(--grau); }
+.galerie-2 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 24px; align-items: start; }
+.galerie-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-.bewertungen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.bewertungen blockquote { margin: 0; border-left: 3px solid var(--rot); padding-left: 20px; }
-.bewertungen p { margin: 0 0 12px; font-size: 19px; line-height: 1.55; color: var(--tinte); }
-.bewertungen footer { font-size: 14px; font-weight: 700; color: var(--grau); }
+/* Sortiment: die vollstaendige Warenliste wie in einem gedruckten Verzeichnis. */
+.sortiment-kopf { max-width: var(--bahn); margin: 0 auto; padding: 34px var(--rand) 0; }
+.sortiment-kopf .lead { max-width: 42em; margin: 0 0 13px; font-size: 18px; }
+.sortiment-kopf .verfuegbarkeit { margin: 0; font-size: 16px; color: var(--grau); }
+.warengruppen { padding-block: 26px; }
+.warengruppe { display: grid; grid-template-columns: 16em 1fr; gap: 32px; padding: 24px 0; border-top: 1px solid var(--linie); }
+.warengruppe:last-of-type { border-bottom: 1px solid var(--linie); }
+.warengruppe h2 { margin: 0; font-size: 23px; line-height: 1.4; color: var(--rot); }
+.warengruppe p { margin: 0; font-size: 17px; line-height: 1.75; color: var(--tinte-weich); max-width: 44em; }
+.besuch { margin-top: 20px; padding: 26px 0; border-block: 1px solid var(--linie); }
+.besuch h2 { font-size: 26px; }
+.besuch p { margin: 8px 0 20px; color: var(--grau); }
 
-.galerie-2 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 20px; align-items: start; }
-/* Drei gleich breite Spalten. Der Entwurf hatte 1.3fr 1.3fr .9fr, weil das
-   dritte Bild hochkant war. Bei gleichem Format waere das jetzt eine
-   willkuerlich schmalere Kachel. `align-items: start` kann entfallen, da alle
-   drei ohnehin gleich hoch sind. */
-.galerie-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-
-/* ------------------------------------------------------------- Sortiment - */
-
+/* Der Laden: vorhandene Geschichte, Fakten und Fotoansichten. */
 .seiten-kopf {
-  max-width: var(--bahn); margin: 0 auto;
-  padding: 44px var(--rand) 0;
+  max-width: var(--bahn); margin: 0 auto; padding: 34px var(--rand) 0;
   display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;
 }
-.seiten-kopf p { margin: 0; font-size: clamp(18px, 2vw, 19px); line-height: 1.6; color: var(--tinte-weich); max-width: 30em; }
-/* „Der Laden" gibt der Bildspalte weniger Platz als das Sortiment. Das
-   Eingangsfoto ist hochkant und wuerde sonst zu hoch aufragen. */
-.seiten-kopf-schmal { grid-template-columns: 1.15fr .85fr; }
-
-.warengruppe {
-  display: grid; grid-template-columns: 15em 1fr; gap: 28px;
-  padding: 26px 0; border-top: 1px solid var(--linie);
-}
-.warengruppe:last-of-type { border-bottom: 1px solid var(--linie); }
-.warengruppe h2 { margin: 0; font-size: 23px; font-weight: 700; line-height: 1.25; letter-spacing: 0; }
-.warengruppe p { margin: 0; font-size: 17px; line-height: 1.7; color: var(--grau); max-width: 44em; }
-
-.hinweis-kasten {
-  margin-top: 28px; background: var(--weiss);
-  border: 1px solid var(--linie-zart); border-radius: 12px;
-  padding: 24px 28px;
-  display: flex; flex-wrap: wrap; gap: 16px;
-  align-items: center; justify-content: space-between;
-}
-.hinweis-kasten p { margin: 0; font-size: 18px; line-height: 1.6; color: var(--tinte-weich); max-width: 34em; }
-.hinweis-kasten a { font-size: 17px; font-weight: 700; white-space: nowrap; }
-
-.sortiment-kopf { max-width: var(--bahn); margin: 0 auto; padding: 36px var(--rand) 0; }
-.sortiment-kopf .lead { max-width: 42em; margin-bottom: 16px; }
-.sortiment-kopf .verfuegbarkeit { margin: 0; font-size: 16px; color: var(--grau); }
-.warengruppen { padding-block: 24px; }
-.besuch { margin-top: 32px; padding: 28px; border: 1px solid var(--linie); border-radius: var(--radius); background: var(--rose); }
-.besuch h2 { font-size: 26px; }
-.besuch p { margin: 8px 0 18px; color: var(--grau); }
-.zeiten-hinweis { font-size: 14px; color: var(--grau); }
-
-/* ----------------------------------------------------------- Der Laden --- */
-
-.laden-text { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
-.laden-text p { margin: 0 0 16px; font-size: 19px; line-height: 1.7; color: var(--tinte-weich); }
+.seiten-kopf p { margin: 0; font-size: 19px; line-height: 1.65; color: var(--tinte-weich); max-width: 30em; }
+.seiten-kopf-schmal { grid-template-columns: 1.2fr .8fr; }
+.laden-text { display: grid; grid-template-columns: 1.25fr 1fr; gap: 52px; align-items: start; }
+.laden-text p { margin: 0 0 16px; font-size: 18px; line-height: 1.75; color: var(--tinte-weich); }
 .laden-text p:last-child { margin-bottom: 0; }
-
-.kennzahlen { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; }
-.kennzahlen > div { padding: 16px 0; border-top: 1px solid var(--linie); }
-.kennzahlen > div:nth-last-child(-n+2) { border-bottom: 1px solid var(--linie); }
-.kennzahlen .zahl { margin: 0; font-size: 28px; font-weight: 700; }
+.kennzahlen { border-top: 1px solid var(--linie); }
+.kennzahlen > div { display: flex; align-items: baseline; gap: 18px; padding: 13px 0; border-bottom: 1px solid var(--linie); }
+.kennzahlen .zahl { flex: 0 0 95px; margin: 0; font-size: 21px; font-family: var(--schrift-titel); font-weight: 700; }
 .kennzahlen .zahl.akzent { color: var(--rot); }
-.kennzahlen .was { margin: 2px 0 0; font-size: 15px; color: var(--grau-hell); }
+.kennzahlen .was { margin: 0; font-size: 15px; color: var(--grau); }
 
-/* ---------------------------------------------------------------- Kontakt */
-
-.karten-paar { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-.karte {
-  background: var(--weiss);
-  border: 1px solid var(--linie-zart); border-radius: var(--radius);
-  padding: 30px;
-}
-.karte .adresse { margin: 0 0 20px; font-size: 24px; font-weight: 700; line-height: 1.4; }
-.karte .telefon { margin: 0 0 14px; font-size: 24px; font-weight: 700; }
-.karte p { font-size: 17px; line-height: 1.65; color: var(--grau); }
-
-.zeiten-karte {
-  margin-top: 20px; background: var(--weiss);
-  border: 1px solid var(--linie-zart); border-radius: var(--radius); overflow: hidden;
-}
-.zeiten-karte .rubrik { padding: 22px 30px 0; }
-.zeiten-gitter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 18px 30px 24px; }
-.zeiten-gitter .tag { margin: 0; font-size: 16px; font-weight: 700; color: var(--grau-hell); }
-.zeiten-gitter .uhr { margin: 4px 0 0; font-size: clamp(22px, 2.6vw, 27px); font-weight: 700; }
+/* Kontakt: offene Spalten statt einer Sammlung von Karten. */
+.karten-paar { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; }
+.karte { padding: 25px 0; border-top: 1px solid var(--linie); }
+.karte .adresse { margin: 0 0 20px; font-size: 22px; font-weight: 700; line-height: 1.5; color: var(--tinte); }
+.karte .telefon { margin: 0 0 14px; font-size: 24px; font-weight: 700; color: var(--tinte); }
+.karte p { font-size: 17px; line-height: 1.75; color: var(--tinte-weich); }
+.karte .rubrik { font-size: 20px; color: var(--rot); }
+.zeiten-karte { margin-top: 12px; padding: 24px; background: var(--rose); border-block: 1px solid var(--linie); }
+.zeiten-karte .rubrik { margin-bottom: 20px; }
+.zeiten-gitter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.zeiten-gitter .tag { margin: 0; font-size: 15px; color: var(--grau); }
+.zeiten-gitter .uhr { margin: 4px 0 0; font-size: 24px; font-weight: 700; }
 .zeiten-gitter .uhr.zu { color: var(--grau-still); }
-.zeiten-karte .status-zeile {
-  margin: 0; padding: 16px 30px; background: var(--rose);
-  font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 10px;
-}
-
-.kontakt-unten { margin-top: 20px; display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: stretch; }
+.zeiten-karte .status-zeile { display: flex; align-items: center; gap: 10px; margin: 20px 0 0; padding-top: 15px; border-top: 1px solid var(--linie); font-size: 15px; }
+.kontakt-unten { margin-top: 28px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 42px; align-items: start; }
 .kontakt-unten .karte p:last-child { margin-bottom: 0; }
-
-/* Google-Maps-Fassade (Zwei-Klick-Loesung, siehe datenschutz.html)
-   Die Spalte traegt Rahmen und Widerrufsknopf untereinander. Der Knopf steht
-   bewusst ausserhalb des Rahmens: der hat overflow:hidden und wuerde ihn
-   verschlucken. */
-.maps-spalte { display: flex; flex-direction: column; gap: 12px; }
-.maps-spalte .maps-rahmen { flex: 1; }
+.karte .zeiten-hinweis { font-size: 14px; }
+.maps-spalte { display: flex; flex-direction: column; gap: 12px; padding-top: 25px; }
 .maps-widerruf { margin: 0; text-align: right; }
-.maps-widerruf button { font-size: 15px; padding: 8px 18px; }
-.maps-rahmen {
-  border: 1px solid var(--linie-zart); border-radius: var(--radius);
-  overflow: hidden; min-height: 380px; background: var(--rose);
-}
-.maps-fassade {
-  height: 100%; min-height: 380px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; gap: 14px; padding: 32px;
-}
+.maps-widerruf button { font-size: 15px; padding: 8px 18px; border-color: var(--linie); background: transparent; color: var(--rot); }
+.maps-rahmen { overflow: hidden; min-height: 380px; background: var(--rose); border: 1px solid var(--linie); border-radius: var(--radius); }
+.maps-fassade { min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 16px; padding: 30px; }
 .maps-fassade p { margin: 0; }
 .maps-fassade button[hidden] { display: none; }
-.maps-fassade .titel { font-size: 20px; font-weight: 700; color: var(--tinte); }
-.maps-fassade .klein { font-size: 15px; color: var(--grau); max-width: 34em; line-height: 1.6; }
-.maps-rahmen iframe { display: block; width: 100%; height: 100%; min-height: 380px; border: 0; }
+.maps-fassade .titel { font-family: var(--schrift-titel); font-size: 22px; font-weight: 700; }
+.maps-fassade .klein { font-size: 15px; color: var(--grau); max-width: 34em; line-height: 1.7; }
+.maps-rahmen iframe { display: block; width: 100%; height: 440px; border: 0; }
 
-/* ------------------------------------------------- Impressum, Datenschutz
-   Fliesstextseiten. Schmalere Spalte als der Rest der Seite: Rechtstexte
-   werden gelesen, nicht ueberflogen, und lange Zeilen ermueden. */
-
-.rechtstext-kopf { max-width: 52rem; margin: 0 auto; padding: 44px var(--rand) 0; }
-.rechtstext-kopf h1 { margin: 0 0 14px; }
-.rechtstext-kopf .strich { width: 64px; height: 4px; border-radius: 2px; background: var(--rot); }
-
-.rechtstext {
-  max-width: 52rem; margin: 0 auto;
-  padding: 28px var(--rand) 8px;
-  font-size: 17px; line-height: 1.75; color: var(--grau);
-}
-.rechtstext h2 {
-  font-size: 24px; font-weight: 700; color: var(--tinte);
-  margin: 34px 0 10px; letter-spacing: -.01em;
-}
+/* Rechtstexte: gleiche Gestaltung, begrenzte Zeilenlaenge. */
+.rechtstext-kopf { max-width: 52rem; margin: 0 auto; padding: 38px var(--rand) 0; }
+.rechtstext-kopf h1 { margin: 0 0 18px; }
+.rechtstext-kopf .strich { width: 100%; height: 1px; background: var(--linie); }
+.rechtstext { max-width: 52rem; margin: 0 auto; padding: 28px var(--rand) 8px; font-size: 17px; line-height: 1.8; color: var(--tinte-weich); }
+.rechtstext h2 { font-size: 24px; color: var(--tinte); margin: 32px 0 12px; }
 .rechtstext h2:first-child { margin-top: 0; }
-.rechtstext h3 {
-  font-size: 19px; font-weight: 700; color: var(--tinte);
-  margin: 24px 0 8px; letter-spacing: 0;
-}
-.rechtstext p { margin: 0 0 14px; }
-.rechtstext ul { margin: 0 0 14px; padding-left: 1.4em; }
+.rechtstext h3 { font-size: 19px; color: var(--tinte); margin: 24px 0 8px; }
+.rechtstext p, .rechtstext ul { margin: 0 0 15px; }
+.rechtstext ul { padding-left: 1.4em; }
 .rechtstext li { margin-bottom: 6px; }
 .rechtstext strong { color: var(--tinte); }
-.rechtstext a { text-decoration: underline; text-underline-offset: 2px; }
-/* Lange URLs und E-Mail-Adressen duerfen auf dem Handy umbrechen. */
 .rechtstext a[href^="http"], .rechtstext a[href^="mailto"] { overflow-wrap: anywhere; }
 
-@media (max-width: 760px) {
-  .rechtstext { font-size: 16px; }
-  .rechtstext h2 { font-size: 21px; }
-}
-
-/* ----------------------------------------------------------------- Footer */
-
-.fuss { margin-top: 52px; background: var(--tinte); color: #FBF3EA; }
-.fuss-oben {
-  max-width: var(--bahn); margin: 0 auto;
-  padding: 44px var(--rand);
-  display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 30px;
-}
-.fuss-name { margin: 0 0 10px; font-size: 21px; font-weight: 700; }
-.fuss p { margin: 0; font-size: 16px; line-height: 1.65; color: rgba(243, 233, 218, .68); }
-.fuss .fuss-hinweis { margin-top: 12px; font-size: 14px; max-width: 26em; }
-.fuss .anschrift { font-size: 16px; font-weight: 700; line-height: 1.6; color: #FBF3EA; margin-bottom: 8px; }
+/* Gemeinsamer Abschluss mit allen vorhandenen Besuchsinformationen. */
+.fuss { margin-top: 44px; background: var(--braun); color: var(--braun-text); border-top: 4px solid var(--rot); }
+.fuss-oben { max-width: var(--bahn); margin: 0 auto; padding: 36px var(--rand); display: grid; grid-template-columns: 1.15fr .9fr 1.1fr; gap: 30px; }
+.fuss p { margin: 0; font-size: 15px; line-height: 1.75; color: #ded8cb; }
+.fuss .fuss-name { margin: 0 0 10px; font-family: var(--schrift-titel); font-size: 21px; font-weight: 700; color: var(--braun-text); }
+.fuss .fuss-hinweis { margin-top: 12px; font-size: 13px; max-width: 27em; }
+.fuss .anschrift { font-size: 16px; font-weight: 700; line-height: 1.6; color: var(--braun-text); margin-bottom: 8px; }
 .fuss a { color: var(--gold); }
 .fuss a:hover { color: #fff; }
-.fuss-zeiten {
-  display: grid; grid-template-columns: auto auto; justify-content: start;
-  column-gap: 22px; row-gap: 4px; font-size: 16px; color: rgba(243, 233, 218, .68);
-}
+.fuss :focus-visible { outline-color: var(--gold); }
+.fuss-zeiten { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 4px 18px; font-size: 15px; color: #ded8cb; }
 .fuss-zeiten span:nth-child(even) { text-align: right; }
-.fuss-unten { border-top: 1px solid rgba(243, 233, 218, .14); }
-.fuss-unten-innen {
-  max-width: var(--bahn); margin: 0 auto;
-  padding: 16px var(--rand);
-  display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between;
-  /* .5 ergab auf #241C16 nur 4,47:1 und verfehlte AA um Haaresbreite. */
-  font-size: 14px; color: rgba(243, 233, 218, .58);
-}
-.fuss-unten-innen a { color: rgba(243, 233, 218, .58); }
-.fuss-unten-innen a:hover { color: #fff; }
-.fuss-rechtliches { display: flex; gap: 18px; }
+.fuss-unten { border-top: 1px solid #60584d; }
+.fuss-unten-innen { max-width: var(--bahn); margin: 0 auto; padding: 16px var(--rand); display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; font-size: 13px; color: #ded8cb; }
+.fuss-unten-innen a { color: #ded8cb; }
+.fuss-rechtliches { display: flex; gap: 20px; }
 
-/* ------------------------------------------------------------ Umbrueche -- */
-
+/* Tablet und Mobil: voller Inhalt, gleiche Quellen und erreichbare Links. */
 @media (max-width: 980px) {
-  .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 36px; }
-  .seiten-kopf { grid-template-columns: 1fr; gap: 28px; }
-  .laden-text { grid-template-columns: 1fr; gap: 32px; }
-  .bewertungen { grid-template-columns: 1fr; gap: 28px; }
-  .kontakt-unten { grid-template-columns: 1fr; }
-  .info-band { grid-template-columns: 1fr; }
-  .info-band > div { padding: 26px 0; }
-  .info-band > div + div { border-left: 0; border-top: 1px solid var(--linie); }
-  .fuss-oben { grid-template-columns: 1fr; gap: 26px; }
+  .hero { gap: 28px; }
+  .hero h1 { font-size: 31px; }
+  .hero p.lead { font-size: 17px; }
+  .info-band { grid-template-columns: 1.1fr 1fr; }
+  .info-band > div:nth-child(2) { padding-right: 0; }
+  .info-band > div:last-child { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--linie); padding: 18px 0; }
+  .fuss-oben { grid-template-columns: 1fr 1fr; }
+  .fuss-oben > div:last-child { grid-column: 1 / -1; }
 }
-
+@media (max-width: 900px) {
+  html { scroll-padding-top: 95px; }
+  .kopf { position: sticky; top: 0; border-bottom: 2px solid var(--rot); }
+  .kopf-innen { flex-direction: row; justify-content: space-between; gap: 12px; padding-block: 14px; min-height: 76px; }
+  .marke { gap: 10px; min-width: 0; }
+  .marke-name { font-size: 22px; }
+  .marke img { width: 46px; height: 46px; }
+  .marke-zusatz { display: none; }
+  .menue-bereit .menue-schalter { display: block; }
+  .nav {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 3px;
+    background: var(--creme); padding: 12px var(--rand) 18px;
+    border-top: 1px solid var(--linie); border-bottom: 2px solid var(--rot);
+    max-height: calc(100dvh - 80px); overflow-y: auto;
+  }
+  /* noscript im HTML stellt die Navigation ohne JavaScript in den Dokumentfluss. */
+  .menue-bereit .nav.offen { display: flex; }
+  .nav a { padding: 12px; font-size: 17px; }
+  .nav a[aria-current="page"] { background: var(--rose); }
+  .nav .btn-anruf { margin: 6px 0 0; text-align: center; }
+  .laden-text { grid-template-columns: 1fr; gap: 28px; }
+  .kontakt-unten { grid-template-columns: 1fr; gap: 8px; }
+  .bewertungen { grid-template-columns: 1fr; gap: 24px; }
+}
 @media (max-width: 760px) {
   body { font-size: 16px; }
-  .kategorien { grid-template-columns: 1fr; column-gap: 0; }
+  .hero { grid-template-columns: 1fr; gap: 26px; padding-top: 26px; }
+  .hero > div, .hero figure { grid-column: auto; grid-row: auto; }
+  .hero h1 { font-size: clamp(29px, 6vw, 35px); }
+  .hero p.lead { font-size: 17px; }
+  .seiten-kopf { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; }
+  .info-band { grid-template-columns: 1fr; }
+  .info-band > div { padding: 22px 0; }
+  .info-band > div + div { border-left: 0; border-top: 1px solid var(--linie); }
+  .kategorien, .galerie-2, .galerie-3, .karten-paar { grid-template-columns: 1fr; }
   .kategorien > div:nth-last-child(-n+2) { border-bottom: 0; }
   .kategorien > div:last-child { border-bottom: 1px solid var(--linie); }
-  .warengruppe { grid-template-columns: 1fr; gap: 8px; }
-  .karten-paar { grid-template-columns: 1fr; }
-  .galerie-2, .galerie-3 { grid-template-columns: 1fr; }
-  .zeiten-gitter { grid-template-columns: 1fr; gap: 12px; }
-  .zeiten-gitter > div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
-  .zeiten-gitter .uhr { margin: 0; }
-  .karte { padding: 24px; }
-  .btn { display: block; text-align: center; }
+  .warengruppe { grid-template-columns: 1fr; gap: 10px; padding: 21px 0; }
+  .warengruppe h2 { font-size: 22px; }
+  .karten-paar { gap: 0; }
+  .karte { padding-block: 22px; }
+  .zeiten-karte { padding: 20px; }
+  .zeiten-gitter { grid-template-columns: 1fr; gap: 14px; }
+  .zeiten-gitter > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 16px; }
+  .zeiten-gitter .uhr { margin: 0; font-size: 21px; }
+  .maps-spalte { padding-top: 12px; }
+  .maps-fassade { padding: 24px; }
+  .rechtstext { font-size: 16px; }
+  .rechtstext h2 { font-size: 22px; }
+  .fuss-oben { grid-template-columns: 1fr; gap: 26px; }
+  .fuss-oben > div:last-child { grid-column: auto; }
+}
+@media (max-width: 480px) {
+  .topbar { font-size: 12px; gap: 2px 12px; padding-block: 6px; }
+  .topbar .teiler { display: none; }
+  .topbar [data-status-text] { flex-basis: 100%; text-align: center; }
+  .marke-name { font-size: 18px; }
+  .marke img { width: 38px; height: 38px; }
+  .kopf-innen { gap: 8px; }
   .btn-reihe { flex-direction: column; align-items: stretch; }
-  .hinweis-kasten { padding: 20px; }
+  .btn { text-align: center; }
+  .zeiten { column-gap: 16px; font-size: 15px; }
+  .kennzahlen .zahl { flex-basis: 85px; }
+}
+@media print {
+  .kopf { position: static; }
+  .menue-schalter, .maps-spalte { display: none; }
+  .nav { display: flex; position: static; flex-wrap: wrap; }
+  .fuss { background: transparent; color: #000; }
+  .fuss p, .fuss a, .fuss .fuss-name, .fuss .anschrift, .fuss-zeiten, .fuss-unten-innen { color: #000; }
 }

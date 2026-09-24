@@ -6,6 +6,12 @@ Maßgeblich ist **Abschnitt 5 (Bekannte Fehler und Fixes)** der Gesamtdatei — 
 
 ## Neue Einträge
 
+### 24.09.2026 — klassische Ladenansicht
+
+**F-26 · Kleineres Mobil-Logo verursachte einen Layoutsprung.** Was passiert ist: Bei verzögert geladenem JavaScript erhöhte der anschließend eingeblendete Menüschalter den Kopf um 8 px. Warum: Das Logo war bei 390 px kleiner als die spätere Schaltfläche, und der Container reservierte deren Höhe nicht. Wie behoben: Mindesthöhe des mobilen Kopfinneren auf 76 px gesetzt; vorhandener Verzögerungstest besteht. Künftig vermeiden: Responsive Logogrößen zusammen mit noch nicht sichtbaren Bedienelementen prüfen, insbesondere vor und nach der Skriptinitialisierung.
+
+**F-27 · Git-Zeilenenden sind keine Inhaltsänderung.** Was passiert ist: Der neue Bestandsvergleich meldete zunächst Unterschiede in HTML und SVG, obwohl `git diff` dort keine Inhaltsänderung zeigte. Warum: `git show` liefert LF, die Windows-Arbeitskopie teils CRLF; SVG wurde zunächst fälschlich wie ein Rasterbild behandelt. Wie behoben: Nur Textdateien einschließlich SVG auf LF normalisieren; Rasterbilder und WOFF2 weiterhin byteweise vergleichen. Danach sind alle sechs HTML-Seiten und 46 Zusatzdateien erfolgreich geprüft. Künftig vermeiden: Vergleichsgrenzen ausdrücklich nennen und Text-/Binärdateien passend behandeln. Keine inhaltliche Normalisierung verwenden, die verlorene Worte oder Attribute verdecken könnte.
+
 ### 24.09.2026 — Kundenanalyse und anschließende Korrektur
 
 **Umsetzungsstatus:** F-20 durch Berliner Zeit/NRW-Kalender/Ausnahmeliste und aktive Tests behoben. F-21 durch spezifische `.nav .btn-anruf`-Regeln einschließlich Hover/Fokus behoben. F-22: Mobilnavigation behoben; Cloudflare-E-Mail-Schutz wird auf ausdrücklichen Wunsch erhalten (E-34), kein weiter offener Abschaltauftrag. F-23 durch geeigneten Wortumbruch mit Trennstelle behoben, ohne Abschneiden. Die folgenden Befundtexte dokumentieren den Zustand **vor** der Umsetzung.
