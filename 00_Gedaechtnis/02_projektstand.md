@@ -1,5 +1,13 @@
 # 02 — Projektstand
 
+## Klassische Ladenansicht, 24.09.2026, lokal geprüft
+
+**Neuester Arbeitsstand:** Auf Inhaberwunsch die Darstellung aller sechs Inhaltsseiten überarbeitet. Geschäftskopf mit größerer Marke, lokale Lora-Überschriften, Arial-Fließtext, Schaufensterrot/Naturtöne, rechteckige Fotos, offene Kontaktspalten und ruhige Faktenzeilen. Scroll-Einblendungen entfernt. Der gesamte HTML-Body jeder Seite sowie Texte, Links, Alt-Texte, Überschriften und SEO-Daten bleiben gegen Ausgangscommit `3e1e459` identisch. Cacheversion überall `2026092403`. Vollständige Analyse, vier lokale Referenzen, Fachquellen und Nachweise: [Gestaltungsanalyse](gestaltungsanalyse_2026-09-24.md).
+
+**Prüfungen:** 15 Logik-/Strukturtests und 36 Browserfälle bestanden; 320/390/768/1280 px, Axe, Menü/Tastatur, ohne JS, Karte/Route und Feiertagsstatus. Inhaltserhalt aller sechs Seiten und 46 weiterer Dateien separat geprüft. Neue mobile Lighthouse-Messung am 24.09.2026, 16:24 bis 16:25 Uhr MESZ: Performance 97 bis 100, übrige Kategorien jeweils 100, CLS überall 0. Alle sechs Desktopansichten sowie ausgewählte Mobilansichten visuell geprüft. Kein Ranking- oder vollständiger WCAG-Nachweis.
+
+**Veröffentlichung:** Änderungen auf `codex/klassische-ladengestaltung` lokal, noch kein Push/Merge/Deployment dieses Gestaltungsstands. Vorschau `http://127.0.0.1:4173/`. Frühere Live-Nachweise unten betreffen die vorherige Gestaltung. Vorfassungen in `90_Archiv/gestaltung-v1_2026-09-24/`. Externe Restpunkte der inhaltlichen Vorgängeraufträge bleiben unverändert.
+
 ## Umsetzung der Kundenanalyse, 24.09.2026
 
 **Neuester Kontaktnachtrag:** Auf Inhaberwunsch die drei verstreuten Beschilderungs-/Tarif-/Höchstparkdauerhinweise entfernt. Stattdessen ein gemeinsamer Hinweis: „Die Angaben dienen zur Orientierung. Bitte prüfen Sie vor dem Parken die aktuellen Regeln auf den Schildern und am Parkautomaten.“ Die Pflicht, auch die kostenlosen 15 Minuten am Automaten zu starten, ist mit „müssen“ eindeutig formuliert. Standort des Parkautomaten ergänzt: ungefähr vor bzw. auf Höhe von „EM Kabüffken“, erkennbar am roten runden Schild mit weißer Schrift über dem Eingang und den „Früh Kölsch“-Schildern. Quelle dieser Ortsbeschreibung ist die Inhaberangabe vom 24.09.2026, keine eigene Vor-Ort-Prüfung. Entscheidung E-42. Allgemeine Parkregeln und Stadtquellen bleiben erhalten; Quellenbeschriftung ausdrücklich auf Parkregeln bezogen.

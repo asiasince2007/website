@@ -1,5 +1,5 @@
-/* Asia Markt Thien Phu, klassische Ladenansicht
-   Navigation, Oeffnungsstatus und freigegebene Karte; keine Scroll-Einblendungen.
+/* Asia Markt Thien Phu, Designrichtung A
+   Ersetzt die DCLogic-Laufzeit des Design-Entwurfs durch schlichtes JavaScript.
    Ohne JavaScript bleibt die Seite vollstaendig lesbar: Der Status-Text steht
    als sinnvoller Vorgabewert im HTML, die Navigation sind gewoehnliche Links. */
 (function () {
@@ -184,6 +184,52 @@
     }
   }
 
+  /* -------------------------------------------------- Einblenden beim Scrollen */
+  function einblenden() {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+
+    function alleZeigen() {
+      document.documentElement.classList.remove('js-reveal');
+      for (var i = 0; i < els.length; i++) els[i].classList.add('sichtbar');
+    }
+
+    var reduziert = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduziert || !('IntersectionObserver' in window)) { alleZeigen(); return; }
+
+    // Was beim Laden schon im Blickfeld liegt, wird NICHT animiert: sofort
+    // sichtbar setzen, bevor `js-reveal` greift. Das spart dem groessten
+    // Element im ersten Bildausschnitt (Hero-Bild) das Einblenden und damit
+    // Zeit beim Largest Contentful Paint.
+    var drunter = [];
+    for (var k = 0; k < els.length; k++) {
+      var box = els[k].getBoundingClientRect();
+      if (box.top < window.innerHeight && box.bottom > 0) els[k].classList.add('sichtbar');
+      else drunter.push(els[k]);
+    }
+    if (!drunter.length) return;
+
+    document.documentElement.classList.add('js-reveal');
+
+    // Sicherheitsnetz: Der Effekt darf Inhalte niemals dauerhaft verstecken.
+    // Ein funktionierender IntersectionObserver meldet sich unmittelbar nach
+    // observe() fuer jedes Ziel, auch fuer nicht sichtbare. Bleibt diese erste
+    // Meldung aus, ist er in dieser Umgebung wirkungslos: dann alles zeigen.
+    var hatGemeldet = false;
+    var beobachter = new IntersectionObserver(function (eintraege) {
+      hatGemeldet = true;
+      eintraege.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.02 });
+
+    for (var j = 0; j < drunter.length; j++) beobachter.observe(drunter[j]);
+
+    setTimeout(function () {
+      if (!hatGemeldet) { beobachter.disconnect(); alleZeigen(); }
+    }, 1500);
+  }
+
   /* ------------------------------------------------ Google Maps: zwei Klicks
      Die Karte laedt erst auf ausdruecklichen Klick. Vorher gehen keinerlei
      Daten an Google. So beschrieben in datenschutz.html. */
@@ -267,6 +313,7 @@
   function start() {
     navigation();
     statusAnzeigen();
+    einblenden();
     karte();
     // Der Status haengt an der Uhrzeit und wird minuetlich nachgezogen.
     setInterval(statusAnzeigen, 60000);

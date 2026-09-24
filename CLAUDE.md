@@ -57,6 +57,8 @@ Durchgängig **Deutsch**. Zentrale Fachbegriffe bei Erstnennung zusätzlich mit 
 
 ## Aktiver Stack und fachliche Regeln
 
+- Neueste lokale Gestaltung nach E-43: klassischer Geschäftskopf, vorhandene Lora-Überschriften, Arial-Fließtext, Schaufensterrot/Naturtöne, keine Scroll-Reveals. Alle sechs HTML-Bodies und SEO-Angaben unverändert gegen `3e1e459`; Nachweis über `node scripts/qa-design-preservation.cjs`. Aktuelle Cacheversion `2026092403`. Vollständige Analyse und Prüfgrenzen: `00_Gedaechtnis/gestaltungsanalyse_2026-09-24.md`. Noch keine Veröffentlichung dieses Gestaltungsbranches; vorherige Live-Nachweise nicht dafür verwenden.
+
 - Sechs statische Inhaltsseiten plus `/route.html`, aktive Dateien `assets/css/site.css` und `assets/js/site.js`. Keine Framework- oder Tailwind-Migration. Vorhandene URLs, Gestaltung und Geschäftsidentität erhalten.
 - Öffnungsstatus ausschließlich in `Europe/Berlin`; elf NRW-Feiertage sind laut Inhaber **immer geschlossen** (Nachtrag 24.09.2026). Heiligabend/Silvester: 9 bis 14 Uhr vorläufig vorgemerkt, erst nach endgültiger Bestätigung veröffentlichen. Bestätigte Ausnahmen in `OEFFNUNGSZEITEN`, Anleitung: `00_Gedaechtnis/oeffnungszeiten-pflegen.md`. Feste Feiertagsschließung hat Vorrang vor versehentlichen Öffnungseinträgen.
 - Navigation und reguläre Zeiten bleiben ohne JavaScript erreichbar. **Cloudflare-Obfuscation bleibt ausdrücklich aktiv (Inhaberentscheidung 24.09.2026, E-34). Keine `email_off`-Ausnahme.** Lokaler E-Mail-Klartext belegt nicht die Live-Darstellung.

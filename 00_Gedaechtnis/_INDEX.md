@@ -13,6 +13,8 @@ Neue Gedächtniseinträge werden hier sofort ergänzt, sonst sind sie faktisch u
 
 ## Thematische Einträge
 
+- [Gestaltungsanalyse und klassische Ladenansicht](gestaltungsanalyse_2026-09-24.md) — vollständiger Seitenvergleich, vier lokale Vorbilder, Forschungsquellen, reiner Darstellungsumbau, Inhalts-/SEO-Erhalt und neue Prüfungen; E-43, F-26/F-27; lokal auf Gestaltungsbranch, 24.09.2026.
+
 - [Parkautomat bei EM Kabüffken, E-42](03_entscheidungen.md) — Inhaberbeschreibung ergänzt, Pflicht für kostenlose 15 Minuten deutlich, verstreute Hinweise zu einem Orientierungshinweis gebündelt, 24.09.2026.
 
 - [Parkhinweis gekürzt, E-41](03_entscheidungen.md) — Inhaber bestätigt gegenüberliegende Straßenparkplätze; ortsfremde Ausnahmen auf Kontakt entfernt, 24.09.2026.

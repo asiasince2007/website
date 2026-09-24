@@ -6,6 +6,10 @@ Maßgeblich ist **Abschnitt 4 (Konventionen)** der Gesamtdatei, ergänzt um die 
 
 ## Neue Einträge
 
+### Gestaltung nach E-43, 24.09.2026
+
+Klassische Ladenansicht aus Schaufensterrot, Naturtönen, lokal vorhandener Lora für Überschriften und Systemschrift Arial für Fließtext. Texte und Fotos sind eigenständige Inhalte; keine neuen Geschäftsaussagen aus einer Designentscheidung ableiten. Keine Scroll-Reveals oder anfängliche Unsichtbarkeit. Bei weiteren reinen Darstellungsaufträgen Inhalt und SEO gegen einen benannten Ausgangscommit vergleichen. `scripts/qa-design-preservation.cjs` dokumentiert speziell diesen Umbau gegen `3e1e459`; es ist kein dauerhafter Inhaltsstopp für spätere ausdrücklich beauftragte Textpflege. Aktuelle Assetversion `2026092403`.
+
 ### Aktive Websitepflege, 24.09.2026
 
 **Letzter Inhabernachtrag hat Vorrang:** NRW-Feiertage immer geschlossen, keine pauschalen Feiertagswarnungen. Kurzer Hinweis auf kurzfristige Schließungen. 24./31. Dezember vorläufig 9 bis 14 Uhr, endgültige Bestätigung als TODO. „bis“ statt Halb-/Geviertstrich auch in Zeitspannen/Metadaten. Keine Gruppenbuttons auf der kurzen Sortimentsseite. Aktuell 4,4 Sterne bei 128 Google-Bewertungen, im Live-Embed bestätigt. Keine pauschalen Link-Disclaimer; Quellen klar extern kennzeichnen. Details E-38 bis E-40.
