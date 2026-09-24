@@ -1,4 +1,6 @@
-/* Lokal gehostete Lora 700 für Überschriften. Herkunft, Lizenz und Pflege: README.md. */
+/* Lokal gehostete Lora 700 für Überschriften, Teilmengen latin und latin-ext.
+   Quelle: github.com/google/fonts/tree/main/ofl/lora; Lizenz: design/OFL-Lora.txt.
+   Schriftdateien und Deklarationen gemeinsam pflegen; keine externen Font-Anfragen. */
 @font-face {
   font-family: 'Lora';
   font-style: normal;

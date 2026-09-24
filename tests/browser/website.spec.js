@@ -91,10 +91,12 @@ test('Ohne JavaScript: sechs Seiten erreichbar, Menü sichtbar, reguläre Zeiten
   await context.close();
 });
 
-test('Startseite ohne Bildlogo; Browsericons mit transparenten Ecken und vollständigem Kreis', async ({ page }) => {
-  await page.goto('/');
-  await expect(page.locator('.marke img')).toHaveCount(0);
-  await expect(page.locator('.marke')).toContainText('Asia Markt Thien Phu');
+test('Alle Seitenköpfe ohne Bildlogo; Browsericons mit transparenten Ecken und vollständigem Kreis', async ({ page }) => {
+  for (const url of pages) {
+    await page.goto(url);
+    await expect(page.locator('.marke img')).toHaveCount(0);
+    await expect(page.locator('.marke')).toContainText('Asia Markt Thien Phu');
+  }
   // Tatsächliche Pixel prüfen: CSS-Rundung hätte auf ein Tab-Symbol keinen Einfluss.
   const icons = await page.evaluate(async () => {
     const paths = ['/assets/images/icon-192.png', '/assets/images/icon-512.png', '/assets/images/apple-touch-icon.png'];
