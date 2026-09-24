@@ -15,6 +15,7 @@ Neue Gedächtniseinträge werden hier sofort ergänzt, sonst sind sie faktisch u
 
 - [Kundenanalyse vom 24.09.2026](kundenanalyse_2026-09-24.md) — Ausgangsprüfung vor Umsetzung; Befunde und Prüfgrenzen bleiben historisch erhalten.
 - [Umsetzung der Kundenanalyse](umsetzung-kundenanalyse_2026-09-24.md) — Änderungen, aktuelle Tests, Quellen und externe Schritte vom 24.09.2026; Entscheidungen E-33 bis E-37 und Fehlerwissen F-20 bis F-25.
+- [Nacharbeit der Kundenangaben](nacharbeit-kundenangaben_2026-09-24.md) — jüngste Inhabervorgaben, Feiertage geschlossen, offene Jahresendzeiten, entfernte Sortimentsbuttons, Linkhaftung, verifizierte Bewertungszahl und Abschlussprüfung; E-38 bis E-40.
 - [Öffnungszeiten pflegen](oeffnungszeiten-pflegen.md) — zentrale Wochen-/Ausnahmezeiten, NRW-Feiertage, Bestätigungen, statisches HTML und Testablauf.
 
 - [Gedächtnis gesamt](gedaechtnis-gesamt.md) — **die maßgebliche Wissensdatei** mit allen sieben Abschnitten.

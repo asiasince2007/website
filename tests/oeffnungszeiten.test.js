@@ -11,8 +11,9 @@ test('alle elf NRW-Feiertage 2026, mit korrekten beweglichen Feiertagen', () => 
   for (const date of Object.keys(nrwFeiertage(2026))) {
     const s = status(new Date(date + 'T10:00:00Z'));
     assert.equal(s.offen, false, date);
-    assert.equal(s.unklar, true, date);
-    assert.match(s.text, /telefonisch prüfen/);
+    assert.notEqual(s.unklar, true, date);
+    assert.match(s.text, /Heute geschlossen/);
+    assert.doesNotMatch(s.text, /telefonisch prüfen/);
   }
 });
 
@@ -45,14 +46,14 @@ test('Standortzeit unabhängig vom Betriebssystem einschließlich Mitternacht un
   const values = ['Europe/Berlin', 'UTC', 'Pacific/Honolulu', 'Asia/Tokyo'].map(TZ =>
     execFileSync(process.execPath, ['-e', source], { cwd: require('node:path').resolve(__dirname, '..'), env: { ...process.env, TZ }, encoding: 'utf8' }));
   values.forEach(v => assert.equal(v, values[0]));
-  assert.equal(status(new Date(inputs[1])).unklar, true, 'In Berlin bereits 3. Oktober');
+  assert.match(status(new Date(inputs[1])).text, /Heute geschlossen \(Tag der Deutschen Einheit\)/, 'In Berlin bereits 3. Oktober');
   assert.equal(status(new Date(inputs[6])).offen, true, 'Winterzeit 09:00');
 });
 
-test('Nächste Öffnung überspringt Feiertage ohne eine frühere Sonderöffnung auszuschließen', () => {
+test('Nächste Öffnung überspringt die bestätigten Feiertagsschließungen', () => {
   const s = status(new Date('2026-10-02T17:00:00Z'));
-  assert.match(s.text, /nächste reguläre Öffnung Montag um 9 Uhr/);
-  assert.match(s.text, /Sonderzeiten bitte prüfen/);
+  assert.match(s.text, /öffnet Montag um 9 Uhr/);
+  assert.doesNotMatch(s.text, /Sonderzeiten bitte prüfen/);
   const year = status(new Date('2026-12-30T18:00:00Z'));
   assert.match(year.text, /Samstag um 9 Uhr/);
 });
@@ -65,13 +66,20 @@ test('Heiligabend und Silvester bleiben ohne Bestätigung ungeklärt', () => {
 
 test('Bestätigte Sonderzeiten, Mittagspause und Schließtage haben Vorrang', () => {
   const c = structuredClone(config);
-  c.ausnahmen['2026-10-03'] = { zeiten: [['10:00', '12:00'], ['13:30', '15:00']], bestaetigtAm: '2026-09-24' };
-  assert.equal(status(new Date('2026-10-03T08:00:00Z'), c).offen, true);
-  assert.match(status(new Date('2026-10-03T10:00:00Z'), c).text, /heute um 13:30 Uhr/);
-  assert.equal(status(new Date('2026-10-03T13:00:00Z'), c).offen, false);
-  c.ausnahmen['2026-10-03'] = { zeiten: [], bestaetigtAm: '2026-09-24' };
+  c.ausnahmen['2026-10-02'] = { zeiten: [['10:00', '12:00'], ['13:30', '15:00']], bestaetigtAm: '2026-09-24' };
+  assert.equal(status(new Date('2026-10-02T08:00:00Z'), c).offen, true);
+  assert.match(status(new Date('2026-10-02T10:00:00Z'), c).text, /heute um 13:30 Uhr/);
+  assert.equal(status(new Date('2026-10-02T13:00:00Z'), c).offen, false);
   c.ausnahmen['2026-10-05'] = { zeiten: [], bestaetigtAm: '2026-09-24' };
   assert.match(status(new Date('2026-10-02T17:00:00Z'), c).text, /öffnet Dienstag um 9 Uhr/);
+});
+
+test('Feiertage bleiben auch bei einem widersprüchlichen Ausnahme-Eintrag geschlossen', () => {
+  const c = structuredClone(config);
+  c.ausnahmen['2026-10-03'] = { zeiten: [['09:00','18:00']], bestaetigtAm:'2026-09-24' };
+  const s = status(new Date('2026-10-03T10:00:00Z'),c);
+  assert.equal(s.offen,false);
+  assert.match(s.text,/Heute geschlossen/);
 });
 
 test('Unbestätigte oder ungültige Ausnahmen behaupten niemals geöffnet', () => {

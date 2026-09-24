@@ -87,15 +87,12 @@ test('Ohne JavaScript: sechs Seiten erreichbar, Menü sichtbar, reguläre Zeiten
   await context.close();
 });
 
-test('Sortiment früh erreichbar, Sprungziele unter dem Kopf, Besuchsaktionen vorhanden', async ({ page }) => {
+test('Sortiment früh erreichbar, ohne zusätzliche Gruppenbuttons, Besuchsaktionen vorhanden', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/sortiment.html');
-  expect((await page.locator('#frisches').boundingBox()).y).toBeLessThan(650);
+  expect((await page.locator('#frisches').boundingBox()).y).toBeLessThan(450);
   expect((await page.locator('.verfuegbarkeit').boundingBox()).y).toBeLessThan(400);
-  await page.locator('.sortiment-spruenge a[href="#tiefkuehl"]').click();
-  const heading = await page.locator('#tiefkuehl h2').boundingBox();
-  const header = await page.locator('header').boundingBox();
-  expect(heading.y).toBeGreaterThanOrEqual(header.y + header.height);
+  await expect(page.getByRole('navigation',{name:'Warengruppen'})).toHaveCount(0);
   for (const url of ['/sortiment.html','/ueber-uns.html']) {
     await page.goto(url);
     await expect(page.locator('.besuch a[href="/route.html"]')).toBeVisible();
@@ -137,7 +134,8 @@ for (const timezoneId of ['Europe/Berlin','Pacific/Honolulu','Asia/Tokyo']) {
     await page.clock.setFixedTime(new Date('2026-10-03T08:00:00Z'));
     await page.goto('http://127.0.0.1:4173/');
     await expect(page.locator('[data-status-text]').first()).toContainText('Tag der Deutschen Einheit');
-    await expect(page.locator('[data-status-text]').first()).toContainText('telefonisch prüfen');
+    await expect(page.locator('[data-status-text]').first()).toContainText('Heute geschlossen');
+    await expect(page.locator('[data-status-text]').first()).toContainText('Montag um 9 Uhr');
     for (const dot of await page.locator('[data-status-punkt]').all()) await expect(dot).not.toHaveClass(/offen/);
     await page.setViewportSize({width:320,height:900});
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);

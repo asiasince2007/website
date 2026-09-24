@@ -316,9 +316,6 @@ h2 { font-size: clamp(27px, 3.6vw, 38px); margin: 0 0 8px; }
 .sortiment-kopf { max-width: var(--bahn); margin: 0 auto; padding: 36px var(--rand) 0; }
 .sortiment-kopf .lead { max-width: 42em; margin-bottom: 16px; }
 .sortiment-kopf .verfuegbarkeit { margin: 0; font-size: 16px; color: var(--grau); }
-.sortiment-spruenge { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-.sortiment-spruenge a { padding: 9px 12px; border: 1px solid var(--linie); border-radius: 6px; font-size: 15px; font-weight: 700; text-decoration: none; }
-.sortiment-spruenge a:hover { background: var(--rose); }
 .warengruppen { padding-block: 24px; }
 .besuch { margin-top: 32px; padding: 28px; border: 1px solid var(--linie); border-radius: var(--radius); background: var(--rose); }
 .besuch h2 { font-size: 26px; }

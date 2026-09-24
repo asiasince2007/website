@@ -8,6 +8,8 @@ Maßgeblich ist **Abschnitt 4 (Konventionen)** der Gesamtdatei, ergänzt um die 
 
 ### Aktive Websitepflege, 24.09.2026
 
+**Letzter Inhabernachtrag hat Vorrang:** NRW-Feiertage immer geschlossen, keine pauschalen Feiertagswarnungen. Kurzer Hinweis auf kurzfristige Schließungen. 24./31. Dezember vorläufig 9 bis 14 Uhr, endgültige Bestätigung als TODO. „bis“ statt Halb-/Geviertstrich auch in Zeitspannen/Metadaten. Keine Gruppenbuttons auf der kurzen Sortimentsseite. Aktuell 4,4 Sterne bei 128 Google-Bewertungen, im Live-Embed bestätigt. Keine pauschalen Link-Disclaimer; Quellen klar extern kennzeichnen. Details E-38 bis E-40.
+
 - Maßgeblich sind `site.css`/`site.js`, sechs HTML-Seiten und `/route.html`. Tailwind- und alte Modal-/Marquee-Tests sind historische Quellen.
 - Sonderzeiten nur mit Bestätigungsdatum nach [Pflegeanleitung](oeffnungszeiten-pflegen.md), keine realen Ausnahmezeiten aus Testdaten übernehmen. Standortzeit Berlin, Feiertage NRW; statische Wochenzeiten erhalten.
 - Cloudflare-E-Mail-Obfuscation gemäß E-34 erhalten. Live-Prüfung nach Deployment ist ein anderer Nachweis als lokales HTML ohne Cloudflare.

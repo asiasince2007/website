@@ -8,6 +8,14 @@ Maßgeblich ist **Abschnitt 3 (Architektur-Entscheidungen in ADR-Kurzform)** der
 
 ### 24.09.2026 — Umsetzung der Kundenanalyse
 
+**Neuester Nachtrag E-38 bis E-40:** Diese Vorgaben ersetzen die zuvor am selben Tag gewählten Varianten, soweit sie widersprechen.
+
+**E-38 · Feiertage bestätigt geschlossen, Jahresendtage noch vorläufig.** Inhaber: An Feiertagen immer geschlossen. Alle elf NRW-Feiertage sind feste Schließtage mit Vorrang vor widersprüchlichen Ausnahmen. Warnungen über mögliche Feiertagsabweichungen entfallen. Stattdessen kurzer freundlicher Hinweis auf kurzfristige Schließungen in Ausnahmefällen. 24. und 31. Dezember nennt der Inhaber vorläufig mit 9 bis 14 Uhr, verlangt aber ein offenes TODO bis zur genaueren Bestätigung: noch keine gesicherten Produktionszeiten daraus machen.
+
+**E-39 · Einfachere Sortimentsseite und Schreibweise.** Die sechs Gruppenbuttons werden auf ausdrücklichen Wunsch entfernt; die kurze Warenliste ist direkt scrollbar. Gruppenüberschriften und vorhandene Anker bleiben. Zeitspannen auf der Website und in Metadaten mit „bis“, ohne Halb-/Geviertstriche. Die bisherige Ausnahme für Zeitspannen in E-31 ist damit überholt.
+
+**E-40 · Verifizierte Zahl und externe Linkhaftung.** Im echten Google-Embed nach Veröffentlichung 4,4 Sterne und 128 Bewertungen visuell bestätigt, jetzt beide Stellen entsprechend gepflegt. Die eingeschränkte Maps-Ansicht zuvor war kein Beleg für eine andere Anzahl. Kein pauschaler Linkhaftungsausschluss im Datenschutz: aktuelle IHK-Quellen raten davon ab und bestätigen keine generelle haftungsbefreiende Wirkung. Stadtlinks klar als externe Quellen gekennzeichnet; Hinweise auf Rechtsverletzungen prüfen und gegebenenfalls Links entfernen. Keine Garantie vollständiger Rechtssicherheit. Quellen und Abgrenzung im [Nacharbeitsbericht](nacharbeit-kundenangaben_2026-09-24.md).
+
 **E-33 · Standortzeit und bestätigte Ausnahmepläne.** Aktive Logik in `site.js` nutzt `Europe/Berlin`, UTC-Kalendertage und elf NRW-Feiertage. Ungeklärte Feiertage sowie Heiligabend/Silvester bleiben neutral. Reguläre HTML-Zeiten bleiben ohne JavaScript vorhanden. Verworfen: Gerätezeit, ungeprüfte Sonderöffnungen und pauschale Öffnungszusagen am nächsten Wochentag. Zentrale Pflege und Nachweise siehe [Anleitung](oeffnungszeiten-pflegen.md).
 
 **E-34 · E-Mail-Schutz bewusst erhalten.** Der Inhaber widerspricht ausdrücklich der in der Analyse vorgeschlagenen Cloudflare-Ausnahme und möchte Schutz vor Adresssammlern. Keine `email_off`-Markierung und keine Cloudflare-Einstellungsänderung. Die bekannte fehlende Live-Adresse ohne JavaScript wird als Grenze dokumentiert. Diese neue Entscheidung ersetzt die frühere offene Abschaltempfehlung; nicht erneut ungefragt abschalten. Mobile Navigation bekommt unabhängig davon einen funktionierenden Zustand ohne JavaScript.
