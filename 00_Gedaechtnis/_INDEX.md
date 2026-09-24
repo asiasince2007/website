@@ -13,6 +13,8 @@ Neue Gedächtniseinträge werden hier sofort ergänzt, sonst sind sie faktisch u
 
 ## Thematische Einträge
 
+- [Parkautomat bei EM Kabüffken, E-42](03_entscheidungen.md) — Inhaberbeschreibung ergänzt, Pflicht für kostenlose 15 Minuten deutlich, verstreute Hinweise zu einem Orientierungshinweis gebündelt, 24.09.2026.
+
 - [Parkhinweis gekürzt, E-41](03_entscheidungen.md) — Inhaber bestätigt gegenüberliegende Straßenparkplätze; ortsfremde Ausnahmen auf Kontakt entfernt, 24.09.2026.
 
 - [Kundenanalyse vom 24.09.2026](kundenanalyse_2026-09-24.md) — Ausgangsprüfung vor Umsetzung; Befunde und Prüfgrenzen bleiben historisch erhalten.
