@@ -126,6 +126,8 @@ h3 { line-height: 1.4; }
 .hero figcaption { margin-top: 9px; font-size: 13px; line-height: 1.55; color: var(--grau); }
 /* height:auto hebt die HTML-Hoehenvorgabe auf; die Attribute reservieren Platz. */
 .foto { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--rose); }
+/* Nur die Fotos: Textauswahl, Links und die übrige Bedienung bleiben verfügbar. */
+.foto { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
 .foto-4-3 { aspect-ratio: 4 / 3; }
 .foto-16-10 { aspect-ratio: 16 / 10; }
 .foto-eingang { aspect-ratio: 1200 / 1089; }
