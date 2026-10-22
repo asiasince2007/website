@@ -6,6 +6,45 @@ const pages = PAGES.map(file => file === 'index.html' ? '/' : '/' + file);
 // Drittanbieter werden in den Interaktionstests kontrolliert beantwortet.
 // Diese Suite prüft den Website-Code; reale Google-/Cloudflare-Funktion separat.
 
+test('Fotos erschweren Rechtsklick und Ziehen; Text und Links bleiben bedienbar', async ({ page }) => {
+  for (const url of ['/', '/ueber-uns.html']) {
+    await page.goto(url);
+    const photos = page.locator('img.foto');
+    for (const photo of await photos.all()) {
+      await photo.scrollIntoViewIfNeeded();
+      await expect(photo).toHaveAttribute('draggable', 'false');
+      await expect(photo).toHaveAttribute('alt', /\S/);
+      await photo.evaluate(img => img.decode());
+      expect(await photo.evaluate(img => img.naturalWidth)).toBeGreaterThan(0);
+      await page.evaluate(() => {
+        window.photoContextPrevented = null;
+        window.addEventListener('contextmenu', event => { window.photoContextPrevented = event.defaultPrevented; }, { once: true });
+      });
+      await photo.click({ button: 'right' });
+      expect(await page.evaluate(() => window.photoContextPrevented)).toBe(true);
+      expect(await photo.evaluate(img => {
+        const event = new DragEvent('dragstart', { bubbles: true, cancelable: true });
+        img.dispatchEvent(event);
+        return event.defaultPrevented;
+      })).toBe(true);
+    }
+    for (const selector of ['h1', '#hauptnavigation a']) {
+      expect(await page.locator(selector).first().evaluate(element => {
+        const event = new MouseEvent('contextmenu', { bubbles: true, cancelable: true });
+        element.dispatchEvent(event);
+        return event.defaultPrevented;
+      })).toBe(false);
+    }
+    expect(await page.locator('main p').first().evaluate(element => {
+      const selection = window.getSelection();
+      selection.selectAllChildren(element);
+      return selection.toString().trim().length;
+    })).toBeGreaterThan(0);
+    await page.locator('#hauptnavigation a[href="sortiment.html"]').click();
+    await expect(page).toHaveURL(/sortiment.html$/);
+  }
+});
+
 test('Verzögertes JavaScript verursacht keinen Sprung durch das Mobilmenü', async ({ page }) => {
   await page.setViewportSize({width:390,height:844});
   let release;

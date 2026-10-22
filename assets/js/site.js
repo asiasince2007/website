@@ -188,6 +188,17 @@
     }
   }
 
+  /* --------------------------------------------------------------- Ladenfotos
+     Erschwert das direkte Speichern und Ziehen. Ein angezeigtes Webbild bleibt
+     im Browser abrufbar; deshalb nur verkleinerte Webfassungen ausliefern. */
+  function fotos() {
+    function direktesSpeichernVerhindern(e) {
+      if (e.target instanceof Element && e.target.matches('img.foto')) e.preventDefault();
+    }
+    document.addEventListener('contextmenu', direktesSpeichernVerhindern);
+    document.addEventListener('dragstart', direktesSpeichernVerhindern);
+  }
+
   /* ------------------------------------------------ Google Maps: zwei Klicks
      Die Karte laedt erst auf ausdruecklichen Klick. Vorher gehen keinerlei
      Daten an Google. So beschrieben in datenschutz.html. */
@@ -270,6 +281,7 @@
 
   function start() {
     navigation();
+    fotos();
     statusAnzeigen();
     karte();
     // Der Status haengt an der Uhrzeit und wird minuetlich nachgezogen.
