@@ -3,6 +3,23 @@ const AxeBuilder = require('@axe-core/playwright').default;
 const { PAGES } = require('../../scripts/site-files.js');
 const pages = PAGES.map(file => file === 'index.html' ? '/' : '/' + file);
 
+test('Jahresendhinweis erscheint und verschwindet an den Datumsgrenzen ohne Neuladen', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-12-09T22:59:30Z') });
+  for (const url of ['/', '/kontakt.html']) {
+    await page.clock.setSystemTime(new Date('2026-12-09T22:59:30Z'));
+    await page.goto(url);
+    const notice = page.locator('[data-sonderzeiten]');
+    await expect(notice).toBeHidden();
+    await page.clock.runFor(60000);
+    await expect(notice).toBeVisible();
+    await expect(notice).toContainText('Heiligabend und Silvester 2026: 9 bis 14 Uhr.');
+    await expect(notice).toContainText('25./26.12.2026 und 1.1.2027: geschlossen.');
+    await page.clock.setSystemTime(new Date('2027-01-01T22:59:30Z'));
+    await page.clock.runFor(60000);
+    await expect(notice).toBeHidden();
+  }
+});
+
 // Drittanbieter werden in den Interaktionstests kontrolliert beantwortet.
 // Diese Suite prüft den Website-Code; reale Google-/Cloudflare-Funktion separat.
 
@@ -164,8 +181,7 @@ test('Ohne JavaScript: sechs Seiten erreichbar, Menü sichtbar, reguläre Zeiten
     await expect(page.locator('#menue-schalter')).toBeHidden();
     await expect(page.locator('[data-status-text]').first()).toContainText('Regulär');
     if (url === '/' || url === '/kontakt.html') {
-      await expect(page.locator('[data-sonderzeiten]')).toContainText('Heiligabend und Silvester 2026: 9 bis 14 Uhr.');
-      await expect(page.locator('[data-sonderzeiten]')).toContainText('25./26.12.2026 und 1.1.2027: geschlossen.');
+      await expect(page.locator('[data-sonderzeiten]')).toBeHidden();
     }
   }
   await page.locator('#hauptnavigation a[href="sortiment.html"]').click();

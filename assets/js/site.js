@@ -150,14 +150,28 @@
     return { offen: false, text: 'Geschlossen. Nächste Öffnung bitte telefonisch erfragen.' };
   }
 
+  // Den Jahresendhinweis erst zwei Wochen vor Heiligabend zeigen und nach
+  // Neujahr ausblenden. Die bestätigten Öffnungszeiten gelten unabhängig davon.
+  function sonderzeitenHinweisSichtbar(jetzt) {
+    try {
+      var tag = datumSchluessel(berlinUhr(jetzt).datum);
+      return tag >= '2026-12-10' && tag <= '2027-01-01';
+    } catch (_) { return false; }
+  }
+
   function statusAnzeigen() {
-    var s = status(new Date());
+    var jetzt = new Date();
+    var s = status(jetzt);
     var texte = document.querySelectorAll('[data-status-text]');
     var punkte = document.querySelectorAll('[data-status-punkt]');
     for (var i = 0; i < texte.length; i++) texte[i].textContent = s.text;
     for (var j = 0; j < punkte.length; j++) {
       punkte[j].classList.toggle('offen', s.offen);
       punkte[j].classList.toggle('unklar', !!s.unklar);
+    }
+    var hinweise = document.querySelectorAll('[data-sonderzeiten]');
+    for (var k = 0; k < hinweise.length; k++) {
+      hinweise[k].hidden = !sonderzeitenHinweisSichtbar(jetzt);
     }
   }
 
@@ -305,13 +319,14 @@
     fotos();
     statusAnzeigen();
     karte();
-    // Der Status haengt an der Uhrzeit und wird minuetlich nachgezogen.
+    // Status und datierte Hinweise auch auf einer geöffneten Seite nachziehen.
     setInterval(statusAnzeigen, 60000);
   }
 
   // Dieselbe Logik wird in Node getestet, die Website bleibt ein normales Script.
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { status: status, nrwFeiertage: nrwFeiertage, config: OEFFNUNGSZEITEN };
+    module.exports = { status: status, nrwFeiertage: nrwFeiertage,
+      sonderzeitenHinweisSichtbar: sonderzeitenHinweisSichtbar, config: OEFFNUNGSZEITEN };
   }
   if (typeof document === 'undefined') return;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);

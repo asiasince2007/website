@@ -1,7 +1,21 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { execFileSync } = require('node:child_process');
-const { status, nrwFeiertage, config } = require('../assets/js/site.js');
+const { status, nrwFeiertage, sonderzeitenHinweisSichtbar, config } = require('../assets/js/site.js');
+
+test('Jahresendhinweis nur vom 10. Dezember bis Neujahr nach Berliner Ortszeit', () => {
+  for (const [instant, expected] of [
+    ['2026-10-30T18:00:00Z', false],
+    ['2026-12-09T22:59:59Z', false],
+    ['2026-12-09T23:00:00Z', true],
+    ['2026-12-24T12:00:00Z', true],
+    ['2026-12-31T12:00:00Z', true],
+    ['2027-01-01T22:59:59Z', true],
+    ['2027-01-01T23:00:00Z', false],
+    ['2027-12-10T12:00:00Z', false]
+  ]) assert.equal(sonderzeitenHinweisSichtbar(new Date(instant)), expected, instant);
+  assert.equal(sonderzeitenHinweisSichtbar(new Date('invalid')), false);
+});
 
 test('alle elf NRW-Feiertage 2026, mit korrekten beweglichen Feiertagen', () => {
   assert.deepEqual(Object.keys(nrwFeiertage(2026)).sort(), [
