@@ -10,14 +10,21 @@
      Ausnahmen nur mit Bestaetigung des Inhabers eintragen. Schema:
        'JJJJ-MM-TT': { zeiten: [], bestaetigtAm: 'JJJJ-MM-TT' } fuer geschlossen
        oder zeiten: [['10:00', '13:00']] fuer bestaetigte Sonderzeiten.
-     Optional: hinweis: 'Betriebsferien'. Keine echten Sonderzeiten bestaetigt.
+     Optional: hinweis: 'Betriebsferien'. Jahresendzeiten 2026/27 vom Inhaber
+     am 07.10.2026 bestaetigt; mit sichtbaren Hinweisen und JSON-LD pflegen.
      Nach Aenderungen npm test ausfuehren: Logik, Zeitzonen und HTML-Konsistenz.
      Bei geaenderten Wochenzeiten auch HTML und JSON-LD aktualisieren. */
   var OEFFNUNGSZEITEN = {
     woche: [[], [['09:00', '18:00']], [['09:00', '18:00']],
       [['09:00', '18:00']], [['09:00', '18:00']], [['09:00', '18:00']],
       [['09:00', '14:00']]],
-    ausnahmen: {}
+    ausnahmen: {
+      '2026-12-24': { zeiten: [['09:00', '14:00']], bestaetigtAm: '2026-10-07' },
+      '2026-12-25': { zeiten: [], bestaetigtAm: '2026-10-07' },
+      '2026-12-26': { zeiten: [], bestaetigtAm: '2026-10-07' },
+      '2026-12-31': { zeiten: [['09:00', '14:00']], bestaetigtAm: '2026-10-07' },
+      '2027-01-01': { zeiten: [], bestaetigtAm: '2026-10-07' }
+    }
   };
   var TAGE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
   var berlinFormat;
@@ -156,9 +163,20 @@
 
   /* ------------------------------------------------------------- Navigation */
   function navigation() {
-    var schalter = document.getElementById('menue-schalter');
+    var fallback = document.getElementById('menue-schalter');
     var nav = document.getElementById('hauptnavigation');
-    if (!schalter || !nav) return;
+    if (!fallback || !nav) return;
+
+    // Der HTML-Link öffnet das Menü auch bei einem fehlgeschlagenen Scriptabruf.
+    // Erst die funktionierende Erweiterung ersetzt ihn durch einen echten Button.
+    var schalter = document.createElement('button');
+    schalter.type = 'button';
+    schalter.id = fallback.id;
+    schalter.className = fallback.className;
+    schalter.setAttribute('aria-controls', nav.id);
+    schalter.appendChild(fallback.firstElementChild.cloneNode(true));
+    var hatteFokus = document.activeElement === fallback;
+    var warOffen = nav.matches(':target');
 
     function zu() {
       nav.classList.remove('offen');
@@ -176,9 +194,12 @@
     document.addEventListener('click', function (e) {
       if (!nav.contains(e.target) && !schalter.contains(e.target)) zu();
     });
-    // Schalter erst nach Anmeldung aktivieren. Ohne JS zeigt der noscript-
-    // Block im HTML die Links im normalen Dokumentfluss, ohne toten Schalter.
+    nav.classList.toggle('offen', warOffen);
+    schalter.setAttribute('aria-expanded', warOffen ? 'true' : 'false');
+    schalter.setAttribute('aria-label', warOffen ? 'Menü schließen' : 'Menü öffnen');
+    fallback.replaceWith(schalter);
     nav.closest('header').classList.add('menue-bereit');
+    if (hatteFokus) schalter.focus();
     // Beim Wechsel auf Desktopbreite den mobilen Zustand zuruecksetzen
     if (window.matchMedia) {
       var mq = window.matchMedia('(min-width: 901px)');

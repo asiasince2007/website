@@ -95,6 +95,14 @@ test('Geschäftsdaten und reguläre Zeiten in allen vier JSON-LD-Blöcken konsis
       assert.deepEqual([times[1].dayOfWeek].flat(), ['Saturday']);
       assert.equal(times[1].opens, '09:00'); assert.equal(times[1].closes, '14:00');
       assert.equal(data.aggregateRating, undefined, 'keine Eigenbewertungs-Sterne im Schema');
+      const exceptions = require('../assets/js/site.js').config.ausnahmen;
+      const special = data.specialOpeningHoursSpecification;
+      assert.deepEqual(special.map(entry => entry.validFrom), Object.keys(exceptions));
+      for (const entry of special) {
+        assert.equal(entry['@type'], 'OpeningHoursSpecification');
+        assert.equal(entry.validThrough, entry.validFrom, 'Ausnahme gilt nur am bestätigten Datum');
+        assert.deepEqual([entry.opens, entry.closes], exceptions[entry.validFrom].zeiten[0] || ['00:00', '00:00']);
+      }
     }
   }
   assert.equal(count, 4);

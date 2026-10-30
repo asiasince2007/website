@@ -90,10 +90,9 @@ a:hover { color: var(--rot-dunkel); }
 .menue-schalter svg { display: block; width: 22px; height: 22px; fill: currentColor; }
 
 /* Klare Hierarchie, ohne Abzeichen oder Einblendeanimationen. */
-h1, h2, h3 { font-family: var(--schrift-titel); font-weight: 700; hyphens: auto; overflow-wrap: anywhere; }
+h1, h2 { font-family: var(--schrift-titel); font-weight: 700; hyphens: auto; overflow-wrap: anywhere; }
 h1 { font-size: clamp(29px, 3.4vw, 40px); line-height: 1.25; margin: 0 0 18px; text-wrap: balance; hyphens: manual; }
 h2 { font-size: clamp(25px, 2.6vw, 30px); line-height: 1.35; margin: 0 0 12px; }
-h3 { line-height: 1.4; }
 .rubrik { margin: 0 0 12px; font-family: var(--schrift-titel); font-size: 20px; font-weight: 700; color: var(--rot); line-height: 1.35; }
 .btn {
   display: inline-block; padding: 11px 19px; border: 1px solid transparent;
@@ -125,9 +124,11 @@ h3 { line-height: 1.4; }
 .hero p.lead { margin: 0 0 23px; font-size: 18px; line-height: 1.7; color: var(--tinte-weich); max-width: 32em; }
 .hero figcaption { margin-top: 9px; font-size: 13px; line-height: 1.55; color: var(--grau); }
 /* height:auto hebt die HTML-Hoehenvorgabe auf; die Attribute reservieren Platz. */
-.foto { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--rose); }
 /* Nur die Fotos: Textauswahl, Links und die übrige Bedienung bleiben verfügbar. */
-.foto { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+.foto {
+  width: 100%; height: auto; object-fit: cover; border-radius: var(--radius); background: var(--rose);
+  -webkit-touch-callout: none; -webkit-user-select: none; user-select: none;
+}
 .foto-4-3 { aspect-ratio: 4 / 3; }
 .foto-16-10 { aspect-ratio: 16 / 10; }
 .foto-eingang { aspect-ratio: 1200 / 1089; }
@@ -237,10 +238,7 @@ h3 { line-height: 1.4; }
 .rechtstext { max-width: 52rem; margin: 0 auto; padding: 28px var(--rand) 8px; font-size: 17px; line-height: 1.8; color: var(--tinte-weich); }
 .rechtstext h2 { font-size: 24px; color: var(--tinte); margin: 32px 0 12px; }
 .rechtstext h2:first-child { margin-top: 0; }
-.rechtstext h3 { font-size: 19px; color: var(--tinte); margin: 24px 0 8px; }
-.rechtstext p, .rechtstext ul { margin: 0 0 15px; }
-.rechtstext ul { padding-left: 1.4em; }
-.rechtstext li { margin-bottom: 6px; }
+.rechtstext p { margin: 0 0 15px; }
 .rechtstext strong { color: var(--tinte); }
 .rechtstext a[href^="http"], .rechtstext a[href^="mailto"] { overflow-wrap: anywhere; }
 
@@ -279,7 +277,7 @@ h3 { line-height: 1.4; }
   .marke { min-width: 0; }
   .marke-name { font-size: 22px; }
   .marke-zusatz { display: none; }
-  .menue-bereit .menue-schalter { display: block; }
+  .menue-schalter { display: block; }
   .nav {
     display: none; position: absolute; left: 0; right: 0; top: 100%;
     flex-direction: column; align-items: stretch; gap: 3px;
@@ -287,8 +285,9 @@ h3 { line-height: 1.4; }
     border-top: 1px solid var(--linie); border-bottom: 2px solid var(--rot);
     max-height: calc(100dvh - 80px); overflow-y: auto;
   }
-  /* noscript im HTML stellt die Navigation ohne JavaScript in den Dokumentfluss. */
-  .menue-bereit .nav.offen { display: flex; }
+  /* :target bedient den Fallback-Link, falls das Script nicht ankommt.
+     Bei deaktiviertem JavaScript stellt noscript die Links in den Dokumentfluss. */
+  .kopf:not(.menue-bereit) .nav:target, .menue-bereit .nav.offen { display: flex; }
   .nav a { padding: 12px; font-size: 17px; }
   .nav a[aria-current="page"] { background: var(--rose); }
   .nav .btn-anruf { margin: 6px 0 0; text-align: center; }

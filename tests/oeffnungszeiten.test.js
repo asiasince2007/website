@@ -54,14 +54,33 @@ test('Nächste Öffnung überspringt die bestätigten Feiertagsschließungen', (
   const s = status(new Date('2026-10-02T17:00:00Z'));
   assert.match(s.text, /öffnet Montag um 9 Uhr/);
   assert.doesNotMatch(s.text, /Sonderzeiten bitte prüfen/);
-  const year = status(new Date('2026-12-30T18:00:00Z'));
+  const year = status(new Date('2026-12-31T18:00:00Z'));
   assert.match(year.text, /Samstag um 9 Uhr/);
 });
 
 test('Heiligabend und Silvester bleiben ohne Bestätigung ungeklärt', () => {
-  assert.equal(status(new Date('2026-12-24T14:00:00Z')).unklar, true);
-  assert.equal(status(new Date('2026-12-31T10:00:00Z')).unklar, true);
+  const unbestaetigt = { woche: config.woche, ausnahmen: {} };
+  assert.equal(status(new Date('2026-12-24T14:00:00Z'), unbestaetigt).unklar, true);
+  assert.equal(status(new Date('2026-12-31T10:00:00Z'), unbestaetigt).unklar, true);
+  assert.equal(status(new Date('2027-12-24T10:00:00Z')).unklar, true, 'keine Übertragung auf Folgejahre');
   assert.equal(nrwFeiertage(2026)['2026-12-24'], undefined, 'kein NRW-Feiertag');
+});
+
+test('Bestätigte Jahresendzeiten 2026 öffnen von 9 bis 14 Uhr und überspringen Schließtage', () => {
+  for (const date of ['2026-12-24', '2026-12-31']) {
+    assert.match(status(new Date(date + 'T07:59:00Z')).text, /öffnet heute um 9 Uhr/);
+    assert.equal(status(new Date(date + 'T08:00:00Z')).offen, true);
+    assert.match(status(new Date(date + 'T12:59:59Z')).text, /heute bis 14 Uhr/);
+    assert.equal(status(new Date(date + 'T13:00:00Z')).offen, false);
+    assert.notEqual(status(new Date(date + 'T13:00:00Z')).unklar, true);
+  }
+  assert.match(status(new Date('2026-12-23T18:00:00Z')).text, /öffnet morgen um 9 Uhr/);
+  assert.match(status(new Date('2026-12-24T13:00:00Z')).text, /öffnet Montag um 9 Uhr/);
+  assert.match(status(new Date('2026-12-30T18:00:00Z')).text, /öffnet morgen um 9 Uhr/);
+  assert.match(status(new Date('2026-12-31T13:00:00Z')).text, /öffnet Samstag um 9 Uhr/);
+  for (const date of ['2026-12-25', '2026-12-26', '2027-01-01']) {
+    assert.match(status(new Date(date + 'T10:00:00Z')).text, /Heute geschlossen/);
+  }
 });
 
 test('Bestätigte Sonderzeiten, Mittagspause und Schließtage haben Vorrang', () => {
