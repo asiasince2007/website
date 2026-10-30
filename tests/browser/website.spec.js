@@ -53,11 +53,53 @@ test('Verzögertes JavaScript verursacht keinen Sprung durch das Mobilmenü', as
   await page.goto('/', {waitUntil:'commit'});
   await page.locator('h1').waitFor();
   await page.evaluate(() => document.fonts.ready);
+  await page.locator('#menue-schalter').focus();
   const before = await page.locator('main').boundingBox();
   release();
   await expect(page.locator('header')).toHaveClass(/menue-bereit/);
   const after = await page.locator('main').boundingBox();
   expect(Math.abs(after.y-before.y)).toBeLessThan(1);
+  await expect(page.getByRole('button', { name: 'Menü öffnen' })).toBeFocused();
+});
+
+test('Bei fehlgeschlagenem Scriptabruf bleibt die mobile Navigation bedienbar', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 900 });
+  await page.route('**/assets/js/site.js?*', route => route.abort());
+  for (const url of pages) {
+    await page.goto(url);
+    const fallback = page.getByRole('link', { name: 'Menü öffnen' });
+    await expect(fallback).toBeVisible();
+    await expect(page.locator('#hauptnavigation')).toBeHidden();
+    await fallback.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#hauptnavigation')).toBeVisible();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('#hauptnavigation a').first()).toBeFocused();
+    await page.locator('#hauptnavigation a[href="sortiment.html"]').click();
+    await expect(page).toHaveURL(/sortiment.html$/);
+  }
+});
+
+test('Ein vor Scriptbereitschaft geöffnetes Menü bleibt per Tastatur bedienbar', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  await page.route('**/assets/js/site.js?*', async route => { await gate; await route.continue(); });
+  await page.goto('/', { waitUntil: 'commit' });
+  const fallback = page.getByRole('link', { name: 'Menü öffnen' });
+  await fallback.click();
+  await expect(page.locator('#hauptnavigation')).toBeVisible();
+  release();
+  await page.waitForLoadState('load');
+  const button = page.locator('button#menue-schalter');
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+  // Der Fragmentlink setzt den nativen Tab-Einstieg auf die Navigation.
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#hauptnavigation a').first()).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(button).toHaveAttribute('aria-expanded', 'false');
+  await expect(button).toBeFocused();
+  await expect(page.locator('#hauptnavigation')).toBeHidden();
 });
 
 for (const width of [320, 390, 768, 1280]) {
@@ -121,6 +163,10 @@ test('Ohne JavaScript: sechs Seiten erreichbar, Menü sichtbar, reguläre Zeiten
     await expect(page.locator('#hauptnavigation')).toBeVisible();
     await expect(page.locator('#menue-schalter')).toBeHidden();
     await expect(page.locator('[data-status-text]').first()).toContainText('Regulär');
+    if (url === '/' || url === '/kontakt.html') {
+      await expect(page.locator('[data-sonderzeiten]')).toContainText('Heiligabend und Silvester 2026: 9 bis 14 Uhr.');
+      await expect(page.locator('[data-sonderzeiten]')).toContainText('25./26.12.2026 und 1.1.2027: geschlossen.');
+    }
   }
   await page.locator('#hauptnavigation a[href="sortiment.html"]').click();
   await expect(page).toHaveURL(/sortiment.html$/);

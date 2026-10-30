@@ -16,10 +16,10 @@
 
     <!-- Favicons & technische Meta -->
     <meta name="theme-color" content="#FFFBF5">
-    <link rel="icon" href="/favicon.ico?v=2026102202" sizes="16x16 32x32 48x48">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png?v=2026102202">
-    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png?v=2026102202">
-    <link rel="manifest" href="/site.webmanifest?v=2026102202">
+    <link rel="icon" href="/favicon.ico?v=2026103001" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png?v=2026103001">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png?v=2026103001">
+    <link rel="manifest" href="/site.webmanifest?v=2026103001">
 
     <!-- Open Graph / Twitter Card -->
     <meta property="og:type" content="website">
@@ -73,19 +73,27 @@
         { "@type": "OpeningHoursSpecification",
           "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
       ],
+      "specialOpeningHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "validFrom": "2026-12-24", "validThrough": "2026-12-24", "opens": "09:00", "closes": "14:00" },
+        { "@type": "OpeningHoursSpecification", "validFrom": "2026-12-25", "validThrough": "2026-12-25", "opens": "00:00", "closes": "00:00" },
+        { "@type": "OpeningHoursSpecification", "validFrom": "2026-12-26", "validThrough": "2026-12-26", "opens": "00:00", "closes": "00:00" },
+        { "@type": "OpeningHoursSpecification", "validFrom": "2026-12-31", "validThrough": "2026-12-31", "opens": "09:00", "closes": "14:00" },
+        { "@type": "OpeningHoursSpecification", "validFrom": "2027-01-01", "validThrough": "2027-01-01", "opens": "00:00", "closes": "00:00" }
+      ],
       "hasMap": "https://maps.app.goo.gl/AYB2Qmshj8aWzXBR7"
     }
     </script>
 
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lora-700-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/fonts.css?v=2026102202">
-    <link rel="stylesheet" href="assets/css/site.css?v=2026102202">
+    <link rel="stylesheet" href="assets/css/fonts.css?v=2026103001">
+    <link rel="stylesheet" href="assets/css/site.css?v=2026103001">
 
-    <script src="assets/js/site.js?v=2026102202" defer></script>
+    <script src="assets/js/site.js?v=2026103001" defer></script>
     <!-- Statische Mobilnavigation bei deaktiviertem JavaScript, ohne Lade-Sprung. -->
     <noscript><style>
         @media (max-width: 900px) {
             .kopf { position: static; }
+            .menue-schalter { display: none; }
             .kopf-innen { flex-wrap: wrap; }
             .nav { display: flex; position: static; width: 100%; }
         }
@@ -114,10 +122,10 @@
             </span>
         </a>
 
-        <button type="button" id="menue-schalter" class="menue-schalter"
-                aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnavigation">
+        <a href="#hauptnavigation" id="menue-schalter" class="menue-schalter"
+                aria-label="Menü öffnen" aria-controls="hauptnavigation">
             <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
-        </button>
+        </a>
 
         <nav id="hauptnavigation" class="nav" aria-label="Hauptnavigation">
             <a href="/" aria-current="page">Start</a>
@@ -151,7 +159,7 @@
                  srcset="assets/images/ladenfront-480.jpg 480w,
                          assets/images/ladenfront-800.jpg 800w,
                          assets/images/ladenfront.jpg 1400w"
-                 sizes="(max-width: 980px) calc(100vw - 44px), 591px"
+                 sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 980px) calc((100vw - 72px) * 1.12 / 2.12), (max-width: 1140px) calc((100vw - 84px) * 1.12 / 2.12), 558px"
                  alt="Ladenfront des Asia Markt Thien Phu mit rotem Schaufensterrahmen an der Hauptstraße 74 in Langenfeld"
                  loading="eager" decoding="async" fetchpriority="high">
             <figcaption>Hauptstraße 74, an der roten Schaufensterfront erkennen Sie uns.</figcaption>
@@ -167,6 +175,7 @@
                     <span>Samstag</span><span>9 bis 14 Uhr</span>
                     <span class="zu">Sonntag &amp; Feiertage</span><span class="zu">geschlossen</span>
                 </div>
+                <p class="zeiten-hinweis" data-sonderzeiten>Heiligabend und Silvester 2026: <strong>9 bis 14 Uhr.</strong><br>25./26.12.2026 und 1.1.2027: geschlossen.</p>
                 <p class="zeiten-hinweis">In Ausnahmefällen sind kurzfristige Schließungen möglich. Rufen Sie bei Fragen gerne an.</p>
             </div>
             <div>
@@ -247,18 +256,18 @@
 
     <section class="bahn laden-einblicke">
         <div class="galerie-2">
-            <img src="assets/images/ladenraum.jpg?v=2026102202" width="1200" height="750" class="foto foto-16-10" draggable="false"
-                 srcset="assets/images/ladenraum-480.jpg?v=2026102202 480w,
-                         assets/images/ladenraum-800.jpg?v=2026102202 800w,
-                         assets/images/ladenraum.jpg?v=2026102202 1200w"
-                 sizes="(max-width: 760px) calc(100vw - 44px), 672px"
+            <img src="assets/images/ladenraum.jpg?v=2026103001" width="1200" height="750" class="foto foto-16-10" draggable="false"
+                 srcset="assets/images/ladenraum-480.jpg?v=2026103001 480w,
+                         assets/images/ladenraum-800.jpg?v=2026103001 800w,
+                         assets/images/ladenraum.jpg?v=2026103001 1200w"
+                 sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1140px) calc((100vw - 68px) * 1.45 / 2.45), 634px"
                  alt="Blick in den Verkaufsraum mit gefüllten Warenregalen und den Tiefkühltruhen in der Mitte"
                  loading="lazy" decoding="async">
-            <img src="assets/images/laden-eingang.jpg?v=2026102202" width="1200" height="1089" class="foto foto-eingang" draggable="false"
-                 srcset="assets/images/laden-eingang-400.jpg?v=2026102202 400w,
-                         assets/images/laden-eingang-700.jpg?v=2026102202 700w,
-                         assets/images/laden-eingang.jpg?v=2026102202 1200w"
-                 sizes="(max-width: 760px) calc(100vw - 44px), 464px"
+            <img src="assets/images/laden-eingang.jpg?v=2026103001" width="1200" height="1089" class="foto foto-eingang" draggable="false"
+                 srcset="assets/images/laden-eingang-400.jpg?v=2026103001 400w,
+                         assets/images/laden-eingang-700.jpg?v=2026103001 700w,
+                         assets/images/laden-eingang.jpg?v=2026103001 1200w"
+                 sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1140px) calc((100vw - 68px) / 2.45), 438px"
                  alt="Eingang des Asia Markt Thien Phu an der Hauptstraße 74"
                  loading="lazy" decoding="async">
         </div>
